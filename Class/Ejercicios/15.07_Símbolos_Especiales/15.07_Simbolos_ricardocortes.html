@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio de caracteres especiales</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #004080;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .ejemplo {
+      background-color: #fff;
+      border-left: 5px solid #004080;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    code {
+      background-color: #eef;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .actividad {
+      background-color: #f9f9f9;
+      border: 1px dashed #ccc;
+      padding: 20px;
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicio de caracteres especiales en HTML</h1>
+
+  <div class="ejemplo">
+    <p><strong>Texto sin entidades HTML:</strong></p>
+    <p>El símbolo mayor que > y menor que < no se muestran bien. Y palabras como nino, espanol, accion están mal escritas.</p>
+  </div>
+
+  <div class="ejemplo">
+    <p><strong>Texto corregido con entidades HTML:</strong></p>
+    <p>El símbolo mayor que <code>&gt;</code> y menor que <code>&lt;</code> ya se muestran bien. Y palabras como <code>ni&ntilde;o</code>, <code>espa&ntilde;ol</code>, <code>acci&oacute;n</code> están correctamente escritas.</p>
+  </div>
+
+  <div class="actividad">
+    <h2>Actividad para el alumno</h2>
+    <p>Corrige el siguiente texto usando entidades HTML para que se muestre correctamente:</p>
+    <ul>
+      <li>La temperatura es de 25 &deg;C y la moneda utilizada es el &euro;.</li>
+      <li>El simbolo menor &lt; y mayor &gt; son utilizados en programación.</li>
+      <li>Los textos deben decir: espa&ntilde;ol, acci&oacute;n, l&oacute;gica, ni&ntilde;o.</li>
+      <li>&iquest;Qué hora es&#63; &#161;Vamos a clase&#33;</li>
+      <li>&#161;Ay, campanera&#33; &iquest;Por qu&eacute; ser&aacute;&#63;<br>Mira que to&#39; el que no sabe
+      </li>
+    </ul>
+
+    <p><strong>Indicaciones:</strong></p>
+    <ul>
+      <li>Abre este archivo en tu editor.</li>
+      <li>Usa entidades HTML para reemplazar cada carácter conflictivo.</li>
+      <li>Añade al final un ejemplo propio con al menos tres entidades HTML.</li>
+    </ul>
+  </div>
+</body>
+</html>
