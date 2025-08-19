@@ -1,0 +1,68 @@
+<!-- 
+    ¿Puede haber <article> sin <section>?
+    Sí, si el artículo por sí solo tiene sentido completo. 
+    Pero si estás agrupando varios artículos bajo una misma temática, 
+    usar <section> como contenedor mejora la semántica y accesibilidad.
+    
+    Resumen para el alumno:
+    Si tienes varias actividades, noticias o fichas, pon cada una en un <article>
+    Agrúpalas dentro de una <section> con un título que las describa
+    No pongas <article> sueltos en <main> sin organizar el contenido 
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Semántica en HTML5</title>
+</head>
+<body>
+    <!-- El elemento <header> representa la cabecera de la página o sección -->
+    <header>
+        <h1>Mi Sitio Web</h1>
+        <nav>
+            <!-- <nav> define la navegación principal -->
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#articulos">Artículos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="https://placehold.co/150x150" target="_blank" rel="noopener">😎😎😎😎😎
+                    <img src="https://placehold.co/150x150" alt="Lechuguita">
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <main> contiene el contenido principal del documento -->
+    <main>
+        <!-- <section> agrupa contenido relacionado, como un bloque temático -->
+        <section id="articulos">
+            <h2>Artículos Recientes</h2>
+            
+            <!-- <article> representa un contenido independiente, como una noticia o post -->
+            <article>
+                <h3>¿Qué es HTML5?</h3>
+                <p>HTML5 es la última versión del lenguaje de marcado para la web.</p>
+            </article>
+            
+            <article>
+                <h3>Ventajas de la Semántica</h3>
+                <p>La semántica ayuda a los navegadores y motores de búsqueda a entender mejor el contenido.</p>
+        </section>
+    </main>
+
+    <!-- <aside> contiene información secundaria, como enlaces o publicidad -->
+    <aside>
+        <h2>Enlaces útiles</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/HTML">MDN HTML</a></li>
+            <li><a href="https://www.w3schools.com/html/">W3Schools HTML</a></li>
+        </ul>
+    </aside>
+
+    <!-- <footer> representa el pie de página -->
+    <footer>
+        <p>&copy; 2025 Mi Sitio Web</p>
+    </footer>
+</body>
+</html>

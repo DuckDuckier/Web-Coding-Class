@@ -1,0 +1,139 @@
+/* Estilos generales para una web semántica */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+header#main-header {
+    background: #2d3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav#main-nav {
+    background: #1abc9c;
+    padding: 10px;
+    text-align: center;
+}
+
+nav#main-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+section#video-section {
+    margin: 30px auto;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+}
+
+section#video-section h2 {
+    color: #2d3e50;
+    margin-bottom: 15px;
+}
+
+video#main-video {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    margin-bottom: 15px;
+}
+
+p#intro-paragraph,
+p#details-paragraph {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin: 15px 0;
+    padding: 10px;
+    background: #eaf1f5;
+    border-left: 4px solid #1abc9c;
+}
+
+/* 
+    Estilo para una lista ordenada (<ol>) que está dentro de una lista desordenada (<ul>).
+    Aplica la clase .nested-list para resaltar visualmente la lista anidada con fondo, borde y espaciado.
+*/
+ul.nested-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 15px;
+    background: #f9f9f9;
+    border-left: 3px solid #3498db;
+}
+/* 
+    Estilo para una lista ordenada (<ol>) que está dentro de una lista desordenada (<ul>).
+    Aplica la clase .nested-list para resaltar visualmente la lista anidada con fondo, borde y espaciado.
+*/
+.elementos {
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #078bff;
+    border-left: 3px solid #030e16;
+}
+ul li {
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #00ff37;
+    border-left: 3px solid #b22a05;
+}
+/* 
+    Estilo para un párrafo (<p>) que aparece justo después de un título <h1>.
+    Utiliza la clase .after-title para diferenciar el párrafo con color, fondo y borde decorativo.
+*/
+h1 + p.after-title {
+    font-size: 1.15em;
+    color: #34495e;
+    background: #00ffd0;
+    padding: 12px;
+    margin-top: 10px;
+    border-left: 4px solid #16a085;
+}
+/* 
+    Estilo para el pie de página (<footer>) identificado con el id #main-footer.
+    Da color de fondo oscuro, texto claro y centra el contenido, mejorando la apariencia del footer.
+*/
+footer#main-footer {
+    background: #2d3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.95em;
+}
+/* Nueva clase para lista ordenada dentro de lista desordenada */
+ol.nested-list {
+    margin-left: 25px;
+    background: #ff0000;
+    border-left: 5px solid #3498db;
+    padding: 30px 35px;
+    border-radius: 5px;
+}
+
+/* Nueva clase para párrafo después de h1 */
+p.after-title {
+    font-size: 1.15em;
+    color: #34495e;
+    background: #e8f8f5;
+    padding: 12px;
+    margin-top: 10px;
+    border-left: 4px solid #16a085;
+}
+
+footer#main-footer {
+    background: #2d3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.95em;
+}
+
