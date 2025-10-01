@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables Lógicas: A y B</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ecf0f1;
+      flex-wrap: wrap;
+      padding: 1em;
+    }
+    .tab {
+      margin: 0.5em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: bold;
+    }
+    .tab.active {
+      border-bottom: 3px solid #3498db;
+      color: #3498db;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Qué son A y B en lógica de programación?</h1>
+    <p>Explicación interactiva sobre variables booleanas</p>
+  </header>
+
+  <nav>
+    <div class="tab active" onclick="showSection('definicion')">Definición</div>
+    <div class="tab" onclick="showSection('uso')">¿Dónde se usan?</div>
+    <div class="tab" onclick="showSection('ejemplo')">Ejemplo práctico</div>
+  </nav>
+
+  <div class="content">
+    <div class="section active" id="definicion">
+      <h2>Definición de A y B</h2>
+      <p>Las variables <strong>A</strong> y <strong>B</strong> representan valores binarios en operaciones lógicas. En programación, se usan como <strong>booleanos</strong>:</p>
+      <ul>
+        <li><strong>0</strong> → falso (<code>false</code>)</li>
+        <li><strong>1</strong> → verdadero (<code>true</code>)</li>
+      </ul>
+      <p>Se combinan con operadores lógicos para tomar decisiones dentro de un programa.</p>
+    </div>
+
+    <div class="section" id="uso">
+      <h2>¿Dónde se usan?</h2>
+      <ul>
+        <li>En estructuras de control como <code>if</code>, <code>while</code>, <code>switch</code></li>
+        <li>En algoritmos de decisión</li>
+        <li>En validaciones de formularios</li>
+        <li>En sensores y sistemas electrónicos</li>
+        <li>En puertas lógicas digitales</li>
+      </ul>
+    </div>
+
+    <div class="section" id="ejemplo">
+      <h2>Ejemplo práctico en JavaScript</h2>
+      <pre><code>
+let a = 1; // verdadero
+let b = 0; // falso
+
+if (a || b) {
+  console.log("Al menos una condición es verdadera");
+}
+      </code></pre>
+      <p>En este ejemplo, <code>a</code> y <code>b</code> se combinan con el operador OR (<code>||</code>) para evaluar si alguna condición es verdadera.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showSection('${id}')"]`).classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

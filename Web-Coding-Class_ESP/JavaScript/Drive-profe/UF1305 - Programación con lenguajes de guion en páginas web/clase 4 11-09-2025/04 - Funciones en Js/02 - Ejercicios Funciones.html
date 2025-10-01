@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+
+      .ejercicio p {
+        font-weight: bold;
+      }
+
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      button:hover {
+        background: #1565c0;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ejercicios de funciones en JavaScript</h1>
+      <p>
+        Practica creando y utilizando funciones con lógica condicional y
+        matemática
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Funciones</h2>
+
+        <!-- Ejercicio 1 -->
+        <div class="ejercicio">
+          <p>Ejercicio 1: Imprimir los primeros “n” números pares.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function pares(n) {
+  var contador = 0;
+  var numero = 2;
+  while (contador < n) {
+    console.log(numero);
+    numero += 2;
+    contador++;
+  }
+}
+pares(6);
+        </pre
+          >
+          <div class="explicacion">
+            La función imprime los primeros <code>n</code> números pares
+            comenzando desde 2. Utiliza un bucle <code>while</code> para
+            controlar la cantidad de pares mostrados.
+          </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="ejercicio">
+          <p>Ejercicio 2: Mostrar nombre completo en un alert.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function nombreCompleto(nombre, apellido) {
+  alert(nombre + " " + apellido);
+}
+nombreCompleto("Pedro", "Gonzalez");
+        </pre
+          >
+          <div class="explicacion">
+            La función concatena <code>nombre</code> y <code>apellido</code> y
+            lo muestra en un <code>alert()</code>.
+          </div>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="ejercicio">
+          <p>
+            Ejercicio 3: Determinar si puedes solicitar permiso de conducir.
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function permiso(nombre, edad) {
+  if (edad >= 18) {
+    alert(nombre + ", puedes solicitar el permiso");
+  } else {
+    alert(nombre + ", no puedes solicitar el permiso");
+  }
+}
+permiso("Roberto", 15);
+        </pre
+          >
+          <div class="explicacion">
+            Se evalúa si la <code>edad</code> es mayor o igual a 18. Se muestra
+            un mensaje personalizado según el resultado.
+          </div>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="ejercicio">
+          <p>
+            Ejercicio 4: Calcular promedio de 5 calificaciones y mostrar si
+            aprobó.
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function promedio(c1, c2, c3, c4, c5) {
+  var promedio = (c1 + c2 + c3 + c4 + c5) / 5;
+  if (promedio >= 70) {
+    alert("Aprobado: " + promedio);
+  } else {
+    alert("No aprobado: " + promedio);
+  }
+}
+promedio(70, 80, 80, 90, 60);
+        </pre
+          >
+          <div class="explicacion">
+            Se calcula el promedio de 5 calificaciones. Si el promedio es mayor
+            o igual a 70, se muestra "Aprobado". Si no, se muestra "No
+            aprobado".
+          </div>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="ejercicio">
+          <p>Ejercicio 5: Función que devuelve el cuadrado de un número.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function cuadrado(n) {
+  return n * n;
+}
+console.log(cuadrado(5)); // 25
+        </pre
+          >
+          <div class="explicacion">
+            La función multiplica el número por sí mismo y devuelve el
+            resultado.
+          </div>
+        </div>
+
+        <!-- Ejercicio 6 -->
+        <div class="ejercicio">
+          <p>Ejercicio 6: Función que verifica si un número es par.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function esPar(n) {
+  return n % 2 === 0;
+}
+console.log(esPar(4)); // true
+        </pre
+          >
+          <div class="explicacion">
+            Devuelve <code>true</code> si el número es divisible por 2,
+            <code>false</code> si no lo es.
+          </div>
+        </div>
+
+        <!-- Ejercicio 7 -->
+        <div class="ejercicio">
+          <p>Ejercicio 7: Función que devuelve el mayor de dos números.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function mayor(a, b) {
+  return a > b ? a : b;
+}
+console.log(mayor(10, 7)); // 10
+        </pre
+          >
+          <div class="explicacion">
+            Usa el operador ternario para comparar dos valores y devolver el
+            mayor.
+          </div>
+        </div>
+
+        <!-- Ejercicio 8 -->
+        <div class="ejercicio">
+          <p>Ejercicio 8: Función que devuelve el factorial de un número.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function factorial(n) {
+  let resultado = 1;
+  for (let i = 1; i <= n; i++) {
+    resultado *= i;
+  }
+  return resultado;
+}
+console.log(factorial(5)); // 120
+        </pre
+          >
+          <div class="explicacion">
+            Multiplica todos los números desde 1 hasta <code>n</code> para
+            calcular el factorial.
+          </div>
+        </div>
+
+        <!-- Ejercicio 9 -->
+        <div class="ejercicio">
+          <p>Ejercicio 9: Función que convierte grados Celsius a Fahrenheit.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function convertir(celsius) {
+  return (celsius * 9/5) + 32;
+}
+console.log(convertir(0)); // 32
+        </pre
+          >
+          <div class="explicacion">
+            Aplica la fórmula de conversión: <code>(C × 9/5) + 32</code>.
+          </div>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="ejercicio">
+          <p>Ejercicio 10: Verificar si un número es primo.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function esPrimo(n) {
+  if (n < 2) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+console.log(esPrimo(7)); // true
+  </pre
+          >
+          <div class="explicacion">
+            La función verifica si <code>n</code> es divisible por algún número
+            entre 2 y su raíz cuadrada. Si lo es, no es primo. Si no, devuelve
+            <code>true</code>.
+          </div>
+        </div>
+
+        <!-- Ejercicio 11 -->
+        <div class="ejercicio">
+          <p>Ejercicio 11: Devolver el número más grande de un array.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function maximo(arr) {
+  return Math.max(...arr);
+}
+console.log(maximo([3, 8, 2, 9, 5])); // 9
+  </pre
+          >
+          <div class="explicacion">
+            Usa el operador spread <code>...</code> para pasar los elementos del
+            array a <code>Math.max()</code>. Devuelve el número más alto.
+          </div>
+        </div>
+
+        <!-- Ejercicio 12 -->
+        <div class="ejercicio">
+          <p>Ejercicio 12: Contar cuántas vocales tiene una cadena.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function contarVocales(texto) {
+  return (texto.match(/[aeiou]/gi) || []).length;
+}
+console.log(contarVocales("Hola mundo")); // 4
+  </pre
+          >
+          <div class="explicacion">
+            Usa una expresión regular para buscar vocales en la cadena.
+            <code>match()</code> devuelve un array con las coincidencias, y
+            <code>length</code> cuenta cuántas hay.
+          </div>
+        </div>
+
+        <!-- Ejercicio 13 -->
+        <div class="ejercicio">
+          <p>Ejercicio 13: Invertir una cadena de texto.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function invertirCadena(texto) {
+  return texto.split("").reverse().join("");
+}
+console.log(invertirCadena("JavaScript")); // tpircSavaJ
+  </pre
+          >
+          <div class="explicacion">
+            Convierte la cadena en un array con <code>split()</code>, lo
+            invierte con <code>reverse()</code> y lo une con
+            <code>join()</code>.
+          </div>
+        </div>
+
+        <!-- Ejercicio 14 -->
+        <div class="ejercicio">
+          <p>Ejercicio 14: Generar un número aleatorio entre dos valores.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function aleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(aleatorio(1, 10)); // número entre 1 y 10
+  </pre
+          >
+          <div class="explicacion">
+            <code>Math.random()</code> genera un número entre 0 y 1. Se escala
+            al rango deseado y se redondea con <code>Math.floor()</code>.
+          </div>
+        </div>
+
+        <!-- Ejercicio 15 -->
+        <div class="ejercicio">
+          <p>Ejercicio 15: Devolver un nombre aleatorio de una lista.</p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+function nombreAleatorio(nombres) {
+  const indice = Math.floor(Math.random() * nombres.length);
+  return nombres[indice];
+}
+console.log(nombreAleatorio(["Ana", "Luis", "Carlos", "María"]));
+  </pre
+          >
+          <div class="explicacion">
+            Genera un índice aleatorio entre 0 y la longitud del array. Devuelve
+            el nombre que está en esa posición.
+          </div>
+        </div>
+
+        <script>
+          function toggleSolucion(button) {
+            const codeBlock = button.nextElementSibling;
+            const explanation = codeBlock.nextElementSibling;
+            const isVisible = codeBlock.style.display === "block";
+
+            codeBlock.style.display = isVisible ? "none" : "block";
+            explanation.style.display = isVisible ? "none" : "block";
+            button.textContent = isVisible
+              ? "Mostrar solución"
+              : "Ocultar solución";
+          }
+        </script>
+      </section>
+    </main>
+  </body>
+</html>

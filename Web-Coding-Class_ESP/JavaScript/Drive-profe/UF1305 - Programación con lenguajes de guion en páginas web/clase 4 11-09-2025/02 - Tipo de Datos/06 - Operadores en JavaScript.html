@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operadores en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Operadores en JavaScript</h1>
+    <p>Aprende a realizar operaciones y comparaciones en tu código</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <p>Los <strong>operadores</strong> son símbolos que permiten realizar cálculos, asignaciones, comparaciones y decisiones en JavaScript. Aquí te mostramos los más importantes con ejemplos fáciles de entender.</p>
+    </section>
+
+    <section class="section">
+      <h2>Operadores aritméticos</h2>
+      <p>Se usan para hacer operaciones matemáticas básicas.</p>
+      <pre><code>var x = 10;
+var y = 5;
+
+var suma = x + y;           // Suma
+var resta = x - y;          // Resta
+var multiplicacion = x * y; // Multiplicación
+var division = x / y;       // División
+
+console.log(suma);           // 15
+console.log(resta);          // 5
+console.log(multiplicacion); // 50
+console.log(division);       // 2</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Operadores de asignación</h2>
+      <p>Sirven para guardar valores en variables y modificarlos.</p>
+      <pre><code>var x = 10;
+
+x += 5;  // x = x + 5
+x -= 3;  // x = x - 3
+x *= 2;  // x = x * 2
+x /= 4;  // x = x / 4
+
+console.log(x); // Resultado final: 6</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Operadores de comparación</h2>
+      <p>Comparan dos valores y devuelven <code>true</code> o <code>false</code>.</p>
+      <pre><code>var x = 10;
+var y = 5;
+
+console.log(x > y);   // true
+console.log(x < y);   // false
+console.log(x >= y);  // true
+console.log(x <= y);  // false
+console.log(x == y);  // false (compara solo el valor)
+console.log(x != y);  // true
+console.log(5 === "5"); // false (compara valor y tipo)</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Operador de igualdad estricta (===)</h2>
+      <p>Compara si dos valores son iguales en tipo y valor. Es más seguro que <code>==</code>.</p>
+      <pre><code>console.log(5 === 5);           // true
+console.log(5 === "5");         // false
+console.log(true === 1);        // false
+console.log(null === undefined);// false
+console.log("hello" === "hello");// true
+console.log({} === {});         // false (objetos distintos)</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Operadores lógicos</h2>
+      <p>Permiten combinar condiciones.</p>
+      <pre><code>var x = 10;
+var y = 5;
+
+console.log(x > 5 && y < 10); // true (ambas condiciones son verdaderas)
+console.log(x > 5 || y > 10); // true (una condición es verdadera)
+console.log(!(x > y));        // false (niega la condición)</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Operador ternario</h2>
+      <p>Permite tomar decisiones rápidas en una sola línea.</p>
+      <pre><code>var edad = 20;
+var esMayorDeEdad = edad >= 18 ? "Sí" : "No";
+
+console.log(esMayorDeEdad); // "Sí"</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Buenas prácticas</h2>
+      <ul>
+        <li>✅ Usa <code>===</code> y <code>!==</code> en lugar de <code>==</code> y <code>!=</code> para evitar errores por conversión automática.</li>
+        <li>✅ Evita comparar <code>null</code> y <code>undefined</code> con <code>===</code>. Usa <code>==</code> si quieres verificar si una variable no tiene valor.</li>
+        <li>✅ Usa operadores lógicos (<code>&&</code>, <code>||</code>) en lugar de operadores bit a bit (<code>&</code>, <code>|</code>) para condiciones.</li>
+        <li>✅ Evita usar <code>++</code> y <code>--</code> si no es necesario. Prefiere <code>x = x + 1</code> por claridad.</li>
+        <li>✅ Usa paréntesis para controlar el orden de evaluación si tienes dudas.</li>
+        <li>✅ Puedes usar <code>condición && valor1 || valor2</code> como alternativa al operador ternario para simplificar.</li>
+      </ul>
+    </section>
+
+    <div class="highlight">
+      <strong>Consejo:</strong> Los operadores son herramientas poderosas. Úsalos con claridad y cuidado para evitar errores y escribir código más limpio.
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 - Curso básico de JavaScript para principiantes
+  </footer>
+</body>
+</html>

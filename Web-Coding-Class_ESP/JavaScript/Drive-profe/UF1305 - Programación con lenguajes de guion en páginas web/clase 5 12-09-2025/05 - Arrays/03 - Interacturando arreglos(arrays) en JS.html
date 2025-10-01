@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Funciones en JavaScript</h1>
+      <p>Aprende a crear, usar y reutilizar bloques de código</p>
+    </header>
+    <main>
+   <section>
+  <h2>Iterando arreglos (arrays) en JavaScript</h2>
+
+  <div class="ejercicio">
+    <p title="Itera usando índices numéricos">1. Iterar con <code>for</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 2, 3, 4, 5];
+var suma = 0;
+
+for (var i = 0; i < numeros.length; i++) {
+  suma += numeros[i];
+}
+
+console.log("La suma de los números es:", suma); // La suma de los números es: 15
+    </pre>
+    <div class="explicacion">
+El bucle <code>for</code> recorre el arreglo <code>numeros</code> usando índices.  
+En cada iteración, se suma el valor actual al acumulador <code>suma</code>.  
+Este método es clásico y ofrece control total sobre el índice.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Itera directamente sobre los valores del arreglo">2. Iterar con <code>for...of</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var nombres = ["Juan", "María", "Pedro", "Ana"];
+
+for (var nombre of nombres) {
+  console.log(nombre);
+}
+// Juan
+// María
+// Pedro
+// Ana
+    </pre>
+    <div class="explicacion">
+<code>for...of</code> recorre directamente los valores del arreglo sin usar índices.  
+Es más legible y moderno, ideal para mostrar o procesar elementos.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Ejecuta una función en cada elemento del arreglo">3. Iterar con <code>forEach()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var nombres = ["Juan", "María", "Pedro", "Ana"];
+
+nombres.forEach(function(nombre, indice) {
+  console.log(indice, nombre);
+});
+// 0 Juan
+// 1 María
+// 2 Pedro
+// 3 Ana
+    </pre>
+    <div class="explicacion">
+<code>forEach()</code> ejecuta una función para cada elemento del arreglo.  
+Recibe el valor y el índice como parámetros.  
+Ideal para recorrer arreglos de forma funcional y clara.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Transforma cada elemento y devuelve un nuevo arreglo">4. Iterar con <code>map()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 2, 3, 4, 5];
+
+var dobleNumeros = numeros.map(function(numero) {
+  return numero * 2;
+});
+
+console.log(dobleNumeros); // [2, 4, 6, 8, 10]
+console.log(numeros);      // [1, 2, 3, 4, 5]
+    </pre>
+    <div class="explicacion">
+<code>map()</code> aplica una función a cada elemento del arreglo y devuelve un nuevo arreglo con los resultados.  
+El arreglo original no se modifica.  
+Ideal para transformar datos sin mutar el estado original.
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Iteración avanzada de arreglos</h2>
+
+  <div class="ejercicio">
+    <p title="Filtra elementos que cumplen una condición">5. Iterar con <code>filter()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 2, 3, 4, 5];
+
+var pares = numeros.filter(function(numero) {
+  return numero % 2 === 0;
+});
+
+console.log(pares); // [2, 4]
+    </pre>
+    <div class="explicacion">
+<code>filter()</code> crea un nuevo arreglo con los elementos que cumplen una condición.  
+En este caso, selecciona los números pares.  
+El arreglo original no se modifica.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Encuentra el primer elemento que cumple una condición">6. Iterar con <code>find()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 2, 3, 4, 5];
+
+var primerPar = numeros.find(function(numero) {
+  return numero % 2 === 0;
+});
+
+console.log(primerPar); // 2
+    </pre>
+    <div class="explicacion">
+<code>find()</code> devuelve el primer elemento que cumple la condición.  
+A diferencia de <code>filter()</code>, no devuelve un arreglo, sino un único valor.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Reduce el arreglo a un solo valor acumulado">7. Iterar con <code>reduce()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 2, 3, 4, 5];
+
+var suma = numeros.reduce(function(acumulador, numero) {
+  return acumulador + numero;
+}, 0);
+
+console.log(suma); // 15
+    </pre>
+    <div class="explicacion">
+<code>reduce()</code> acumula un valor a lo largo del arreglo.  
+En este ejemplo, suma todos los elementos.  
+Ideal para cálculos como totales, promedios o combinaciones.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Verifica si todos los elementos cumplen una condición">8. Iterar con <code>every()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [2, 4, 6, 8, 10];
+
+var todosPares = numeros.every(function(numero) {
+  return numero % 2 === 0;
+});
+
+console.log(todosPares); // true
+    </pre>
+    <div class="explicacion">
+<code>every()</code> comprueba si todos los elementos cumplen la condición.  
+Devuelve <code>true</code> solo si todos los elementos la cumplen.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Verifica si al menos un elemento cumple una condición">9. Iterar con <code>some()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+var numeros = [1, 3, 5, 7, 9];
+
+var algunPar = numeros.some(function(numero) {
+  return numero % 2 === 0;
+});
+
+console.log(algunPar); // false
+    </pre>
+    <div class="explicacion">
+<code>some()</code> comprueba si al menos un elemento cumple la condición.  
+Devuelve <code>true</code> si encuentra uno solo que la cumpla.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Consejos para escribir código más limpio y seguro">10. Buenas prácticas al iterar arreglos</p>
+    <button onclick="toggleSolucion(this)">Mostrar recomendaciones</button>
+    <pre class="solucion">
+- Prefiere métodos como map(), filter(), reduce(), etc. en lugar de bucles for.
+- Usa Array.isArray() para verificar si una variable es un arreglo.
+- Nombra tus variables de forma descriptiva y clara.
+- Evita mutar directamente los elementos del arreglo dentro del bucle.
+- Usa const si no vas a reasignar la variable del bucle.
+- Considera usar desestructuración para acceder a elementos del arreglo.
+    </pre>
+    <div class="explicacion">
+Estas prácticas ayudan a escribir código más legible, seguro y eficiente.  
+Reducen errores comunes y mejoran la mantenibilidad del proyecto.
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer>
+      &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+    <script>
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion.nextElementSibling;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funciones en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+    }
+
+    .ejercicio {
+      margin-bottom: 2rem;
+    }
+
+    .ejercicio p {
+      font-weight: bold;
+    }
+
+    .solucion, .explicacion {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      display: none;
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .explicacion {
+      font-style: italic;
+      color: #555;
+    }
+
+    button {
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Funciones en JavaScript</h1>
+    <p>Aprende a crear, usar y reutilizar bloques de código</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Ejemplos de funciones</h2>
+
+      <div class="ejercicio">
+        <p>1. Función sin parámetros que imprime un mensaje.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function saludar() {
+  console.log("Hola, bienvenido!");
+}
+
+saludar(); // Hola, bienvenido!
+        </pre>
+        <div class="explicacion">
+Se define una función llamada <code>saludar</code> sin parámetros.  
+Dentro de la función, se imprime un mensaje en consola.  
+Luego se llama a la función con <code>saludar()</code>.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>2. Función con un parámetro que personaliza el saludo.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function saludar(nombre) {
+  console.log("Hola, " + nombre + "!");
+}
+
+saludar("Juan"); // Hola, Juan!
+        </pre>
+        <div class="explicacion">
+La función <code>saludar</code> recibe un parámetro <code>nombre</code>.  
+Concatena ese valor con el mensaje y lo imprime.  
+Se llama con <code>"Juan"</code> como argumento.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>3. Función con dos parámetros para saludar con nombre y apellido.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function saludar(nombre, apellido) {
+  console.log("Hola, " + nombre + " " + apellido + "!");
+}
+
+saludar("Juan", "Pérez"); // Hola, Juan Pérez!
+        </pre>
+        <div class="explicacion">
+La función recibe dos parámetros: <code>nombre</code> y <code>apellido</code>.  
+Los concatena y muestra un saludo completo en consola.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>4. Función que suma dos números y muestra el resultado.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function sumar(a, b) {
+  var resultado = a + b;
+  console.log("El resultado de la suma es: " + resultado);
+}
+
+sumar(5, 7); // El resultado de la suma es: 12
+        </pre>
+        <div class="explicacion">
+Se suman los valores <code>a</code> y <code>b</code> dentro de la función.  
+El resultado se guarda en una variable y se imprime.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>5. Función que devuelve un valor con <code>return</code>.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function sumar(a, b) {
+  return a + b;
+}
+
+var resultado = sumar(5, 7);
+console.log("El resultado de la suma es: " + resultado);
+        </pre>
+        <div class="explicacion">
+La función <code>sumar</code> devuelve la suma de <code>a</code> y <code>b</code>.  
+El valor se guarda en <code>resultado</code> y se imprime.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>6. Mostrar directamente el valor retornado en consola.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function sumar(a, b) {
+  return a + b;
+}
+
+console.log("El resultado de la suma es: " + sumar(5, 7));
+        </pre>
+        <div class="explicacion">
+Se llama a <code>sumar(5, 7)</code> dentro de <code>console.log()</code>.  
+El valor retornado se imprime directamente.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>7. Función que multiplica dos números y devuelve el resultado.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+function multiplicar(a, b) {
+  return a * b;
+}
+
+var resultado = multiplicar(3, 4);
+console.log("El resultado de la multiplicación es: " + resultado);
+        </pre>
+        <div class="explicacion">
+La función <code>multiplicar</code> devuelve el producto de <code>a</code> y <code>b</code>.  
+El resultado se guarda en una variable y se imprime.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>8. Función anónima como argumento de <code>setTimeout</code>.</p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+setTimeout(function() {
+  console.log("Han pasado 5 segundos");
+}, 5000);
+        </pre>
+        <div class="explicacion">
+Se define una función anónima dentro de <code>setTimeout</code>.  
+Después de 5 segundos, se ejecuta y muestra el mensaje en consola.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Curso de JavaScript. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleSolucion(button) {
+      const codeBlock = button.nextElementSibling;
+      const explanation = codeBlock.nextElementSibling;
+      const isVisible = codeBlock.style.display === "block";
+
+      codeBlock.style.display = isVisible ? "none" : "block";
+      explanation.style.display = isVisible ? "none" : "block";
+      button.textContent = isVisible ? "Mostrar solución" : "Ocultar solución";
+    }
+  </script>
+</body>
+</html>

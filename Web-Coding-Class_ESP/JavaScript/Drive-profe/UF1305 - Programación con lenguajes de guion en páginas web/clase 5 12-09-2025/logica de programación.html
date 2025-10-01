@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+     /* Pistas: ocultar todas las entradas de la lista por defecto */
+     .lista-pistas li {
+       display: none;
+       margin-bottom: 0.4rem;
+     }
+     
+     /* botón solución específico */
+     .btn-solucion {
+       display: none;
+       margin-top: 0.5rem;
+     }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+<header>
+  <h1>Lógica de Programación</h1>
+  <p>Aprende a pensar como un programador: paso a paso, con claridad y precisión</p>
+</header>
+
+<main>
+  <section>
+    <h2>¿Qué es la lógica de programación?</h2>
+    <div class="ejercicio">
+      <p>La lógica de programación es la base del pensamiento computacional. Permite resolver problemas mediante instrucciones ordenadas que una máquina puede entender.</p>
+      <div class="explicacion2">
+        <ul>
+          <li><strong>1. Secuencia:</strong> Ejecutar instrucciones en orden, una tras otra.</li>
+          <li><strong>2. Condicionales:</strong> Tomar decisiones según si una condición se cumple (<code>if</code>, <code>else</code>).</li>
+          <li><strong>3. Repetición:</strong> Repetir acciones con bucles (<code>for</code>, <code>while</code>).</li>
+          <li><strong>4. Variables:</strong> Guardar y manipular datos como números, textos o booleanos.</li>
+          <li><strong>5. Funciones:</strong> Agrupar instrucciones que realizan tareas específicas y reutilizables.</li>
+          <li><strong>6. Entrada y salida:</strong> Recibir datos del usuario y mostrar resultados (<code>prompt</code>, <code>alert</code>, <code>console.log</code>).</li>
+          <li><strong>7. Pensamiento paso a paso:</strong> Descomponer problemas en partes pequeñas y manejables.</li>
+          <li><strong>8. Pseudocódigo:</strong> Escribir instrucciones en lenguaje natural antes de codificar.</li>
+          <li><strong>9. Diagramas de flujo:</strong> Representar visualmente el camino lógico de una solución.</li>
+          <li><strong>10. Prueba y error:</strong> Ejecutar, corregir y mejorar el código constantemente.</li>
+        </ul>
+        <p>Ejemplo en pseudocódigo:</p>
+        <pre>
+Inicio
+  Definir edad
+  edad ← 18
+  Si edad >= 18 Entonces
+    Escribir "Eres mayor de edad"
+  Sino
+    Escribir "Eres menor de edad"
+Fin
+        </pre>
+      </div>
+    </div>
+  </section>
+</main>
+</main>
+     <footer>
+         &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+
+     <script>
+      // toggleSolucion (compatibilidad)
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion ? solucion.nextElementSibling : null;
+        if (!solucion) return;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          if (explicacion) explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          if (explicacion) explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+
+      // Mostrar una pista por pulsación; cuando todas estén visibles, mostrar botón SOLUCIÓN.
+      function mostrarPista(button) {
+        const lista = button.nextElementSibling;
+        if (!lista) return;
+        // mostrar contenedor de la lista (ul)
+        lista.style.display = "block";
+
+        const pistas = Array.from(lista.querySelectorAll("li"));
+        // encontrar el primer elemento cuya visibilidad computada es "none"
+        const siguiente = pistas.find(li => getComputedStyle(li).display === "none");
+
+        if (siguiente) {
+          // mostrar solo ese elemento
+          siguiente.style.display = "list-item";
+
+          // si es la última pista, permitir que al hacer click en ella se muestre el botón
+          const last = pistas[pistas.length - 1];
+          if (siguiente === last && !last.dataset.listenerAdded) {
+            last.addEventListener("click", () => {
+              const btnSol = lista.querySelector(".btn-solucion");
+              if (btnSol) {
+                btnSol.style.display = "inline-block";
+                btnSol.focus();
+              }
+            });
+            last.dataset.listenerAdded = "1";
+          }
+        }
+
+        // si ya todas las pistas están visibles mostramos el botón solución automáticamente
+        const todasVisibles = pistas.every(li => getComputedStyle(li).display !== "none");
+        const btnSol = lista.querySelector(".btn-solucion");
+        if (todasVisibles && btnSol) {
+          btnSol.style.display = "inline-block";
+        }
+      }
+
+      // Muestra la solución y explicación del ejercicio asociado al botón
+      function mostrarResultado(button) {
+        const ejercicio = button.closest(".ejercicio");
+        if (!ejercicio) return;
+        const solucion = ejercicio.querySelector(".solucion");
+        const explicacion = ejercicio.querySelector(".explicacion");
+        if (solucion) solucion.style.display = "block";
+        if (explicacion) explicacion.style.display = "block";
+        // ocultar el botón de solución tras mostrar la solución (opcional)
+        button.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

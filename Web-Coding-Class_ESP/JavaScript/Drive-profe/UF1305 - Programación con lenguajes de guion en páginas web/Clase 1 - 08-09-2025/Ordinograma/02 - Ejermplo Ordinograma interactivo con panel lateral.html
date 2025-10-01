@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ordinograma Interactivo con Panel Lateral</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.symbol {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+.shape {
+  padding: 20px;
+  background: #e6f6ff;
+  border: 2px solid #0078d7;
+  display: inline-block;
+}
+.terminator {
+  border-radius: 25px;
+  width: 150px;
+}
+.parallelogram {
+  transform: skewX(-20deg);
+  width: 150px;
+}
+.rect {
+  width: 150px;
+}
+.diamond {
+  width: 100px; height: 100px;
+  transform: rotate(45deg);
+  display: flex; align-items: center; justify-content: center;
+}
+.double-rect {
+  position: relative;
+  width: 150px;
+  background: #e6f6ff;
+}
+.double-rect::before,
+.double-rect::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: #0078d7;
+}
+.double-rect::before { left: 8px; }
+.double-rect::after { right: 8px; }
+.connector {
+  border-radius: 50%;
+  width: 50px; height: 50px;
+}
+.tooltip {
+  display: none;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0078d7;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.symbol:hover .tooltip {
+  display: block;
+}
+.arrow {
+  width: 2px;
+  height: 30px;
+  background: #0078d7;
+}
+
+/* Panel lateral */
+#sidePanel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+}
+#sidePanel.open {
+  right: 0;
+}
+#sidePanel h2 {
+  margin-top: 0;
+  color: #0078d7;
+}
+.option-list {
+  padding-left: 20px;
+}
+.close-btn {
+  background: #0078d7;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+
+<h1>Ejemplo Ordinograma Interactivo</h1>
+
+<div class="flow">
+  <div class="symbol" onclick="openPanel('Inicio / Fin', this)">
+    <div class="tooltip">Marca el inicio o fin del algoritmo</div>
+    <div class="shape terminator">Inicio</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Entrada / Salida', this)">
+    <div class="tooltip">Recibe datos o muestra información</div>
+    <div class="shape parallelogram">Leer datos</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Proceso', this)">
+    <div class="tooltip">Realiza un cálculo o acción</div>
+    <div class="shape rect">Calcular suma</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Decisión', this)">
+    <div class="tooltip">Pregunta y bifurca el flujo</div>
+    <div class="shape diamond"><span style="transform: rotate(-45deg);">¿Suma > 10?</span></div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Subproceso', this)">
+    <div class="tooltip">Llama a otro bloque de instrucciones</div>
+    <div class="shape double-rect">Subproceso</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Conector', this)">
+    <div class="tooltip">Conecta partes del diagrama</div>
+    <div class="shape connector">A</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="symbol" onclick="openPanel('Inicio / Fin', this)">
+    <div class="tooltip">Marca el inicio o fin del algoritmo</div>
+    <div class="shape terminator">Fin</div>
+  </div>
+</div>
+
+<!-- Panel lateral -->
+<div id="sidePanel">
+  <button class="close-btn" onclick="closePanel()">Cerrar</button>
+  <h2 id="panelTitle"></h2>
+  <p id="panelDesc"></p>
+  <label>Texto del símbolo:</label>
+  <input type="text" id="symbolText" oninput="updateSymbolText()" />
+  <h3>Opciones típicas:</h3>
+  <ul class="option-list" id="optionList"></ul>
+</div>
+
+<script>
+let currentSymbolElement = null;
+
+const descriptions = {
+  "Inicio / Fin": "Marca el punto de entrada o salida del algoritmo.",
+  "Entrada / Salida": "Indica que el programa recibe datos o muestra información.",
+  "Proceso": "Representa una acción o cálculo que realiza el programa.",
+  "Decisión": "Evalúa una condición y bifurca el flujo según el resultado.",
+  "Subproceso": "Llama a otro bloque de instrucciones definido aparte.",
+  "Conector": "Une partes del diagrama o conecta a otra página."
+};
+
+const options = {
+  "Inicio / Fin": ["Colocar al inicio o final del diagrama", "Texto: Inicio o Fin"],
+  "Entrada / Salida": ["Leer datos", "Mostrar resultados", "Imprimir"],
+  "Proceso": ["Asignar valores", "Realizar cálculos", "Llamar funciones internas"],
+  "Decisión": ["Evaluar condición", "Tomar camino Sí o No"],
+  "Subproceso": ["Llamar a otro diagrama", "Reutilizar código", "Funciones o procedimientos"],
+  "Conector": ["Unir partes del diagrama", "Indicar salto a otra página"]
+};
+
+function openPanel(symbolName, element) {
+  currentSymbolElement = element.querySelector('.shape');
+  document.getElementById('panelTitle').textContent = symbolName;
+  document.getElementById('panelDesc').textContent = descriptions[symbolName];
+  document.getElementById('symbolText').value = currentSymbolElement.textContent.trim();
+  
+  const list = document.getElementById('optionList');
+  list.innerHTML = "";
+  options[symbolName].forEach(opt => {
+    const li = document.createElement('li');
+    li.textContent = opt;
+    list.appendChild(li);
+  });
+
+  document.getElementById('sidePanel').classList.add('open');
+}
+
+function closePanel() {
+  document.getElementById('sidePanel').classList.remove('open');
+}
+
+function updateSymbolText() {
+  if (currentSymbolElement) {
+    currentSymbolElement.textContent = document.getElementById('symbolText').value;
+  }
+}
+</script>
+
+</body>
+</html>

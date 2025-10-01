@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Funciones en JavaScript</h1>
+      <p>Aprende a crear, usar y reutilizar bloques de código</p>
+    </header>
+    <main>
+      <section>
+        <h2>Agregar y eliminar elementos de un arreglo</h2>
+
+        <div class="ejercicio">
+          <p
+            title="Puedes añadir elementos al final, al inicio o en cualquier posición"
+          >
+            1. Agregar elementos con <code>push()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let miArreglo = ['manzana', 'banana', 'cereza'];
+miArreglo.push('durazno');
+console.log(miArreglo); // ['manzana', 'banana', 'cereza', 'durazno']
+
+// Agregar múltiples elementos
+miArreglo.push('fresa', 'uva');
+console.log(miArreglo); // ['manzana', 'banana', 'cereza', 'durazno', 'fresa', 'uva']
+    </pre
+          >
+          <div class="explicacion">
+            <code>push()</code> añade elementos al final del arreglo. Devuelve
+            la nueva longitud del arreglo.
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Ideal para insertar elementos al principio del arreglo">
+            2. Agregar elementos con <code>unshift()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let miArreglo = ['manzana', 'banana', 'cereza'];
+miArreglo.unshift('durazno');
+console.log(miArreglo); // ['durazno', 'manzana', 'banana', 'cereza']
+
+// Agregar múltiples elementos
+miArreglo.unshift('fresa', 'uva');
+console.log(miArreglo); // ['fresa', 'uva', 'durazno', 'manzana', 'banana', 'cereza']
+    </pre
+          >
+          <div class="explicacion">
+            <code>unshift()</code> agrega elementos al inicio del arreglo.
+            También devuelve la nueva longitud.
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Combina arreglos fácilmente con sintaxis moderna">
+            3. Agregar elementos con el operador <code>spread</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let miArreglo = ['manzana', 'banana', 'cereza'];
+let otrosFrutos = ['durazno', 'fresa', 'uva'];
+miArreglo = [...miArreglo, ...otrosFrutos];
+console.log(miArreglo); // ['manzana', 'banana', 'cereza', 'durazno', 'fresa', 'uva']
+    </pre
+          >
+          <div class="explicacion">
+            El operador <code>...</code> permite expandir los elementos de otro
+            arreglo. Ideal para combinar arreglos sin mutarlos.
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Inserta elementos en cualquier posición">
+            4. Agregar elementos con <code>splice()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let numeros = [1, 2, 3, 4, 5];
+numeros.splice(2, 0, 6, 7);
+console.log(numeros); // [1, 2, 6, 7, 3, 4, 5]
+    </pre
+          >
+          <div class="explicacion">
+            <code>splice()</code> permite insertar elementos en una posición
+            específica. El segundo argumento indica cuántos elementos eliminar
+            (0 en este caso).
+          </div>
+        </div>
+        <div class="ejercicio">
+            <p title="Elimina elementos desde una posición específica">
+            4.1 Eliminar elementos con <code>splice()</code> (ejemplo detallado)
+            </p>
+            <button onclick="toggleSolucion(this)">Mostrar solución</button>
+            <pre class="solucion">
+                let numeros = [1, 2, 3, 4, 5];
+                numeros.splice(2, 2); // Elimina 2 elementos desde la posición 2
+                console.log(numeros); // [1, 2, 5]
+            </pre>
+            <div class="explicacion explicacion2">
+            <code>splice()</code> 
+                permite eliminar elementos desde una posición específica del arreglo. 
+                En este ejemplo, el arreglo original es <code>[1, 2, 3, 4, 5]</code>.
+                La llamada <code>splice(2, 2)</code> indica que:
+            <ul>
+              <li>
+                <strong>2</strong> es la posición inicial (índice 2, que corresponde al número <code>3</code>)
+              </li>
+              <li>
+                <strong>2</strong> es la cantidad de elementos a eliminar (el número <code>3</code> y el número <code>4</code>)
+              </li>
+            </ul>
+            Después de ejecutar <code>splice()</code>, el arreglo queda como
+            <code>[1, 2, 5]</code>, ya que los elementos en las posiciones 2 y 3
+            han sido eliminados. Si deseas guardar los elementos eliminados,
+            puedes hacerlo así:
+            <pre>
+let eliminados = numeros.splice(2, 2);
+console.log(eliminados); // [3, 4]
+</pre>
+            Esto es útil si necesitas procesar o registrar los elementos que fueron retirados.
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Elimina el último elemento del arreglo">
+            5. Eliminar elementos con <code>pop()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let miArreglo = ['manzana', 'banana', 'cereza'];
+let frutaEliminada = miArreglo.pop();
+console.log(miArreglo);       // ['manzana', 'banana']
+console.log(frutaEliminada);  // 'cereza'
+    </pre
+          >
+          <div class="explicacion">
+            <code>pop()</code> elimina el último elemento y lo devuelve. Es útil
+            para pilas (estructura LIFO).
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Elimina el primer elemento del arreglo">
+            6. Eliminar elementos con <code>shift()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let miArreglo = ['manzana', 'banana', 'cereza'];
+let frutaEliminada = miArreglo.shift();
+console.log(miArreglo);       // ['banana', 'cereza']
+console.log(frutaEliminada);  // 'manzana'
+    </pre
+          >
+          <div class="explicacion">
+            <code>shift()</code> elimina el primer elemento y lo devuelve. Es
+            útil para colas (estructura FIFO).
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Elimina elementos en cualquier posición">
+            7. Eliminar elementos con <code>splice()</code>
+          </p>
+          <button onclick="toggleSolucion(this)">Mostrar solución</button>
+          <pre class="solucion">
+let numeros = [1, 2, 3, 4, 5];
+let eliminados = numeros.splice(2, 2);
+console.log(numeros);       // [1, 2, 5]
+console.log(eliminados);    // [3, 4]
+    </pre
+          >
+          <div class="explicacion">
+            <code>splice()</code> elimina elementos desde una posición
+            específica. Devuelve los elementos eliminados en un nuevo arreglo.
+          </div>
+        </div>
+
+        <div class="ejercicio">
+          <p title="Consejos para escribir código más limpio y eficiente">
+            8. Buenas prácticas al modificar arreglos
+          </p>
+          <button onclick="toggleSolucion(this)">
+            Mostrar recomendaciones
+          </button>
+          <pre class="solucion">
+- Prefiere métodos que no mutan el arreglo original: map(), filter(), reduce(), etc.
+- Usa push() y unshift() para agregar elementos de forma eficiente.
+- Usa pop() y shift() para eliminar elementos sin complicaciones.
+- Evita eliminar elementos del medio del arreglo si no es necesario.
+- Usa Array.isArray() para verificar si una variable es un arreglo.
+- Sé consciente del impacto de métodos como sort(), reverse() y splice().
+    </pre>
+          <div class="explicacion">
+            Estas prácticas ayudan a mantener tu código más predecible, legible
+            y menos propenso a errores.
+          </div>
+        </div>
+        <div class="ejercicio">
+              <h2>Métodos que no mutan el arreglo original</h2>
+  <p title="Transforma cada elemento sin modificar el original">9. Usar <code>map()</code> para transformar un arreglo</p>
+  <button onclick="toggleSolucion(this)">Mostrar solución</button>
+  <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+const dobles = numeros.map(num => num * 2);
+console.log(dobles);  // [2, 4, 6, 8, 10]
+console.log(numeros); // [1, 2, 3, 4, 5]
+  </pre>
+  <div class="explicacion">
+<code>map()</code> crea un nuevo arreglo aplicando una función a cada elemento.  
+El arreglo original <code>numeros</code> no se modifica.  
+Ideal para transformar datos sin alterar la fuente.
+  </div>
+</div>
+
+<div class="ejercicio">
+  <p title="Filtra elementos según una condición">10. Usar <code>filter()</code> para seleccionar elementos</p>
+  <button onclick="toggleSolucion(this)">Mostrar solución</button>
+  <pre class="solucion">
+const edades = [12, 18, 25, 8, 30];
+const mayoresDeEdad = edades.filter(edad => edad >= 18);
+console.log(mayoresDeEdad); // [18, 25, 30]
+console.log(edades);        // [12, 18, 25, 8, 30]
+  </pre>
+  <div class="explicacion">
+<code>filter()</code> devuelve un nuevo arreglo con los elementos que cumplen una condición.  
+No modifica el arreglo original.  
+Muy útil para extraer subconjuntos de datos.
+  </div>
+</div>
+
+<div class="ejercicio">
+  <p title="Reduce un arreglo a un solo valor">11. Usar <code>reduce()</code> para acumular valores</p>
+  <button onclick="toggleSolucion(this)">Mostrar solución</button>
+  <pre class="solucion">
+const precios = [10, 20, 30];
+const total = precios.reduce((acumulador, precio) => acumulador + precio, 0);
+console.log(total); // 60
+console.log(precios); // [10, 20, 30]
+  </pre>
+  <div class="explicacion">
+<code>reduce()</code> toma una función acumuladora y un valor inicial.  
+Recorre el arreglo y acumula un resultado (en este caso, la suma total).  
+No modifica el arreglo original.  
+Ideal para cálculos como totales, promedios o combinaciones.
+  </div>
+</div>
+      </section>
+    </main>
+    <footer>
+      &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+    <script>
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion.nextElementSibling;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+    </script>
+  </body>
+</html>

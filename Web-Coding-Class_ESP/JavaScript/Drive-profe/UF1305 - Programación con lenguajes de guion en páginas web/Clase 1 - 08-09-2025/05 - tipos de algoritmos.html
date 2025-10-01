@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tipos de Algoritmos en Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    .bloque {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .ejemplo {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tipos de Algoritmos en Programación</h1>
+    <p>Con ejemplos interactivos para cada tipo</p>
+  </header>
+
+  <main>
+    <div class="bloque">
+      <h2>Algoritmo de búsqueda</h2>
+      <p>Encuentra un elemento dentro de una estructura de datos.</p>
+      <button onclick="toggle('busqueda')">Ver ejemplo</button>
+      <div class="ejemplo" id="busqueda">
+        <pre><code>
+function buscarElemento(array, valor) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === valor) return i;
+  }
+  return -1;
+}
+
+let nombres = ["Ana", "Luis", "Joaquín"];
+console.log(buscarElemento(nombres, "Joaquín")); // Devuelve 2
+        </code></pre>
+        <p>Busca el nombre "Joaquín" en el array y devuelve su posición.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2>Algoritmo de ordenamiento</h2>
+      <p>Organiza elementos en un orden específico.</p>
+      <button onclick="toggle('ordenamiento')">Ver ejemplo</button>
+      <div class="ejemplo" id="ordenamiento">
+        <pre><code>
+let numeros = [5, 2, 9, 1];
+numeros.sort((a, b) => a - b);
+console.log(numeros); // [1, 2, 5, 9]
+        </code></pre>
+        <p>Ordena los números de menor a mayor usando el método <code>sort()</code>.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2>Algoritmo recursivo</h2>
+      <p>Se llama a sí mismo para resolver subproblemas.</p>
+      <button onclick="toggle('recursivo')">Ver ejemplo</button>
+      <div class="ejemplo" id="recursivo">
+        <pre><code>
+function factorial(n) {
+  if (n === 0) return 1;
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120
+        </code></pre>
+        <p>Calcula el factorial de un número usando recursión.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2> Algoritmo de grafos</h2>
+      <p>Trabaja con nodos y conexiones, como rutas o redes.</p>
+      <button onclick="toggle('grafos')">Ver ejemplo</button>
+      <div class="ejemplo" id="grafos">
+        <pre><code>
+let grafo = {
+  A: ["B", "C"],
+  B: ["D"],
+  C: ["D"],
+  D: []
+};
+
+function recorridoDFS(nodo, visitados = []) {
+  if (!visitados.includes(nodo)) {
+    visitados.push(nodo);
+    grafo[nodo].forEach(vecino => recorridoDFS(vecino, visitados));
+  }
+  return visitados;
+}
+
+console.log(recorridoDFS("A")); // ["A", "B", "D", "C"]
+        </code></pre>
+        <p>Recorre un grafo en profundidad desde el nodo "A".</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2> Algoritmo de cifrado</h2>
+      <p>Transforma datos para proteger su contenido.</p>
+      <button onclick="toggle('cifrado')">Ver ejemplo</button>
+      <div class="ejemplo" id="cifrado">
+        <pre><code>
+function cifrar(texto) {
+  let resultado = "";
+  for (let i = 0; i < texto.length; i++) {
+    resultado += String.fromCharCode(texto.charCodeAt(i) + 1);
+  }
+  return resultado;
+}
+
+console.log(cifrar("hola")); // "ipmb"
+        </code></pre>
+        <p>Cifra el texto desplazando cada letra una posición en el código ASCII.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const elemento = document.getElementById(id);
+      elemento.style.display = (elemento.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

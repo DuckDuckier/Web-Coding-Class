@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicios DOM — Lista de Tareas</title>
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --accent: #00a7c4;
+      --muted: #6b7280;
+      --danger: #ef4444;
+      --code-bg: #f3f4f6;
+      --radius: 10px;
+      --max-width: 900px;
+      --font-sans: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:var(--bg);
+      color:#111827;
+      font-size:16px;
+      line-height:1.45;
+    }
+    header{max-width:var(--max-width);margin:28px auto 0;padding:18px 22px;background:linear-gradient(90deg,var(--primary),#0f7fc3);color:#fff;border-radius:var(--radius);box-shadow:0 8px 20px rgba(11,95,165,0.12)}
+    header h1{margin:0;font-size:20px;font-weight:600}
+    header p{margin:6px 0 0;font-size:14px;opacity:.95}
+    main{max-width:var(--max-width);margin:18px auto;padding:20px;background:var(--card);border-radius:var(--radius);box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    .panel{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+    @media (max-width:760px){.panel{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,#ffffff,#fbfdff);border-radius:8px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04);border:1px solid rgba(11,95,165,0.04)}
+    label{display:block;font-weight:600;margin-bottom:8px;color:var(--primary);font-size:14px}
+    .controls{display:flex;gap:8px}
+    input[type="text"]{flex:1;padding:10px 12px;border-radius:8px;border:1px solid #e6e9ee;background:#fff;font-size:14px;outline:none}
+    button{background:var(--primary);color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer;font-weight:600;font-size:13px}
+    button.secondary{background:#fff;color:var(--primary);border:1px solid rgba(11,95,165,0.12);box-shadow:none}
+    .muted{color:var(--muted);font-size:13px;margin-top:8px}
+    ul.task-list{list-style:none;margin:0;padding:0}
+    ul.task-list li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:8px;background:linear-gradient(180deg,#fff,#fbfbff);border:1px solid #eef2f6;font-size:14px}
+    .task-label{flex:1;word-break:break-word;color:#0f1724;display:flex;align-items:center;gap:10px}
+    .task-label input[type="checkbox"]{width:18px;height:18px}
+    .task-text{display:inline-block}
+    .task-text.completed{text-decoration:line-through;color:var(--muted)}
+    .actions{display:flex;gap:8px}
+    .actions button{padding:8px 10px;font-size:13px;border-radius:6px}
+    .actions .delete{background:var(--danger);color:#fff;border:none}
+    .filters{display:flex;gap:8px;margin-top:12px}
+    .empty{text-align:center;color:var(--muted);padding:18px;border-radius:8px;border:1px dashed #eef2f6}
+    footer{max-width:var(--max-width);margin:18px auto 40px;text-align:center;color:var(--muted);font-size:13px}
+    .status{margin-top:10px;font-size:13px;color:var(--muted);min-height:18px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ejercicios DOM — Lista de Tareas</h1>
+    <p>Crear, marcar y eliminar tareas con persistencia en localStorage.</p>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="card">
+        <label for="taskInput">Nueva tarea</label>
+        <div class="controls">
+          <input id="taskInput" type="text" placeholder="Escribe una tarea y pulsa Guardar" />
+          <button id="addBtn" type="button">Guardar</button>
+        </div>
+        <div class="muted">Pulsa Enter para guardar. Marca la casilla para completar.</div>
+        <div class="status" id="status" aria-live="polite"></div>
+        <hr style="margin:14px 0;border:none;border-top:1px solid #eef2f6" />
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button id="clearCompleted" class="secondary" type="button">Borrar completadas</button>
+          <button id="clearAll" class="secondary" type="button">Borrar todo</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 12px 0;color:var(--accent)">Tareas</h2>
+        <div id="listContainer">
+          <div class="empty">No hay tareas. Añade la primera tarea.</div>
+        </div>
+        <div class="filters" style="margin-top:12px">
+          <button id="filterAll" class="secondary" type="button">Todas</button>
+          <button id="filterActive" class="secondary" type="button">Activas</button>
+          <button id="filterDone" class="secondary" type="button">Completadas</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Curso de JavaScript — Ejercicios DOM
+  </footer>
+
+  <script>
+    // Referencias DOM
+    const input = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const listContainer = document.getElementById('listContainer');
+    const statusEl = document.getElementById('status');
+    const clearCompletedBtn = document.getElementById('clearCompleted');
+    const clearAllBtn = document.getElementById('clearAll');
+    const filterAll = document.getElementById('filterAll');
+    const filterActive = document.getElementById('filterActive');
+    const filterDone = document.getElementById('filterDone');
+
+    const STORAGE_KEY = 'tareas_v1';
+    let filtro = 'all'; // all | active | done
+
+    // Obtener tareas desde localStorage
+    function obtenerTareas(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    // Guardar tareas en localStorage
+    function guardarTareas(tareas){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tareas));
+    }
+
+    // Renderizar lista según filtro
+    function mostrarTareas(){
+      const tareas = obtenerTareas();
+      const filtradas = tareas.filter(t => {
+        if(filtro === 'active') return !t.done;
+        if(filtro === 'done') return t.done;
+        return true;
+      });
+
+      if(filtradas.length === 0){
+        listContainer.innerHTML = '<div class="empty">No hay tareas que mostrar.</div>';
+        return;
+      }
+
+      const ul = document.createElement('ul');
+      ul.className = 'task-list';
+
+      filtradas.forEach((tarea, idx) => {
+        const li = document.createElement('li');
+
+        const label = document.createElement('label');
+        label.className = 'task-label';
+
+        const chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.checked = tarea.done;
+        chk.addEventListener('change', () => toggleTarea(tarea.id));
+
+        const span = document.createElement('span');
+        span.className = 'task-text' + (tarea.done ? ' completed' : '');
+        span.textContent = tarea.text;
+
+        label.appendChild(chk);
+        label.appendChild(span);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const del = document.createElement('button');
+        del.type = 'button';
+        del.className = 'delete';
+        del.textContent = 'Eliminar';
+        del.addEventListener('click', () => eliminarTarea(tarea.id));
+
+        actions.appendChild(del);
+
+        li.appendChild(label);
+        li.appendChild(actions);
+        ul.appendChild(li);
+      });
+
+      listContainer.innerHTML = '';
+      listContainer.appendChild(ul);
+    }
+
+    // Añadir tarea (con id único)
+    function agregarTarea(){
+      const text = input.value.trim();
+      if(!text){
+        setStatus('Escribe una tarea válida.', true);
+        return;
+      }
+      const tareas = obtenerTareas();
+      const nueva = { id: Date.now().toString(), text, done: false };
+      tareas.push(nueva);
+      guardarTareas(tareas);
+      input.value = '';
+      mostrarTareas();
+      setStatus('Tarea añadida.', false);
+      input.focus();
+    }
+
+    // Toggle done por id
+    function toggleTarea(id){
+      const tareas = obtenerTareas();
+      const i = tareas.findIndex(t => t.id === id);
+      if(i === -1) return;
+      tareas[i].done = !tareas[i].done;
+      guardarTareas(tareas);
+      mostrarTareas();
+    }
+
+    // Eliminar por id
+    function eliminarTarea(id){
+      let tareas = obtenerTareas();
+      tareas = tareas.filter(t => t.id !== id);
+      guardarTareas(tareas);
+      mostrarTareas();
+      setStatus('Tarea eliminada.', false);
+    }
+
+    // Borrar todas las completadas
+    function borrarCompletadas(){
+      let tareas = obtenerTareas();
+      const before = tareas.length;
+      tareas = tareas.filter(t => !t.done);
+      guardarTareas(tareas);
+      mostrarTareas();
+      setStatus(`${before - tareas.length} completadas eliminadas.`, false);
+    }
+
+    // Borrar todo con confirmación
+    function borrarTodo(){
+      const tareas = obtenerTareas();
+      if(tareas.length === 0){
+        setStatus('No hay tareas que borrar.', true);
+        return;
+      }
+      if(!confirm('¿Eliminar todas las tareas?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      mostrarTareas();
+      setStatus('Todas las tareas eliminadas.', false);
+    }
+
+    // Estado breve
+    let statusTimeout = null;
+    function setStatus(text, isError){
+      statusEl.textContent = text;
+      statusEl.style.color = isError ? '#b91c1c' : 'var(--muted)';
+      if(statusTimeout) clearTimeout(statusTimeout);
+      statusTimeout = setTimeout(()=> statusEl.textContent = '', 3000);
+    }
+
+    // Filtros
+    function setFiltro(nuevo){
+      filtro = nuevo;
+      // marcar botón activo visualmente (simple)
+      [filterAll, filterActive, filterDone].forEach(b => b.classList.remove('active'));
+      mostrarTareas();
+    }
+
+    // Listeners
+    addBtn.addEventListener('click', agregarTarea);
+    input.addEventListener('keydown', (e) => { if(e.key === 'Enter') agregarTarea(); });
+    clearCompletedBtn.addEventListener('click', borrarCompletadas);
+    clearAllBtn.addEventListener('click', borrarTodo);
+    filterAll.addEventListener('click', () => setFiltro('all'));
+    filterActive.addEventListener('click', () => setFiltro('active'));
+    filterDone.addEventListener('click', () => setFiltro('done'));
+
+    // Inicializar
+    window.addEventListener('DOMContentLoaded', mostrarTareas);
+  </script>
+</body>
+</html>

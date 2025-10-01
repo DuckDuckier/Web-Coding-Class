@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niveles de Lenguajes de Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+    header {
+      background: #34495e;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin: 1em 0;
+    }
+    button {
+      margin: 0.3em;
+      padding: 0.7em 1.2em;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    section {
+      display: none;
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    section.active {
+      display: block;
+    }
+    .nivel {
+      margin-bottom: 2em;
+      background: white;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .nivel h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    code {
+      background: #ecf0f1;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Niveles de Lenguajes de Programación</h1>
+    <p>De 1G a 5G con ejemplos y aplicaciones</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('nivel1')">1G</button>
+    <button onclick="showSection('nivel2')">2G</button>
+    <button onclick="showSection('nivel3')">3G</button>
+    <button onclick="showSection('nivel4')">4G</button>
+    <button onclick="showSection('nivel5')">5G</button>
+  </nav>
+
+  <section id="nivel1" class="active nivel">
+    <h3> 1G – Lenguaje Máquina</h3>
+    <p><strong>Descripción:</strong> Código binario que el procesador ejecuta directamente.</p>
+    <p><strong>Ejemplo:</strong> <code>10110000 01100001</code></p>
+    <p><strong>Aplicación:</strong> Microcontroladores, firmware, chips.</p>
+    <p><strong>Ventajas:</strong> Máxima velocidad y control.</p>
+    <p><strong>Desventajas:</strong> Muy difícil de leer y mantener.</p>
+  </section>
+
+  <section id="nivel2" class="nivel">
+    <h3>2G – Lenguaje Ensamblador</h3>
+    <p><strong>Descripción:</strong> Instrucciones simbólicas específicas del hardware.</p>
+    <p><strong>Ejemplo:</strong> <code>MOV AX, 5</code> | <code>ADD BX, AX</code></p>
+    <p><strong>Lenguajes:</strong> x86 Assembly, ARM, MIPS</p>
+    <p><strong>Aplicación:</strong> Drivers, BIOS, sistemas operativos.</p>
+    <p><strong>Ventajas:</strong> Control total del hardware.</p>
+    <p><strong>Desventajas:</strong> Dependiente del procesador, difícil de mantener.</p>
+  </section>
+
+  <section id="nivel3" class="nivel">
+    <h3>3G – Lenguajes de Alto Nivel</h3>
+    <p><strong>Descripción:</strong> Más cercanos al lenguaje humano, portables y legibles.</p>
+    <p><strong>Ejemplo:</strong></p>
+    <pre><code>let nombre = "Joaquín";
+console.log("Hola, " + nombre);</code></pre>
+    <p><strong>Lenguajes:</strong> JavaScript, Python, Java, C++, PHP</p>
+    <p><strong>Aplicación:</strong> Web, apps, software, videojuegos.</p>
+    <p><strong>Ventajas:</strong> Fácil de aprender, multiplataforma.</p>
+    <p><strong>Desventajas:</strong> Menor control del hardware.</p>
+  </section>
+
+  <section id="nivel4" class="nivel">
+    <h3>4G – Lenguajes de Cuarta Generación</h3>
+    <p><strong>Descripción:</strong> Lenguajes declarativos orientados a tareas específicas.</p>
+    <p><strong>Ejemplo:</strong> <code>SELECT nombre FROM clientes WHERE edad > 30;</code></p>
+    <p><strong>Lenguajes:</strong> SQL, MATLAB, R, ABAP</p>
+    <p><strong>Aplicación:</strong> Bases de datos, análisis estadístico, automatización.</p>
+    <p><strong>Ventajas:</strong> Muy productivos, menos código.</p>
+    <p><strong>Desventajas:</strong> Limitados fuera de su dominio.</p>
+  </section>
+
+  <section id="nivel5" class="nivel">
+    <h3>5G – Lenguajes Naturales</h3>
+    <p><strong>Descripción:</strong> Interfaces que interpretan lenguaje humano mediante IA.</p>
+    <p><strong>Ejemplo:</strong> <em>“Crea una app que muestre recetas según los ingredientes.”</em></p>
+    <p><strong>Tecnologías:</strong> ChatGPT, Alexa, Google Dialogflow</p>
+    <p><strong>Aplicación:</strong> Asistentes virtuales, generación automática de código.</p>
+    <p><strong>Ventajas:</strong> Accesibles para todos.</p>
+    <p><strong>Desventajas:</strong> Dependientes de modelos de IA, aún en evolución.</p>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

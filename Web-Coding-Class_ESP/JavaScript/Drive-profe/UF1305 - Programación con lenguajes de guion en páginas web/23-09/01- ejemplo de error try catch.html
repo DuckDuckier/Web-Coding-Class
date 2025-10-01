@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Manejo de Errores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077b6;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #023e8a;
+    }
+    .resultado {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e0f7fa;
+      border: 1px solid #0077b6;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejemplo de Manejo de Errores</h1>
+  <p>Haz clic en el botón para ejecutar una operación que puede fallar.</p>
+
+  <button onclick="ejecutarOperacion()">Ejecutar operación</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    function ejecutarOperacion() {
+      const resultadoDiv = document.getElementById("resultado");
+      /*   let numero = 10; // Variable definida correctamente 
+        El botón ejecuta una función que intenta sumar una variable que no existe (numero).
+        Como eso genera un error, el bloque catch lo captura.
+        En lugar de que la página se bloquee, se muestra un mensaje claro al usuario.
+      
+      */
+       // try - Aquí va el código que podría fallar
+       // catch - Aquí manejas el error si ocurre
+      try {
+        // Simulamos un error: variable no definida
+        let resultado = numero + 10; // 'numero' no existe
+        resultadoDiv.textContent = "Resultado: " + resultado;
+      } catch (error) {
+        // Aquí se captura el error y se muestra un mensaje claro
+        resultadoDiv.textContent = " Se ha producido un error: " + error.message;
+      }
+    }
+  </script>
+
+</body>
+</html>

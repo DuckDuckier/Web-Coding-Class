@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Condicionales en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2, h3 {
+      color: #1e88e5;
+    }
+
+    .ejercicio {
+      margin-bottom: 2rem;
+    }
+
+    .ejercicio p {
+      font-weight: bold;
+    }
+
+    .solucion {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      display: none;
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    button {
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Condicionales en JavaScript</h1>
+    <p>Aprende a controlar el flujo de tu código con estructuras condicionales</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>Condicionales en JavaScript</h2>
+      <p>Los condicionales permiten ejecutar diferentes bloques de código según ciertas condiciones. Los más comunes son <code>if</code>, <code>else if</code>, <code>else</code>, <code>switch</code> y el operador ternario.</p>
+    </section>
+
+    <section class="section">
+      <h3>Ejemplo 1: if</h3>
+      <p>Ejecuta un bloque si se cumple una condición.</p>
+      <button onclick="toggleSolucion(this)">Mostrar solución</button>
+      <pre class="solucion">
+var edad = 18;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}
+      </pre>
+    </section>
+
+    <section class="section">
+      <h3>Ejemplo 2: if / else</h3>
+      <p>Ejecuta un bloque si no se cumple la condición del <code>if</code>.</p>
+      <button onclick="toggleSolucion(this)">Mostrar solución</button>
+      <pre class="solucion">
+var dia = "domingo";
+
+if (dia === "sábado" || dia === "domingo") {
+  console.log("¡Es fin de semana!");
+} else {
+  console.log("¡A trabajar!");
+}
+      </pre>
+    </section>
+
+    <section class="section">
+      <h3>Ejemplo 3: else if</h3>
+      <p>Evalúa múltiples condiciones en orden.</p>
+      <button onclick="toggleSolucion(this)">Mostrar solución</button>
+      <pre class="solucion">
+var hora = 14;
+
+if (hora < 12) {
+  console.log("Buenos días");
+} else if (hora < 20) {
+  console.log("Buenas tardes");
+} else {
+  console.log("Buenas noches");
+}
+      </pre>
+    </section>
+
+    <section class="section">
+      <h3>Ejemplo 4: Operador ternario</h3>
+      <p>Forma abreviada de <code>if</code> en una sola línea.</p>
+      <button onclick="toggleSolucion(this)">Mostrar solución</button>
+      <pre class="solucion">
+var edad = 20;
+var esMayorDeEdad = edad >= 18 ? "Sí" : "No";
+
+console.log(esMayorDeEdad); // "Sí"
+      </pre>
+    </section>
+
+    <section class="section">
+      <h3>Ejemplo 5: switch</h3>
+      <p>Ejecuta diferentes bloques según el valor de una variable.</p>
+      <button onclick="toggleSolucion(this)">Mostrar solución</button>
+      <pre class="solucion">
+var dia = 5;
+var mensaje;
+
+switch (dia) {
+  case 1:
+    mensaje = "Lunes";
+    break;
+  case 2:
+    mensaje = "Martes";
+    break;
+  case 3:
+    mensaje = "Miércoles";
+    break;
+  case 4:
+    mensaje = "Jueves";
+    break;
+  case 5:
+    mensaje = "Viernes";
+    break;
+  case 6:
+    mensaje = "Sábado";
+    break;
+  case 7:
+    mensaje = "Domingo";
+    break;
+  default:
+    mensaje = "Día inválido";
+}
+
+console.log(mensaje); // "Viernes"
+      </pre>
+    </section>
+
+    <div class="highlight">
+      <strong>Buenas prácticas:</strong>
+      <ul>
+        <li>✅ Evita anidar condicionales innecesariamente.</li>
+        <li>✅ Usa <code>===</code> en lugar de <code>==</code> para evitar conversiones implícitas.</li>
+        <li>✅ Utiliza llaves <code>{}</code> siempre, incluso para una sola línea.</li>
+        <li>✅ Simplifica condiciones con <code>&&</code> y <code>||</code> cuando sea posible.</li>
+        <li>✅ Usa <code>Boolean()</code> para convertir valores en booleanos de forma clara.</li>
+        <li>✅ Evita negaciones dobles como <code>!!valor</code> si no es necesario.</li>
+        <li>✅ Usa nombres de variables descriptivos para mejorar la legibilidad.</li>
+        <li>✅ Asegúrate de cubrir todos los casos posibles con <code>else</code> o <code>default</code>.</li>
+        <li>✅ Evalúa primero las condiciones más específicas.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Curso de JavaScript. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleSolucion(button) {
+      const solucion = button.nextElementSibling;
+      const visible = solucion.style.display === "block";
+      solucion.style.display = visible ? "none" : "block";
+      button.textContent = visible ? "Mostrar solución" : "Ocultar solución";
+    }
+  </script>
+</body>
+</html>

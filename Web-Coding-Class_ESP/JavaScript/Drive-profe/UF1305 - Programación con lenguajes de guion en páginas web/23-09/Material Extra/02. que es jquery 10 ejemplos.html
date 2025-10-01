@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Qué es jQuery?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    code {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .comparacion {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .comparacion div {
+      flex: 1;
+      min-width: 250px;
+      background-color: #e0f7fa;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #caf0f8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Qué es jQuery?</h1>
+
+  <h2> Definición</h2>
+  <p>
+    jQuery es una <strong>biblioteca de JavaScript</strong> que simplifica tareas comunes en el desarrollo web. Fue creada en 2006 por <em>John Resig</em> y su lema es: <strong>“Escribe menos, haz más.”</strong>
+  </p>
+
+  <h2> ¿Para qué sirve?</h2>
+  <ul>
+    <li>Seleccionar y manipular elementos HTML fácilmente.</li>
+    <li>Crear animaciones y efectos visuales.</li>
+    <li>Manejar eventos como clics, teclas o formularios.</li>
+    <li>Realizar peticiones AJAX sin recargar la página.</li>
+    <li>Mejorar la compatibilidad entre navegadores.</li>
+  </ul>
+
+  <h2> Ejemplo comparativo</h2>
+  <div class="comparacion">
+    <div>
+      <strong>JavaScript puro:</strong>
+      <pre><code>document.getElementById("demo").innerHTML = "Hola mundo";</code></pre>
+    </div>
+    <div>
+      <strong>jQuery:</strong>
+      <pre><code>$("#demo").html("Hola mundo");</code></pre>
+    </div>
+  </div>
+
+  <h2>Ventajas</h2>
+  <ul>
+    <li>Código más limpio y fácil de mantener.</li>
+    <li>Compatible con todos los navegadores modernos.</li>
+    <li>Gran cantidad de plugins listos para usar.</li>
+    <li>Amplia comunidad y recursos de aprendizaje.</li>
+  </ul>
+
+  <h2> Desventajas</h2>
+  <ul>
+    <li>Añade peso extra al cargar la página.</li>
+    <li>Menos usado en proyectos modernos con frameworks como React o Vue.</li>
+    <li>Muchas funciones ya existen en JavaScript moderno.</li>
+  </ul>
+
+  <h2> Tabla comparativa: JavaScript vs jQuery</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nº</th>
+        <th>Acción / Tarea</th>
+        <th>JavaScript puro</th>
+        <th>jQuery equivalente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1️⃣</td>
+        <td>Seleccionar por ID</td>
+        <td><code>document.getElementById("demo")</code></td>
+        <td><code>$("#demo")</code></td>
+      </tr>
+      <tr>
+        <td>2️⃣</td>
+        <td>Cambiar contenido HTML</td>
+        <td><code>document.getElementById("demo").innerHTML = "Hola";</code></td>
+        <td><code>$("#demo").html("Hola");</code></td>
+      </tr>
+      <tr>
+        <td>3️⃣</td>
+        <td>Cambiar estilo CSS</td>
+        <td><code>document.getElementById("demo").style.color = "red";</code></td>
+        <td><code>$("#demo").css("color", "red");</code></td>
+      </tr>
+      <tr>
+        <td>4️⃣</td>
+        <td>Ocultar elemento</td>
+        <td><code>document.getElementById("demo").style.display = "none";</code></td>
+        <td><code>$("#demo").hide();</code></td>
+      </tr>
+      <tr>
+        <td>5️⃣</td>
+        <td>Mostrar elemento</td>
+        <td><code>document.getElementById("demo").style.display = "block";</code></td>
+        <td><code>$("#demo").show();</code></td>
+      </tr>
+      <tr>
+        <td>6️⃣</td>
+        <td>Agregar clase</td>
+        <td><code>document.getElementById("demo").classList.add("activo");</code></td>
+        <td><code>$("#demo").addClass("activo");</code></td>
+      </tr>
+      <tr>
+        <td>7️⃣</td>
+        <td>Eliminar clase</td>
+        <td><code>document.getElementById("demo").classList.remove("activo");</code></td>
+        <td><code>$("#demo").removeClass("activo");</code></td>
+      </tr>
+      <tr>
+        <td>8️⃣</td>
+        <td>Manejar clic</td>
+        <td><code>document.getElementById("btn").addEventListener("click", function() {...});</code></td>
+        <td><code>$("#btn").click(function() {...});</code></td>
+      </tr>
+      <tr>
+        <td>9️⃣</td>
+        <td>Animar desvanecimiento</td>
+        <td><code>element.style.opacity = 0;</code></td>
+        <td><code>$("#demo").fadeOut();</code></td>
+      </tr>
+      <tr>
+        <td>🔟</td>
+        <td>Petición AJAX</td>
+        <td><code>fetch("datos.json").then(...)</code></td>
+        <td><code>$.getJSON("datos.json", function(data) {...});</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

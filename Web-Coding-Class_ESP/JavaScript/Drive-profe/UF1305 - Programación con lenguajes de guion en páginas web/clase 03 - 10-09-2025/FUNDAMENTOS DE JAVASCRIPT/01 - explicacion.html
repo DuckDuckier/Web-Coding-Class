@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fundamentos de JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    .section {
+      background-color: #fff;
+      border-left: 5px solid #4CAF50;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .example {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    .type {
+      font-weight: bold;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Fundamentos de JavaScript</h1>
+
+  <div class="section">
+    <h2>¿Qué es una variable?</h2>
+    <p>Una <strong>variable</strong> es como una caja donde guardamos información para usarla más tarde. Por ejemplo, si quieres guardar tu nombre:</p>
+    <div class="example">
+let nombre = "Lucía";
+console.log(nombre); // muestra "Lucía"
+    </div>
+    <p>Usamos <code>let</code> para crear variables que pueden cambiar.</p>
+  </div>
+
+  <div class="section">
+    <h2>¿Qué es una constante?</h2>
+    <p>Una <strong>constante</strong> es como una caja que no se puede abrir ni cambiar. Lo que guardas ahí, se queda igual:</p>
+    <div class="example">
+const PI = 3.1416;
+console.log(PI); // muestra 3.1416
+    </div>
+    <p>Usamos <code>const</code> para valores que no deben cambiar.</p>
+  </div>
+    <div class="section">
+    <h2>¿Qué es un array?</h2>
+    <p>Un <strong>array</strong> (o arreglo) es una lista ordenada de valores. Es útil cuando queremos guardar varios datos relacionados.</p>
+    <p>Por ejemplo, si queremos guardar los nombres de varios alumnos:</p>
+    <div class="example">
+let alumnos = ["Lucía", "Carlos", "María"];
+console.log(alumnos[0]); // muestra "Lucía"
+console.log(alumnos.length); // muestra 3 (cantidad de elementos)
+    </div>
+    <p>Los elementos del array se guardan en posiciones llamadas <strong>índices</strong>, que empiezan desde <code>0</code>.</p>
+    <p>Podemos acceder a cada elemento usando su número de posición:</p>
+    <div class="example">
+console.log(alumnos[1]); // muestra "Carlos"
+    </div>
+    <p>También podemos agregar o quitar elementos:</p>
+    <div class="example">
+alumnos.push("Sofía"); // añade "Sofía" al final
+alumnos.pop();         // elimina el último elemento
+    </div>
+    <p>Los arrays pueden contener cualquier tipo de dato: textos, números, booleanos, objetos e incluso otros arrays.</p>
+    <div class="example">
+let mezcla = ["Hola", 42, true, { nombre: "Ana" }, [1, 2]];
+console.log(mezcla[3].nombre); // muestra "Ana"
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>¿Qué es un objeto?</h2>
+    <p>Un <strong>objeto</strong> es una forma de agrupar información relacionada. Es como una ficha que describe algo con sus características.</p>
+    <p>Por ejemplo, si queremos guardar información sobre una persona:</p>
+    <div class="example">
+let persona = {
+  nombre: "Ana",
+  edad: 12,
+  esEstudiante: true
+};
+
+console.log(persona.nombre); // muestra "Ana"
+console.log(persona.edad);   // muestra 12
+    </div>
+    <p>Un objeto tiene <strong>propiedades</strong> (como <code>nombre</code> o <code>edad</code>) y cada propiedad tiene un valor.</p>
+    <p>También puede tener <strong>funciones</strong>, llamadas <em>métodos</em>, que hacen cosas con el objeto.</p>
+    <div class="example">
+let coche = {
+  marca: "Toyota",
+  modelo: "Corolla",
+  color: "Azul",
+  describir: function() {
+    return "Este coche es un " + this.marca + " " + this.modelo + " de color " + this.color + ".";
+  }
+};
+
+console.log(coche.describir()); // muestra la descripción del coche
+    </div>
+    <p>Los objetos son muy útiles para representar cosas del mundo real en nuestros programas.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tipos de datos en JavaScript</h2>
+    <p>JavaScript puede guardar diferentes tipos de información:</p>
+    <ul>
+      <li><span class="type">Texto (string)</span>: <code>"Hola"</code></li>
+      <li><span class="type">Número (number)</span>: <code>42</code></li>
+      <li><span class="type">Booleano (boolean)</span>: <code>true</code> o <code>false</code></li>
+      <li><span class="type">Lista (array)</span>: <code>[1, 2, 3]</code></li>
+      <li><span class="type">Objeto (object)</span>: <code>{ nombre: "Ana", edad: 12 }</code></li>
+    </ul>
+    <div class="example">
+let edad = 12;           // número
+let saludo = "Hola";     // texto
+let esAlumno = true;     // booleano
+let notas = [8, 9, 10];  // array
+let persona = { nombre: "Ana", edad: 12 }; // objeto
+    </div>
+  </div>
+
+</body>
+</html>

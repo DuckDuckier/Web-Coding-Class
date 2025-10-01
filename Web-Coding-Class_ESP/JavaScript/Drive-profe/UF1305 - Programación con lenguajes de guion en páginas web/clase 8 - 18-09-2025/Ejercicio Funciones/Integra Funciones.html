@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TecnoAcademia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Integra todas las funciones</h1>
+       <p> Caso práctico 1</p>
+    </header>
+
+    <section id="intro">
+        <h2>Bienvenido al portal educativo</h2>
+        <p>Aprende informática con ejemplos interactivos.</p>
+        <button onclick="mostrarFecha()">¿Qué día es hoy?</button>
+        <p id="fecha" class="respuesta"></p>
+    </section>
+
+    <section id="scripts">
+        <h2>Ejemplos interactivos</h2>
+        <div class="card">
+            <h3>Calculadora</h3>
+            <input type="number" id="num1">
+            <input type="number" id="num2">
+            <button onclick="sumar()">Sumar</button>
+            <p id="resultado" class="respuesta"></p>
+        </div>
+        <div class="card">
+            <h3>Color aleatorio</h3>
+            <button onclick="cambiarColor()">Cambiar fondo</button>
+        </div>
+        <div class="card">
+            <h3>Validar Email</h3>
+            <input type="text" id="email" placeholder="Tu email">
+            <button onclick="validarEmail()">Validar</button>
+            <p id="valido" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Contador</h3>
+            <button onclick="incrementar()">+</button>
+            <button onclick="decrementar()">−</button>
+            <p id="contador" class="respuesta">0</p>
+        </div>
+
+
+
+        <div class="card">
+            <h3>Mostrar hora</h3>
+            <p id="hora" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Formulario de contacto</h3>
+            <form onsubmit="return validarFormulario()">
+                <input type="text" id="nombre" placeholder="Nombre">
+                <input type="text" id="mensaje" placeholder="Mensaje">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Conversión de temperatura</h3>
+            <input type="number" id="celsius" placeholder="°C">
+            <button onclick="convertir()">Convertir a °F</button>
+            <p id="fahrenheit" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Mostrar lista de cursos</h3>
+            <button onclick="mostrarCursos()">Ver cursos</button>
+            <ul id="cursos" class="respuesta"></ul>
+        </div>
+
+        <div class="card">
+            <h3>Calculadora de IVA</h3>
+            <input type="number" id="precio" placeholder="Precio">
+            <button onclick="calcularIVA()">Calcular IVA</button>
+            <p id="iva" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Animación de texto</h3>
+            <p id="animado">¡Bienvenido!</p>
+            <button onclick="animarTexto()">Animar</button>
+        </div>
+
+        <div class="card">
+            <h3>Mostrar IP (simulado)</h3>
+            <button onclick="mostrarIP()">Mostrar IP</button>
+            <p id="ip" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Generador de contraseña</h3>
+            <button onclick="generarPassword()">Generar</button>
+            <p id="password" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Contador regresivo</h3>
+            <button onclick="iniciarCuenta()">Iniciar</button>
+            <p id="cuenta" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Mostrar sistema operativo</h3>
+            <button onclick="mostrarSO()">Detectar SO</button>
+            <p id="so" class="respuesta"></p>
+        </div>
+
+        <div class="card">
+            <h3>Modo oscuro</h3>
+            <button onclick="toggleDarkMode()">Activar/Desactivar</button>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>© 2025 TecnoAcademia | Formación en informática</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

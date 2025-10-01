@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agregar eventos a elementos</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --accent: #00a7c4;
+      --muted: #6b7280;
+      --code-bg: #f3f4f6;
+      --radius: 10px;
+      --max-width: 900px;
+      --font-sans: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: #222;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 28px auto;
+      padding: 24px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), #0f7fc3);
+      color: white;
+      padding: 18px 24px;
+      border-radius: var(--radius);
+      margin: 18px auto;
+      max-width: var(--max-width);
+      box-shadow: 0 6px 20px rgba(11,95,165,0.12);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 18px;
+      margin: 0 0 12px 0;
+    }
+
+    .ejercicio {
+      margin-bottom: 20px;
+    }
+
+    .ejercicio p {
+      margin: 0 0 12px 0;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .solucion {
+      background: var(--code-bg);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+      font-size: 13px;
+      color: #1f2937;
+      white-space: pre-wrap;
+      overflow: auto;
+      max-height: 420px;
+    }
+
+    .explicacion {
+      margin-top: 14px;
+      background: linear-gradient(180deg, #fbfdff, #ffffff);
+      padding: 14px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .explicacion ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: var(--muted);
+    }
+
+    .explicacion li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 14px 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 520px) {
+      header { padding: 14px }
+      main { margin: 16px; padding: 16px }
+      header h1 { font-size: 18px }
+      h2 { font-size: 16px }
+      .solucion { font-size: 12px }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agregar eventos a elementos</h1>
+    <p>Usa <code>addEventListener</code> para responder a acciones del usuario</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Ejemplo: Evento <code>click</code> en un botón</h2>
+
+      <div class="ejercicio">
+        <p>HTML + JavaScript para manejar eventos con <code>addEventListener</code></p>
+        <pre class="solucion"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Agregar eventos a elementos en JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Botón al que se le agregará un evento --&gt;
+  &lt;button id="myButton"&gt;Haz clic aquí&lt;/button&gt;
+
+  &lt;script&gt;
+    // 1. Obtener una referencia al botón usando su ID
+    const button = document.getElementById('myButton');
+
+    // 2. Agregar un evento 'click' al botón
+    button.addEventListener('click', function() {
+      // 3. Código que se ejecuta cuando se hace clic
+      console.log('Se hizo clic en el botón');
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+        <div class="explicacion">
+          Este ejemplo muestra cómo usar <code>addEventListener</code> para manejar eventos:
+          <ul>
+            <li><strong>getElementById</strong>: accede al botón por su ID.</li>
+            <li><strong>addEventListener</strong>: adjunta el evento <code>click</code> al botón.</li>
+            <li>La función anónima se ejecuta cuando el usuario hace clic.</li>
+          </ul>
+          Puedes usar este método para cualquier tipo de evento: <code>mouseover</code>, <code>keydown</code>, <code>submit</code>, etc.  
+          También puedes usar funciones externas en lugar de funciones anónimas para mantener tu código organizado.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Curso de JavaScript. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

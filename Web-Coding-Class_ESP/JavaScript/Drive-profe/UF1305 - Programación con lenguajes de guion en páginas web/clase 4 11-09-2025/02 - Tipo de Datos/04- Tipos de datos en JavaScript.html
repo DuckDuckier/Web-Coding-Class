@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tipos de datos en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tipos de datos en JavaScript</h1>
+    <p>Conoce cómo se guarda la información en tu código</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <p>En JavaScript, los <strong>tipos de datos</strong> definen qué tipo de información puede guardar una variable. Por ejemplo: texto, números, listas, objetos, etc.</p>
+      <p>Aprender esto es como conocer las piezas de un juego: cada tipo tiene su función y comportamiento.</p>
+    </section>
+
+    <section class="section">
+      <h2>1. Texto (<code>string</code>)</h2>
+      <p>Se usa para guardar palabras, frases o cualquier texto.</p>
+      <pre><code>let nombre = "Juan";
+let saludo = "Hola, " + nombre; // Hola, Juan</code></pre>
+      <p>También puedes usar saltos de línea (<code>\n</code>) o tabulaciones (<code>\t</code>):</p>
+      <pre><code>let mensaje = "Línea 1\nLínea 2";
+let titulo = "Inicio\tMi sitio web";</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>2. Números (<code>number</code>)</h2>
+      <p>Se usa para guardar valores numéricos, ya sean enteros o decimales.</p>
+      <pre><code>let edad = 30;
+let precio = 19.99;</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>3. Verdadero o falso (<code>boolean</code>)</h2>
+      <p>Solo tiene dos valores posibles: <code>true</code> (verdadero) o <code>false</code> (falso).</p>
+      <pre><code>let esMayorDeEdad = true;
+let tieneLicencia = false;</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>4. Sin valor definido (<code>undefined</code>)</h2>
+      <p>Una variable que fue creada pero no tiene ningún valor asignado.</p>
+      <pre><code>let resultado;
+console.log(resultado); // undefined</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>5. Valor vacío (<code>null</code>)</h2>
+      <p>Se usa para indicar que una variable no tiene ningún valor, de forma intencional.</p>
+      <pre><code>let usuario = null;</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>6. Símbolo único (<code>symbol</code>)</h2>
+      <p>Se usa para crear identificadores únicos. No se usa mucho al principio, pero es parte del lenguaje.</p>
+      <pre><code>let id = Symbol("usuario");</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>7. Números grandes (<code>bigint</code>)</h2>
+      <p>Se usa para guardar números muy grandes que no caben en <code>number</code>.</p>
+      <pre><code>let numeroGrande = 123456789012345678901234567890n;</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>8. Listas (<code>array</code>)</h2>
+      <p>Guarda varios valores en una sola variable, como una lista de frutas o números.</p>
+      <pre><code>let frutas = ["manzana", "naranja", "plátano"];
+let edades = [20, 25, 30];</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>9. Objetos (<code>object</code>)</h2>
+      <p>Guarda información más compleja en forma de pares clave-valor.</p>
+      <pre><code>let persona = {
+  nombre: "Juan",
+  edad: 30,
+  tieneLicencia: true,
+  bandasFavoritas: ["Queen", "The Beatles"]
+};</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>¿Cómo saber qué tipo de dato tiene una variable?</h2>
+      <p>Usa el operador <code>typeof</code> para averiguarlo:</p>
+      <pre><code>let nombre = "Juan";
+console.log(typeof nombre); // string
+
+let edad = 30;
+console.log(typeof edad); // number
+
+let activo = true;
+console.log(typeof activo); // boolean
+
+let sinValor;
+console.log(typeof sinValor); // undefined
+
+let vacio = null;
+console.log(typeof vacio); // object
+
+let simbolo = Symbol("id");
+console.log(typeof simbolo); // symbol
+
+let grande = 123456789n;
+console.log(typeof grande); // bigint
+
+let frutas = ["manzana", "pera"];
+console.log(typeof frutas); // object
+
+let persona = { nombre: "Ana", edad: 25 };
+console.log(typeof persona); // object</code></pre>
+    </section>
+
+    <div class="highlight">
+      <strong>Consejo:</strong> Aprender los tipos de datos te ayuda a entender cómo funciona JavaScript y cómo manejar la información correctamente.
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 - Curso básico de JavaScript para principiantes
+  </footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problemas con var y uso de let</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Problemas con <code>var</code> y uso de <code>let</code></h1>
+    <p>Aprende a escribir código más seguro y moderno en JavaScript</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>¿Por qué evitar <code>var</code>?</h2>
+      <p>La palabra clave <code>var</code> fue la primera forma de declarar variables en JavaScript, pero tiene comportamientos que pueden causar errores. Aquí te explicamos los tres principales:</p>
+    </section>
+
+    <section class="section">
+      <h2>1. Ámbito poco claro</h2>
+      <p>Las variables con <code>var</code> no se limitan al bloque donde se declaran. Esto significa que pueden ser accesibles fuera de estructuras como <code>if</code> o <code>for</code>, lo que puede generar confusión.</p>
+      <pre><code>if (true) {
+  var mensaje = "Hola";
+}
+console.log(mensaje); // "Hola" — aunque está fuera del bloque</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>2. Elevación (hoisting)</h2>
+      <p>Las variables <code>var</code> se mueven automáticamente al inicio del código, pero sin su valor. Esto puede hacer que el código se comporte de forma inesperada.</p>
+      <pre><code>console.log(nombre); // undefined
+var nombre = "Lucía";</code></pre>
+      <p>El navegador interpreta esto como:</p>
+      <pre><code>var nombre;
+console.log(nombre); // undefined
+nombre = "Lucía";</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>3. Permite redeclaración</h2>
+      <p>Con <code>var</code>, puedes declarar la misma variable varias veces sin que el navegador te avise. Esto puede sobrescribir valores sin darte cuenta.</p>
+      <pre><code>var edad = 20;
+var edad = 30; // No hay advertencia
+console.log(edad); // 30</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>¿Cuándo usar <code>let</code>?</h2>
+      <p><code>let</code> se usa cuando necesitas una variable que pueda cambiar su valor, pero que esté limitada al bloque donde se declara. Es ideal para bucles, condiciones y funciones.</p>
+      <pre><code>for (let i = 0; i &lt; 3; i++) {
+  console.log("Número:", i);
+}
+console.log(i); // Error: i no está definido fuera del bloque</code></pre>
+      <p>También puedes usar <code>let</code> para controlar valores que cambian según la lógica del programa:</p>
+      <pre><code>let resultado = 0;
+
+if (true) {
+  let factor = 5;
+  resultado = factor * 2;
+}
+
+console.log(resultado); // 10
+console.log(factor); // Error: factor no está definido fuera del bloque</code></pre>
+    </section>
+
+    <div class="highlight">
+      <strong>Consejo:</strong> Usa <code>let</code> para variables que cambian y <code>const</code> para valores fijos. Evita <code>var</code> para escribir código más claro y seguro.
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 - Curso básico de JavaScript para principiantes
+  </footer>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formas de Representar un Algoritmo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    .bloque {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .ejemplo {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Formas de Representar un Algoritmo</h1>
+    <p>Con ejemplos interactivos para cada método</p>
+  </header>
+
+  <main>
+    <div class="bloque">
+      <h2>Pseudocódigo</h2>
+      <p>Describe el algoritmo usando palabras similares a un lenguaje de programación, sin seguir una sintaxis estricta.</p>
+      <button onclick="toggle('pseudocodigo')">Ver ejemplo</button>
+      <div class="ejemplo" id="pseudocodigo">
+        <pre>
+Inicio
+  Leer base
+  Leer altura
+  área ← (base * altura) / 2
+  Mostrar área
+Fin
+        </pre>
+        <p>Este pseudocódigo calcula el área de un triángulo a partir de su base y altura.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2>Diagrama de flujo</h2>
+      <p>Representa el algoritmo con símbolos gráficos que muestran el flujo de ejecución.</p>
+      <button onclick="toggle('flujo')">Ver ejemplo</button>
+      <div class="ejemplo" id="flujo">
+        <p>🟢 Inicio → 🔲 Leer número → 🔷 ¿Es par? → ✅ Mostrar "Es par" / ❌ Mostrar "Es impar" → 🟢 Fin</p>
+        <p>Este diagrama representa la lógica para determinar si un número es par o impar.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2> Código fuente</h2>
+      <p>Utiliza directamente un lenguaje de programación para escribir el algoritmo de forma ejecutable.</p>
+      <button onclick="toggle('codigo')">Ver ejemplo</button>
+      <div class="ejemplo" id="codigo">
+        <pre><code>
+function calcularArea(base, altura) {
+  return (base * altura) / 2;
+}
+
+console.log(calcularArea(10, 5)); // Muestra: 25
+        </code></pre>
+        <p>Este código en JavaScript calcula el área de un triángulo y muestra el resultado.</p>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2> Lenguaje natural estructurado</h2>
+      <p>Describe el algoritmo usando frases en español, siguiendo el orden lógico de las operaciones.</p>
+      <button onclick="toggle('natural')">Ver ejemplo</button>
+      <div class="ejemplo" id="natural">
+        <p>Primero se solicita la base y la altura. Luego se multiplica ambos valores y se divide entre dos. Finalmente se muestra el resultado.</p>
+        <p>Este método es útil para explicar el algoritmo a personas sin conocimientos técnicos.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

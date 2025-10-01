@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama Interactivo - Promedio de Notas</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+.symbol {
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+.shape {
+  padding: 15px 25px;
+  background: #e6f6ff;
+  border: 2px solid #0078d7;
+  display: inline-block;
+  min-width: 150px;
+}
+.terminator {
+  border-radius: 25px;
+}
+.parallelogram {
+  transform: skewX(-20deg);
+}
+.rect {
+  padding: 15px 25px;
+  background: #ffffff;
+  border: 2px solid #0078d7;
+  display: inline-block;
+  min-width: 150px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.tooltip {
+  display: none;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0078d7;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.symbol:hover .tooltip {
+  display: block;
+}
+.arrow {
+  width: 2px;
+  height: 25px;
+  background: #0078d7;
+}
+</style>
+</head>
+<body>
+
+<h1>Diagrama Interactivo: Promedio de Tres Notas</h1>
+
+<div class="flow">
+  <!-- Inicio -->
+  <div class="symbol">
+    <div class="tooltip">Inicio del algoritmo</div>
+    <div class="shape terminator">Inicio</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Leer nota1 -->
+  <div class="symbol">
+    <div class="tooltip">Entrada de datos: leer primera nota</div>
+    <div class="shape parallelogram">Leer nota1</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Leer nota2 -->
+  <div class="symbol">
+    <div class="tooltip">Entrada de datos: leer segunda nota</div>
+    <div class="shape parallelogram">Leer nota2</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Leer nota3 -->
+  <div class="symbol">
+    <div class="tooltip">Entrada de datos: leer tercera nota</div>
+    <div class="shape parallelogram">Leer nota3</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Calcular promedio -->
+  <div class="symbol">
+    <div class="tooltip">Proceso: cálculo del promedio</div>
+    <div class="shape rect">promedio = (n1+n2+n3)/3</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Mostrar resultado -->
+  <div class="symbol">
+    <div class="tooltip">Salida: mostrar en pantalla</div>
+    <div class="shape parallelogram">Mostrar promedio</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Imprimir resultado -->
+  <div class="symbol">
+    <div class="tooltip">Salida: imprimir resultado en papel/PDF</div>
+    <div class="shape parallelogram">Imprimir promedio</div>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Fin -->
+  <div class="symbol">
+    <div class="tooltip">Fin del algoritmo</div>
+    <div class="shape terminator">Fin</div>
+  </div>
+</div>
+
+</body>
+</html>

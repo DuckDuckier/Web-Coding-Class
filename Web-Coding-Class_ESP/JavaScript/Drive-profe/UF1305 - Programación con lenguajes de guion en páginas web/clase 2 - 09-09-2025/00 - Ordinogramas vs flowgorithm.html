@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordinogramas vs Flowgorithm</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+    h1, h2 { color: #2c3e50; }
+    .card { background: white; padding: 1em; margin-bottom: 1em; border-left: 5px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .classic, .flowgorithm { margin-top: 0.5em; }
+    .highlight { background: #ecf0f1; padding: 0.5em; border-radius: 5px; }
+    button { padding: 0.5em 1em; background: #3498db; color: white; border: none; cursor: pointer; }
+    button:hover { background: #2980b9; }
+  </style>
+</head>
+<body>
+  <h1>Comparación: Ordinograma Clásico vs Flowgorithm</h1>
+  <p>Este recurso ayuda a entender cómo se representan los algoritmos en papel (ordinograma clásico) y cómo se implementan en Flowgorithm.</p>
+
+  <div class="card">
+    <h2>¿Qué es un Ordinograma?</h2>
+    <p class="classic">Es un diagrama de flujo que usa símbolos estándar para representar procesos, decisiones, entradas y salidas.</p>
+    <div class="highlight">
+      <strong>Ejemplo:</strong> Óvalo = Inicio/Fin, Rectángulo = Proceso, Rombos = Decisión, Paralelogramo = Entrada/Salida
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>¿Qué es Flowgorithm?</h2>
+    <p class="flowgorithm">Es una herramienta educativa que permite crear y ejecutar algoritmos visualmente. Usa símbolos similares, pero exige detalles técnicos como tipos de datos, declaraciones y sintaxis precisa.</p>
+    <div class="highlight">
+      <strong>Diferencias clave:</strong> Flowgorithm requiere declarar variables, usar operadores específicos (como <code>&amp;</code> para concatenar), y sigue reglas de ejecución.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Explora los 10 Ejercicios</h2>
+    <button onclick="mostrarEjercicios()">Mostrar ejemplos</button>
+    <ul id="lista-ejercicios"></ul>
+  </div>
+
+  <script>
+    function mostrarEjercicios() {
+      const ejercicios = [
+        "1. Saludo básico",
+        "2. Suma de dos números",
+        "3. Verificar si es mayor de edad",
+        "4. Contador del 1 al 5 (WHILE)",
+        "5. Tabla del 3 (FOR)",
+        "6. Día de la semana (decisión múltiple)",
+        "7. Validación de número positivo",
+        "8. Contador de pares e impares",
+        "9. Área de un triángulo",
+        "10. Número mayor entre dos"
+      ];
+      const lista = document.getElementById("lista-ejercicios");
+      lista.innerHTML = "";
+      ejercicios.forEach(ej => {
+        const li = document.createElement("li");
+        li.textContent = ej;
+        lista.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Parámetros vs Variables en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #output {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Parámetros vs Variables en JavaScript</h1>
+
+  <div class="section">
+    <h2>¿Qué es un parámetro?</h2>
+    <p>Un <strong>parámetro</strong> es un identificador que se usa en la declaración de una función para recibir valores externos.</p>
+    <p>Ejemplo:</p>
+    <code>function saludar(nombre) { ... }</code>
+  </div>
+
+  <div class="section">
+    <h2>¿Qué es una variable?</h2>
+    <p>Una <strong>variable</strong> es un espacio de memoria que almacena un valor. Puede existir dentro o fuera de funciones.</p>
+    <p>Ejemplo:</p>
+    <code>let edad = 25;</code>
+  </div>
+
+  <div class="section">
+    <h2>Demostración en consola</h2>
+    <p>Haz clic en el botón para ejecutar una función que usa un parámetro y una variable:</p>
+    <button onclick="mostrarSaludo()">Ejecutar función</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function mostrarSaludo() {
+      let nombre = "Lucía"; // Variable
+      saludar(nombre);      // Argumento enviado al parámetro
+    }
+
+    function saludar(nombre) { // Parámetro
+      let mensaje = "Hola, " + nombre + "!"; // Variable interna
+      console.log(mensaje);
+      document.getElementById("output").textContent = mensaje;
+    }
+  </script>
+
+</body>
+</html>

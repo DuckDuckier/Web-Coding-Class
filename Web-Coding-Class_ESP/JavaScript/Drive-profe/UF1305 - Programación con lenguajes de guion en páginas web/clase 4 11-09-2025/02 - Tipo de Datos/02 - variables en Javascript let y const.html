@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uso de let y const en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Por qué usar <code>let</code> y <code>const</code>?</h1>
+    <p>Evita errores y escribe código más seguro en JavaScript</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <p>En JavaScript, existen tres formas de declarar variables: <code>var</code>, <code>let</code> y <code>const</code>. Aunque <code>var</code> fue la primera en existir, hoy se recomienda usar <code>let</code> y <code>const</code> porque ofrecen mayor seguridad y claridad en el código.</p>
+    </section>
+
+    <section class="section">
+      <h2>Problemas con <code>var</code></h2>
+      <ul>
+        <li><strong>Ámbito poco claro:</strong> Las variables con <code>var</code> no respetan los bloques (<code>if</code>, <code>for</code>, etc.), lo que puede causar errores.</li>
+        <li><strong>Elevación (hoisting):</strong> Se mueven al inicio del código automáticamente, pero sin su valor, lo que puede generar confusión.</li>
+        <li><strong>Permite redeclaración:</strong> Puedes declarar la misma variable varias veces sin que el navegador lo advierta.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Ventajas de <code>let</code> y <code>const</code></h2>
+      <ul>
+        <li><strong>Ámbito de bloque:</strong> Solo existen dentro del bloque donde se crean, lo que evita errores.</li>
+        <li><strong>Mayor control:</strong> El navegador avisa si intentas redeclarar una variable.</li>
+        <li><strong><code>const</code> protege valores:</strong> Ideal para datos que no deben cambiar, como configuraciones o constantes.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Ejemplo comparativo</h2>
+      <pre><code>// var permite esto sin error
+var nombre = "Ana";
+var nombre = "Luis"; // No hay advertencia
+
+// let y const evitan esto
+let edad = 25;
+let edad = 30; // Error: ya está declarada
+
+const PI = 3.1416;
+PI = 3.14; // Error: no se puede cambiar</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>¿Cuándo usar cada uno?</h2>
+      <ul>
+        <li><strong>Usa <code>const</code></strong> si el valor no va a cambiar.</li>
+        <li><strong>Usa <code>let</code></strong> si el valor puede cambiar durante la ejecución.</li>
+        <li><strong>Evita <code>var</code></strong> salvo que estés trabajando con código antiguo.</li>
+      </ul>
+    </section>
+
+    <div class="highlight">
+      <strong>Consejo:</strong> Usar <code>let</code> y <code>const</code> te ayuda a escribir código más claro, seguro y moderno. ¡Hazlo parte de tu rutina desde el inicio!
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 - Curso básico de JavaScript para principiantes
+  </footer>
+</body>
+</html>

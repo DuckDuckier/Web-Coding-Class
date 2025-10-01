@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verificación de acceso a la fiesta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      color: #1e88e5;
+      text-align: center;
+    }
+
+    .pantalla {
+      display: flex;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .formulario, .invitados {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label, input {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    #resultado {
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      background: #e3f2fd;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Puedes entrar a la fiesta?</h1>
+
+  <div class="pantalla">
+    <!-- Columna izquierda: Formulario -->
+    <div class="formulario">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Escribe tu nombre" />
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" placeholder="Escribe tu edad" />
+
+      <button onclick="verificarAcceso()">Verificar</button>
+
+      <div id="resultado"></div>
+    </div>
+
+    <!-- Columna derecha: Lista de invitados -->
+    <div class="invitados">
+      <h2>Lista de invitados</h2>
+      <ul id="listaInvitados">
+        <li>Ana</li>
+        <li>Luis</li>
+        <li>Carlos</li>
+        <li>María</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function verificarAcceso() {
+      var nombre = document.getElementById("nombre").value.trim();
+      var edadTexto = document.getElementById("edad").value.trim();
+      var edad = parseInt(edadTexto);
+      var invitados = ["Ana", "Luis", "Carlos", "María"];
+      var resultado = document.getElementById("resultado");
+
+      if (!nombre || isNaN(edad)) {
+        resultado.textContent = " Por favor, ingresa un nombre y una edad válida.";
+        resultado.style.color = "orange";
+        return;
+      }
+
+      var nombreNormalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase();
+
+      if (invitados.includes(nombreNormalizado) && edad >= 18) {
+        resultado.textContent = " Bienvenido " + nombreNormalizado + ", puedes entrar a la fiesta.";
+        resultado.style.color = "green";
+      } else {
+        resultado.textContent = " Lo siento " + nombreNormalizado + ", no puedes entrar.";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coerción de datos en JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0b4476;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #1e88e5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #1e88e5;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Coerción de datos en JavaScript</h1>
+    <p>Cómo se convierten los valores de un tipo a otro automáticamente o manualmente</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <p>La <strong>coerción de datos</strong> ocurre cuando JavaScript convierte un valor de un tipo a otro. Esto puede pasar automáticamente (implícita) o cuando lo hacemos nosotros (explícita).</p>
+    </section>
+
+    <section class="section">
+      <h2>Coerción implícita</h2>
+      <p>JavaScript convierte el tipo de dato sin que lo pidamos. Esto puede ser útil, pero también causar errores si no lo entendemos bien.</p>
+      <pre><code>// edad es un número
+var edad = 30;
+
+// JavaScript convierte edad a texto automáticamente
+var mensaje = "Tengo " + edad + " años.";
+
+console.log(mensaje); // "Tengo 30 años."</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Coerción explícita</h2>
+      <p>Aquí tú decides convertir el tipo de dato usando funciones como <code>Number()</code>, <code>String()</code> o <code>Boolean()</code>.</p>
+      <pre><code>// Convertimos texto a número usando Number()
+var numeroComoCadena = "42";
+var numeroComoNumero = Number(numeroComoCadena);
+
+console.log(typeof numeroComoCadena); // "string"
+console.log(typeof numeroComoNumero); // "number"</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Convertir a texto (string)</h2>
+      <pre><code>// Usamos toString() para convertir número a texto
+var numero = 42;
+var texto = numero.toString();
+
+console.log(typeof texto); // "string"</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Convertir a número (number)</h2>
+      <pre><code>// Usamos Number() y parseInt() para convertir texto a número
+var texto1 = "42";
+var texto2 = "3.14";
+
+var numero1 = Number(texto1);     // 42
+var numero2 = parseInt(texto2);   // 3
+
+console.log(typeof numero1); // "number"
+console.log(typeof numero2); // "number"</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Convertir a booleano (boolean)</h2>
+      <p>Valores como <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code> y <code>NaN</code> se convierten en <code>false</code>. Todo lo demás es <code>true</code>.</p>
+      <pre><code>// Convertimos diferentes valores a booleano
+var valor1 = 1;
+var valor2 = "";
+var valor3 = undefined;
+var valor4 = null;
+
+console.log(Boolean(valor1)); // true
+console.log(Boolean(valor2)); // false
+console.log(Boolean(valor3)); // false
+console.log(Boolean(valor4)); // false</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Buenas prácticas</h2>
+      <ul>
+        <li>✅ Usa <code>===</code> y <code>!==</code> en lugar de <code>==</code> y <code>!=</code> para evitar errores por coerción automática.</li>
+        <li>✅ Usa <code>Number()</code>, <code>parseInt()</code> y <code>parseFloat()</code> para convertir datos tú mismo.</li>
+        <li>✅ Sé claro al convertir valores. Por ejemplo: <code>parseInt("10", 10)</code> es mejor que <code>parseInt("10")</code>.</li>
+        <li>✅ Recuerda que <code>""</code> (cadena vacía) se convierte en <code>0</code> si se usa en operaciones matemáticas.</li>
+        <li>✅ Usa <code>isNaN()</code> para verificar si un valor no es un número.</li>
+        <li>✅ Usa <code>typeof</code> para saber qué tipo de dato tiene una variable.</li>
+      </ul>
+    </section>
+
+    <div class="highlight">
+      <strong>Consejo:</strong> La coerción puede ayudarte, pero también confundirte. Sé explícito al convertir tipos de datos para evitar errores y escribir código más claro.
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 - Curso básico de JavaScript para principiantes
+  </footer>
+</body>
+</html>

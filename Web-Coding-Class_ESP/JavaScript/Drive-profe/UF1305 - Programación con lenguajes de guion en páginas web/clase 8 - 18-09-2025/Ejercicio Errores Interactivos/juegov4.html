@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encuentra el Bug </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1> Juego: Encuentra el Bug</h1>
+  <h2>Resuelve los errores en cada función. </h2>
+    <h3>Cada ejercicio vale 0.50 puntos. Cada pista que uses resta 0.10 puntos. ¡Buena suerte!</h3>
+
+
+<div id="bienvenida">
+  <h2>Bienvenido al juego</h2>
+  <h3></h3>
+  <label for="nombre">Introduce tu nombre:</label>
+  <input type="text" id="nombre" placeholder="Tu nombre" />
+  <button onclick="iniciarJuego()">Comenzar</button>
+</div>
+
+<div id="estado-juego" style="display:none;">
+  <p id="saludo-jugador"></p>
+  <p id="puntuacion-global">Puntuación total: 10.00</p>
+
+
+<div id="juego"></div>
+</div>
+  <script src="juego.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué es la programación?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    .bloque {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    code, pre {
+      background: #ecf0f1;
+      padding: 0.4em;
+      border-radius: 4px;
+      display: block;
+      margin-top: 0.5em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .extra {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Qué es la programación?</h1>
+    <p>Explicación extendida para el certificado IFCD0110</p>
+  </header>
+
+  <main>
+    <div class="bloque">
+      <h2>Definición</h2>
+      <p>La programación es el proceso de crear instrucciones que una computadora puede entender y ejecutar. Estas instrucciones se escriben en lenguajes de programación y permiten automatizar tareas, resolver problemas y construir aplicaciones.</p>
+    </div>
+
+    <div class="bloque">
+      <h2> ¿Qué implica programar?</h2>
+      <ul>
+        <li>Diseñar soluciones lógicas.</li>
+        <li>Escribir código fuente en un lenguaje específico.</li>
+        <li>Probar y depurar errores.</li>
+        <li>Optimizar y documentar el código.</li>
+      </ul>
+    </div>
+
+    <div class="bloque">
+      <h2> Elementos clave</h2>
+      <ul>
+        <li><strong>Algoritmo:</strong> pasos ordenados para resolver un problema.</li>
+        <li><strong>Código fuente:</strong> texto escrito por el programador.</li>
+        <li><strong>Lenguaje:</strong> sistema de reglas para escribir instrucciones.</li>
+        <li><strong>Compilador/Intérprete:</strong> traduce el código a lenguaje máquina.</li>
+        <li><strong>Depuración:</strong> corrección de errores.</li>
+      </ul>
+    </div>
+
+    <div class="bloque">
+      <h2> Aplicaciones de la programación</h2>
+      <ul>
+        <li>Desarrollo web y móvil</li>
+        <li>Videojuegos</li>
+        <li>Automatización de procesos</li>
+        <li>Inteligencia artificial</li>
+        <li>Robótica y dispositivos inteligentes</li>
+      </ul>
+    </div>
+
+    <div class="bloque">
+      <h2> Breve historia</h2>
+      <ul>
+        <li><strong>1940s–50s:</strong> programación en lenguaje máquina.</li>
+        <li><strong>1950s–60s:</strong> surge el ensamblador.</li>
+        <li><strong>1970s–90s:</strong> nacen C, Pascal, Java.</li>
+        <li><strong>2000s en adelante:</strong> Python, frameworks, IA.</li>
+      </ul>
+    </div>
+
+    <div class="bloque">
+      <h2>Programar es pensar</h2>
+      <p>La programación desarrolla habilidades como:</p>
+      <ul>
+        <li>Pensamiento lógico</li>
+        <li>Resolución de problemas</li>
+        <li>Creatividad</li>
+        <li>Precisión</li>
+        <li>Trabajo en equipo</li>
+      </ul>
+      <button onclick="mostrarEjemplo()">Ver ejemplo en JavaScript</button>
+      <div class="extra" id="ejemplo">
+        <p><strong>Ejemplo:</strong> función que saluda al usuario</p>
+        <pre><code>
+function saludar(nombre) {
+  console.log("Hola, " + nombre);
+}
+
+saludar("Joaquín");
+        </code></pre>
+        <p>Este código define una función que muestra un saludo personalizado en la consola.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function mostrarEjemplo() {
+      document.getElementById('ejemplo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

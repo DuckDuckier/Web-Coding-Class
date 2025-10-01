@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Funciones en JavaScript</h1>
+      <p>Aprende a crear, usar y reutilizar bloques de código</p>
+    </header>
+    <main>
+    <section>
+      <h2>Arrays en JavaScript</h2>
+
+      <div class="ejercicio">
+        <p title="Un array es una colección ordenada de elementos">
+          1. ¿Qué es un array?
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar explicación</button>
+        <pre class="solucion">
+Un array es una estructura de datos que permite almacenar múltiples valores en una sola variable.
+Cada elemento tiene un índice numérico, comenzando desde 0.
+    </pre
+        >
+        <div class="explicacion">
+          Los arrays pueden contener cualquier tipo de dato: números, cadenas,
+          booleanos, objetos, incluso otros arrays.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Puedes usar corchetes o el constructor Array">
+          2. Crear un array vacío
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+var miArray = [];           // Usando corchetes
+var otroArray = new Array(); // Usando el constructor
+    </pre
+        >
+        <div class="explicacion">
+          Ambas formas crean un array vacío. Se recomienda usar corchetes por
+          simplicidad y claridad.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Puedes incluir distintos tipos de datos">
+          3. Crear un array con elementos
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+var miArray = [1, 'Hola', [3], true];
+var otroArray = new Array(1, 2, 3);
+    </pre
+        >
+        <div class="explicacion">
+          Los arrays pueden contener valores heterogéneos. El constructor
+          también permite inicializar con elementos.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Puedes usar var, let o const">
+          4. Declarar arrays con diferentes palabras clave
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+var miArray = [1, 2, 3];
+let miArray = [1, 2, 3];
+const miArray = [1, 2, 3];
+    </pre
+        >
+        <div class="explicacion">
+          Usa <code>const</code> si no vas a reasignar el array. Aunque el
+          contenido pueda cambiar, la referencia permanece.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Accede usando el índice">
+          5. Acceder a un elemento del array
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+var miArray = [1, 2, 3];
+console.log(miArray[0]); // Muestra 1
+    </pre
+        >
+        <div class="explicacion">
+          El índice 0 corresponde al primer elemento. Puedes acceder a cualquier
+          posición usando corchetes.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Modifica el valor en una posición específica">
+          6. Modificar un elemento del array
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar solución</button>
+        <pre class="solucion">
+var miArray = [1, 2, 3];
+miArray[0] = 4;
+console.log(miArray[0]); // Muestra 4
+    </pre
+        >
+        <div class="explicacion">
+          Puedes cambiar el valor de cualquier elemento accediendo por su índice
+          y asignando un nuevo valor.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p title="Consejos para escribir mejor código con arrays">
+          7. Buenas prácticas con arrays
+        </p>
+        <button onclick="toggleSolucion(this)">Mostrar recomendaciones</button>
+        <pre class="solucion">
+- Usa const si no vas a reasignar el array.
+- Evita modificar arrays directamente; usa métodos como map(), filter(), reduce().
+- Prefiere métodos como forEach() en lugar de bucles for.
+- Nombra tus arrays de forma descriptiva.
+- Usa Array.isArray() para verificar si una variable es un array.
+- Evita operaciones costosas como reordenar o eliminar elementos innecesariamente.
+    </pre>
+    <div class="explicacion">
+        Estas prácticas ayudan a mantener tu código limpio, eficiente y fácil de mantener.      
+    </div>
+</div>
+</section>
+    </main>
+    <footer>
+      &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+    <script>
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion.nextElementSibling;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+    </script>
+  </body>
+</html>

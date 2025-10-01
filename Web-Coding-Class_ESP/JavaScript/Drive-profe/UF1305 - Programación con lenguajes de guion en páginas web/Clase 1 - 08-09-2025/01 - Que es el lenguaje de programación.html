@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lenguajes de Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    section {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      display: none;
+    }
+    section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    nav {
+      text-align: center;
+      margin: 1em 0;
+    }
+    button {
+      margin: 0.5em;
+      padding: 0.7em 1.2em;
+      border: none;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .quiz {
+      margin-top: 2em;
+    }
+    .quiz input {
+      margin-right: 0.5em;
+    }
+    .result {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lenguajes de Programación y sus Niveles</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('intro')">¿Qué es?</button>
+    <button onclick="showSection('niveles')">Niveles</button>
+    <button onclick="showSection('ejemplo')">Ejemplo</button>
+    <button onclick="showSection('quiz')">Quiz</button>
+  </nav>
+
+  <section id="intro" class="active">
+    <h2>¿Qué es un lenguaje de programación?</h2>
+    <p>Es un sistema que permite a los humanos comunicarse con las máquinas para crear software, páginas web, apps y más.</p>
+    <p>Ejemplo: <code>console.log("Hola, mundo");</code></p>
+  </section>
+
+  <section id="niveles">
+    <h2>Niveles de Lenguajes</h2>
+    <table>
+      <tr>
+        <th>Nivel</th>
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Características</th>
+      </tr>
+      <tr>
+        <td>1G</td>
+        <td>Lenguaje máquina</td>
+        <td>01010101</td>
+        <td>Binario, directo al hardware</td>
+      </tr>
+      <tr>
+        <td>2G</td>
+        <td>Ensamblador</td>
+        <td>MOV AX, 5</td>
+        <td>Simbólico, específico del procesador</td>
+      </tr>
+      <tr>
+        <td>3G</td>
+        <td>Alto nivel</td>
+        <td>let x = 5;</td>
+        <td>Legible, multiplataforma</td>
+      </tr>
+      <tr>
+        <td>4G</td>
+        <td>Cuarta generación</td>
+        <td>SELECT * FROM clientes</td>
+        <td>Declarativo, orientado a tareas</td>
+      </tr>
+      <tr>
+        <td>5G</td>
+        <td>Natural</td>
+        <td>"Hazme una app de recetas"</td>
+        <td>Interpretación de lenguaje humano</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="ejemplo">
+    <h2>Ejemplo en JavaScript</h2>
+    <pre><code>
+let nombre = "Joaquín";
+console.log("Hola, " + nombre);
+    </code></pre>
+    <p>Este código declara una variable y muestra un saludo en la consola.</p>
+  </section>
+
+  <section id="quiz">
+    <h2>Quiz interactivo</h2>
+    <div class="quiz">
+      <p><strong>¿Qué nivel representa el código <code>SELECT * FROM usuarios</code>?</strong></p>
+      <label><input type="radio" name="q1" value="3G"> 3G</label><br>
+      <label><input type="radio" name="q1" value="4G"> 4G</label><br>
+      <label><input type="radio" name="q1" value="5G"> 5G</label><br>
+      <button onclick="checkQuiz()">Comprobar</button>
+      <div class="result" id="result"></div>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function checkQuiz() {
+      const answer = document.querySelector('input[name="q1"]:checked');
+      const result = document.getElementById('result');
+      if (!answer) {
+        result.textContent = "Selecciona una opción.";
+        result.style.color = "red";
+      } else if (answer.value === "4G") {
+        result.textContent = "¡Correcto! Es un lenguaje de cuarta generación.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Incorrecto. Intenta de nuevo.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

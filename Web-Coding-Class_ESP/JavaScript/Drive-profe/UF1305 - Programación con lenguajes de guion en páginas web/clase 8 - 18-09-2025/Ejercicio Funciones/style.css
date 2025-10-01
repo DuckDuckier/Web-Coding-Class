@@ -1,0 +1,262 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header moderno */
+header {
+  background-color: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Menú centrado con botones */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav .btn {
+  background-color: #4e4efc;
+  color: white;
+  padding: 0.6em 1.2em;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+nav .btn:hover {
+  background-color: #3a3ad6;
+}
+
+#intro {
+  text-align: center;
+  padding: 3em 1em;
+  background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+  border-radius: 12px;
+  margin: 2em auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#intro h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #1e1e2f;
+}
+
+#intro p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+#intro button {
+  background-color: #4e4efc;
+  color: white;
+  border: none;
+  padding: 0.7em 1.4em;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#intro button:hover {
+  background-color: #3a3ad6;
+}
+
+#fecha {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #1e1e2f;
+}
+#scripts {
+  padding: 3em 1em;
+  background-color: #eef2f7;
+  text-align: center;
+}
+
+#scripts h2 {
+  font-size: 2.2em;
+  margin-bottom: 1em;
+  color: #1e1e2f;
+}
+
+/* Contenedor de tarjetas */
+#scripts .card {
+
+  margin: 1.5em auto;
+  padding: 2em;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Estilo para inputs y botones dentro de las tarjetas */
+#scripts input[type="number"],
+#scripts input[type="text"] {
+  padding: 0.6em;
+  margin: 0.5em;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+#scripts button {
+  background-color: #4e4efc;
+  color: white;
+  border: none;
+  padding: 0.7em 1.4em;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1em;
+}
+
+#scripts button:hover {
+  background-color: #3a3ad6;
+}
+
+#scripts p {
+  margin-top: 1em;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.respuesta {
+  background-color: #e0f7fa;
+  border-left: 6px solid #00acc1;
+  padding: 1em;
+  margin-top: 1em;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #004d40;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+
+/* Cards */
+.card {
+  background: white;
+  margin: 2em auto;
+  padding: 1.5em;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Modo oscuro aplicado a tarjetas */
+.dark-mode .card {
+  background-color: #2c2c3a;
+  color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Inputs y botones dentro de tarjetas en modo oscuro */
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #3a3a4a;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode input::placeholder {
+  color: #aaa;
+}
+
+/* Botones */
+.dark-mode button {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.dark-mode button:hover {
+  background-color: #5548d9;
+}
+
+/* Menú y navegación */
+.dark-mode header {
+  background-color: #1a1a2a;
+  color: #f0f0f0;
+}
+
+.dark-mode nav .btn {
+  background-color: #4e4efc;
+  color: white;
+}
+
+.dark-mode nav .btn:hover {
+  background-color: #3a3ad6;
+}
+
+/* Sección intro */
+.dark-mode #intro {
+  background: linear-gradient(135deg, #1a1a2a, #2c2c3a);
+  color: #f0f0f0;
+}
+
+/* Sección scripts */
+.dark-mode #scripts {
+  background-color: #1a1a2a;
+  color: #f0f0f0;
+}
+
+.dark-mode button:hover {
+  background-color: #5548d9;
+}
+
+/* Footer centrado y elegante */
+footer {
+  background-color: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 1.5em;
+  margin-top: 3em;
+  font-size: 0.9em;
+}
+
+/* Botones generales */
+button {
+  background-color: #4e4efc;
+  color: white;
+  border: none;
+  padding: 0.6em 1em;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3a3ad6;
+}
+
+ 

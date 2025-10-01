@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Operadores en JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .operador {
+      background: #fff;
+      border-left: 5px solid #007acc;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .operador code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .demo {
+      margin-top: 10px;
+    }
+    .demo input {
+      width: 100px;
+      padding: 5px;
+      margin-right: 5px;
+    }
+    .demo button {
+      padding: 5px 10px;
+      background: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .demo button:hover {
+      background: #005fa3;
+    }
+    .output {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Operadores en JavaScript</h1>
+
+  <div class="operador">
+    <h2>Aritméticos: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code></h2>
+    <p>Realizan operaciones matemáticas básicas.</p>
+    <div class="demo">
+      <input type="number" id="num1" placeholder="Número 1">
+      <input type="number" id="num2" placeholder="Número 2">
+      <button onclick="mostrarAritmeticos()">Probar</button>
+      <div class="output" id="resultadoAritmetico"></div>
+    </div>
+  </div>
+
+  <div class="operador">
+    <h2>Comparación: <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></h2>
+    <p>Comparan valores y devuelven <code>true</code> o <code>false</code>.</p>
+    <div class="demo">
+      <input type="text" id="comp1" placeholder="Valor 1">
+      <input type="text" id="comp2" placeholder="Valor 2">
+      <button onclick="mostrarComparacion()">Comparar</button>
+      <div class="output" id="resultadoComparacion"></div>
+    </div>
+  </div>
+
+  <div class="operador">
+    <h2>Lógicos: <code>&&</code>, <code>||</code>, <code>!</code></h2>
+    <p>Trabajan con valores booleanos.</p>
+    <div class="demo">
+      <input type="checkbox" id="bool1"> Valor 1
+      <input type="checkbox" id="bool2"> Valor 2
+      <button onclick="mostrarLogicos()">Evaluar</button>
+      <div class="output" id="resultadoLogico"></div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarAritmeticos() {
+      const a = parseFloat(document.getElementById('num1').value);
+      const b = parseFloat(document.getElementById('num2').value);
+      const res = `
+        Suma: ${a + b} <br>
+        Resta: ${a - b} <br>
+        Multiplicación: ${a * b} <br>
+        División: ${a / b} <br>
+        Módulo: ${a % b} <br>
+        Potencia: ${a ** b}
+      `;
+      document.getElementById('resultadoAritmetico').innerHTML = res;
+    }
+
+    function mostrarComparacion() {
+      const x = document.getElementById('comp1').value;
+      const y = document.getElementById('comp2').value;
+      const res = `
+        == : ${x == y} <br>
+        === : ${x === y} <br>
+        != : ${x != y} <br>
+        !== : ${x !== y} <br>
+        > : ${x > y} <br>
+        < : ${x < y}
+      `;
+      document.getElementById('resultadoComparacion').innerHTML = res;
+    }
+
+    function mostrarLogicos() {
+      const a = document.getElementById('bool1').checked;
+      const b = document.getElementById('bool2').checked;
+      const res = `
+        AND (a && b): ${a && b} <br>
+        OR (a || b): ${a || b} <br>
+        NOT (!a): ${!a}
+      `;
+      document.getElementById('resultadoLogico').innerHTML = res;
+    }
+  </script>
+
+</body>
+</html>

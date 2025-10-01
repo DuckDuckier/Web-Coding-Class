@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Qué es Sass?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primario: #2c3e50;
+      --color-acento: #3498db;
+      --color-fondo: #ecf0f1;
+      --color-texto: #2c3e50;
+      --color-blanco: #ffffff;
+      --fuente-principal: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--fuente-principal);
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+     h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 30px;
+      color: var(--color-primario);
+      position: relative;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    h1::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-acento);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1.15em;
+      line-height: 1.8;
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    table {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      border-collapse: collapse;
+      background-color: var(--color-blanco);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    caption {
+      caption-side: top;
+      font-weight: 600;
+      font-size: 1.3em;
+      padding: 15px;
+      background-color: var(--color-acento);
+      color: var(--color-blanco);
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      th, td {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Qué es Sass y por qué se utiliza?</h1>
+  <p>
+    Sass (Syntactically Awesome Stylesheets) es un preprocesador de CSS que permite escribir estilos de forma más organizada, reutilizable y potente. Aunque el navegador no entiende Sass directamente, se compila en CSS tradicional para que funcione correctamente.
+  </p>
+  <p>
+    Se utiliza principalmente para mejorar la productividad y mantener el código limpio en proyectos grandes. Algunas de sus características más útiles son las variables, la anidación, los mixins, la herencia y las funciones.
+  </p>
+
+  <table>
+    <caption>Ventajas de usar Sass</caption>
+    <thead>
+      <tr>
+        <th>Característica</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Variables</td>
+        <td>Permiten guardar valores como colores, fuentes o tamaños para reutilizarlos fácilmente.</td>
+      </tr>
+      <tr>
+        <td>Anidación</td>
+        <td>Organiza los estilos de forma jerárquica, similar a la estructura del HTML.</td>
+      </tr>
+      <tr>
+        <td>Mixins</td>
+        <td>Bloques de código reutilizables que pueden recibir parámetros.</td>
+      </tr>
+      <tr>
+        <td>Herencia</td>
+        <td>Permite compartir estilos entre diferentes selectores.</td>
+      </tr>
+      <tr>
+        <td>Funciones</td>
+        <td>Realiza cálculos y operaciones directamente en los estilos.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

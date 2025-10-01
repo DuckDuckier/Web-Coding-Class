@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Práctica Interactiva de Ordinogramas y Pseudocódigo</title>
+<style>
+  :root{
+    --primary:#0078d7; --primary-dark:#005a9e;
+    --bg:#f4f6f9; --card:#ffffff; --text:#1f2937; --muted:#6b7280;
+    --green:#22c55e; --red:#ef4444; --border:#d1d5db;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:Arial, Helvetica, sans-serif; background:var(--bg); color:var(--text)}
+  header{
+    background:linear-gradient(135deg, var(--primary), #3b82f6);
+    color:#fff; padding:16px; display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+  }
+  header h1{margin:0; font-size:1.2rem}
+  .scoreboard{
+    background:rgba(255,255,255,.15); padding:8px 12px; border-radius:8px; display:flex; gap:10px; align-items:center;
+  }
+  .badge{background:#e0f2fe; color:#0b3b8f; padding:2px 8px; border-radius:999px; font-weight:700}
+  .btn{border:none; background:#fff; color:var(--primary); font-weight:700; padding:8px 10px; border-radius:8px; cursor:pointer}
+  .btn:hover{background:#eef6ff}
+  nav{display:flex; flex-wrap:wrap; gap:4px; background:#eaf3ff; padding:6px}
+  nav button{
+    flex:1 1 auto; min-width:140px; padding:10px; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer;
+  }
+  nav button.active{background:var(--primary); color:#fff; border-color:var(--primary)}
+  main{max-width:1100px; margin:10px auto 30px; padding:0 12px}
+  section{display:none; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-top:10px}
+  section.active{display:block}
+  h2{margin:0 0 10px; color:#0b3b8f; font-size:1.05rem}
+  .question{margin:10px 0}
+  .option{display:block; margin:6px 0}
+  .correct{color:var(--green); font-weight:700}
+  .incorrect{color:var(--red); font-weight:700}
+  .helper{color:var(--muted); font-size:.9rem}
+  .dropzone{min-height:56px; border:2px dashed #cbd5e1; border-radius:8px; padding:10px; background:#fbfdff; margin:10px 0}
+  .draggable{background:#e6f6ff; border:1px solid var(--primary); border-radius:6px; padding:6px 8px; margin:6px 0; cursor:grab}
+  .grid{display:grid; gap:12px; grid-template-columns:1fr 1fr}
+  @media(max-width:720px){ .grid{grid-template-columns:1fr} }
+  .col{background:#fbfdff; border:1px solid var(--border); border-radius:10px; padding:10px}
+  .pair{display:flex; align-items:center; justify-content:space-between; gap:8px; margin:6px 0}
+  .pill{display:inline-block; background:#eef6ff; color:#0b3b8f; border:1px solid #cfe3ff; border-radius:999px; padding:4px 8px; font-size:.9rem}
+  pre, code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+  pre{background:#0f172a; color:#e5e7eb; padding:10px; border-radius:8px; overflow:auto}
+  .actions{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+  .btn.primary{background:var(--primary); color:#fff}
+  .btn.primary:hover{background:var(--primary-dark)}
+  .done{display:inline-block; margin-left:8px; color:var(--green); font-weight:700}
+  .sticky-help{margin-top:8px; padding:8px; background:#eff6ff; color:#1e3a8a; border-left:4px solid #93c5fd; border-radius:6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Práctica Interactiva de Ordinogramas y Pseudocódigo</h1>
+  <div class="scoreboard">
+    <span>Puntuación: <span id="score">0</span>/10</span>
+    <span class="badge" id="progressBadge">0% completado</span>
+    <button class="btn" id="resetBtn">Reiniciar</button>
+  </div>
+</header>
+
+<nav id="tabs">
+  <button onclick="showTab(1)" class="active">1. Identificar símbolo</button>
+  <button onclick="showTab(2)">2. Ordenar pseudocódigo</button>
+  <button onclick="showTab(3)">3. Completar pseudocódigo</button>
+  <button onclick="showTab(4)">4. Clasificar instrucciones</button>
+  <button onclick="showTab(5)">5. Emparejar símbolo/nombre</button>
+  <button onclick="showTab(6)">6. Emparejar símbolo/uso</button>
+  <button onclick="showTab(7)">7. Detectar error</button>
+  <button onclick="showTab(8)">8. Salida correcta</button>
+  <button onclick="showTab(9)">9. Elegir símbolo</button>
+  <button onclick="showTab(10)">10. Mini reto</button>
+</nav>
+
+<main>
+  <!-- 1 -->
+  <section id="tab1" class="active">
+    <h2>1. Identificar símbolo</h2>
+    <p class="helper">¿Qué símbolo se usa para una decisión?</p>
+    <div class="question">
+      <label class="option"><input type="radio" name="q1" value="correct"> Rombo </label>
+      <label class="option"><input type="radio" name="q1" value="wrong"> Rectángulo </label>
+      <label class="option"><input type="radio" name="q1" value="wrong"> Paralelogramo </label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkAnswer('q1','ex1')">Comprobar</button>
+      <span id="res_ex1"></span>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="tab2">
+    <h2>2. Ordenar pseudocódigo</h2>
+    <p class="helper">Arrastra las líneas para ordenarlas correctamente (suma de dos números).</p>
+    <div id="order1" class="dropzone"></div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkOrder('order1','ex2')">Comprobar orden</button>
+      <span id="res_ex2"></span>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="tab3">
+    <h2>3. Completar pseudocódigo</h2>
+    <p class="helper">Rellena con palabras clave correctas (Algoritmo, Escribir, FinAlgoritmo, etc.).</p>
+    <textarea id="fillCode" rows="8">_____ CalcularSuma
+    Definir a, b, suma Como Entero
+    Leer a
+    Leer b
+    suma = a + b
+    _____ "La suma es: ", suma
+  _____</textarea>
+    <div class="actions">
+      <button class="btn primary" onclick="checkFill('ex3')">Comprobar</button>
+      <span id="res_ex3"></span>
+    </div>
+    <div class="sticky-help">Pista: Debes usar tres claves: Algoritmo, Escribir y FinAlgoritmo.</div>
+  </section>
+
+  <!-- 4 -->
+  <section id="tab4">
+    <h2>4. Clasificar instrucciones</h2>
+    <p class="helper">Escribe si es Entrada, Proceso, Decisión o Salida (en minúsculas).</p>
+    <div class="grid">
+      <div class="col">
+        Leer edad: <input id="class1" placeholder="">
+      </div>
+      <div class="col">
+        Si edad ≥ 18 Entonces: <input id="class2" placeholder="">
+      </div>
+      <div class="col">
+        Mostrar "Mayor de edad": <input id="class3" placeholder="">
+      </div>
+      <div class="col">
+        total = precio * cantidad: <input id="class4" placeholder="">
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkClass('ex4')">Comprobar</button>
+      <span id="res_ex4"></span>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="tab5">
+    <h2>5. Emparejar símbolo con nombre</h2>
+    <p class="helper">Arrastra cada nombre a su símbolo correspondiente.</p>
+    <div class="grid">
+      <div class="col">
+        <h3>Símbolos</h3>
+        <div class="pair"><span class="pill">Terminador (Inicio/Fin)</span><div class="dropzone" data-accept="terminador"></div></div>
+        <div class="pair"><span class="pill">Paralelogramo (E/S)</span><div class="dropzone" data-accept="paralelogramo"></div></div>
+        <div class="pair"><span class="pill">Rectángulo (Proceso)</span><div class="dropzone" data-accept="rectangulo"></div></div>
+        <div class="pair"><span class="pill">Rombo (Decisión)</span><div class="dropzone" data-accept="rombo"></div></div>
+        <div class="pair"><span class="pill">Rectángulo doble (Subproceso)</span><div class="dropzone" data-accept="subproceso"></div></div>
+        <div class="pair"><span class="pill">Conector</span><div class="dropzone" data-accept="conector"></div></div>
+      </div>
+      <div class="col">
+        <h3>Nombres</h3>
+        <div id="names5" class="dropzone"></div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkMatching('names5','ex5')">Comprobar</button>
+      <span id="res_ex5"></span>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="tab6">
+    <h2>6. Emparejar símbolo con su uso</h2>
+    <p class="helper">Arrastra cada uso al símbolo que corresponde.</p>
+    <div class="grid">
+      <div class="col">
+        <h3>Símbolos</h3>
+        <div class="pair"><span class="pill">Terminador</span><div class="dropzone" data-accept="iniciofin"></div></div>
+        <div class="pair"><span class="pill">Paralelogramo</span><div class="dropzone" data-accept="io"></div></div>
+        <div class="pair"><span class="pill">Rectángulo</span><div class="dropzone" data-accept="proceso"></div></div>
+        <div class="pair"><span class="pill">Rombo</span><div class="dropzone" data-accept="decision"></div></div>
+        <div class="pair"><span class="pill">Rectángulo doble</span><div class="dropzone" data-accept="subproceso"></div></div>
+        <div class="pair"><span class="pill">Conector</span><div class="dropzone" data-accept="conector"></div></div>
+      </div>
+      <div class="col">
+        <h3>Usos</h3>
+        <div id="uses6" class="dropzone"></div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkMatching('uses6','ex6')">Comprobar</button>
+      <span id="res_ex6"></span>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="tab7">
+    <h2>7. Detectar error en pseudocódigo</h2>
+    <p class="helper">Lee y selecciona el error.</p>
+    <pre>Algoritmo Ejemplo
+    Definir x Como Entero
+    Leer x
+    Si x > 0
+        Escribir "Positivo"
+FinAlgoritmo</pre>
+    <div class="question">
+      <label class="option"><input type="radio" name="q7" value="correct"> Falta "FinSi"</label>
+      <label class="option"><input type="radio" name="q7" value="wrong"> Falta "Entonces"</label>
+      <label class="option"><input type="radio" name="q7" value="wrong"> Falta "Definir"</label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkAnswer('q7','ex7')">Comprobar</button>
+      <span id="res_ex7"></span>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section id="tab8">
+    <h2>8. Seleccionar la salida correcta</h2>
+    <p class="helper">Si x=5 y y=3, ¿qué muestra?</p>
+    <pre>suma = x + y
+Escribir suma</pre>
+    <div class="question">
+      <label class="option"><input type="radio" name="q8" value="wrong"> 53</label>
+      <label class="option"><input type="radio" name="q8" value="correct"> 8</label>
+      <label class="option"><input type="radio" name="q8" value="wrong"> Error</label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkAnswer('q8','ex8')">Comprobar</button>
+      <span id="res_ex8"></span>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section id="tab9">
+    <h2>9. Elegir el símbolo adecuado</h2>
+    <p class="helper">¿Qué símbolo usarías para "Calcular total"?</p>
+    <div class="question">
+      <label class="option"><input type="radio" name="q9" value="wrong"> Rombo</label>
+      <label class="option"><input type="radio" name="q9" value="correct"> Rectángulo</label>
+      <label class="option"><input type="radio" name="q9" value="wrong"> Paralelogramo</label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkAnswer('q9','ex9')">Comprobar</button>
+      <span id="res_ex9"></span>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section id="tab10">
+    <h2>10. Mini reto: ordena el pseudocódigo</h2>
+    <p class="helper">Lee dos números, muestra su suma.</p>
+    <div id="order2" class="dropzone"></div>
+    <div class="actions">
+      <button class="btn primary" onclick="checkOrder('order2','ex10')">Comprobar orden</button>
+      <span id="res_ex10"></span>
+    </div>
+  </section>
+</main>
+
+<script>
+  // ======= Estado global de puntuación =======
+  let score = 0;
+  const completed = {
+    ex1:false, ex2:false, ex3:false, ex4:false, ex5:false,
+    ex6:false, ex7:false, ex8:false, ex9:false, ex10:false
+  };
+
+  function addPointOnce(key){
+    if (!completed[key]) {
+      completed[key] = true;
+      score++;
+      updateScoreboard();
+      const res = document.getElementById('res_'+key);
+      if (res) {
+        const done = document.createElement('span');
+        done.className = 'done';
+        done.textContent = '✔ Completado';
+        res.appendChild(done);
+      }
+    }
+  }
+
+  function updateScoreboard(){
+    document.getElementById('score').textContent = score;
+    const total = Object.keys(completed).length;
+    const percent = Math.round((Object.values(completed).filter(Boolean).length / total) * 100);
+    document.getElementById('progressBadge').textContent = percent + '% completado';
+  }
+
+  function resetAll(){
+    score = 0;
+    for (const k in completed) completed[k] = false;
+    updateScoreboard();
+    // Reset radios and results
+    ['q1','q7','q8','q9'].forEach(name=>{
+      document.querySelectorAll(`input[name="${name}"]`).forEach(i=> i.checked=false);
+    });
+    document.querySelectorAll('[id^="res_ex"]').forEach(e=> e.textContent = '');
+    // Reset text inputs
+    ['class1','class2','class3','class4'].forEach(id=> document.getElementById(id).value = '');
+    // Reset fill
+    document.getElementById('fillCode').value = `_____ CalcularSuma
+    Definir a, b, suma Como Entero
+    Leer a
+    Leer b
+    suma = a + b
+    _____ "La suma es: ", suma
+  _____`;
+    // Rebuild drag-drop exercises
+    buildOrder('order1', correctOrder1);
+    buildOrder('order2', correctOrder2);
+    buildMatching('names5', matching5);
+    buildMatching('uses6', matching6);
+  }
+
+  document.getElementById('resetBtn').addEventListener('click', resetAll);
+
+  // ======= Tabs =======
+  function showTab(n){
+    document.querySelectorAll('nav button').forEach(b=> b.classList.remove('active'));
+    document.querySelectorAll('section').forEach(s=> s.classList.remove('active'));
+    document.querySelectorAll('nav button')[n-1].classList.add('active');
+    document.getElementById('tab'+n).classList.add('active');
+  }
+
+  // ======= Ejercicio 1, 7, 8, 9 (opción múltiple) =======
+  function checkAnswer(name, exKey){
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
+    const res = document.getElementById('res_'+exKey);
+    if (!selected) { res.textContent = 'Selecciona una respuesta.'; res.className='incorrect'; return; }
+    if (selected.value === 'correct') {
+      res.textContent = '¡Correcto!';
+      res.className = 'correct';
+      addPointOnce(exKey);
+    } else {
+      res.textContent = 'Incorrecto. Intenta de nuevo.';
+      res.className = 'incorrect';
+    }
+  }
+
+  // ======= Ejercicio 2 y 10 (ordenar drag-drop) =======
+  const correctOrder1 = [
+    'Algoritmo Suma',
+    'Definir a, b, suma Como Entero',
+    'Leer a',
+    'Leer b',
+    'suma = a + b',
+    'Escribir "La suma es: ", suma',
+    'FinAlgoritmo'
+  ];
+  const correctOrder2 = [
+    'Algoritmo SumarDos',
+    'Definir x, y, suma Como Entero',
+    'Leer x',
+    'Leer y',
+    'suma = x + y',
+    'Escribir "Suma: ", suma',
+    'FinAlgoritmo'
+  ];
+
+  function buildOrder(containerId, lines){
+    const cont = document.getElementById(containerId);
+    cont.innerHTML = '';
+    const shuffled = [...lines].sort(()=> Math.random() - 0.5);
+    shuffled.forEach(line=>{
+      const div = document.createElement('div');
+      div.textContent = line;
+      div.className = 'draggable';
+      div.draggable = true;
+      div.addEventListener('dragstart', dragStart);
+      cont.appendChild(div);
+    });
+    // Allow reordering by dropping anywhere in container
+    cont.addEventListener('dragover', e=> e.preventDefault());
+    cont.addEventListener('drop', function(e){
+      e.preventDefault();
+      if (draggedItem){
+        draggedItem.style.display = 'block';
+        this.appendChild(draggedItem);
+        draggedItem = null;
+      }
+    });
+  }
+
+  let draggedItem = null;
+  function dragStart(e){
+    draggedItem = this;
+    setTimeout(()=> this.style.display='none', 0);
+  }
+
+  function checkOrder(containerId, exKey){
+    const current = Array.from(document.getElementById(containerId).children).map(d=> d.textContent);
+    const correct = (containerId === 'order1') ? correctOrder1 : correctOrder2;
+    const res = document.getElementById('res_'+exKey);
+    if (JSON.stringify(current) === JSON.stringify(correct)) {
+      res.textContent = '¡Orden correcto!';
+      res.className = 'correct';
+      addPointOnce(exKey);
+    } else {
+      res.textContent = 'El orden no es correcto. Revisa.';
+      res.className = 'incorrect';
+    }
+  }
+
+  // ======= Ejercicio 3 (completar pseudocódigo) =======
+  function checkFill(exKey){
+    const txt = document.getElementById('fillCode').value.toLowerCase();
+    const res = document.getElementById('res_'+exKey);
+    const ok = txt.includes('algoritmo') && txt.includes('escribir') && txt.includes('finalgoritmo');
+    if (ok){
+      res.textContent = '¡Bien! Has completado las palabras clave.';
+      res.className = 'correct';
+      addPointOnce(exKey);
+    } else {
+      res.textContent = 'Faltan palabras clave (Algoritmo, Escribir, FinAlgoritmo).';
+      res.className = 'incorrect';
+    }
+  }
+
+  // ======= Ejercicio 4 (clasificar) =======
+  function checkClass(exKey){
+    const a = v('class1'), b = v('class2'), c = v('class3'), d = v('class4');
+    const res = document.getElementById('res_'+exKey);
+    if (a==='entrada' && b==='decisión' && c==='salida' && d==='proceso'){
+      res.textContent = '¡Correcto!';
+      res.className = 'correct';
+      addPointOnce(exKey);
+    } else {
+      res.textContent = 'Alguna clasificación es incorrecta. Pista: entrada/decisión/salida/proceso.';
+      res.className = 'incorrect';
+    }
+    function v(id){ return document.getElementById(id).value.trim().toLowerCase(); }
+  }
+
+  // ======= Ejercicios 5 y 6 (emparejar por drag-drop con validación) =======
+  // E5: símbolo -> nombre clave
+  const matching5 = [
+    { label:'Rombo (Decisión)', value:'rombo' },
+    { label:'Rectángulo (Proceso)', value:'rectangulo' },
+    { label:'Paralelogramo (E/S)', value:'paralelogramo' },
+    { label:'Rectángulo doble (Subproceso)', value:'subproceso' },
+    { label:'Terminador (Inicio/Fin)', value:'terminador' },
+    { label:'Conector', value:'conector' }
+  ];
+  // E6: símbolo -> uso
+  const matching6 = [
+    { label:'Entrada/Salida de datos', value:'io' },
+    { label:'Iniciar o terminar el flujo', value:'iniciofin' },
+    { label:'Realizar cálculos/acciones', value:'proceso' },
+    { label:'Tomar decisiones (Sí/No)', value:'decision' },
+    { label:'Llamar a subproceso/función', value:'subproceso' },
+    { label:'Conectar partes del diagrama', value:'conector' }
+  ];
+
+  function buildMatching(containerId, data){
+    const cont = document.getElementById(containerId);
+    cont.innerHTML = '';
+    const shuffled = [...data].sort(()=> Math.random()-0.5);
+    shuffled.forEach(item=>{
+      const div = document.createElement('div');
+      div.className = 'draggable';
+      div.textContent = item.label;
+      div.setAttribute('data-value', item.value);
+      div.draggable = true;
+      div.addEventListener('dragstart', dragStart);
+      cont.appendChild(div);
+    });
+    // make all dropzones accept drops
+    document.querySelectorAll('#'+containerId+' .dropzone').forEach(z=>{
+      z.addEventListener('dragover', e=> e.preventDefault());
+      z.addEventListener('drop', onDropToSlot);
+    });
+    document.querySelectorAll('section .dropzone').forEach(z=>{
+      z.addEventListener('dragover', e=> e.preventDefault());
+      z.addEventListener('drop', onDropToSlot);
+    });
+  }
+
+  function onDropToSlot(e){
+    e.preventDefault();
+    if (!draggedItem) return;
+    draggedItem.style.display = 'block';
+    // If slot already has child, move it back to its container
+    if (this !== draggedItem.parentElement) {
+      if (this.children.length>0) {
+        // move existing child to the pool (previous parent of draggedItem or nearest pool)
+        const pool = findPoolFor(this);
+        pool.appendChild(this.children[0]);
+      }
+      this.appendChild(draggedItem);
+    }
+    draggedItem = null;
+  }
+
+  function findPoolFor(slot){
+    // locate the sibling container pool: search nearest .grid .col second column's dropzone container
+    const section = slot.closest('section');
+    const pools = section.querySelectorAll('.grid .col .dropzone');
+    // heuristics: pick the largest one with many children (the pool)
+    let best = pools[0]; let max = -1;
+    pools.forEach(p=> { if (p.children.length > max) { max = p.children.length; best = p; } });
+    return best || pools[0];
+  }
+
+  function checkMatching(poolId, exKey){
+    const section = document.getElementById(poolId).closest('section');
+    const res = document.getElementById('res_'+exKey);
+    const slots = section.querySelectorAll('.pair .dropzone[data-accept]');
+    let ok = true, countPlaced = 0;
+    slots.forEach(s=>{
+      const needed = s.getAttribute('data-accept');
+      const child = s.firstElementChild;
+      if (!child) { ok = false; return; }
+      countPlaced++;
+      const val = child.getAttribute('data-value');
+      if (val !== needed) ok = false;
+    });
+    if (countPlaced !== slots.length) ok = false;
+    if (ok){
+      res.textContent = '¡Emparejamiento correcto!';
+      res.className = 'correct';
+      addPointOnce(exKey);
+    } else {
+      res.textContent = 'Revisa los emparejamientos. Asegúrate de colocar todos los elementos.';
+      res.className = 'incorrect';
+    }
+  }
+
+  // ======= Inicialización =======
+  function init(){
+    buildOrder('order1', correctOrder1);
+    buildOrder('order2', correctOrder2);
+    buildMatching('names5', matching5);
+    buildMatching('uses6', matching6);
+    updateScoreboard();
+  }
+  init();
+</script>
+</body>
+</html>

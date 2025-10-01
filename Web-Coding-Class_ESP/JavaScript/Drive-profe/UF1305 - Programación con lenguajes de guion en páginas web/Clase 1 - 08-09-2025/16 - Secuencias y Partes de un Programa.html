@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secuencias y Partes de un Programa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ecf0f1;
+      flex-wrap: wrap;
+      padding: 1em;
+    }
+    .tab {
+      margin: 0.5em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: bold;
+    }
+    .tab.active {
+      border-bottom: 3px solid #3498db;
+      color: #3498db;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6em;
+      text-align: left;
+    }
+    th {
+      background: #ecf0f1;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .ejemplo {
+      display: none;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+      margin-top: 1em;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Secuencias y Partes de un Programa</h1>
+    <p>Estructura, tipos de instrucciones y ejemplos interactivos</p>
+  </header>
+
+  <nav>
+    <div class="tab active" onclick="showSection('estructura')">Estructura</div>
+    <div class="tab" onclick="showSection('tipos')">Tipos de instrucciones</div>
+    <div class="tab" onclick="showSection('ejemplo')">Ejemplo interactivo</div>
+  </nav>
+
+  <div class="content">
+    <div class="section active" id="estructura">
+      <h2>▶️ Partes de un programa</h2>
+      <p>Un programa se compone de partes que cumplen funciones específicas:</p>
+      <table>
+        <tr><th>Parte</th><th>Descripción</th></tr>
+        <tr><td>Declaraciones</td><td>Definición de variables, constantes y estructuras de datos.</td></tr>
+        <tr><td>Instrucciones</td><td>Acciones que el programa ejecuta.</td></tr>
+        <tr><td>Entrada de datos</td><td>Captura de información del usuario o sistema.</td></tr>
+        <tr><td>Proceso y salida</td><td>Transformación de datos y presentación del resultado.</td></tr>
+      </table>
+    </div>
+
+    <div class="section" id="tipos">
+      <h2>🔍 Tipos de instrucciones</h2>
+      <table>
+        <tr><th>Tipo</th><th>Descripción</th></tr>
+        <tr><td>Declaración</td><td>Define variables y constantes.</td></tr>
+        <tr><td>Primitiva</td><td>Operaciones básicas como suma, resta, etc.</td></tr>
+        <tr><td>Asignación</td><td>Asigna valores a variables.</td></tr>
+        <tr><td>Entrada</td><td>Captura datos del usuario.</td></tr>
+        <tr><td>Salida</td><td>Muestra resultados.</td></tr>
+        <tr><td>Compuesta</td><td>Agrupa instrucciones en bloques.</td></tr>
+        <tr><td>De control</td><td>Dirige el flujo del programa.</td></tr>
+        <tr><td>Alternativa</td><td>Ejecuta según condiciones.</td></tr>
+        <tr><td>Salto condicional</td><td>Cambia el flujo si se cumple una condición.</td></tr>
+        <tr><td>Salto incondicional</td><td>Cambia el flujo sin condición.</td></tr>
+        <tr><td>Repetitiva</td><td>Ejecuta instrucciones varias veces.</td></tr>
+      </table>
+    </div>
+
+    <div class="section" id="ejemplo">
+      <h2>🧩 Ejemplo práctico</h2>
+      <p>Este programa en JavaScript lee dos números, los suma y muestra el resultado.</p>
+      <button onclick="toggleEjemplo()">Mostrar ejemplo</button>
+      <div class="ejemplo" id="bloqueEjemplo">
+        <pre><code>
+let a = parseInt(prompt("Introduce A"));
+let b = parseInt(prompt("Introduce B"));
+let resultado = a + b;
+console.log("El resultado es: " + resultado);
+        </code></pre>
+        <p><strong>Explicación:</strong></p>
+        <ul>
+          <li><strong>Declaración:</strong> Se definen las variables <code>a</code>, <code>b</code> y <code>resultado</code>.</li>
+          <li><strong>Entrada:</strong> Se capturan los valores mediante <code>prompt()</code>.</li>
+          <li><strong>Proceso:</strong> Se realiza la suma <code>a + b</code>.</li>
+          <li><strong>Salida:</strong> Se muestra el resultado con <code>console.log()</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showSection('${id}')"]`).classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+
+    function toggleEjemplo() {
+      const ejemplo = document.getElementById("bloqueEjemplo");
+      ejemplo.style.display = ejemplo.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

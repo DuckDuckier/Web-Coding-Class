@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      .tabla-responsive {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.tabla-modern {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-modern thead {
+  background-color: #1e88e5;
+  color: white;
+}
+
+.tabla-modern th,
+.tabla-modern td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-modern tbody tr:hover {
+  background-color: #f4f6f8;
+}
+
+.tabla-modern td:last-child {
+  text-align: center;
+}
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ECMAScript</h1>
+      <p>Versiones de ECMAScript, evolución de JavaScript y Compatibilidad con navegadores</p>
+    </header>
+    <main>
+<section>
+  <h2>Los cambios en las versiones de ECMAScript</h2>
+
+  <div class="ejercicio">
+    <p title="Estándar que define cómo funciona JavaScript">1. ¿Qué es ECMAScript?</p>
+    <button onclick="toggleSolucion(this)">Mostrar explicación</button>
+    <pre class="solucion">
+ECMAScript es el estándar que define el comportamiento de JavaScript.  
+Fue creado por ECMA International para asegurar que JavaScript funcione igual en todos los navegadores.
+    </pre>
+    <div class="explicacion">
+Desde 2015, las versiones se nombran por año (ES6 = ECMAScript 2015).  
+Cada nueva edición introduce mejoras que hacen el lenguaje más potente, legible y seguro.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Cambios clave en cada versión">2. Evolución por versiones</p>
+    <button onclick="toggleSolucion(this)">Mostrar tabla</button>
+    <div class="solucion">
+      <div class="tabla-responsive">
+        <table class="tabla-modern">
+          <thead>
+            <tr>
+              <th>Versión</th>
+              <th>Año</th>
+              <th>Cambios destacados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ES1</td><td>1997</td><td>Primera versión oficial</td></tr>
+            <tr><td>ES3</td><td>1999</td><td>try/catch, expresiones regulares</td></tr>
+            <tr><td>ES5</td><td>2009</td><td>Strict mode, JSON, forEach()</td></tr>
+            <tr><td>ES6</td><td>2015</td><td>let/const, arrow functions, clases, módulos</td></tr>
+            <tr><td>ES2016</td><td>2016</td><td>Operador **, Array.includes()</td></tr>
+            <tr><td>ES2017</td><td>2017</td><td>async/await, Object.entries()</td></tr>
+            <tr><td>ES2018</td><td>2018</td><td>Rest/spread en objetos, Promise.finally()</td></tr>
+            <tr><td>ES2019</td><td>2019</td><td>Array.flat(), Object.fromEntries()</td></tr>
+            <tr><td>ES2020</td><td>2020</td><td>Nullish coalescing (??), Optional chaining (?.)</td></tr>
+            <tr><td>ES2021</td><td>2021</td><td>replaceAll(), Promise.any(), WeakRef</td></tr>
+            <tr><td>ES2022</td><td>2022</td><td>Top-level await, class fields, static blocks</td></tr>
+            <tr><td>ES2023</td><td>2023</td><td>Array.findLast(), changeArrayByCopy()</td></tr>
+            <tr><td>ES2024</td><td>2024</td><td>Temporal API (propuesta), mejoras en Intl</td></tr>
+            <tr><td>ES2025</td><td>2025</td><td>Iterator funcional, Set avanzado, JSON módulos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="explicacion">
+Esta tabla muestra cómo JavaScript ha evolucionado año tras año.  
+Cada versión introduce mejoras que hacen el lenguaje más expresivo, seguro y eficiente.
+    </div>
+  </div>
+
+<div class="ejercicio">
+  <p title="Compatibilidad de ECMAScript con navegadores modernos">Compatibilidad con navegadores (ES5 a ES2025)</p>
+  <button onclick="toggleSolucion(this)">Mostrar tabla</button>
+  <div class="solucion">
+    <div class="tabla-responsive">
+      <table class="tabla-modern">
+        <thead>
+          <tr>
+            <th>Versión</th>
+            <th>Año</th>
+            <th>Chrome</th>
+            <th>Firefox</th>
+            <th>Safari</th>
+            <th>Edge</th>
+            <th>IE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ES5</td><td>2009</td><td>23+</td><td>21+</td><td>6+</td><td>10+</td><td>9 (parcial)</td></tr>
+          <tr><td>ES6</td><td>2015</td><td>51+</td><td>52+</td><td>10+</td><td>14+</td><td>❌</td></tr>
+          <tr><td>ES2016</td><td>2016</td><td>52+</td><td>54+</td><td>10.1+</td><td>14+</td><td>❌</td></tr>
+          <tr><td>ES2017</td><td>2017</td><td>58+</td><td>54+</td><td>11+</td><td>15+</td><td>❌</td></tr>
+          <tr><td>ES2018</td><td>2018</td><td>68+</td><td>62+</td><td>12.1+</td><td>18+</td><td>❌</td></tr>
+          <tr><td>ES2019</td><td>2019</td><td>73+</td><td>67+</td><td>13+</td><td>79+</td><td>❌</td></tr>
+          <tr><td>ES2020</td><td>2020</td><td>80+</td><td>78+</td><td>13.1+</td><td>80+</td><td>❌</td></tr>
+          <tr><td>ES2021</td><td>2021</td><td>91+</td><td>90+</td><td>14+</td><td>91+</td><td>❌</td></tr>
+          <tr><td>ES2022</td><td>2022</td><td>97+</td><td>102+</td><td>15.4+</td><td>97+</td><td>❌</td></tr>
+          <tr><td>ES2023</td><td>2023</td><td>97+</td><td>104+</td><td>15.4+</td><td>97+</td><td>❌</td></tr>
+          <tr><td>ES2024</td><td>2024</td><td>109+</td><td>115+</td><td>16.4+</td><td>109+</td><td>❌</td></tr>
+          <tr><td>ES2025</td><td>2025</td><td>117+</td><td>120+</td><td>17+</td><td>117+</td><td>❌</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="explicacion">
+Esta tabla muestra la compatibilidad mínima por navegador para cada versión de ECMAScript.  
+Las versiones modernas (ES2021 en adelante) requieren navegadores actualizados.  
+Internet Explorer no soporta ES6 ni ninguna versión posterior.  
+Para usar funciones modernas en entornos antiguos, se recomienda transpilar con herramientas como Babel.
+  </div>
+</div>
+
+
+  <div class="ejercicio">
+    <p title="Consejos para escribir código moderno y compatible">4. Buenas prácticas con ECMAScript</p>
+    <button onclick="toggleSolucion(this)">Mostrar recomendaciones</button>
+    <pre class="solucion">
+- Usa <code>let</code> y <code>const</code> en lugar de <code>var</code>.
+- Prefiere funciones flecha (<code>=></code>) para callbacks y funciones simples.
+- Usa <code>Array.includes()</code> en lugar de <code>indexOf()</code>.
+- Aprovecha <code>async/await</code> para trabajar con promesas.
+- Usa <code>Object.entries()</code> y <code>Object.fromEntries()</code> para manipular objetos.
+- Usa herramientas como Babel para compatibilidad con navegadores antiguos.
+    </pre>
+    <div class="explicacion">
+Estas prácticas ayudan a escribir código moderno, legible y seguro.  
+Además, facilitan la colaboración en proyectos y el mantenimiento a largo plazo.
+    </div>
+  </div>
+</section>
+
+ </main>
+    <footer>
+      &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+    <script>
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion.nextElementSibling;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+    </script>
+  </body>
+</html>

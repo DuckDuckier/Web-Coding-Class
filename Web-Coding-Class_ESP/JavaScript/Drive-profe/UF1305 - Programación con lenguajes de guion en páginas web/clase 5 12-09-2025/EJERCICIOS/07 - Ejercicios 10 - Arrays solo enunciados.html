@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+     /* Pistas: ocultar todas las entradas de la lista por defecto */
+     .lista-pistas li {
+       display: none;
+       margin-bottom: 0.4rem;
+     }
+     
+     /* botón solución específico */
+     .btn-solucion {
+       display: none;
+       margin-top: 0.5rem;
+     }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+ <header>
+  <h1>10 Ejercicios de Arrays</h1>
+  <p>funciones sin flechas y con flechas</p>
+  <h4>Recordar que en progración, existe varias formas de resolver un problema, el codigo debe ser eficiente y facil de leer, pon siempre comentarios para comprender mejor </h4>
+</header>
+
+    <main>
+<section>
+  <h2>Resuelve los ejercicios sin flechas y con flechas</h2>
+  <h4>práctica para comprender mejor las dos formas de como se escribe el codigo tanto de flechas como sin flechas.</h3>
+  <!-- Ejercicio 1 -->
+  <div class="ejercicio">
+    <p>1. Calcular promedio y verificar aprobación</p>
+    <div class="explicacion2">
+      Crea una función que reciba un array de calificaciones, calcule el promedio y determine si el resultado es aprobado (mayor a 70).
+    </div>
+  </div>
+
+  <!-- Ejercicio 2 -->
+  <div class="ejercicio">
+    <p>2. Imprimir cada elemento de un array</p>
+    <div class="explicacion2">
+      Escribe una función que recorra un array y muestre cada elemento en la consola.
+    </div>
+  </div>
+
+  <!-- Ejercicio 3 -->
+  <div class="ejercicio">
+    <p>3. Obtener solo las calificaciones aprobadas</p>
+    <div class="explicacion2">
+      Filtra un array de calificaciones y devuelve solo aquellas que sean mayores o iguales a 70.
+    </div>
+  </div>
+
+  <!-- Ejercicio 4 -->
+  <div class="ejercicio">
+    <p>4. Contar nacionalidades en un array</p>
+    <div class="explicacion2">
+      Crea una función que cuente cuántas veces aparece cada nacionalidad en un array de strings.
+    </div>
+  </div>
+
+  <!-- Ejercicio 5 -->
+  <div class="ejercicio">
+    <p>5. Comprobar si un nombre está en la clase</p>
+    <div class="explicacion2">
+      Verifica si un nombre específico está presente en un array de compañeros de clase.
+    </div>
+  </div>
+
+  <!-- Ejercicio 6 -->
+  <div class="ejercicio">
+    <p>6. Convertir temperaturas de Celsius a Fahrenheit</p>
+    <div class="explicacion2">
+      Transforma un array de temperaturas en Celsius a Fahrenheit usando una fórmula matemática.
+    </div>
+  </div>
+
+  <!-- Ejercicio 7 -->
+  <div class="ejercicio">
+    <p>7. Encontrar el primer número par</p>
+    <div class="explicacion2">
+      Busca y devuelve el primer número par dentro de un array de números.
+    </div>
+  </div>
+
+  <!-- Ejercicio 8 -->
+  <div class="ejercicio">
+    <p>8. Sumar todos los elementos de un array</p>
+    <div class="explicacion2">
+      Crea una función que sume todos los valores de un array numérico y devuelva el total.
+    </div>
+  </div>
+
+  <!-- Ejercicio 9 -->
+  <div class="ejercicio">
+    <p>9. Ordenar nombres alfabéticamente</p>
+    <div class="explicacion2">
+      Ordena un array de nombres en orden alfabético ascendente.
+    </div>
+  </div>
+
+  <!-- Ejercicio 10 -->
+  <div class="ejercicio">
+    <p>10. Multiplicar cada número por su índice</p>
+    <div class="explicacion2">
+      Devuelve un nuevo array donde cada número ha sido multiplicado por su posición (índice) en el array original.
+    </div>
+  </div>
+</section>
+
+ </main>
+     <footer>
+         &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+
+     <script>
+      // toggleSolucion (compatibilidad)
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion ? solucion.nextElementSibling : null;
+        if (!solucion) return;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          if (explicacion) explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          if (explicacion) explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+
+      // Mostrar una pista por pulsación; cuando todas estén visibles, mostrar botón SOLUCIÓN.
+      function mostrarPista(button) {
+        const lista = button.nextElementSibling;
+        if (!lista) return;
+        // mostrar contenedor de la lista (ul)
+        lista.style.display = "block";
+
+        const pistas = Array.from(lista.querySelectorAll("li"));
+        // encontrar el primer elemento cuya visibilidad computada es "none"
+        const siguiente = pistas.find(li => getComputedStyle(li).display === "none");
+
+        if (siguiente) {
+          // mostrar solo ese elemento
+          siguiente.style.display = "list-item";
+
+          // si es la última pista, permitir que al hacer click en ella se muestre el botón
+          const last = pistas[pistas.length - 1];
+          if (siguiente === last && !last.dataset.listenerAdded) {
+            last.addEventListener("click", () => {
+              const btnSol = lista.querySelector(".btn-solucion");
+              if (btnSol) {
+                btnSol.style.display = "inline-block";
+                btnSol.focus();
+              }
+            });
+            last.dataset.listenerAdded = "1";
+          }
+        }
+
+        // si ya todas las pistas están visibles mostramos el botón solución automáticamente
+        const todasVisibles = pistas.every(li => getComputedStyle(li).display !== "none");
+        const btnSol = lista.querySelector(".btn-solucion");
+        if (todasVisibles && btnSol) {
+          btnSol.style.display = "inline-block";
+        }
+      }
+
+      // Muestra la solución y explicación del ejercicio asociado al botón
+      function mostrarResultado(button) {
+        const ejercicio = button.closest(".ejercicio");
+        if (!ejercicio) return;
+        const solucion = ejercicio.querySelector(".solucion");
+        const explicacion = ejercicio.querySelector(".explicacion");
+        if (solucion) solucion.style.display = "block";
+        if (explicacion) explicacion.style.display = "block";
+        // ocultar el botón de solución tras mostrar la solución (opcional)
+        button.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

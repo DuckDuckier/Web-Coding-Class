@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0b4476;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #1e88e5;
+      }
+      .ejercicio {
+        margin-bottom: 2rem;
+      }
+      .ejercicio p {
+        font-weight: bold;
+      }
+      .solucion,
+      .explicacion {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        display: none;
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+      }
+    .explicacion2 {
+        white-space: normal; /* permite que el texto y las listas se ajusten correctamente */
+        padding-left: 0.25rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      
+      /* Alinea el texto de los ítems con el párrafo anterior */
+      .explicacion2 li {
+        margin: 0 0 0.4rem 0;
+        padding-left: 0; 
+      }
+
+      /* Mantener formato del bloque <pre> dentro de la explicación */
+      .explicacion2 pre {
+        margin-top: 0.5rem;
+        background: #fafafa;
+        padding: 0.5rem;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+      .explicacion {
+        font-style: italic;
+        color: #555;
+      }
+      button {
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      button:hover {
+        background: #1565c0;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+ <header>
+  <h1>Arrow Functions con Arreglos en JavaScript</h1>
+  <p>Aprende a recorrer, transformar y filtrar arreglos usando funciones flecha de forma moderna y eficiente</p>
+</header>
+
+    <main>
+        <section>
+  <h2>Arrow Functions con Arreglos</h2>
+
+  <div class="ejercicio">
+    <p title="Multiplica cada número por 2 usando un ciclo for">1. Usar arrow function con <code>for</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+
+const multiplicarPor2 = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i] * 2);
+  }
+}
+
+multiplicarPor2(numeros);
+    </pre>
+    <div class="explicacion">
+Esta función flecha recorre el arreglo con un bucle <code>for</code> tradicional.  
+En cada iteración, imprime el doble del número actual.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Suma todos los elementos usando forEach">2. Usar arrow function con <code>forEach()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+
+const sumar = (arr) => {
+  let suma = 0;
+  arr.forEach(num => suma += num);
+  console.log(suma);
+}
+
+sumar(numeros);
+    </pre>
+    <div class="explicacion">
+<code>forEach()</code> ejecuta una función flecha para cada elemento.  
+Se acumula la suma en una variable externa.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Crea un nuevo arreglo con números duplicados">3. Usar arrow function con <code>map()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+
+const doble = (arr) => {
+  const nuevoArr = arr.map(num => num * 2);
+  console.log(nuevoArr);
+}
+
+doble(numeros);
+    </pre>
+    <div class="explicacion">
+<code>map()</code> transforma cada elemento del arreglo sin modificar el original.  
+Devuelve un nuevo arreglo con los valores multiplicados por 2.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Filtra los números mayores a 3">4. Usar arrow function con <code>filter()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+
+const mayoresA3 = (arr) => {
+  const nuevoArr = arr.filter(num => num > 3);
+  console.log(nuevoArr);
+}
+
+mayoresA3(numeros);
+    </pre>
+    <div class="explicacion">
+<code>filter()</code> devuelve un nuevo arreglo con los elementos que cumplen la condición.  
+En este caso, los números mayores a 3.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Encuentra el primer número par">5. Usar arrow function con <code>find()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 3, 5, 4, 7, 9, 6];
+
+const encontrarPar = (arr) => {
+  const primerPar = arr.find(num => num % 2 === 0);
+  console.log(primerPar);
+}
+
+encontrarPar(numeros);
+    </pre>
+    <div class="explicacion">
+<code>find()</code> devuelve el primer elemento que cumple la condición.  
+Aquí se busca el primer número par en el arreglo.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Suma todos los números usando reduce">6. Usar arrow function con <code>reduce()</code></p>
+    <button onclick="toggleSolucion(this)">Mostrar solución</button>
+    <pre class="solucion">
+const numeros = [1, 2, 3, 4, 5];
+
+const suma = (arr) => {
+  const total = arr.reduce((acc, num) => acc + num, 0);
+  console.log(total);
+}
+
+suma(numeros);
+    </pre>
+    <div class="explicacion">
+<code>reduce()</code> acumula un valor a lo largo del arreglo.  
+En este caso, suma todos los elementos y devuelve el total.
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <p title="Consejos para usar arrow functions con arreglos">7. Buenas prácticas</p>
+    <button onclick="toggleSolucion(this)">Mostrar recomendaciones</button>
+    <pre class="solucion">
+- Usa <code>const</code> para declarar funciones flecha.
+- Prefiere métodos como <code>map()</code>, <code>filter()</code>, <code>reduce()</code> en lugar de bucles.
+- Usa la sintaxis de una sola línea cuando sea posible.
+- Evita mutar directamente los elementos del arreglo.
+- Usa nombres descriptivos para tus funciones.
+- Verifica que el valor sea un arreglo con <code>Array.isArray()</code>.
+- Usa desestructuración para acceder a elementos del arreglo.
+    </pre>
+    <div class="explicacion">
+Estas prácticas ayudan a escribir código más limpio, legible y seguro.  
+Las funciones flecha son ideales para trabajar con arreglos de forma funcional.
+    </div>
+  </div>
+</section>
+    </main>
+    <footer>
+      &copy; 2025 Curso de JavaScript. Todos los derechos reservados.
+    </footer>
+    <script>
+      function toggleSolucion(button) {
+        const solucion = button.nextElementSibling;
+        const explicacion = solucion.nextElementSibling;
+        if (solucion.style.display === "block") {
+          solucion.style.display = "none";
+          explicacion.style.display = "none";
+          button.textContent = "Mostrar explicación";
+        } else {
+          solucion.style.display = "block";
+          explicacion.style.display = "block";
+          button.textContent = "Ocultar explicación";
+        }
+      }
+    </script>
+  </body>
+</html>

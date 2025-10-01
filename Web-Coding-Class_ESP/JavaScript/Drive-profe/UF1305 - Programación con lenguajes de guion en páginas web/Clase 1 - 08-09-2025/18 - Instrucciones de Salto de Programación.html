@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instrucciones de Salto en Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin: 1em 0;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .bloque {
+      display: none;
+      background: #ecf0f1;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 1em;
+    }
+    pre {
+      background: #eaf2f8;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Instrucciones de Salto en Programación</h1>
+    <p>Condicionales e incondicionales con ejemplos interactivos</p>
+  </header>
+
+  <main>
+    <section>
+      <h2> ¿Qué son las instrucciones de salto?</h2>
+      <p>Son instrucciones que permiten interrumpir el flujo secuencial de un programa y redirigirlo a otra parte del código. Se dividen en dos tipos: <strong>condicionales</strong> e <strong>incondicionales</strong>.</p>
+    </section>
+
+    <!-- Salto condicional -->
+    <section>
+      <h2> Salto condicional</h2>
+      <button onclick="toggle('condicional')">Mostrar explicación y ejemplo</button>
+      <div class="bloque" id="condicional">
+        <p><strong>Definición:</strong> El salto condicional se ejecuta solo si se cumple una condición. Es útil para tomar decisiones dentro del programa.</p>
+        <pre><code>let edad = 20;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}</code></pre>
+        <p> En este ejemplo, el bloque <code>console.log(...)</code> solo se ejecuta si <code>edad >= 18</code> es verdadero.</p>
+        <p>Se usa en estructuras como <code>if</code>, <code>switch</code>, <code>while</code>, <code>for</code>, etc.</p>
+      </div>
+    </section>
+
+    <!-- Salto incondicional -->
+    <section>
+      <h2> Salto incondicional</h2>
+      <button onclick="toggle('incondicional')">Mostrar explicación y ejemplo</button>
+      <div class="bloque" id="incondicional">
+        <p><strong>Definición:</strong> El salto incondicional se ejecuta siempre, sin evaluar ninguna condición. Se usa para alterar el flujo de ejecución directamente.</p>
+        <pre><code>for (let i = 0; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}</code></pre>
+        <p> En este ejemplo, cuando <code>i === 3</code>, se salta esa iteración sin ejecutar <code>console.log(i)</code>.</p>
+        <p>Se usa con instrucciones como <code>break</code>, <code>continue</code>, <code>return</code> o <code>goto</code> (en otros lenguajes).</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

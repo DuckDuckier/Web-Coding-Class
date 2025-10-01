@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tipos de Instrucciones en Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin: 0.5em 0;
+      padding: 0.5em 1em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .ejemplo {
+      display: none;
+      background: #ecf0f1;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 1em;
+    }
+    pre {
+      background: #eaf2f8;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tipos de Instrucciones en Programación</h1>
+    <p>Ejemplos interactivos con explicación</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>📌 Ejemplos por tipo de instrucción</h2>
+
+      <!-- Declaración -->
+      <button onclick="toggle('declaracion')">Declaración</button>
+      <div class="ejemplo" id="declaracion">
+        <pre><code>let edad;</code></pre>
+        <p>Se declara una variable llamada <code>edad</code> sin asignarle valor aún.</p>
+      </div>
+
+      <!-- Primitiva -->
+      <button onclick="toggle('primitiva')">Primitiva</button>
+      <div class="ejemplo" id="primitiva">
+        <pre><code>let suma = 5 + 3;</code></pre>
+        <p>Se realiza una operación aritmética básica: suma de dos números.</p>
+      </div>
+
+      <!-- Asignación -->
+      <button onclick="toggle('asignacion')">Asignación</button>
+      <div class="ejemplo" id="asignacion">
+        <pre><code>edad = 25;</code></pre>
+        <p>Se asigna el valor <code>25</code> a la variable <code>edad</code>.</p>
+      </div>
+
+      <!-- Entrada -->
+      <button onclick="toggle('entrada')">Entrada</button>
+      <div class="ejemplo" id="entrada">
+        <pre><code>let nombre = prompt("¿Cuál es tu nombre?");</code></pre>
+        <p>Captura un dato introducido por el usuario mediante una ventana emergente.</p>
+      </div>
+
+      <!-- Salida -->
+      <button onclick="toggle('salida')">Salida</button>
+      <div class="ejemplo" id="salida">
+        <pre><code>console.log("Hola " + nombre);</code></pre>
+        <p>Muestra un mensaje en la consola con el nombre capturado.</p>
+      </div>
+
+      <!-- Compuesta -->
+      <button onclick="toggle('compuesta')">Compuesta</button>
+      <div class="ejemplo" id="compuesta">
+        <pre><code>{
+  let x = 10;
+  let y = 20;
+  console.log(x + y);
+}</code></pre>
+        <p>Bloque de instrucciones agrupadas entre llaves.</p>
+      </div>
+
+      <!-- De control -->
+      <button onclick="toggle('control')">De control</button>
+      <div class="ejemplo" id="control">
+        <pre><code>if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}</code></pre>
+        <p>Controla el flujo del programa según una condición.</p>
+      </div>
+
+      <!-- Alternativa -->
+      <button onclick="toggle('alternativa')">Alternativa</button>
+      <div class="ejemplo" id="alternativa">
+        <pre><code>if (edad >= 18) {
+  console.log("Adulto");
+} else {
+  console.log("Menor");
+}</code></pre>
+        <p>Ejecuta una acción u otra según se cumpla la condición.</p>
+      </div>
+
+      <!-- Salto condicional -->
+      <button onclick="toggle('saltoCondicional')">Salto condicional</button>
+      <div class="ejemplo" id="saltoCondicional">
+        <pre><code>switch (dia) {
+  case "lunes":
+    console.log("Inicio de semana");
+    break;
+}</code></pre>
+        <p>Salta a una sección específica del código si se cumple una condición.</p>
+      </div>
+
+      <!-- Salto incondicional -->
+      <button onclick="toggle('saltoIncondicional')">Salto incondicional</button>
+      <div class="ejemplo" id="saltoIncondicional">
+        <pre><code>for (let i = 0; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}</code></pre>
+        <p>Salta una iteración sin evaluar condición adicional (aquí con <code>continue</code>).</p>
+      </div>
+
+      <!-- Repetitiva -->
+      <button onclick="toggle('repetitiva')">Repetitiva</button>
+      <div class="ejemplo" id="repetitiva">
+        <pre><code>for (let i = 0; i < 3; i++) {
+  console.log("Repetición " + i);
+}</code></pre>
+        <p>Ejecuta una instrucción varias veces mediante un bucle.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

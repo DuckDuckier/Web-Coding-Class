@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué es un algoritmo?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    .bloque {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    code, pre {
+      background: #ecf0f1;
+      padding: 0.4em;
+      border-radius: 4px;
+      display: block;
+      margin-top: 0.5em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .extra {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Qué es un algoritmo?</h1>
+    <p>Explicación clara y tipos de algoritmos en programación</p>
+  </header>
+
+  <main>
+    <div class="bloque">
+      <h2>Definición</h2>
+      <p>Un <strong>algoritmo</strong> es un conjunto de pasos ordenados y finitos que permiten resolver un problema o realizar una tarea específica. Es como una receta que indica qué hacer, en qué orden y cómo hacerlo.</p>
+    </div>
+
+    <div class="bloque">
+      <h2>Características de un buen algoritmo</h2>
+      <ul>
+        <li><strong>Precisión:</strong> cada paso debe estar claramente definido.</li>
+        <li><strong>Finitud:</strong> debe tener un número limitado de pasos.</li>
+        <li><strong>Entrada:</strong> debe aceptar datos para procesar.</li>
+        <li><strong>Salida:</strong> debe producir al menos un resultado.</li>
+        <li><strong>Eficiencia:</strong> debe usar los recursos de forma óptima.</li>
+      </ul>
+    </div>
+
+    <div class="bloque">
+      <h2> Tipos de algoritmos en programación</h2>
+      <ul>
+        <li><strong>Algoritmos de búsqueda:</strong> encuentran un elemento en una estructura de datos.</li>
+        <li><strong>Algoritmos de ordenamiento:</strong> organizan datos (por ejemplo, ordenar nombres alfabéticamente).</li>
+        <li><strong>Algoritmos recursivos:</strong> se llaman a sí mismos para resolver subproblemas.</li>
+        <li><strong>Algoritmos de grafos:</strong> trabajan con nodos y conexiones (como rutas o redes).</li>
+        <li><strong>Algoritmos de cifrado:</strong> protegen datos mediante transformación y claves.</li>
+      </ul>
+      <button onclick="mostrarEjemplo()">Ver ejemplo de algoritmo</button>
+      <div class="extra" id="ejemplo">
+        <p><strong>Ejemplo:</strong> Algoritmo para calcular el área de un triángulo</p>
+        <pre><code>
+function calcularArea(base, altura) {
+  return (base * altura) / 2;
+}
+
+let resultado = calcularArea(10, 5);
+console.log("Área del triángulo: " + resultado);
+        </code></pre>
+        <p>Este algoritmo recibe dos entradas (base y altura), realiza un cálculo y devuelve una salida (el área).</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function mostrarEjemplo() {
+      document.getElementById('ejemplo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UF1305 - Tests</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>UF1305 - Evaluación Interactiva</h1>
+      <div class="tabs">
+        <button class="tab" data-tab="test1">UF1305 - TEST 1</button>
+        <button class="tab" data-tab="test2">UF1305 - TEST 2</button>
+        <button class="tab" data-tab="test3">UF1305 - TEST 3</button>
+        <button class="tab" data-tab="test4">UF1305 - TEST 4</button>
+      </div>
+       <div class="tab-content active" id="test1">
+  <form id="form-test1">
+    <ol>
+      <li>
+        <div class="pregunta-box">
+          El pseudocódigo es un tipo de código binario
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q1" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q1" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          "Mientras" es la estructura que se usa para repetir acciones
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q2" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q2" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Este pseudocódigo calcula la edad – si edad >=18 entonces Mostrar “puedes votar” finSi
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q3" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q3" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          El resultado de (2+3) * 4 , es 14
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q4" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q4" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          5 !== "5" en JavaScript devuelve true
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q5" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q5" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Tenemos un array frutas =["manzana", "banana", "uva"], devuelve el valor manzana por pantalla. console.log( frutas[1])
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q6" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q6" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          x = 3, entonces --x devuelve 1
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q7" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q7" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          5 === "5" devuelve true en JavaScript
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q8" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q8" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Para negar un valor booleano se usa el operador : !
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q9" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q9" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          let x = 2; x+=5; console.log(x); // resultado esperado 5
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q10" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q10" value="false" /> Falso</label>
+        </div>
+      </li>
+    </ol>
+    <button type="button" onclick="corregirTest('test1')">Ver resultados</button>
+    <div class="resultado" id="resultado-test1"></div>
+  </form>
+</div>
+<div class="tab-content" id="test2">
+  <form id="form-test2">
+    <ol>
+      <li>
+        <div class="pregunta-box">
+          Una Clase en programación orientada a objeto, es una estructura que define atributos y métodos
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q1" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q1" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          La palabra clave que se usa para crear una clase en JavaScript, es function
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q2" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q2" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          El objeto en relación a una clase es una instancia
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q3" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q3" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Las herencias en programación orientada a objetos, es una clase que hereda atributos pero no métodos de otra
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q4" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q4" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Para heredar una clase en JavaScript, se utiliza extends
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q5" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q5" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Los atributos de una clase orientada a objetos, no se pueden heredar nunca
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q6" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q6" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          La clase en JavaScript es como una plantilla para crear objetos
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q7" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q7" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Los atributos públicos y privados se pueden acceder directamente desde fuera de la clase
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q8" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q8" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Un atributo dentro de una clase es una variable definida dentro de una clase
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q9" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q9" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          El encapsulamiento, oculta los datos internos de una clase para protegerlos
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q10" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q10" value="false" /> Falso</label>
+        </div>
+      </li>
+    </ol>
+    <button type="button" onclick="corregirTest('test2')">Ver resultados</button>
+    <div class="resultado" id="resultado-test2"></div>
+  </form>
+</div>
+
+<div class="tab-content" id="test3">
+  <form id="form-test3">
+    <ol>
+      <li>
+        <div class="pregunta-box">
+          Entendemos por programación el proceso del diseño, codificación, depuración y mantenimiento del código fuente.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q1" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q1" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Para desarrollar programas y que puedan ser reconocidos por un ordenador, usamos la lógica de programación.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q2" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q2" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Algoritmo es una secuencia infinita y no ordenada de instrucciones.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q3" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q3" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Cuando se opera en JavaScript con números y texto, el resultado es un string. "18" + 18. Resultado 36.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q4" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q4" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Tenemos dos tipos de guiones: los del lado del cliente y los del lado del servidor.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q5" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q5" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Una variable es una zona de memoria principal del ordenador (RAM) lista para almacenar información y poder trabajar en ella.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q6" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q6" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          En JavaScript podemos trabajar con variables sin declararlas previamente.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q7" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q7" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Para pedir información usamos la sentencia document.write.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q8" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q8" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Los elementos del lenguaje de guion usan una serie de elementos: variables, operaciones, comparaciones, asignaciones.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q9" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q9" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Cada navegador tiene sus propias reglas para tratar errores.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q10" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q10" value="false" /> Falso</label>
+        </div>
+      </li>
+    </ol>
+    <button type="button" onclick="corregirTest('test3')">Ver resultados</button>
+    <div class="resultado" id="resultado-test3"></div>
+  </form>
+</div>
+<div class="tab-content" id="test4">
+  <form id="form-test4">
+    <ol>
+      <li>
+        <div class="pregunta-box">
+          Podemos desarrollar cualquier herramienta de edición de texto
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q1" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q1" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          No existen programas de edición especializados en scripts.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q2" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q2" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Los errores sintácticos son más fáciles de detectar que los que se generan en tiempo de ejecución
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q3" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q3" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Actualmente a través de internet disponemos de un amplio abanico de información de scripts además de códigos fuentes.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q4" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q4" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          El objeto document, hace referencia a la ventana actual
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q5" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q5" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Todos los objetos de JavaScript dependen del objeto superior Window
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q6" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q6" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          El objeto window nos va a permitir controlar el documento o página web y los elementos que este contiene.
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q7" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q7" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          No existen eventos de ratón
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q8" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q8" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          En JavaScript, los eventos comienzan con "on" seguidos del nombre del evento
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q9" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q9" value="false" /> Falso</label>
+        </div>
+      </li>
+      <li>
+        <div class="pregunta-box">
+          Existen eventos para manejar teclas del teclado
+        </div>
+        <div class="respuesta-box">
+          <label><input type="radio" name="q10" value="true" /> Verdadero</label>
+          <label><input type="radio" name="q10" value="false" /> Falso</label>
+        </div>
+      </li>
+    </ol>
+    <button type="button" onclick="corregirTest('test4')">Ver resultados</button>
+    <div class="resultado" id="resultado-test4"></div>
+  </form>
+</div>
+</div>  
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Desactivar todas las pestañas y contenidos
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        // Activar la pestaña actual
+        tab.classList.add("active");
+
+        // Activar el contenido correspondiente
+        const targetId = tab.getAttribute("data-tab");
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+
+
+   
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

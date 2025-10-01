@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmos explicados línea por línea</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    .bloque {
+      background: white;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .ejemplo {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+    .linea {
+      margin-bottom: 1em;
+    }
+    .codigo {
+      background: #ecf0f1;
+      padding: 0.4em;
+      border-radius: 4px;
+      font-family: monospace;
+      display: block;
+    }
+    .explicacion {
+      font-size: 0.95em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tipos de Algoritmos con Explicación Línea por Línea</h1>
+    <p>Para comprender cada paso del código</p>
+  </header>
+
+  <main>
+    <div class="bloque">
+      <h2>Algoritmo de búsqueda</h2>
+      <button onclick="toggle('busqueda')">Ver ejemplo explicado</button>
+      <div class="ejemplo" id="busqueda">
+        <div class="linea">
+          <span class="codigo">function buscarElemento(array, valor) {</span>
+          <div class="explicacion">Define una función que recibe un array y un valor a buscar.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">  for (let i = 0; i < array.length; i++) {</span>
+          <div class="explicacion">Recorre el array desde el índice 0 hasta el final.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">    if (array[i] === valor) return i;</span>
+          <div class="explicacion">Si el elemento actual es igual al valor buscado, devuelve su posición.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">  }</span>
+        </div>
+        <div class="linea">
+          <span class="codigo">  return -1;</span>
+          <div class="explicacion">Si no se encuentra el valor, devuelve -1.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">}</span>
+        </div>
+        <div class="linea">
+          <span class="codigo">console.log(buscarElemento(["Ana", "Luis", "Joaquín"], "Joaquín"));</span>
+          <div class="explicacion">Llama a la función y muestra la posición del nombre "Joaquín".</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2>Algoritmo de ordenamiento</h2>
+      <button onclick="toggle('ordenamiento')">Ver ejemplo explicado</button>
+      <div class="ejemplo" id="ordenamiento">
+        <div class="linea">
+          <span class="codigo">let numeros = [5, 2, 9, 1];</span>
+          <div class="explicacion">Declara un array con números desordenados.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">numeros.sort((a, b) => a - b);</span>
+          <div class="explicacion">Ordena los números de menor a mayor usando una función de comparación.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">console.log(numeros);</span>
+          <div class="explicacion">Muestra el array ordenado en consola.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <h2> Algoritmo recursivo</h2>
+      <button onclick="toggle('recursivo')">Ver ejemplo explicado</button>
+      <div class="ejemplo" id="recursivo">
+        <div class="linea">
+          <span class="codigo">function factorial(n) {</span>
+          <div class="explicacion">Define una función para calcular el factorial de un número.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">  if (n === 0) return 1;</span>
+          <div class="explicacion">Caso base: el factorial de 0 es 1.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">  return n * factorial(n - 1);</span>
+          <div class="explicacion">Llamada recursiva: multiplica n por el factorial de n-1.</div>
+        </div>
+        <div class="linea">
+          <span class="codigo">}</span>
+        </div>
+        <div class="linea">
+          <span class="codigo">console.log(factorial(5));</span>
+          <div class="explicacion">Calcula el factorial de 5 y lo muestra en consola.</div>
+        </div>
+
+ <div class="linea">
+          <span class="codigo">Que es el factorial de un número</span>
+          <div class="explicacion">     
+            El factorial de un número es una operación matemática que consiste en multiplicar 
+            ese número por todos los enteros positivos menores que él, hasta llegar al 1.<br>
+            Se representa con un signo de exclamación: n! = n × (n - 1) × (n - 2) × ... × 2 × 1<br>
+            Ejemplos básicos<br>
+         
+                4! = 4 × 3 × 2 × 1 = 24 <br>    
+                6! = 6 × 5 × 4 × 3 × 2 × 1 = 720 <br>
+                0! = 1 (por convenio matemático)
+
+    </div>
+        </div>
+
+     </div>
+    </div>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
