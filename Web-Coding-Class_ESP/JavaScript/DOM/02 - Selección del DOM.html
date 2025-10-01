@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selección del DOM</title>
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --accent: #00a7c4;
+      --muted: #6b7280;
+      --code-bg: #f3f4f6;
+      --radius: 10px;
+      --max-width: 900px;
+      --font-sans: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    /* Base */
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:var(--bg);
+      color:#222;
+      font-size:16px;        /* tamaño base moderado */
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Contenedor central */
+    main{
+      max-width:var(--max-width);
+      margin:28px auto;
+      padding:24px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    }
+
+    header{
+      background:linear-gradient(90deg,var(--primary), #0f7fc3);
+      color:white;
+      padding:18px 24px;
+      border-radius:var(--radius);
+      margin:18px auto;
+      max-width:var(--max-width);
+      box-shadow:0 6px 20px rgba(11,95,165,0.12);
+    }
+
+    header h1{
+      margin:0;
+      font-size:20px; /* tamaño comedido para el título */
+      font-weight:600;
+      letter-spacing:0.2px;
+    }
+
+    header p{
+      margin:8px 0 0;
+      font-size:14px;
+      color:rgba(255,255,255,0.9);
+    }
+
+    h2{
+      color:var(--accent);
+      font-size:18px;
+      margin:0 0 12px 0;
+    }
+
+    .ejercicio{
+      margin-bottom:20px;
+    }
+
+    .ejercicio p{
+      margin:0 0 12px 0;
+      font-weight:600;
+      font-size:15px;
+    }
+
+    /* Bloque de código / solución */
+    .solucion{
+      background:var(--code-bg);
+      border-left:4px solid var(--accent);
+      padding:14px;
+      border-radius:8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+      font-size:13px; /* más compacto para código */
+      color:#1f2937;
+      white-space:pre-wrap;
+      overflow:auto;
+      max-height:420px;
+    }
+
+    .explicacion{
+      margin-top:14px;
+      background:linear-gradient(180deg,#fbfdff,#ffffff);
+      padding:14px;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Lista dentro de la explicación */
+    .explicacion ul{
+      margin:10px 0 0 18px;
+      padding:0;
+      color:var(--muted);
+    }
+
+    .explicacion li{
+      margin-bottom:6px;
+    }
+
+    footer{
+      text-align:center;
+      padding:14px 8px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Responsive: reducir padding en pantallas pequeñas */
+    @media (max-width:520px){
+      header{padding:14px}
+      main{margin:16px; padding:16px}
+      header h1{font-size:18px}
+      h2{font-size:16px}
+      .solucion{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Selección del DOM</h1>
+    <p>Aprende a acceder a elementos HTML usando distintos métodos de JavaScript</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Ejemplo: Seleccionar elementos con distintos métodos</h2>
+
+      <div class="ejercicio">
+        <p>HTML base para practicar la selección del DOM</p>
+        <pre class="solucion"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Selección de elementos del DOM&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="titulo"&gt;Título&lt;/h1&gt;
+  &lt;p class="parrafo"&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Elemento 1&lt;/li&gt;
+    &lt;li&gt;Elemento 2&lt;/li&gt;
+    &lt;li&gt;Elemento 3&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div&gt;
+    &lt;p&gt;Texto 1&lt;/p&gt;
+    &lt;p&gt;Texto 2&lt;/p&gt;
+    &lt;p&gt;Texto 3&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    // Selecciona el elemento con ID "titulo"
+    const titulo = document.getElementById('titulo');
+    console.log(titulo); // Muestra el &lt;h1&gt; en consola
+
+    // Selecciona todos los elementos con clase "parrafo"
+    const parrafos = document.getElementsByClassName('parrafo');
+    console.log(parrafos); // HTMLCollection con los &lt;p&gt; que tienen esa clase
+
+    // Selecciona todos los elementos &lt;li&gt;
+    const elementosLista = document.getElementsByTagName('li');
+    console.log(elementosLista); // HTMLCollection con los &lt;li&gt;
+
+    // Selecciona el primer &lt;p&gt; dentro de un &lt;div&gt;
+    const texto1 = document.querySelector('div p');
+    console.log(texto1); // Primer &lt;p&gt; dentro del &lt;div&gt;
+
+    // Selecciona todos los elementos &lt;p&gt; del documento
+    const todosLosParrafos = document.querySelectorAll('p');
+    console.log(todosLosParrafos); // NodeList con todos los &lt;p&gt;
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+        <div class="explicacion">
+          Este ejemplo muestra cómo usar distintos métodos para seleccionar elementos del DOM:
+          <ul>
+            <li><strong>getElementById</strong>: selecciona por ID único.</li>
+            <li><strong>getElementsByClassName</strong>: selecciona por clase (HTMLCollection).</li>
+            <li><strong>getElementsByTagName</strong>: selecciona por etiqueta (HTMLCollection).</li>
+            <li><strong>querySelector</strong>: selecciona el primer elemento que coincide con un selector CSS.</li>
+            <li><strong>querySelectorAll</strong>: selecciona todos los elementos que coinciden con un selector CSS (NodeList).</li>
+          </ul>
+          Todos los resultados se muestran en la consola del navegador usando <code>console.log()</code>.  
+          Estos métodos son fundamentales para acceder y manipular elementos HTML desde JavaScript.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Curso de JavaScript. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
+

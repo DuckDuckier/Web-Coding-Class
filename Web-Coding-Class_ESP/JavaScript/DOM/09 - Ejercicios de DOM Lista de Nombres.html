@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ejercicios DOM — Lista de Nombres</title>
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --accent: #00a7c4;
+      --muted: #6b7280;
+      --code-bg: #f3f4f6;
+      --radius: 10px;
+      --max-width: 900px;
+      --font-sans: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:var(--bg);
+      color:#111827;
+      font-size:16px;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    header{
+      max-width:var(--max-width);
+      margin:28px auto 0;
+      padding:18px 22px;
+      background:linear-gradient(90deg,var(--primary), #0f7fc3);
+      color:#fff;
+      border-radius:var(--radius);
+      box-shadow:0 8px 20px rgba(11,95,165,0.12);
+    }
+    header h1{margin:0;font-size:20px;font-weight:600}
+    header p{margin:6px 0 0;font-size:14px;opacity:.95}
+
+    main{
+      max-width:var(--max-width);
+      margin:18px auto;
+      padding:20px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 8px 24px rgba(15,23,42,0.06);
+    }
+
+    .panel{
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      gap:18px;
+      align-items:start;
+    }
+
+    @media (max-width:760px){
+      .panel{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border-radius:8px;
+      padding:16px;
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
+      border:1px solid rgba(11,95,165,0.04);
+    }
+
+    label{display:block;font-weight:600;margin-bottom:8px;color:var(--primary);font-size:14px}
+    .controls{display:flex;gap:8px}
+    input[type="text"]{
+      flex:1;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #e6e9ee;
+      background:#fff;
+      font-size:14px;
+      outline:none;
+    }
+    button{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      padding:10px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+    }
+    button.secondary{
+      background:#fff;
+      color:var(--primary);
+      border:1px solid rgba(11,95,165,0.12);
+      box-shadow:none;
+    }
+    .muted{color:var(--muted);font-size:13px;margin-top:8px}
+
+    /* Lista */
+    ul.name-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    ul.name-list li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 12px;
+      border-radius:8px;
+      margin-bottom:8px;
+      background:linear-gradient(180deg,#fff,#fbfbff);
+      border:1px solid #eef2f6;
+      font-size:14px;
+    }
+    .name-text{flex:1;word-break:break-word;color:#0f1724}
+    .actions{display:flex;gap:8px}
+    .actions button{padding:8px 10px;font-size:13px;border-radius:6px}
+    .actions .delete{background:#ef4444}
+    .empty{color:var(--muted);text-align:center;padding:18px 12px;border-radius:8px;border:1px dashed #eef2f6}
+
+    footer{
+      max-width:var(--max-width);
+      margin:18px auto 40px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .status{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      min-height:18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ejercicios DOM — Lista de Nombres</h1>
+    <p>Guardar, mostrar y eliminar nombres usando localStorage — diseño claro y responsivo.</p>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="card">
+        <label for="nameInput">Agregar nombre</label>
+        <div class="controls">
+          <input id="nameInput" type="text" placeholder="Escribe un nombre y pulsa Guardar" />
+          <button id="saveBtn" type="button">Guardar</button>
+        </div>
+        <div class="muted">Presiona Enter para guardar. Cada nombre tendrá un botón para eliminarlo.</div>
+        <div class="status" id="status" aria-live="polite"></div>
+        <hr style="margin:14px 0;border:none;border-top:1px solid #eef2f6" />
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button id="clearBtn" class="secondary" type="button">Borrar todo</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 12px 0;color:var(--accent)">Lista actual</h2>
+        <div id="listContainer">
+          <div class="empty">No hay nombres guardados aún.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Curso de JavaScript — Ejercicios DOM
+  </footer>
+
+  <script>
+    // Elementos del DOM
+    const input = document.getElementById('nameInput');
+    const saveBtn = document.getElementById('saveBtn');
+    const listContainer = document.getElementById('listContainer');
+    const statusEl = document.getElementById('status');
+    const clearBtn = document.getElementById('clearBtn');
+
+    const STORAGE_KEY = 'nombres'; // clave en localStorage
+
+    // Obtiene array de nombres desde localStorage (devuelve array vacío si no existe)
+    function obtenerNombresGuardados(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    // Guarda array de nombres en localStorage
+    function guardarNombres(nombres){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(nombres));
+    }
+
+    // Renderiza la lista en la interfaz
+    function mostrarNombres(){
+      const nombres = obtenerNombresGuardados();
+      if(!nombres.length){
+        listContainer.innerHTML = '<div class="empty">No hay nombres guardados aún.</div>';
+        return;
+      }
+
+      const ul = document.createElement('ul');
+      ul.className = 'name-list';
+
+      nombres.forEach((nombre, idx) => {
+        const li = document.createElement('li');
+
+        const span = document.createElement('span');
+        span.className = 'name-text';
+        span.textContent = nombre;
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'delete';
+        delBtn.textContent = 'Eliminar';
+        delBtn.title = `Eliminar ${nombre}`;
+        delBtn.addEventListener('click', () => eliminarNombre(idx));
+
+        actions.appendChild(delBtn);
+        li.appendChild(span);
+        li.appendChild(actions);
+        ul.appendChild(li);
+      });
+
+      listContainer.innerHTML = '';
+      listContainer.appendChild(ul);
+    }
+
+    // Añadir nombre nuevo (valida no vacío)
+    function agregarNombre(){
+      const nombre = input.value.trim();
+      if(!nombre){
+        setStatus('Introduce un nombre válido.', true);
+        return;
+      }
+      const nombres = obtenerNombresGuardados();
+      nombres.push(nombre);
+      guardarNombres(nombres);
+      input.value = '';
+      mostrarNombres();
+      setStatus(`Guardado: "${nombre}"`, false);
+      input.focus();
+    }
+
+    // Eliminar por índice (evita conflictos con nombres duplicados)
+    function eliminarNombre(indice){
+      const nombres = obtenerNombresGuardados();
+      if(indice < 0 || indice >= nombres.length) return;
+      const eliminado = nombres.splice(indice,1)[0];
+      guardarNombres(nombres);
+      mostrarNombres();
+      setStatus(`Eliminado: "${eliminado}"`, false);
+    }
+
+    // Borrar todo con confirmación
+    function borrarTodo(){
+      const nombres = obtenerNombresGuardados();
+      if(nombres.length === 0){
+        setStatus('No hay nada que borrar.', true);
+        return;
+      }
+      if(!confirm('¿Eliminar todos los nombres guardados?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      mostrarNombres();
+      setStatus('Listado borrado.', false);
+    }
+
+    // Mensajes de estado
+    function setStatus(text, isError){
+      statusEl.textContent = text;
+      statusEl.style.color = isError ? '#b91c1c' : 'var(--muted)';
+      clearStatusAfterDelay();
+    }
+    let statusTimeout = null;
+    function clearStatusAfterDelay(){
+      if(statusTimeout) clearTimeout(statusTimeout);
+      statusTimeout = setTimeout(()=> statusEl.textContent = '', 3500);
+    }
+
+    // Listeners
+    saveBtn.addEventListener('click', agregarNombre);
+    input.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Enter') agregarNombre();
+    });
+    clearBtn.addEventListener('click', borrarTodo);
+
+    // Inicializar UI al cargar
+    window.addEventListener('DOMContentLoaded', mostrarNombres);
+  </script>
+</body>
+</html>

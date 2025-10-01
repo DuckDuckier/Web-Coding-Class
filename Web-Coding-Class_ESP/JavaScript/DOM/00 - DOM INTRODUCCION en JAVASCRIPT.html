@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manipulación del DOM</title>
+  <style>
+    :root {
+      --color-primario: #0b4476;
+      --color-secundario: #1e88e5;
+      --color-fondo: #f9fbfc;
+      --color-codigo: #2d2d2d;
+      --color-explicacion: #555;
+      --fuente: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--fuente);
+      background-color: var(--color-fondo);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--color-primario);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: var(--color-secundario);
+      margin-top: 0;
+    }
+
+    .ejercicio {
+      margin-bottom: 3rem;
+    }
+
+    .ejercicio p {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .solucion {
+      background-color: #f0f4f8;
+      border-left: 4px solid var(--color-secundario);
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      color: var(--color-codigo);
+    }
+
+    .explicacion {
+      margin-top: 1rem;
+      background-color: #eef2f5;
+      padding: 1rem;
+      border-radius: 6px;
+      font-style: italic;
+      color: var(--color-explicacion);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #f0f0f0;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manipulación del DOM</h1>
+    <p>Aprende a acceder, modificar y controlar elementos HTML con JavaScript</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>¿Qué es el DOM?</h2>
+      <div class="explicacion">
+        El <strong>DOM (Document Object Model)</strong> es una representación en forma de árbol de un documento HTML.  
+        JavaScript permite acceder y modificar sus elementos para crear páginas dinámicas.  
+        A continuación, se muestran ejemplos explicativos de cómo interactuar con el DOM.
+      </div>
+
+      <div class="ejercicio">
+        <p>Ejemplo 1: Acceder y modificar elementos HTML</p>
+        <div class="solucion">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="es"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;DOM&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;h1 id="titulo"&gt;Título&lt;/h1&gt;<br>
+&nbsp;&nbsp;&lt;p id="parrafo"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;button id="boton"&gt;Haz clic&lt;/button&gt;<br><br>
+&nbsp;&nbsp;&lt;script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Obtener el elemento <code>h1</code> por su id y guardarlo en la variable 'titulo'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const titulo = document.getElementById("titulo");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Mostrar en consola la referencia al elemento (útil para depuración)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(titulo);<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Cambiar el texto que aparece dentro del elemento <code>h1</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;titulo.textContent = "Nuevo título";<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Obtener el botón por su id para poder añadirle un evento<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const boton = document.getElementById("boton");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Añadir un listener al botón que se ejecuta cuando el usuario hace clic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;boton.addEventListener("click", () =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Dentro del manejador: mostrar un mensaje en la consola cuando se pulsa el botón<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Haz hecho clic en el botón");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+        </div>
+        <div class="explicacion">
+          Este ejemplo accede al elemento <code>h1</code> por su ID, modifica su contenido y añade un evento al botón.  
+          Es una introducción básica a cómo JavaScript interactúa con el DOM.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>Ejemplo 2: Crear elementos, cambiar estilos y manejar eventos</p>
+        <div class="solucion">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;Manipulación del DOM&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;h1 id="titulo"&gt;¡Hola, Mundo!&lt;/h1&gt;<br>
+&nbsp;&nbsp;&lt;p id="parrafo"&gt;Este es un párrafo de ejemplo.&lt;/p&gt;<br><br>
+&nbsp;&nbsp;&lt;script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Seleccionar elementos por id y guardarlos en variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const tituloElemento = document.getElementById("titulo");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const parrafoElemento = document.getElementById("parrafo");<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Modificar texto y HTML del contenido existente<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tituloElemento.textContent = "¡Hola, UDD!"; // cambia solo el texto, sin interpretar HTML<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parrafoElemento.innerHTML = "Este es un párrafo modificado."; // permite HTML dentro del contenido<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Crear un nuevo párrafo y añadirlo al final del body<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const nuevoElemento = document.createElement("p");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nuevoElemento.textContent = "Este es un nuevo párrafo."; // asignar texto al nuevo elemento<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.body.appendChild(nuevoElemento); // agregar el elemento al DOM<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Cambiar estilos directamente desde JS (no recomendado para estilos complejos)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tituloElemento.style.color = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parrafoElemento.style.fontSize = "20px";<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Añadir un evento que muestra una alerta al hacer clic en el título<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tituloElemento.addEventListener("click", function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("¡Haz hecho clic en el título!"); // mostrar ventana modal de alerta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+        </div>
+        <div class="explicacion">
+          Este ejemplo muestra cómo modificar contenido, agregar nuevos elementos al DOM, cambiar estilos y manejar eventos.  
+          Es una demostración clara de cómo hacer que una página HTML responda dinámicamente a la interacción del usuario.
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <p>Buenas prácticas al trabajar con el DOM</p>
+        <div class="solucion">
+<pre><code>// Cachear referencias para evitar búsquedas repetidas en el DOM
+const myElement = document.getElementById("myElement"); // obtiene referencia al elemento con id 'myElement'
+myElement.textContent = "Hola"; // actualiza su contenido de texto
+
+// Eventos delegados: añadir un listener al contenedor y filtrar por targets
+const container = document.getElementById("container"); // contenedor padre
+container.addEventListener("click", function(event) {
+  // event.target es el elemento real que recibió el clic; matches comprueba si es un botón
+  if (event.target.matches("button")) {
+    // Lógica del evento para los botones
+  }
+});
+
+// Agrupar modificaciones para mejorar rendimiento usando DocumentFragment
+const fragment = document.createDocumentFragment(); // fragmento en memoria
+fragment.appendChild(element1); // añadir elementos al fragmento
+fragment.appendChild(element2);
+fragment.appendChild(element3);
+container.innerHTML = ""; // vaciar el contenedor antes de insertar
+container.appendChild(fragment); // insertar todos los elementos de una vez
+
+// Eliminar event listeners cuando ya no se necesitan para evitar fugas de memoria
+const button = document.getElementById("myButton"); // obtener referencia al botón
+button.addEventListener("click", myFunction); // añadir listener
+// ...
+button.removeEventListener("click", myFunction); // eliminar listener cuando corresponda
+</code></pre>
+        </div>
+        <div class="explicacion">
+          Estas prácticas ayudan a mejorar el rendimiento y la organización del código.  
+          Evitan búsquedas repetidas, fugas de memoria y operaciones innecesarias sobre el DOM.  
+          Al aplicar estas técnicas, tu aplicación será más eficiente, más fácil de mantener y menos propensa a errores.  
+          Recuerda que el DOM es una estructura viva que se actualiza constantemente, por lo que manipularlo con cuidado es clave para una experiencia de usuario fluida.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Curso de JavaScript. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
