@@ -1,0 +1,23 @@
+body div p::first-letter {
+    font-size: 75px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 1px;
+    margin-left: 5px;
+    color: gold;
+    float: left;
+}
+
+body div p {
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-left: 40px;
+}
+
+body {
+    background-color: black;
+}
+
+body div {
+    width: 400px;
+}

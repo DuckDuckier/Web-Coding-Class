@@ -1,0 +1,128 @@
+/* Reset básico y tipografía moderna */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #0074d9;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 1em;
+    color: #0074d9;
+}
+
+/* Lista ordenada */
+ol {
+    list-style: decimal inside;
+    padding-left: 1em;
+}
+
+li {
+    margin-bottom: 2em;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Código y énfasis */
+code {
+    background: #eef;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+em {
+    display: block;
+    margin: 0.5em 0;
+    color: #555;
+}
+
+/* Botones */
+button {
+    background: #0074d9;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 0.5em;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+/* Respuestas */
+.respuesta {
+    display: none;
+    margin-top: 1em;
+    padding: 1em;
+    background: #eaf4ff;
+    border-left: 4px solid #0074d9;
+    border-radius: 4px;
+}
+
+/* Ejemplos específicos */
+#importante {
+    font-weight: bold;
+}
+
+#especial {
+    background: #fff3b0;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+article span {
+    color: #d7263d;
+}
+
+ul > li {
+    background: #f0f0f0;
+    padding: 0.3em;
+    border-radius: 4px;
+}
+
+input[type="text"] {
+    border: 2px solid #2ecc71;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+}
+
+h3 + p {
+    color: #ff851b;
+}
+
+h4 ~ p {
+    font-style: italic;
+}
+
+.primera-letra::first-letter {
+    font-size: 2em;
+    color: #6c5ce7;
+}

@@ -1,0 +1,197 @@
+<!-- 01 - ejercicio.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica Guiada: Organización de Ficheros de Estilo CSS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+            color: #222;
+        }
+        h1 {
+            color: navy;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        section {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0001;
+            margin: 2em auto;
+            max-width: 700px;
+            padding: 2em;
+        }
+        ol, ul {
+            margin-left: 1.5em;
+        }
+        code, pre {
+            background: #f0f0f0;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+        .actividad {
+            background: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 1em;
+            margin: 1.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Ejercicio: Organización de Ficheros de Estilo CSS</h1>
+        <p><strong>Objetivo:</strong> Aprender a crear, organizar y vincular hojas de estilo CSS externas.</p>
+
+        <ol>
+            <li>
+                <strong>Crea la estructura de archivos:</strong>
+                <ul>
+                    <li>Crea una carpeta llamada <code>mi-web</code>.</li>
+                    <li>Dentro, crea estos archivos:
+                        <ul>
+                            <li><code>index.html</code></li>
+                            <li><code>reset.css</code></li>
+                            <li><code>layout.css</code></li>
+                            <li><code>typography.css</code></li>
+                            <li><code>buttons.css</code></li>
+                            <li><code>responsive.css</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Escribe el HTML base en <code>index.html</code>:</strong>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Web con Estilos&lt;/title&gt;
+    &lt;!-- Vinculación de estilos --&gt;
+    &lt;link rel="stylesheet" href="reset.css"&gt;
+    &lt;link rel="stylesheet" href="layout.css"&gt;
+    &lt;link rel="stylesheet" href="typography.css"&gt;
+    &lt;link rel="stylesheet" href="buttons.css"&gt;
+    &lt;link rel="stylesheet" href="responsive.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Bienvenido a Mi Web&lt;/h1&gt;
+        &lt;button&gt;Explorar&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;p&gt;Esta es una página con estilos organizados.&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;© 2025 Mi Sitio&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </li>
+            <li>
+                <strong>Crea los ficheros de estilo con el siguiente contenido:</strong>
+                <ul>
+                    <li><code>reset.css</code>:
+                        <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+</code></pre>
+                    </li>
+                    <li><code>layout.css</code>:
+                        <pre><code>body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8f8f8; /* Cambia este color para practicar */
+}
+main {
+    flex: 1;
+    padding: 20px;
+}
+</code></pre>
+                    </li>
+                    <li><code>typography.css</code>:
+                        <pre><code>body {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+h1 {
+    font-size: 2em;
+    color: navy;
+}
+</code></pre>
+                    </li>
+                    <li><code>buttons.css</code>:
+                        <pre><code>button {
+    background-color: navy;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: darkblue;
+}
+</code></pre>
+                    </li>
+                    <li><code>responsive.css</code>:
+                        <pre><code>@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+        text-align: center; /* Añade esto para centrar el texto en móviles */
+    }
+    button {
+        width: 100%;
+    }
+    main, header, footer {
+        text-align: center;
+    }
+}
+</code></pre>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="actividad">
+            <strong>Actividades para practicar:</strong>
+            <ol>
+                <li>Comprueba que los estilos se aplican correctamente en <code>index.html</code>.</li>
+                <li>Cambia el color de fondo en <code>layout.css</code> y observa el resultado.</li>
+                <li>Modifica <code>responsive.css</code> para que el texto se centre en móviles (ya incluido arriba).</li>
+                <li>Crea una nueva página <code>contacto.html</code> con contenido propio y vincula los mismos estilos.</li>
+                <li>
+                    Crea un fichero <code>theme-dark.css</code> con estos estilos para modo oscuro:
+                    <pre><code>body {
+    background: #181c20;
+    color: #eee;
+}
+h1 {
+    color: #7ecfff;
+}
+button {
+    background: #222;
+    color: #7ecfff;
+}
+button:hover {
+    background: #333;
+}
+</code></pre>
+                    Añade este enlace en tu <code>index.html</code> para probar el modo oscuro:
+                    <pre><code>&lt;link rel="stylesheet" href="theme-dark.css" media="(prefers-color-scheme: dark)"&gt;
+</code></pre>
+                </li>
+            </ol>
+        </div>
+        <p><strong>¡Experimenta cambiando los estilos y observa cómo afectan a tu web!</strong></p>
+    </section>
+</body>
+</html>

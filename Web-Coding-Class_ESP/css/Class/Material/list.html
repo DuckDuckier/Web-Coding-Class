@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio de Propiedades CSS para Listas</title>
+    <style>
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #f0f4f8 0%, #e9eafc 100%);
+            color: #222;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        h1, h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #2a7ae2;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        p, ul, ol {
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+        p {
+            max-width: 700px;
+            margin: 0 auto 28px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(42,122,226,0.07);
+            padding: 22px 28px;
+        }
+        ul, ol {
+            margin-bottom: 32px;
+        }
+        ul li, ol li {
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            padding: 10px;
+
+        }
+        /* Lista 1 */
+        .lista-ejemplo1 {
+            list-style-type: square;
+            list-style-position: inside;
+            color: #2a7ae2;
+            background: #f0f8ff;
+            padding: 24px 32px;
+            margin: 0 auto 28px auto;
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(42,122,226,0.09);
+            max-width: 480px;
+            transition: box-shadow 0.2s;
+        }
+        .lista-ejemplo1 li {
+            margin-bottom: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        /* Lista 2 */
+        .lista-ejemplo2 {
+            list-style-type: upper-roman;
+            list-style-position: outside;
+            background: linear-gradient(90deg, #fffbe7 80%, #ffe7b7 100%);
+            padding: 22px 38px;
+            margin: 0 auto 28px auto;
+            border-left: 6px solid #e2a72a;
+            border-radius: 0 12px 12px 0;
+            max-width: 480px;
+            box-shadow: 0 2px 12px rgba(226,167,42,0.07);
+        }
+        .lista-ejemplo2 li {
+            margin-bottom: 10px;
+            color: #b07a13;
+            font-weight: 500;
+        }
+        /* Lista 3 */
+        .lista-ejemplo3 {
+            list-style-image: url('https://cdn-icons-png.flaticon.com/16/32/32177.png');
+            background: linear-gradient(90deg, #e7fff7 80%, #b7ffe7 100%);
+            padding: 20px 32px;
+            border-radius: 14px;
+            max-width: 480px;
+            margin: 0 auto 28px auto;
+            box-shadow: 0 2px 12px rgba(42,226,180,0.07);
+        }
+        .lista-ejemplo3 li {
+            margin-bottom: 10px;
+            color: #1bbd8a;
+            font-weight: 500;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            p, .lista-ejemplo1, .lista-ejemplo2, .lista-ejemplo3 {
+                padding: 14px 10px;
+                max-width: 98vw;
+            }
+            h1, h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio: Propiedades CSS para Listas</h1>
+    <p>
+        <strong>Enunciado:</strong><br>
+        Crea tres listas diferentes utilizando HTML y aplica las siguientes propiedades CSS para listas:<br>
+    </p>
+        <ul class="lista-ejemplo1">
+            <li><b>list-style-type</b>: Cambia el tipo de viñeta o numeración.</li>
+            <li><b>list-style-position</b>: Modifica la posición de la viñeta respecto al contenido.</li>
+            <li><b>list-style-image</b>: Usa una imagen personalizada como viñeta.</li>
+            <li><b>list-style</b>: Utiliza la propiedad abreviada para combinar varias propiedades.</li>
+            <li>Personaliza el <b>espaciado</b> (<code>padding</code>, <code>margin</code>), <b>color</b> y <b>fondo</b> de las listas.</li>
+        </ul>
+        <br>
+        <p><b>Objetivo:</b> Comprender y aplicar todas las propiedades CSS relacionadas con listas.</p><br>
+        <br>      
+   
+<h2>Ejemplo de listas:</h2>
+    <ol class="lista-ejemplo1">
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+    </ol>
+
+    <ul class="lista-ejemplo2">
+        <li>Elemento uno</li>
+        <li>Elemento dos</li>
+        <li>Elemento tres</li>
+    </ul>
+
+    <ul class="lista-ejemplo3">
+        <li>Elemento A</li>
+        <li>Elemento B</li>
+        <li>Elemento C</li>
+    </ul>
+
+    <p>
+        <b>Tu tarea:</b> Crea tus propias listas y experimenta con todas las propiedades mencionadas. Cambia los valores y observa cómo afectan la apariencia de las listas.
+    </p>
+</body>
+</html>

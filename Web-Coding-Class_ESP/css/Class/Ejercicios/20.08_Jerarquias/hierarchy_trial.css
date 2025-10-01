@@ -1,0 +1,23 @@
+p {
+    color: yellow ;
+}
+
+.PEP {
+    color: red;
+}
+
+#DER {
+    color: blue;
+}
+
+#FUS {
+    color: black !important;
+}
+
+div {
+    position: absolute;
+    width: 20em;
+    height: 12em;
+    background-color: #cb60b3;
+    border-radius: 40em 2em 40em 2em;
+}

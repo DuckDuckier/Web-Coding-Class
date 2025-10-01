@@ -1,0 +1,12 @@
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+        text-align: center; /* Añade esto para centrar el texto en móviles */
+    }
+    button {
+        width: 100%;
+    }
+    main, header, footer {
+        text-align: center;
+    }
+}

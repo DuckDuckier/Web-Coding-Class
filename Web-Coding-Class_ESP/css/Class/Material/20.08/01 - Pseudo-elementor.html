@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS: Selectores y Pseudo-elementos</title>
+  <link rel="stylesheet" href="estilomodernopseudo.css">
+</head>
+<body>
+  <main>
+    <h1>CSS: Selectores, Pseudo-clases y Pseudo-elementos</h1>
+
+    <section class="card">
+      <h2>Selector CSS</h2>
+      <p>Un selector es la parte del código CSS que indica a qué elementos HTML se aplicarán los estilos.</p>
+      <ul>
+        <li><code>p</code> → selecciona todos los párrafos.</li>
+        <li><code>.importante</code> → selecciona todos los elementos con la clase <em>importante</em>.</li>
+        <li><code>#especial</code> → selecciona el elemento con el ID <em>especial</em>.</li>
+        <li><code>ul &gt; li</code> → selecciona los <code>li</code> hijos directos de un <code>ul</code>.</li>
+      </ul>
+      <p class="nota">Función: conectar el CSS con el HTML para aplicar estilos específicos.</p>
+    </section>
+
+    <section class="card">
+      <h2>Pseudo-clase</h2>
+      <p>Una pseudo-clase representa un estado especial o dinámico de un elemento.</p>
+      <ul>
+        <li><code>:hover</code> → cuando el cursor pasa por encima.</li>
+        <li><code>:focus</code> → cuando el elemento recibe foco.</li>
+        <li><code>:nth-child(2)</code> → selecciona el segundo hijo.</li>
+        <li><code>:checked</code> → cuando un checkbox está marcado.</li>
+      </ul>
+      <p class="nota"> Función: aplicar estilos según el comportamiento o posición del elemento.</p>
+    </section>
+
+    <section class="card">
+      <h2> Pseudo-elemento</h2>
+      <p>Un pseudo-elemento permite estilizar partes específicas de un elemento.</p>
+      <ul>
+        <li><code>::first-letter</code> → estiliza la primera letra.</li>
+        <li><code>::first-line</code> → estiliza la primera línea.</li>
+        <li><code>::before</code> → inserta contenido antes.</li>
+        <li><code>::after</code> → inserta contenido después.</li>
+      </ul>
+      <p class="nota"> Función: acceder y estilizar fragmentos internos o virtuales del contenido.</p>
+    </section>
+  </main>
+</body>
+</html>

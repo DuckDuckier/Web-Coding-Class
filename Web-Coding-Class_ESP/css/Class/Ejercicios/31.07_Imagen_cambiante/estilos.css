@@ -1,0 +1,26 @@
+.contenedor {
+      position: relative;
+      width: 50em; /* ancho deseado */
+      height: 30em; /* alto deseado */
+      overflow: hidden;
+    }
+
+    .contenedor img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .contenedor .imagen-hover {
+      opacity: 0;
+    }
+
+    .contenedor:hover .imagen-hover {
+      opacity: 1;
+    }
+
+    .contenedor:hover .imagen-normal {
+      opacity: 0;
+    }

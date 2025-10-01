@@ -1,0 +1,15 @@
+div {
+    background-color: rgb(12, 12, 12);
+    color: white;
+    width: 1000px;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: armenian;
+    list-style-position: inside;
+    list-style: square;
+    margin-left: 750px;
+    margin-top: 50px;
+    padding: 2px;
+}

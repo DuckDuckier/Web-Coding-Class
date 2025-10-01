@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test CSS: Verdadero o Falso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .question {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .question h3 {
+            margin: 0 0 10px;
+            color: #34495e;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .explanation {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 8px;
+            display: none;
+        }
+        .explanation.correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .explanation.incorrect {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        #submitBtn {
+            display: block;
+            margin: 30px auto 10px auto;
+            padding: 10px 30px;
+            font-size: 1.1em;
+            background: #2c3e50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #result {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test CSS: Verdadero o Falso</h1>
+    <form id="cssTest">
+        <!-- Las preguntas se generan con JS para facilitar la retroalimentación -->
+    </form>
+    <button id="submitBtn">Enviar respuestas</button>
+    <div id="result"></div>
+    <script>
+        // Preguntas, respuestas correctas y explicaciones
+        const questions = [
+            {
+                text: 'La propiedad <code>color</code> define el color del texto.',
+                correct: 0,
+                explanation: '✔️ Verdadero. <code>color</code> afecta el texto, no el fondo.'
+            },
+            {
+                text: '<code>background-color</code> cambia el color del texto.',
+                correct: 1,
+                explanation: '❌ Falso. Cambia el color de fondo, no del texto.'
+            },
+            {
+                text: '<code>font-size</code> controla el tamaño de la fuente.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Se puede usar en px, em, rem, etc.'
+            },
+            {
+                text: '<code>margin</code> agrega espacio dentro del elemento.',
+                correct: 1,
+                explanation: '❌ Falso. <code>margin</code> agrega espacio afuera del borde.'
+            },
+            {
+                text: '<code>padding</code> agrega espacio dentro del borde del elemento.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Es el espacio interno.'
+            },
+            {
+                text: '<code>border</code> se usa para agregar bordes a los elementos.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Puedes definir estilo, grosor y color.'
+            },
+            {
+                text: '<code>display: none</code> oculta un elemento pero lo mantiene en el flujo del documento.',
+                correct: 1,
+                explanation: '❌ Falso. Lo oculta completamente y lo elimina del flujo.'
+            },
+            {
+                text: '<code>position: absolute</code> posiciona el elemento respecto al contenedor padre.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Siempre que el padre tenga <code>position: relative</code>.'
+            },
+            {
+                text: '<code>z-index</code> controla la profundidad de los elementos.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Cuanto mayor el valor, más arriba se muestra.'
+            },
+            {
+                text: '<code>overflow: hidden</code> permite que el contenido se desborde.',
+                correct: 1,
+                explanation: '❌ Falso. Oculta el contenido que se desborda.'
+            },
+            {
+                text: '<code>flexbox</code> es una técnica de diseño en una dimensión.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Se usa para organizar elementos en filas o columnas.'
+            },
+            {
+                text: '<code>text-align: center</code> centra el texto horizontalmente.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Solo afecta contenido en línea o texto.'
+            },
+            {
+                text: '<code>opacity: 0</code> hace que el elemento sea invisible pero aún interactivo.',
+                correct: 0,
+                explanation: '✔️ Verdadero. El elemento sigue ocupando espacio y puede recibir clics.'
+            },
+            {
+                text: '<code>visibility: hidden</code> elimina el elemento del flujo del documento.',
+                correct: 1,
+                explanation: '❌ Falso. Lo oculta pero sigue ocupando espacio.'
+            },
+            {
+                text: '<code>box-sizing: border-box</code> incluye el padding y el borde en el ancho total.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Es útil para evitar cálculos complicados.'
+            },
+            {
+                text: '<code>em</code> y <code>rem</code> son unidades relativas.',
+                correct: 0,
+                explanation: '✔️ Verdadero. <code>em</code> depende del padre, <code>rem</code> del root.'
+            },
+            {
+                text: '<code>:hover</code> es una pseudo-clase que se activa al hacer clic.',
+                correct: 1,
+                explanation: '❌ Falso. Se activa al pasar el cursor sobre el elemento.'
+            },
+            {
+                text: '<code>!important</code> se usa para dar prioridad a una regla CSS.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Sobrescribe otras reglas, incluso las más específicas.'
+            },
+            {
+                text: '<code>inherit</code> es un valor que fuerza a un elemento a heredar el valor de su padre.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Útil para mantener consistencia en estilos.'
+            },
+            {
+                text: '<code>initial</code> restablece una propiedad CSS a su valor por defecto del navegador.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Es lo opuesto a <code>inherit</code>.'
+            },
+            {
+                text: '<code>line-height</code> controla el grosor del texto.',
+                correct: 1,
+                explanation: '❌ Falso. Controla el espacio entre líneas de texto.'
+            },
+            {
+                text: '<code>text-transform: uppercase</code> convierte el texto en mayúsculas.',
+                correct: 0,
+                explanation: '✔️ Verdadero. También existen <code>lowercase</code> y <code>capitalize</code>.'
+            },
+            {
+                text: '<code>cursor: pointer</code> cambia el cursor a una mano al pasar sobre el elemento.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Se usa comúnmente en botones y enlaces.'
+            },
+            {
+                text: '<code>transition</code> permite animar cambios en propiedades CSS.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Se puede aplicar a color, tamaño, posición, etc.'
+            },
+            {
+                text: '<code>transform: scale(2)</code> reduce el tamaño del elemento.',
+                correct: 1,
+                explanation: '❌ Falso. Lo duplica. Para reducir se usa <code>scale(0.5)</code>.'
+            },
+            {
+                text: '<code>position: fixed</code> mantiene el elemento en su lugar incluso al hacer scroll.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Se usa para menús o botones flotantes.'
+            },
+            {
+                text: '<code>rgba()</code> permite definir colores con transparencia.',
+                correct: 0,
+                explanation: '✔️ Verdadero. El cuarto valor es la opacidad (0 a 1).'
+            },
+            {
+                text: '<code>box-shadow</code> se usa para agregar sombra a los textos.',
+                correct: 1,
+                explanation: '❌ Falso. Se usa para sombras en cajas. Para texto se usa <code>text-shadow</code>.'
+            },
+            {
+                text: '<code>media queries</code> permiten aplicar estilos según el tamaño de pantalla.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Son clave para diseño responsivo.'
+            },
+            {
+                text: '<code>calc()</code> permite realizar cálculos matemáticos en CSS.',
+                correct: 0,
+                explanation: '✔️ Verdadero. Puedes sumar, restar, multiplicar y dividir unidades.'
+            }
+        ];
+
+        // Renderizar preguntas
+        const form = document.getElementById('cssTest');
+        questions.forEach((q, i) => {
+            const div = document.createElement('div');
+            div.className = 'question';
+            div.innerHTML = `
+                <h3>${i + 1}. ${q.text}</h3>
+                <div class="options">
+                    <label><input type="radio" name="q${i}" value="0"> Verdadero</label>
+                    <label><input type="radio" name="q${i}" value="1"> Falso</label>
+                </div>
+                <div class="explanation" id="exp${i}">${q.explanation}</div>
+            `;
+            form.appendChild(div);
+        });
+
+        document.getElementById('submitBtn').onclick = function(e) {
+            e.preventDefault();
+            let score = 0;
+            let total = questions.length;
+            for (let i = 0; i < total; i++) {
+                const radios = document.getElementsByName('q' + i);
+                let selected = -1;
+                for (const r of radios) {
+                    if (r.checked) selected = parseInt(r.value);
+                }
+                const exp = document.getElementById('exp' + i);
+                exp.style.display = 'block';
+                if (selected === questions[i].correct) {
+                    exp.classList.add('correct');
+                    exp.classList.remove('incorrect');
+                    score++;
+                    exp.innerHTML = "✅ ¡Correcto! " + questions[i].explanation;
+                } else if (selected !== -1) {
+                    exp.classList.add('incorrect');
+                    exp.classList.remove('correct');
+                    exp.innerHTML = "❌ Incorrecto. " + questions[i].explanation;
+                } else {
+                    exp.classList.remove('correct', 'incorrect');
+                    exp.innerHTML = "⚠️ No respondido. " + questions[i].explanation;
+                }
+            }
+            document.getElementById('result').innerHTML =
+                `Tu puntaje: ${score} de ${total}`;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        };
+    </script>
+</body>
+</html></form>

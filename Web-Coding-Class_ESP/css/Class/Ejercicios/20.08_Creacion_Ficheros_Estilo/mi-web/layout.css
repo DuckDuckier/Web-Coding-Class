@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #ffb8b8; /* Cambia este color para practicar */
+}
+main {
+    flex: 1;
+    padding: 20px;
+}

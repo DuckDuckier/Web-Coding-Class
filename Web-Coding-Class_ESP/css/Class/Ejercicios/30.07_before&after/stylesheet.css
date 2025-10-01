@@ -1,0 +1,30 @@
+.bandera::before {
+      content: "";
+      display: inline-block;
+      width: 64px;
+      height: 40px;
+      background-size: cover;
+    }
+
+body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+
+    }
+
+html[lang="es"] .bandera:before {
+
+    background-image: url("https://flagcdn.com/w320/es.png");
+    content:"Bandera Espaniola";
+    }
+
+[lang="en"] .bandera:before {
+    background-image: url('https://flagcdn.com/w320/gb.png');
+    content:"Bandera Betrañesca";
+    }
+
+[lang="fr"] .bandera:before {
+    background-image: url('https://flagcdn.com/w320/fr.png');
+    content:"Bandera Franchesca";
+    }

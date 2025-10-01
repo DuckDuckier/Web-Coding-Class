@@ -1,0 +1,10 @@
+div {
+    margin: 250px auto;
+    background: #5961ba;
+    background: -webkit-linear-gradient(top, #5961ba 0%,
+    #60abf8 50%, #5961ba 100%);
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Jerarquía CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .tabla-css {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr 1fr;
+      gap: 10px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tabla-css div {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tabla-css div.header {
+      font-weight: bold;
+      background-color: #e0e0e0;
+      border-bottom: 2px solid #999;
+    }
+
+    .tabla-css div:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Jerarquía de reglas CSS</h2>
+
+  <div class="tabla-css">
+    <div class="header">Nivel</div>
+    <div class="header">Selector</div>
+    <div class="header">Ejemplo</div>
+    <div class="header">Prioridad</div>
+
+    <div>1️⃣</div>
+    <div>Etiqueta</div>
+    <div><code>p</code>, <code>div</code></div>
+    <div>Baja</div>
+
+    <div>2️⃣</div>
+    <div>Clase</div>
+    <div><code>.rojo</code>, <code>.boton</code></div>
+    <div>Media</div>
+
+    <div>3️⃣</div>
+    <div>Atributo / Pseudoclase</div>
+    <div><code>[type="text"]</code>, <code>:hover</code></div>
+    <div>Media-Alta</div>
+
+    <div>4️⃣</div>
+    <div>ID</div>
+    <div><code>#menu</code>, <code>#principal</code></div>
+    <div>Alta</div>
+
+    <div>5️⃣</div>
+    <div>Estilo en línea</div>
+    <div><code>style="color:red"</code></div>
+    <div>Muy alta</div>
+
+    <div>6️⃣</div>
+    <div>!important</div>
+    <div><code>color: blue !important</code></div>
+    <div>Máxima</div>
+  </div>
+
+</body>
+</html>

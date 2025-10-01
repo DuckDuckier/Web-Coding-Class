@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplos de Selectores CSS</title>
+    <link rel="stylesheet" href="estiloselector.css">
+    <style>
+        /* 1. Selector de etiqueta */
+        p {
+            color: blue;
+        }
+
+        /* 2. Selector de clase */
+        .importante {
+            font-weight: bold;
+        }
+
+        /* 3. Selector de ID */
+        #especial {
+            background: yellow;
+        }
+
+        /* 4. Selector de descendiente */
+        article span {
+            color: red;
+        }
+
+        /* 5. Selector de hijo directo */
+        ul > li {
+            background: #eee;
+        }
+
+        /* 6. Selector de atributo */
+        input[type="text"] {
+            border: 2px solid green;
+        }
+
+        /* 7. Selector de grupo */
+        h1, h2 {
+            text-transform: uppercase;
+        }
+
+        /* 8. Selector de hermano adyacente */
+        h3 + p {
+            color: orange;
+        }
+
+        /* 9. Selector de hermano general */
+        h4 ~ p {
+            font-style: italic;
+        }
+
+        /* 10. Selector universal */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 11. Pseudo-clase :hover */
+        button:hover {
+            background: lightblue;
+        }
+
+        /* 12. Pseudo-elemento ::first-letter */
+        .primera-letra::first-letter {
+            font-size: 2em;
+            color: purple;
+        }
+
+        /* Oculta las respuestas por defecto */
+        .respuesta {
+            display: none;
+            margin: 0.5em 0 1em 1em;
+            color: #333;
+            background: #f9f9f9;
+            border-left: 3px solid #0074d9;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de Selectores CSS</h1>
+    <ol>
+        <li>
+            <strong>Selector de etiqueta:</strong> <code>p { color: blue; }</code>
+            <br>
+            <em>Selecciona todos los párrafos y los pone en azul.</em>
+           
+            <div class="respuesta">
+                <p>Este texto es azul porque está en un &lt;p&gt;.</p>
+            </div>
+        </li>
+        <li>
+            <strong>Selector de clase:</strong> <code>.importante { font-weight: bold; }</code>
+            <br>
+            <em>Selecciona los elementos con la clase "importante" y los pone en negrita.</em>
+         
+            <div class="respuesta">
+                <span class="importante">Este texto es importante.</span>
+            </div>
+        </li>
+        <li>
+            <strong>Selector de ID:</strong> <code>#especial { background: yellow; }</code>
+            <br>
+            <em>Selecciona el elemento con id "especial" y le pone fondo amarillo.</em>
+           
+            <div class="respuesta">
+                <div id="especial">Este div es especial.</div>
+            </div>
+        </li>
+        <li>
+            <strong>Selector descendiente:</strong> <code>article span { color: red; }</code>
+            <br>
+            <em>Selecciona los &lt;span&gt; dentro de &lt;article&gt; y los pone en rojo.</em>
+  
+            <div class="respuesta">
+                <article>
+                    <span>Este span está dentro de un article.</span>
+                </article>
+            </div>
+        </li>
+        <li>
+            <strong>Selector hijo directo:</strong> <code>ul > li { background: #eee; }</code>
+            <br>
+            <em>Selecciona los &lt;li&gt; hijos directos de &lt;ul&gt; y les pone fondo gris claro.</em>
+         
+            <div class="respuesta">
+                <ul>
+                    <li>Elemento hijo directo</li>
+                    <ol>
+                        <li>Este no es hijo directo</li>
+                    </ol>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <strong>Selector de atributo:</strong> <code>input[type="text"] { border: 2px solid green; }</code>
+            <br>
+            <em>Selecciona los inputs de tipo texto y les pone borde verde.</em>
+         
+            <div class="respuesta">
+                <input type="text" placeholder="Texto">
+                <input type="password" placeholder="Contraseña">
+            </div>
+        </li>
+        <li>
+            <strong>Selector de grupo:</strong> <code>h1, h2 { text-transform: uppercase; }</code>
+            <br>
+            <em>Selecciona h1 y h2 y los pone en mayúsculas.</em>
+           
+            <div class="respuesta">
+                <h2>Este es un h2</h2>
+            </div>
+        </li>
+        <li>
+            <strong>Selector de hermano adyacente:</strong> <code>h3 + p { color: orange; }</code>
+            <br>
+            <em>Selecciona el &lt;p&gt; que sigue inmediatamente a un &lt;h3&gt; y lo pone naranja.</em>
+          
+            <div class="respuesta">
+                <h3>Título</h3>
+                <p>Este párrafo es naranja.</p>
+                <p>Este no lo es.</p>
+            </div>
+        </li>
+        <li>
+            <strong>Selector de hermano general:</strong> <code>h4 ~ p { font-style: italic; }</code>
+            <br>
+            <em>Selecciona todos los &lt;p&gt; que son hermanos de un &lt;h4&gt; y los pone en cursiva.</em>
+         
+            <div class="respuesta">
+                <h4>Subtítulo</h4>
+                <p>Este párrafo es cursiva.</p>
+                <p>Este también.</p>
+            </div>
+        </li>
+        <li>
+            <strong>Selector universal:</strong> <code>* { box-sizing: border-box; }</code>
+            <br>
+            <em>Selecciona todos los elementos y les aplica box-sizing.</em>
+        
+            <div class="respuesta">
+                <div style="width:100px; border:2px solid black;">Todos los elementos tienen box-sizing: border-box.</div>
+            </div>
+        </li>
+        <li>
+            <strong>Pseudo-clase <code>:hover</code>:</strong> <code>button:hover { background: lightblue; }</code>
+            <br>
+            <em>Cambia el fondo del botón al pasar el ratón.</em>
+           
+            <div class="respuesta">
+                <button>Pasa el ratón por aquí</button>
+            </div>
+        </li>
+        <li>
+            <strong>Pseudo-elemento <code>::first-letter</code>:</strong> <code>.primera-letra::first-letter { font-size: 2em; color: purple; }</code>
+            <br>
+            <em>Pone la primera letra más grande y morada.</em>
+           
+            <div class="respuesta">
+                <p class="primera-letra">La primera letra es especial.</p>
+            </div>
+        </li>
+    </ol>
+    <script>
+        function mostrarRespuesta(idx) {
+            document.querySelectorAll('.respuesta')[idx].style.display = 'block';
+        }
+    </script>
+</body>
+</html>

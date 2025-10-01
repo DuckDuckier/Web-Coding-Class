@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de CSS para Vacaciones</title>
+    <style>
+        /* Estilos generales del curso */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2, h3 {
+            color: #a9d1fa;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .leccion {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .explicacion {
+            background: #eaf2f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .ejemplo {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .ejercicio {
+            background: #fff;
+            border: 2px dashed #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .solucion {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .indice {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .indice ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .indice li {
+            margin: 10px 0;
+        }
+
+        .indice a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .indice a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Estilos para las demostraciones visuales */
+        .demo-container {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .demo-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .demo-content {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        
+        /* Estilos específicos para las demostraciones de cada lección */
+        .demo-leccion1 p {
+            color: blue;
+            font-size: 18px;
+        }
+        
+        .demo-leccion2 h2 {
+            color: green;
+        }
+        
+        .demo-leccion2 .importante {
+            background-color: yellow;
+        }
+        
+        .demo-leccion2 #footer-demo {
+            color: gray;
+        }
+        
+        .demo-leccion3 .tarjeta {
+            background-color: #e6f7ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #333;
+            padding: 20px;
+            width: 250px;
+        }
+        
+        .demo-leccion4 .caja {
+            width: 300px;
+            height: auto;
+            padding: 20px;
+            border: 5px solid #3498db;
+            margin: 15px;
+            box-sizing: border-box;
+            background-color: #f0f8ff;
+        }
+        
+        .demo-leccion4 .boton {
+            width: 200px;
+            height: 50px;
+            padding: 10px 15px;
+            border: 2px solid green;
+            margin: 10px;
+            box-sizing: border-box;
+            background-color: #f0f8f0;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .demo-leccion5 .articulo h1 {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: navy;
+        }
+        
+        .demo-leccion5 .articulo p {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .demo-leccion5 .articulo a {
+            color: green;
+            text-decoration: none;
+        }
+        
+        .demo-leccion5 .articulo a:hover {
+            text-decoration: underline;
+        }
+        
+        .demo-leccion6 .menu-flotante {
+            position: relative;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+        
+        .demo-leccion6 .menu-flotante ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .demo-leccion6 .menu-flotante li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        
+        .demo-leccion6 .menu-flotante a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .demo-leccion7 .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .demo-leccion7 .galeria img {
+            flex: 1 1 200px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .demo-leccion8 .contenedor-responsivo {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .demo-leccion8 .header-responsivo {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .demo-leccion8 .menu-responsivo ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .demo-leccion8 .menu-responsivo li {
+            margin: 0 15px;
+        }
+        
+        .demo-leccion8 .main-responsivo {
+            display: flex;
+            padding: 20px;
+            background: white;
+        }
+        
+        .demo-leccion8 .contenido-responsivo {
+            flex: 3;
+        }
+        
+        .demo-leccion8 .sidebar-responsivo {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 15px;
+            margin-left: 20px;
+            border-radius: 4px;
+        }
+        
+        .demo-leccion8 .footer-responsivo {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        /* Estilos para el modo responsive de las demostraciones */
+        @media (max-width: 768px) {
+            .demo-leccion7 .galeria {
+                flex-direction: column;
+            }
+            
+            .demo-leccion8 .main-responsivo {
+                flex-direction: column;
+            }
+            
+            .demo-leccion8 .sidebar-responsivo {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            .demo-leccion8 .menu-responsivo ul {
+                flex-direction: column;
+            }
+            
+            .demo-leccion8 .menu-responsivo li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Curso de CSS para Vacaciones</h1>
+    <p>Bienvenidos a este curso intensivo de CSS. Aprenderán desde los conceptos más básicos hasta técnicas intermedias para crear diseños web atractivos.</p>
+
+    <div class="indice">
+        <h2>Índice del Curso</h2>
+        <ul>
+            <li><a href="#leccion1">Lección 1: Introducción a CSS</a></li>
+            <li><a href="#leccion2">Lección 2: Selectores Básicos</a></li>
+            <li><a href="#leccion3">Lección 3: Colores y Fondos</a></li>
+            <li><a href="#leccion4">Lección 4: Modelo de Caja</a></li>
+            <li><a href="#leccion5">Lección 5: Texto y Fuentes</a></li>
+            <li><a href="#leccion6">Lección 6: Posicionamiento</a></li>
+            <li><a href="#leccion7">Lección 7: Flexbox</a></li>
+            <li><a href="#leccion8">Lección 8: Responsive Design</a></li>
+        </ul>
+    </div>
+
+    <!-- Lección 1 -->
+    <div id="leccion1" class="leccion">
+        <h2>Lección 1: Introducción a CSS</h2>
+        
+        <div class="explicacion">
+            <h3>¿Qué es CSS?</h3>
+            <p>CSS (Cascading Style Sheets) es un lenguaje utilizado para describir la presentación de un documento HTML. Controla aspectos como colores, fuentes, espaciados y disposición de los elementos.</p>
+            
+            <h3>¿Cómo funciona?</h3>
+            <p>CSS funciona aplicando reglas de estilo a elementos HTML. Cada regla tiene dos partes principales:</p>
+            <ul>
+                <li><strong>Selector:</strong> Indica a qué elementos HTML se aplica el estilo</li>
+                <li><strong>Declaración:</strong> Define qué propiedades se modifican y sus valores</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplo de sintaxis CSS:</h3>
+            <pre>
+selector {
+    propiedad: valor;
+    propiedad: valor;
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion1">
+                <p>Este párrafo tiene estilos CSS aplicados: color azul y tamaño de fuente 18px.</p>
+                <p>Como puedes ver, todos los párrafos dentro de esta demostración tienen el mismo estilo.</p>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 1: Crear tu primera regla CSS</h3>
+            <p><strong>Instrucciones:</strong> Crea una regla CSS que:</p>
+            <ol>
+                <li>Seleccione todos los párrafos (&lt;p&gt;)</li>
+                <li>Cambie el color del texto a azul</li>
+                <li>Establezca el tamaño de fuente a 18px</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol1')">Ver Solución</button>
+            
+            <div id="sol1" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+p {
+    color: blue;
+    font-size: 18px;
+}
+                </pre>
+                <p><strong>Explicación:</strong> El selector "p" aplica el estilo a todos los párrafos. La propiedad "color" cambia el color del texto, y "font-size" establece el tamaño de la fuente.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <p style="color: blue; font-size: 18px;">Este párrafo muestra el resultado de aplicar la solución: color azul y tamaño de fuente 18px.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 2 -->
+    <div id="leccion2" class="leccion">
+        <h2>Lección 2: Selectores Básicos</h2>
+        
+        <div class="explicacion">
+            <h3>Tipos de selectores:</h3>
+            <ul>
+                <li><strong>Selector de elemento:</strong> Selecciona todos los elementos de un tipo (p, div, h1, etc.)</li>
+                <li><strong>Selector de clase:</strong> Selecciona elementos con un atributo class específico (usa .)</li>
+                <li><strong>Selector de ID:</strong> Selecciona un elemento con un atributo id único (usa #)</li>
+                <li><strong>Selector universal:</strong> Selecciona todos los elementos (usa *)</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de selectores:</h3>
+            <pre>
+/* Selector de elemento */
+h1 { color: green; }
+
+/* Selector de clase */
+.destacado { background: yellow; }
+
+/* Selector de ID */
+#principal { border: 1px solid black; }
+
+/* Selector universal */
+* { margin: 0; }
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion2">
+                <h2>Este es un título h2 (selector de elemento)</h2>
+                <p class="importante">Este párrafo tiene la clase "importante" (selector de clase)</p>
+                <p>Este es un párrafo normal sin clase especial</p>
+                <div id="footer-demo">Este elemento tiene el ID "footer-demo" (selector de ID)</div>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 2: Aplicando diferentes selectores</h3>
+            <p><strong>Instrucciones:</strong> Crea reglas CSS para:</p>
+            <ol>
+                <li>Todos los elementos &lt;h2&gt; en color verde</li>
+                <li>Elementos con clase "importante" con fondo amarillo</li>
+                <li>El elemento con ID "footer" con texto en gris</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol2')">Ver Solución</button>
+            
+            <div id="sol2" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+h2 {
+    color: green;
+}
+
+.importante {
+    background-color: yellow;
+}
+
+#footer {
+    color: gray;
+}
+                </pre>
+                <p><strong>Explicación:</strong> Usamos diferentes tipos de selectores para aplicar estilos específicos a distintos elementos según su tipo, clase o ID.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <h2 style="color: green;">Título h2 en verde</h2>
+                        <p class="importante" style="background-color: yellow;">Párrafo con clase "importante" y fondo amarillo</p>
+                        <p>Párrafo normal</p>
+                        <div id="footer" style="color: gray;">Elemento con ID "footer" en color gris</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 3 -->
+    <div id="leccion3" class="leccion">
+        <h2>Lección 3: Colores y Fondos</h2>
+        
+        <div class="explicacion">
+            <h3>Trabajando con colores:</h3>
+            <p>CSS ofrece varias formas de definir colores:</p>
+            <ul>
+                <li>Nombres de colores: red, blue, green, etc.</li>
+                <li>Hexadecimal: #FF0000 (rojo), #00FF00 (verde)</li>
+                <li>RGB: rgb(255, 0, 0) (rojo)</li>
+                <li>RGBA: rgb(255, 0, 0, 0.5) (rojo con 50% transparencia)</li>
+            </ul>
+            
+            <h3>Propiedades de fondo:</h3>
+            <ul>
+                <li><strong>background-color:</strong> Color de fondo</li>
+                <li><strong>background-image:</strong> Imagen de fondo</li>
+                <li><strong>background-repeat:</strong> Cómo se repite la imagen</li>
+                <li><strong>background-position:</strong> Posición de la imagen</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de colores y fondos:</h3>
+            <pre>
+/* Diferentes formas de definir color */
+.rojo { color: red; }
+.verde { color: #00FF00; }
+.azul { color: rgb(0, 0, 255); }
+.transparente { color: rgba(0, 0, 255, 0.7); }
+
+/* Propiedades de fondo */
+.fondo-simple {
+    background-color: lightblue;
+}
+
+.fondo-imagen {
+    background-image: url('imagen.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content">
+                <p><span style="color: red;">Este texto es rojo</span> (nombre de color)</p>
+                <p><span style="color: #00FF00;">Este texto es verde</span> (hexadecimal)</p>
+                <p><span style="color: rgb(0, 0, 255);">Este texto es azul</span> (RGB)</p>
+                <p><span style="color: rgba(0, 0, 255, 0.7);">Este texto es azul con transparencia</span> (RGBA)</p>
+                
+                <div style="background-color: lightblue; padding: 10px; margin-top: 15px;">
+                    Este div tiene un fondo color lightblue
+                </div>
+                
+                <div class="demo-leccion3">
+                    <div class="tarjeta">
+                        <h4>Tarjeta con estilos CSS</h4>
+                        <p>Esta tarjeta tiene fondo azul claro, bordes redondeados y sombra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 3: Diseñando una tarjeta</h3>
+            <p><strong>Instrucciones:</strong> Crea estilos para una tarjeta con:</p>
+            <ol>
+                <li>Fondo de color azul claro (#e6f7ff)</li>
+                <li>Borde redondeado de 10px</li>
+                <li>Sombra suave (box-shadow: 0 4px 8px rgba(0,0,0,0.1))</li>
+                <li>Color de texto en gris oscuro (#333)</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol3')">Ver Solución</button>
+            
+            <div id="sol3" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+.tarjeta {
+    background-color: #e6f7ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #333;
+    padding: 20px;
+}
+                </pre>
+                <p><strong>Explicación:</strong> Combinamos propiedades de fondo, borde, sombra y texto para crear una tarjeta visualmente atractiva. El padding añade espacio interno.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="background-color: #e6f7ff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); color: #333; padding: 20px;">
+                            <h4>Tarjeta con estilos CSS</h4>
+                            <p>Esta tarjeta tiene fondo azul claro, bordes redondeados, sombra suave y texto en gris oscuro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 4 -->
+    <div id="leccion4" class="leccion">
+        <h2>Lección 4: Modelo de Caja (Box Model)</h2>
+        
+        <div class="explicacion">
+            <h3>¿Qué es el Box Model?</h3>
+            <p>En CSS, cada elemento se considera como una caja con cuatro componentes:</p>
+            <ol>
+                <li><strong>Contenido:</strong> El contenido real del elemento (texto, imagen, etc.)</li>
+                <li><strong>Padding:</strong> Espacio alrededor del contenido (dentro del borde)</li>
+                <li><strong>Borde:</strong> Línea que rodea el padding y el contenido</li>
+                <li><strong>Margin:</strong> Espacio fuera del borde (separación con otros elementos)</li>
+            </ol>
+            
+            <h3>Propiedades clave:</h3>
+            <ul>
+                <li><strong>width/height:</strong> Ancho y alto del contenido</li>
+                <li><strong>padding:</strong> Relleno interno</li>
+                <li><strong>border:</strong> Borde</li>
+                <li><strong>margin:</strong> Margen externo</li>
+                <li><strong>box-sizing:</strong> Define cómo se calcula el tamaño total</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplo de Box Model:</h3>
+            <pre>
+.caja {
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    border: 5px solid #3498db;
+    margin: 15px;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion4">
+                <div class="caja">
+                    <p>Esta caja tiene:</p>
+                    <ul>
+                        <li>Ancho: 300px</li>
+                        <li>Alto: auto</li>
+                        <li>Padding: 20px</li>
+                        <li>Borde: 5px sólido azul</li>
+                        <li>Margin: 15px</li>
+                        <li>box-sizing: border-box</li>
+                    </ul>
+                </div>
+                
+                <div class="boton">Botón con Box Model</div>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 4: Creando un botón con Box Model</h3>
+            <p><strong>Instrucciones:</strong> Diseña un botón con:</p>
+            <ol>
+                <li>Ancho de 200px y alto de 50px</li>
+                <li>Padding de 15px horizontal y 10px vertical</li>
+                <li>Borde de 2px sólido color verde</li>
+                <li>Margin de 10px</li>
+                <li>Usa box-sizing: border-box</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol4')">Ver Solución</button>
+            
+            <div id="sol4" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+.boton {
+    width: 200px;
+    height: 50px;
+    padding: 10px 15px;
+    border: 2px solid green;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #f0f8f0;
+    text-align: center;
+    line-height: 30px; /* Centrar verticalmente el texto */
+}
+                </pre>
+                <p><strong>Explicación:</strong> Con box-sizing: border-box, el padding y el borde se incluyen dentro del ancho y alto especificados. El line-height ayuda a centrar el texto verticalmente.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="width: 200px; height: 50px; padding: 10px 15px; border: 2px solid green; margin: 10px; box-sizing: border-box; background-color: #f0f8f0; text-align: center; line-height: 30px; font-weight: bold;">
+                            Botón con Box Model
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 5 -->
+    <div id="leccion5" class="leccion">
+        <h2>Lección 5: Texto y Fuentes</h2>
+        
+        <div class="explicacion">
+            <h3>Propiedades de texto:</h3>
+            <ul>
+                <li><strong>color:</strong> Color del texto</li>
+                <li><strong>font-size:</strong> Tamaño de la fuente</li>
+                <li><strong>font-family:</strong> Tipo de letra</li>
+                <li><strong>font-weight:</strong> Grosor de la fuente (normal, bold)</li>
+                <li><strong>text-align:</strong> Alineación del texto (left, center, right, justify)</li>
+                <li><strong>text-decoration:</strong> Decoración (none, underline, etc.)</li>
+                <li><strong>line-height:</strong> Altura de línea</li>
+                <li><strong>letter-spacing:</strong> Espaciado entre letras</li>
+            </ul>
+            
+            <h3>Fuentes web:</h3>
+            <p>Puedes usar fuentes personalizadas con @font-face o importar desde Google Fonts.</p>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de propiedades de texto:</h3>
+            <pre>
+.titulo {
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #2c3e50;
+    text-transform: uppercase;
+}
+
+.parrafo {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    letter-spacing: 0.5px;
+}
+
+.enlace {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enlace:hover {
+    text-decoration: underline;
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion5">
+                <div class="articulo">
+                    <h1>Título del Artículo</h1>
+                    <p>Este es un párrafo de ejemplo que muestra cómo se ven las propiedades de texto en CSS. El texto está justificado y utiliza la fuente Georgia con un interlineado adecuado para mejorar la legibilidad.</p>
+                    <p>Otro párrafo para mostrar la consistencia en el estilo. Puedes notar el espaciado entre letras y la alineación del texto.</p>
+                    <p>Para más información, visita <a href="#">este enlace</a> que cambiará de estilo al pasar el mouse.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 5: Diseñando un artículo</h3>
+            <p><strong>Instrucciones:</strong> Crea estilos para un artículo con:</p>
+            <ol>
+                <li>Título (h1) con fuente Arial, 28px, negrita, centrado y color azul marino</li>
+                <li>Párrafos con fuente Georgia, 16px, interlineado 1.8, justificado</li>
+                <li>Enlaces sin subrayado, color verde, que se subrayen al pasar el mouse</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol5')">Ver Solución</button>
+            
+            <div id="sol5" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+.articulo h1 {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: navy;
+}
+
+.articulo p {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.articulo a {
+    color: green;
+    text-decoration: none;
+}
+
+.articulo a:hover {
+    text-decoration: underline;
+}
+                </pre>
+                <p><strong>Explicación:</strong> Usamos selectores descendientes para aplicar estilos específicos a elementos dentro del artículo. La pseudoclase :hover permite cambiar el estilo al pasar el mouse sobre los enlaces.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; text-align: center; color: navy; margin-bottom: 20px;">
+                            Título del Artículo
+                        </div>
+                        <p style="font-family: Georgia, serif; font-size: 16px; line-height: 1.8; text-align: justify;">
+                            Este es un párrafo de ejemplo que muestra cómo se ven las propiedades de texto en CSS. El texto está justificado y utiliza la fuente Georgia con un interlineado adecuado para mejorar la legibilidad.
+                        </p>
+                        <p style="font-family: Georgia, serif; font-size: 16px; line-height: 1.8; text-align: justify;">
+                            Otro párrafo para mostrar la consistencia en el estilo. Puedes notar el espaciado entre letras y la alineación del texto.
+                        </p>
+                        <p style="font-family: Georgia, serif; font-size: 16px; line-height: 1.8; text-align: justify;">
+                            Para más información, visita <a href="#" style="color: green; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">este enlace</a> que cambiará de estilo al pasar el mouse.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 6 -->
+    <div id="leccion6" class="leccion">
+        <h2>Lección 6: Posicionamiento</h2>
+        
+        <div class="explicacion">
+            <h3>Tipos de posicionamiento:</h3>
+            <ul>
+                <li><strong>Static:</strong> Posicionamiento por defecto (flujo normal)</li>
+                <li><strong>Relative:</strong> Se posiciona relativamente a su posición normal</li>
+                <li><strong>Absolute:</strong> Se posiciona respecto al ancestro posicionado más cercano</li>
+                <li><strong>Fixed:</strong> Se posiciona respecto a la ventana del navegador</li>
+                <li><strong>Sticky:</strong> Comporta como relative hasta alcanzar un punto, luego se vuelve fixed</li>
+            </ul>
+            
+            <h3>Propiedades clave:</h3>
+            <ul>
+                <li><strong>position:</strong> Define el tipo de posicionamiento</li>
+                <li><strong>top, right, bottom, left:</strong> Desplazamiento desde los bordes</li>
+                <li><strong>z-index:</strong> Orden de apilamiento (eje Z)</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de posicionamiento:</h3>
+            <pre>
+/* Posicionamiento relativo */
+.relativo {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+
+/* Posicionamiento absoluto */
+.contenedor {
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.absoluto {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+/* Posicionamiento fijo */
+.fijo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion6">
+                <div class="menu-flotante">
+                    <div style="text-align: center; font-weight: bold;">Menú Flotante</div>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px;">
+                    <p>Este menú está posicionado de forma relativa dentro de su contenedor. Los elementos de la lista están alineados horizontalmente.</p>
+                    <p>En un diseño real, este menú estaría fijo en la parte superior de la página con position: fixed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 6: Creando un menú flotante</h3>
+            <p><strong>Instrucciones:</strong> Diseña un menú que:</p>
+            <ol>
+                <li>Esté fijo en la parte superior de la página</li>
+                <li>Tenga fondo oscuro y texto claro</li>
+                <li>Ocupe todo el ancho de la página</li>
+                <li>Tenga z-index: 1000 para que esté sobre otros elementos</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol6')">Ver Solución</button>
+            
+            <div id="sol6" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+.menu-flotante {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.menu-flotante ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-flotante li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.menu-flotante a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+                </pre>
+                <p><strong>Explicación:</strong> El position: fixed junto con top: 0 y left: 0 mantiene el menú fijo en la parte superior. El z-index alto asegura que esté sobre otros contenidos. Los elementos de lista se muestran en línea para formar un menú horizontal.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="position: relative; height: 200px; background: #f8f9fa; border-radius: 4px; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; background-color: #2c3e50; color: white; padding: 15px 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                                <ul style="list-style: none; margin: 0; padding: 0; text-align: center;">
+                                    <li style="display: inline-block; margin: 0 20px;"><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Inicio</a></li>
+                                    <li style="display: inline-block; margin: 0 20px;"><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Acerca de</a></li>
+                                    <li style="display: inline-block; margin: 0 20px;"><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Servicios</a></li>
+                                    <li style="display: inline-block; margin: 0 20px;"><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Contacto</a></li>
+                                </ul>
+                            </div>
+                            <div style="padding-top: 80px; text-align: center;">
+                                <p>Este es el contenido de la página debajo del menú fijo.</p>
+                                <p>El menú permanece visible al hacer scroll.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 7 -->
+    <div id="leccion7" class="leccion">
+        <h2>Lección 7: Flexbox</h2>
+        
+        <div class="explicacion">
+            <h3>¿Qué es Flexbox?</h3>
+            <p>Flexbox (Flexible Box Layout) es un modelo de diseño unidimensional que permite organizar elementos en un contenedor de manera eficiente, incluso cuando su tamaño es desconocido o dinámico.</p>
+            
+            <h3>Conceptos clave:</h3>
+            <ul>
+                <li><strong>Contenedor flexible:</strong> Elemento con display: flex</li>
+                <li><strong>Ítems flexibles:</strong> Elementos hijos directos del contenedor</li>
+                <li><strong>Eje principal:</strong> Dirección principal de los ítems (definida por flex-direction)</li>
+                <li><strong>Eje secundario:</strong> Perpendicular al eje principal</li>
+            </ul>
+            
+            <h3>Propiedades principales:</h3>
+            <ul>
+                <li><strong>display: flex;</strong> Activa el modo flexbox</li>
+                <li><strong>flex-direction:</strong> Dirección de los ítems (row, column)</li>
+                <li><strong>justify-content:</strong> Alineación en el eje principal</li>
+                <li><strong>align-items:</strong> Alineación en el eje secundario</li>
+                <li><strong>flex-wrap:</strong> Permitir que los ítems se multi-línea</li>
+                <li><strong>flex-grow:</strong> Habilidad de un ítem para crecer</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de Flexbox:</h3>
+            <pre>
+/* Contenedor flex básico */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Dirección columna */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Ítems flexibles */
+.flex-item {
+    flex: 1; /* Todos los ítems crecen igual */
+    margin: 5px;
+}
+
+/* Ítem que ocupa más espacio */
+.flex-item-grow {
+    flex: 2; /* Ocupa el doble que los otros */
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion7">
+                <div class="galeria">
+                    <img src="https://picsum.photos/seed/css1/300/200.jpg" alt="Imagen 1">
+                    <img src="https://picsum.photos/seed/css2/300/200.jpg" alt="Imagen 2">
+                    <img src="https://picsum.photos/seed/css3/300/200.jpg" alt="Imagen 3">
+                </div>
+                
+                <p style="margin-top: 15px; text-align: center; font-style: italic;">
+                    Esta galería usa Flexbox para distribuir las imágenes de manera responsive.
+                    En pantallas pequeñas, las imágenes se apilan verticalmente.
+                </p>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 7: Creando una galería de imágenes</h3>
+            <p><strong>Instrucciones:</strong> Diseña una galería con:</p>
+            <ol>
+                <li>Contenedor con display: flex</li>
+                <li>Las imágenes se distribuyan en fila con espacio entre ellas</li>
+                <li>Las imágenes tengan tamaño flexible (flex: 1)</li>
+                <li>En pantallas pequeñas, las imágenes se apilen en columna</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol7')">Ver Solución</button>
+            
+            <div id="sol7" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.galeria img {
+    flex: 1 1 300px; /* Crecer, encoger, base 300px */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    .galeria {
+        flex-direction: column;
+    }
+    
+    .galeria img {
+        width: 100%;
+    }
+}
+                </pre>
+                <p><strong>Explicación:</strong> Flexbox permite crear diseños responsivos fácilmente. Con flex-wrap: wrap, los ítems pueden pasar a la siguiente línea si no hay espacio. La media query cambia la dirección a columna en pantallas pequeñas.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px;">
+                            <img src="https://picsum.photos/seed/gallery1/300/200.jpg" alt="Imagen 1" style="flex: 1 1 300px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <img src="https://picsum.photos/seed/gallery2/300/200.jpg" alt="Imagen 2" style="flex: 1 1 300px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <img src="https://picsum.photos/seed/gallery3/300/200.jpg" alt="Imagen 3" style="flex: 1 1 300px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                        <p style="margin-top: 15px; text-align: center; font-style: italic;">
+                            Esta galería usa Flexbox para distribuir las imágenes de manera responsive.
+                            En pantallas pequeñas, las imágenes se apilan verticalmente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 8 -->
+    <div id="leccion8" class="leccion">
+        <h2>Lección 8: Responsive Design</h2>
+        
+        <div class="explicacion">
+            <h3>¿Qué es el diseño responsivo?</h3>
+            <p>Es el enfoque de diseño web que hace que las páginas se vean bien en todos los dispositivos y tamaños de pantalla, desde móviles hasta escritorios.</p>
+            
+            <h3>Técnicas principales:</h3>
+            <ul>
+                <li><strong>Media Queries:</strong> Aplicar estilos según características del dispositivo</li>
+                <li><strong>Unidades relativas:</strong> Usar %, em, rem, vw, vh en lugar de píxeles fijos</li>
+                <li><strong>Imágenes flexibles:</strong> max-width: 100% para imágenes</li>
+                <li><strong>Mobile-first:</strong> Diseñar primero para móviles y luego para pantallas más grandes</li>
+            </ul>
+            
+            <h3>Media Queries:</h3>
+            <p>Permiten aplicar estilos específicos según:</p>
+            <ul>
+                <li>Ancho de pantalla (width, min-width, max-width)</li>
+                <li>Altura de pantalla (height, min-height, max-height)</li>
+                <li>Orientación (orientation: portrait/landscape)</li>
+                <li>Resolución (resolution)</li>
+            </ul>
+        </div>
+
+        <div class="ejemplo">
+            <h3>Ejemplos de Responsive Design:</h3>
+            <pre>
+/* Estilos base para móviles */
+.contenedor {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* Para tablets */
+@media (min-width: 768px) {
+    .contenedor {
+        max-width: 750px;
+        margin: 0 auto;
+        font-size: 18px;
+    }
+}
+
+/* Para escritorios */
+@media (min-width: 992px) {
+    .contenedor {
+        max-width: 970px;
+        font-size: 20px;
+    }
+}
+
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Menú responsivo */
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .menu {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+            </pre>
+        </div>
+
+        <div class="demo-container">
+            <div class="demo-title">Demostración Visual:</div>
+            <div class="demo-content demo-leccion8">
+                <div class="contenedor-responsivo">
+                    <div class="header-responsivo">
+                        <div style="font-weight: bold; font-size: 20px;">Mi Sitio Web</div>
+                        <div class="menu-responsivo">
+                            <ul>
+                                <li><a href="#" style="color: white; text-decoration: none;">Inicio</a></li>
+                                <li><a href="#" style="color: white; text-decoration: none;">Acerca de</a></li>
+                                <li><a href="#" style="color: white; text-decoration: none;">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="main-responsivo">
+                        <div class="contenido-responsivo">
+                            <h3>Contenido Principal</h3>
+                            <p>Este es el contenido principal de la página. En un diseño responsivo, este contenido se adaptará al tamaño de la pantalla.</p>
+                            <p>En dispositivos móviles, el sidebar se mostrará debajo del contenido principal.</p>
+                            <p>En tablets y escritorios, el sidebar se mostrará a la derecha del contenido.</p>
+                        </div>
+                        
+                        <div class="sidebar-responsivo">
+                            <h4>Sidebar</h4>
+                            <p>Este es el sidebar con información adicional o enlaces de navegación.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-responsivo">
+                        <p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; text-align: center; font-style: italic;">
+                    Cambia el tamaño de tu navegador para ver cómo se adapta el diseño.
+                    En pantallas pequeñas, el menú y el sidebar se reorganizan.
+                </p>
+            </div>
+        </div>
+
+        <div class="ejercicio">
+            <h3>Ejercicio 8: Diseñando una página responsiva</h3>
+            <p><strong>Instrucciones:</strong> Crea una estructura responsiva con:</p>
+            <ol>
+                <li>Header con logo y menú (en móviles: menú hamburguesa, en escritorio: menú horizontal)</li>
+                <li>Contenido principal con sidebar (en móviles: sidebar debajo, en escritorio: a la derecha)</li>
+                <li>Footer que siempre esté en la parte inferior</li>
+                <li>Usa media queries para los breakpoints: 768px y 1024px</li>
+            </ol>
+            
+            <button onclick="mostrarSolucion('sol8')">Ver Solución</button>
+            
+            <div id="sol8" class="solucion">
+                <h4>Solución:</h4>
+                <pre>
+/* Estructura base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+nav li {
+    margin: 10px 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.contenido {
+    flex: 1;
+}
+
+.sidebar {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    nav {
+        display: block;
+    }
+    
+    nav ul {
+        display: flex;
+        margin: 0;
+    }
+    
+    nav li {
+        margin: 0 15px;
+    }
+    
+    main {
+        flex-direction: row;
+    }
+    
+    .sidebar {
+        margin-top: 0;
+        margin-left: 20px;
+        width: 250px;
+    }
+}
+
+/* Escritorios */
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .contenedor {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+                </pre>
+                <p><strong>Explicación:</strong> Este diseño sigue el enfoque mobile-first. En móviles, el menú está oculto y se muestra con un botón. En tablets, el menú se vuelve horizontal y el sidebar se mueve a la derecha. En escritorios, se optimiza el espacio con un contenedor máximo y alineación del header.</p>
+                
+                <div class="demo-container">
+                    <div class="demo-title">Resultado Visual:</div>
+                    <div class="demo-content">
+                        <div style="margin: 0; font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 400px; border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
+                            <header style="background: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                <div style="font-size: 24px; font-weight: bold;">Mi Sitio Web</div>
+                                <nav style="display: block;">
+                                    <ul style="list-style: none; padding: 0; margin: 0; display: flex;">
+                                        <li style="margin: 0 15px;"><a href="#" style="color: white; text-decoration: none;">Inicio</a></li>
+                                        <li style="margin: 0 15px;"><a href="#" style="color: white; text-decoration: none;">Acerca de</a></li>
+                                        <li style="margin: 0 15px;"><a href="#" style="color: white; text-decoration: none;">Contacto</a></li>
+                                    </ul>
+                                </nav>
+                            </header>
+                            
+                            <main style="flex: 1; display: flex; flex-direction: row; padding: 20px;">
+                                <div class="contenido" style="flex: 3;">
+                                    <h3>Contenido Principal</h3>
+                                    <p>Este es el contenido principal de la página. En un diseño responsivo, este contenido se adaptará al tamaño de la pantalla.</p>
+                                    <p>En dispositivos móviles, el sidebar se mostraría debajo del contenido principal.</p>
+                                    <p>En tablets y escritorios, el sidebar se muestra a la derecha del contenido.</p>
+                                </div>
+                                
+                                <div class="sidebar" style="flex: 1; background: #f8f9fa; padding: 15px; margin-left: 20px; border-radius: 4px;">
+                                    <h4>Sidebar</h4>
+                                    <p>Este es el sidebar con información adicional o enlaces de navegación.</p>
+                                </div>
+                            </main>
+                            
+                            <footer style="background: #34495e; color: white; text-align: center; padding: 15px;">
+                                <p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+                            </footer>
+                        </div>
+                        <p style="margin-top: 15px; text-align: center; font-style: italic;">
+                            Esta es la versión de escritorio del diseño responsivo.
+                            En móviles, el menú sería vertical y el sidebar estaría debajo del contenido.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSolucion(id) {
+            const solucion = document.getElementById(id);
+            if (solucion.style.display === 'block') {
+                solucion.style.display = 'none';
+            } else {
+                solucion.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

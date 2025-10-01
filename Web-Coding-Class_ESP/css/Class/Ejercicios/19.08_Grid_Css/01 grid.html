@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presentación: CSS Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    h2 {
+      color: #2980b9;
+    }
+    .grid-example {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .item {
+      background: #3498db;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .code {
+      background: #ecf0f1;
+      padding: 10px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Presentación: Introducción a CSS Grid</h1>
+</header>
+
+<section>
+  <h2>¿Qué es CSS Grid?</h2>
+  <p>CSS Grid es una técnica moderna de diseño que permite organizar elementos en filas y columnas. Es ideal para crear diseños responsivos y estructurados.</p>
+</section>
+
+<section>
+  <h2>Ejercicio 1: Cuadrícula básica</h2>
+  <p>Usamos <code>display: grid</code> y definimos columnas con <code>grid-template-columns</code>.</p>
+  <div class="code">
+    .grid-example {<br>
+      display: grid;<br>
+      grid-template-columns: 1fr 1fr;<br>
+      gap: 10px;<br>
+    }
+  </div>
+  <div class="grid-example" style="grid-template-columns: 1fr 1fr;">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+</section>
+
+<section>
+  <h2>Ejercicio 2: Columnas con tamaños personalizados</h2>
+  <p>Podemos usar unidades como <code>px</code> y <code>fr</code> para definir el tamaño de cada columna.</p>
+  <div class="code">
+    .grid-example {<br>
+      grid-template-columns: 100px 1fr 200px;<br>
+    }
+  </div>
+  <div class="grid-example" style="grid-template-columns: 100px 1fr 200px;">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+  </div>
+</section>
+
+<section>
+  <h2>Ejercicio 3: Posicionar elementos</h2>
+  <p>Usamos <code>grid-column</code> y <code>grid-row</code> para que un elemento ocupe más espacio.</p>
+  <div class="code">
+    .item1 {<br>
+      grid-column: 1 / 3;<br>
+      grid-row: 1 / 2;<br>
+    }
+  </div>
+  <div class="grid-example" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 100px);">
+    <div class="item" style="grid-column: 1 / 3;">Grande</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+</section>
+
+<section>
+  <h2>Ejercicio 4: Grid responsive</h2>
+  <p>Usamos <code>auto-fit</code> y <code>minmax</code> para que las columnas se adapten al ancho disponible.</p>
+  <div class="code">
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  </div>
+  <div class="grid-example" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+    <div class="item">Uno</div>
+    <div class="item">Dos</div>
+    <div class="item">Tres</div>
+    <div class="item">Cuatro</div>
+  </div>
+</section>
+
+</body>
+</html>

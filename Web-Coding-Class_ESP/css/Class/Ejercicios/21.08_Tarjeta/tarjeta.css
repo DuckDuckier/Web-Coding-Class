@@ -1,0 +1,42 @@
+
+body {
+    background-color: rgb(65, 65, 65);
+    box-sizing: border-box;
+}
+
+.tarjeta {
+    border-radius: 30px;
+    position: relative;
+    background-color: rgba(0, 92, 179, 20%);
+    color: white;
+    max-width: 600px;
+    margin-top: 15px;
+    margin:25px 20px;
+}
+
+.clave-nombre:before {
+    content: "✨";
+}
+
+.edad {
+    padding: 15px 20px;
+    background-color: rgba(124, 242, 255, 0.521);
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.nombre {
+    padding: 15px 20px;
+}
+
+.valor-nombre {
+    padding-left: 35px;
+}
+
+.valor-nombre::first-letter {
+    font-style: italic;
+}
+
+.tarjeta:hover {
+    background-color: rgba(124, 255, 194, 0.521);
+}

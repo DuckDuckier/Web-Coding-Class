@@ -1,0 +1,11 @@
+.imagen-hover {
+  width: 1500px;
+  height: 1250px;
+  background-image: url("platanocerrido.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.imagen-hover:hover {
+  background-image: url("platanoabrido.png");
+}

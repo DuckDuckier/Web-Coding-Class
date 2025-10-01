@@ -1,0 +1,15 @@
+#parrafo {
+    color: blue;
+}
+
+#lista {
+    color: darkmagenta;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color:lime
+}

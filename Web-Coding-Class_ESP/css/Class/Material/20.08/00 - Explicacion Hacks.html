@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Hacks por Navegador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 10px;
+      background-color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .grid-table div {
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .grid-table .header {
+      font-weight: bold;
+      background-color: #003049;
+      color: white;
+      text-align: center;
+    }
+
+    .reflexion {
+      margin-top: 40px;
+      background-color: #ffe8cc;
+      padding: 20px;
+      border-left: 5px solid #ff8800;
+      border-radius: 5px;
+    }
+
+    .reflexion h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Hacks por Navegador</h1>
+
+  <div class="grid-table">
+    <div class="header">Navegador</div>
+    <div class="header">Hack usado</div>
+    <div class="header">¿Por qué funciona?</div>
+
+    <div>Chrome / Safari</div>
+    <div><code>-webkit-text-stroke</code></div>
+    <div>Usa motor WebKit, que interpreta propiedades con prefijo <code>-webkit-</code>.</div>
+
+    <div>Firefox</div>
+    <div><code>@-moz-document</code></div>
+    <div>Solo Firefox reconoce esta regla especial para aplicar estilos condicionales.</div>
+
+    <div>Internet Explorer</div>
+    <div><code>@media all and (-ms-high-contrast)</code></div>
+    <div>IE interpreta esta media query exclusiva para su modo de alto contraste.</div>
+
+    <div>Safari</div>
+    <div><code>@supports (-webkit-appearance:none)</code></div>
+    <div>Safari responde a esta combinación de media query y soporte condicional.</div>
+  </div>
+
+  <div class="reflexion">
+    <h2>Reflexión final</h2>
+    <p>
+      Los hacks son útiles para resolver problemas de compatibilidad entre navegadores, especialmente en proyectos donde se necesita una visualización consistente. Sin embargo, <strong>no deben usarse como solución permanente</strong>, ya que pueden volverse obsoletos o generar más problemas a largo plazo.
+    </p>
+    <p>
+      Lo ideal es escribir <strong>CSS compatible con todos los navegadores modernos</strong>, usar herramientas como <em>normalize.css</em> o <em>autoprefixer</em>, y aplicar hacks solo cuando sea estrictamente necesario.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Qué es un contenedor Grid?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .explicacion {
+      background-color: #fff;
+      border-left: 5px solid #4CAF50;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+      gap: 10px;
+      background-color: #e0e0e0;
+      padding: 20px;
+    }
+
+    .item {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Qué es un contenedor Grid?</h1>
+
+  <div class="explicacion">
+    <p>Un <strong>contenedor Grid</strong> es cualquier etiqueta HTML que agrupa elementos y tiene la propiedad <code>display: grid</code> en CSS.</p>
+    <p>Esto permite organizar los elementos hijos en filas y columnas de forma ordenada y flexible.</p>
+    <p>En este ejemplo usamos un <code>&lt;div&gt;</code> como contenedor, pero también podríamos usar <code>&lt;section&gt;</code>, <code>&lt;main&gt;</code> o cualquier otra etiqueta que agrupe contenido.</p>
+  </div>
+
+  <h2>Ejemplo de Grid con 3 columnas</h2>
+
+  <div class="contenedor">
+    <div class="item">Elemento 1</div>
+    <div class="item">Elemento 2</div>
+    <div class="item">Elemento 3</div>
+    <div class="item">Elemento 4</div>
+    <div class="item">Elemento 5</div>
+    <div class="item">Elemento 6</div>
+  </div>
+
+</body>
+</html>
