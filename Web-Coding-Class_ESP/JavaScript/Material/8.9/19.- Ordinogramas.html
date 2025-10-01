@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué es un Ordinograma?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin: 1em 0;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .bloque {
+      display: none;
+      background: #ecf0f1;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Qué es un Ordinograma?</h1>
+    <p>Representación gráfica de algoritmos en programación</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>📘 Definición</h2>
+      <button onclick="toggle('definicion')">Mostrar definición</button>
+      <div class="bloque" id="definicion">
+        <p>Un <strong>ordinograma</strong> es un tipo de <strong>diagrama de flujo</strong> utilizado para representar de forma gráfica y secuencial los pasos de un algoritmo. Permite visualizar el orden lógico de las operaciones que se deben realizar para resolver un problema, sin necesidad de escribir código.</p>
+        <p>Se compone de símbolos estandarizados que indican acciones, decisiones, entradas, salidas y conexiones entre procesos. Es independiente del lenguaje de programación y se usa para planificar, diseñar y comunicar la lógica de un programa.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>🎯 Utilidad</h2>
+      <button onclick="toggle('utilidad')">Mostrar utilidad</button>
+      <div class="bloque" id="utilidad">
+        <ul>
+          <li>✔️ Ayuda a entender la lógica de un algoritmo antes de programarlo.</li>
+          <li>✔️ Facilita la comunicación entre programadores y diseñadores.</li>
+          <li>✔️ Permite detectar errores o redundancias en la estructura del programa.</li>
+          <li>✔️ Es útil para documentar procesos y flujos de trabajo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>🔧 Características</h2>
+      <button onclick="toggle('caracteristicas')">Mostrar características</button>
+      <div class="bloque" id="caracteristicas">
+        <ul>
+          <li>📌 Representa acciones paso a paso.</li>
+          <li>📌 Utiliza símbolos gráficos como rectángulos, rombos y flechas.</li>
+          <li>📌 No depende de ningún lenguaje de programación.</li>
+          <li>📌 Es ideal para programación estructurada e imperativa.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

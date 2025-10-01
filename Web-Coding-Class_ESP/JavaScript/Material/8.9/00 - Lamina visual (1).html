@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lámina visual: símbolos de un ordinograma</title>
+<style>
+  :root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --border:#d8dee9;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --primary:#0b6bdc;
+    --accent:#0ea5e9;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:var(--text); background:var(--bg); line-height:1.55;
+  }
+  header{
+    background:linear-gradient(135deg, var(--primary), #3b82f6);
+    color:#fff; padding:1.25rem 1rem; text-align:center;
+  }
+  header h1{margin:0 0 .35rem; font-size:1.6rem}
+  header p{margin:0; opacity:.95}
+  main{max-width:1100px; margin: 1rem auto 2rem; padding: 0 1rem;}
+  .grid{
+    display:grid; gap:1rem; grid-template-columns: 1fr;
+  }
+  @media(min-width:800px){
+    .grid{grid-template-columns: repeat(3, 1fr);}
+  }
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:1rem; box-shadow:0 1px 2px rgba(0,0,0,.05);
+    display:flex; flex-direction:column; gap:.6rem;
+  }
+  .title{font-weight:700; color:#0b3b8f; font-size:1.05rem;}
+  .desc{color:var(--muted); font-size:.95rem; margin:0}
+  .shape-wrap{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    height:160px; background:#fbfdff; border:1px dashed var(--border);
+    border-radius:10px; overflow:hidden;
+  }
+  .shape{position:relative;}
+  .label{
+    position:absolute; bottom:.5rem; right:.5rem; background:#eef5ff; color:#0b3b8f;
+    padding:.15rem .45rem; border-radius:999px; font-size:.8rem; font-weight:700;
+  }
+
+  /* Formas base */
+  .ellipse{
+    width:240px; height:90px; border:3px solid var(--accent); border-radius:999px; background:#e6f6ff;
+  }
+  .rectangle{
+    width:240px; height:90px; border:3px solid var(--accent); background:#e6f6ff; border-radius:6px;
+  }
+  .rectangle-double{
+    width:240px; height:90px; position:relative; background:#e6f6ff; border-radius:6px;
+    border-left:3px solid var(--accent); border-right:3px solid var(--accent);
+  }
+  .rectangle-double::before,
+  .rectangle-double::after{
+    content:""; position:absolute; top:0; bottom:0; width:3px; background:var(--accent);
+  }
+  .rectangle-double::before{left:8px}
+  .rectangle-double::after{right:8px}
+
+  .parallelogram{
+    width:240px; height:90px; border:3px solid var(--accent); background:#e6f6ff;
+    transform:skewX(-18deg); border-radius:6px;
+  }
+  .diamond{
+    width:140px; height:140px; background:#e6f6ff; border:3px solid var(--accent);
+    transform:rotate(45deg); border-radius:6px;
+  }
+  .connector{
+    width:60px; height:60px; background:#e6f6ff; border:3px solid var(--accent); border-radius:999px;
+  }
+  .arrow-demo{
+    position:absolute; inset:0; pointer-events:none;
+  }
+  /* Flechas con SVG para calidad */
+  .arrow-demo svg{width:100%; height:100%;}
+  .shape-text{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-weight:700; color:#0b3b8f; text-align:center; padding:0 .75rem;
+    /* Neutralizar skew/rotate visual para el texto de algunas formas */
+  }
+  .parallelogram .shape-text{transform:skewX(18deg)}
+  .diamond .shape-text{transform:rotate(-45deg)}
+
+  /* Tip list */
+  .tips{
+    margin-top:.25rem; font-size:.9rem; color:var(--muted);
+  }
+
+  /* Pie de página imprimible */
+  @media print{
+    header{background:#fff; color:#000; border-bottom:1px solid #ccc}
+    .card{break-inside:avoid}
+    .arrow-demo{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lámina visual: símbolos de un ordinograma</h1>
+  <p>Guía sencilla para reconocer cada símbolo y su función.</p>
+</header>
+
+<main>
+  <section class="grid">
+
+    <!-- Elipse -->
+    <article class="card">
+      <div class="title">Elipse — Inicio / Fin</div>
+      <div class="shape-wrap">
+        <div class="shape ellipse">
+          <div class="shape-text">Inicio / Fin</div>
+        </div>
+        <span class="label">Flujo</span>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> marca el comienzo o el final del algoritmo.</p>
+      <p class="tips">Ejemplo: “Inicio” al empezar, “Fin” al terminar.</p>
+    </article>
+
+    <!-- Paralelogramo -->
+    <article class="card">
+      <div class="title">Paralelogramo — Entrada / Salida</div>
+      <div class="shape-wrap">
+        <div class="shape parallelogram">
+          <div class="shape-text">Leer / Escribir</div>
+        </div>
+        <span class="label">I/O</span>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> cuando el programa recibe datos o muestra información.</p>
+      <p class="tips">Ejemplos: “Leer edad”, “Mostrar resultado”.</p>
+    </article>
+
+    <!-- Rectángulo (Proceso) -->
+    <article class="card">
+      <div class="title">Rectángulo — Proceso</div>
+      <div class="shape-wrap">
+        <div class="shape rectangle">
+          <div class="shape-text">Cálculo / Acción</div>
+        </div>
+        <span class="label">Acción</span>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> realizar cálculos o asignaciones.</p>
+      <p class="tips">Ejemplo: “suma = a + b”.</p>
+    </article>
+
+    <!-- Rombo (Decisión) -->
+    <article class="card">
+      <div class="title">Rombo — Decisión (Sí/No)</div>
+      <div class="shape-wrap">
+        <div class="shape diamond">
+          <div class="shape-text">¿Condición?</div>
+        </div>
+        <span class="label">Rama</span>
+        <div class="arrow-demo">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Líneas de ejemplo que salen del rombo -->
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#0ea5e9"></path>
+              </marker>
+            </defs>
+            <line x1="300" y1="110" x2="520" y2="110" stroke="#0ea5e9" stroke-width="3" marker-end="url(#arrow)"/>
+            <line x1="300" y1="110" x2="80"  y2="110" stroke="#0ea5e9" stroke-width="3" marker-end="url(#arrow)"/>
+          </svg>
+        </div>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> hacer una pregunta y elegir un camino según la respuesta.</p>
+      <p class="tips">Ejemplo: “¿Edad ≥ 18?” → Sí / No.</p>
+    </article>
+
+    <!-- Rectángulo doble (Subproceso) -->
+    <article class="card">
+      <div class="title">Rectángulo con doble borde — Subproceso / Función</div>
+      <div class="shape-wrap">
+        <div class="shape rectangle-double">
+          <div class="shape-text">Llamar Subproceso</div>
+        </div>
+        <span class="label">Módulo</span>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> llamar a un bloque reutilizable (un “mini-programa”).</p>
+      <p class="tips">Ejemplo: “CalcularPromedio()”.</p>
+    </article>
+
+    <!-- Conector -->
+    <article class="card">
+      <div class="title">Conector — Continuación</div>
+      <div class="shape-wrap">
+        <div class="shape connector"></div>
+        <span class="label">Salto</span>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> continuar el flujo cuando no hay espacio o se sigue en otra página.</p>
+      <p class="tips">Usa letras o etiquetas: “A”, “B”…</p>
+    </article>
+
+    <!-- Flechas (flujo) -->
+    <article class="card" style="grid-column: 1 / -1;">
+      <div class="title">Flechas — Dirección del flujo</div>
+      <div class="shape-wrap" style="height:120px;">
+        <div class="arrow-demo">
+          <svg viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 Z" fill="#0ea5e9"></path>
+              </marker>
+            </defs>
+            <line x1="80" y1="60" x2="300" y2="60" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow2)"/>
+            <line x1="340" y1="60" x2="560" y2="60" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow2)"/>
+            <line x1="600" y1="60" x2="820" y2="60" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow2)"/>
+          </svg>
+        </div>
+      </div>
+      <p class="desc"><b>Para qué sirve:</b> muestran el orden de las acciones. Van de un símbolo al siguiente.</p>
+      <p class="tips">Consejo: evita cruces innecesarios para que el diagrama se entienda mejor.</p>
+    </article>
+
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operaciones Lógicas en Programación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ecf0f1;
+      flex-wrap: wrap;
+      padding: 1em;
+    }
+    .tab {
+      margin: 0.5em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: bold;
+    }
+    .tab.active {
+      border-bottom: 3px solid #3498db;
+      color: #3498db;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6em;
+      text-align: center;
+    }
+    th {
+      background: #ecf0f1;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Operaciones Lógicas en Programación</h1>
+    <p>Explicación y ejemplos de cada operación lógica básica</p>
+  </header>
+
+  <nav>
+    <div class="tab active" onclick="showSection('tabla')">Resumen</div>
+    <div class="tab" onclick="showSection('or')">OR</div>
+    <div class="tab" onclick="showSection('and')">AND</div>
+    <div class="tab" onclick="showSection('not')">NOT</div>
+    <div class="tab" onclick="showSection('xor')">XOR</div>
+    <div class="tab" onclick="showSection('nand')">NAND</div>
+    <div class="tab" onclick="showSection('nor')">NOR</div>
+    <div class="tab" onclick="showSection('xnor')">XNOR</div>
+  </nav>
+
+  <div class="content">
+    <div class="section active" id="tabla">
+      <h2>📊 Tabla resumen de operaciones lógicas</h2>
+      <table>
+        <tr>
+          <th>Operación</th>
+          <th>Símbolo</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+          <th>Salida</th>
+        </tr>
+        <tr><td>OR</td><td>||</td><td>Al menos una entrada es 1</td><td>0 OR 1</td><td>1</td></tr>
+        <tr><td>AND</td><td>&&</td><td>Todas las entradas son 1</td><td>1 AND 1</td><td>1</td></tr>
+        <tr><td>NOT</td><td>!</td><td>Invierte el valor</td><td>NOT 0</td><td>1</td></tr>
+        <tr><td>XOR</td><td>^</td><td>Solo una entrada es 1</td><td>1 XOR 0</td><td>1</td></tr>
+        <tr><td>NAND</td><td>!(a && b)</td><td>Negación de AND</td><td>1 NAND 1</td><td>0</td></tr>
+        <tr><td>NOR</td><td>!(a || b)</td><td>Negación de OR</td><td>0 NOR 0</td><td>1</td></tr>
+        <tr><td>XNOR</td><td>!(a ^ b)</td><td>Entradas iguales</td><td>1 XNOR 1</td><td>1</td></tr>
+      </table>
+    </div>
+
+    <div class="section" id="or">
+      <h2>🔹 OR (||)</h2>
+      <p>Devuelve <strong>1</strong> si al menos una entrada es 1.</p>
+      <pre><code>
+let a = 0;
+let b = 1;
+console.log(a || b); // 1
+      </code></pre>
+    </div>
+
+    <div class="section" id="and">
+      <h2>🔹 AND (&&)</h2>
+      <p>Devuelve <strong>1</strong> solo si todas las entradas son 1.</p>
+      <pre><code>
+let a = 1;
+let b = 1;
+console.log(a && b); // 1
+      </code></pre>
+    </div>
+
+    <div class="section" id="not">
+      <h2>🔹 NOT (!)</h2>
+      <p>Invierte el valor: si es 0 devuelve 1, si es 1 devuelve 0.</p>
+      <pre><code>
+let a = 0;
+console.log(!a); // true (equivale a 1)
+      </code></pre>
+    </div>
+
+    <div class="section" id="xor">
+      <h2>🔹 XOR (^)</h2>
+      <p>Devuelve <strong>1</strong> si solo una entrada es 1, pero no ambas.</p>
+      <pre><code>
+let a = 1;
+let b = 0;
+console.log(a ^ b); // 1
+      </code></pre>
+    </div>
+
+    <div class="section" id="nand">
+      <h2>🔹 NAND (!(a && b))</h2>
+      <p>Devuelve <strong>1</strong> si no todas las entradas son 1.</p>
+      <pre><code>
+let a = 1;
+let b = 1;
+console.log(!(a && b)); // false (equivale a 0)
+      </code></pre>
+    </div>
+
+    <div class="section" id="nor">
+      <h2>🔹 NOR (!(a || b))</h2>
+      <p>Devuelve <strong>1</strong> si todas las entradas son 0.</p>
+      <pre><code>
+let a = 0;
+let b = 0;
+console.log(!(a || b)); // true (equivale a 1)
+      </code></pre>
+    </div>
+
+    <div class="section" id="xnor">
+      <h2>🔹 XNOR (!(a ^ b))</h2>
+      <p>Devuelve <strong>1</strong> si las entradas son iguales.</p>
+      <pre><code>
+let a = 1;
+let b = 1;
+console.log(!(a ^ b)); // true (equivale a 1)
+      </code></pre>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showSection('${id}')"]`).classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

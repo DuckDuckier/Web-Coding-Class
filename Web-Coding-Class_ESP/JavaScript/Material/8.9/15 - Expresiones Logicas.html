@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expresiones Lógicas y Relacionales</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6em;
+      text-align: center;
+    }
+    th {
+      background: #ecf0f1;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 0.5em;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-top: 1em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .resultado {
+      display: none;
+      margin-top: 1em;
+      background: #eaf2f8;
+      padding: 1em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Expresiones Lógicas y Relacionales</h1>
+    <p>Combinación de operaciones y comparación de valores en programación</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>🔗 Combinación de operaciones lógicas</h2>
+      <p>Todas las operaciones lógicas pueden combinarse entre sí para formar expresiones más complejas. Estas expresiones se utilizan para tomar decisiones dentro de un programa, validar condiciones o controlar el flujo de ejecución.</p>
+    </section>
+
+    <section>
+      <h2>📊 Operaciones relacionales</h2>
+      <p>Las operaciones relacionales comparan dos valores y devuelven un resultado lógico (true o false).</p>
+      <table>
+        <tr><th>Operador</th><th>Descripción</th><th>Ejemplo</th><th>Resultado</th></tr>
+        <tr><td>==</td><td>Igualdad</td><td>5 == 5</td><td>true</td></tr>
+        <tr><td>!=</td><td>Desigualdad</td><td>5 != 3</td><td>true</td></tr>
+        <tr><td>&gt;</td><td>Mayor que</td><td>7 &gt; 4</td><td>true</td></tr>
+        <tr><td>&lt;</td><td>Menor que</td><td>2 &lt; 5</td><td>true</td></tr>
+        <tr><td>&gt;=</td><td>Mayor o igual</td><td>6 &gt;= 6</td><td>true</td></tr>
+        <tr><td>&lt;=</td><td>Menor o igual</td><td>3 &lt;= 4</td><td>true</td></tr>
+      </table>
+    </section>
+
+     <section>
+      <h2>🧪 Instrucciones</h2>
+      <p>Evalúa la expresión <strong>NAND(A · B) + A</strong> para todos los valores posibles de A y B.</p>
+      <p><strongNAND</strong> es la negación de <strong>AND</strong>: <code>NAND = !(A && B)</code></p>
+      <button onclick="mostrarSolucion()">Mostrar/ocultar solución</button>
+      <div class="resultado" id="solucion">
+  <table>
+    <tr><th>A</th><th>B</th><th>A · B (AND)</th><th>(A · B) + A</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+  <p><strong>Nota:</strong> La suma lógica entre <code>A · B</code> y <code>A</code> se interpreta como OR, por lo tanto el resultado máximo es 1.</p>
+
+
+  <h2>💡 ¿Sabías que...?</h2>
+  <p>En el mundo de la electrónica se utilizan <strong>puertas digitales</strong> que simulan el funcionamiento de las operaciones lógicas vistas en programación. Estas puertas lógicas están presentes en los <strong>dispositivos electrónicos más comunes</strong>, como ordenadores, teléfonos móviles, electrodomésticos inteligentes y sistemas de control.</p>
+  <p>Por ejemplo, las puertas <strong>AND, OR, NOT, NAND, NOR, XOR y XNOR</strong> se implementan físicamente en circuitos integrados (chips), y permiten que los dispositivos tomen decisiones, procesen señales y ejecuten instrucciones de forma lógica y eficiente.</p>
+  <p>Sin estas puertas, no existirían los microprocesadores, la memoria RAM, ni los sistemas de comunicación digital que usamos a diario.</p>
+</div>
+</section>
+
+  </main>
+
+  <script>
+    function mostrarSolucion() {
+      const div = document.getElementById("solucion");
+      div.style.display = div.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

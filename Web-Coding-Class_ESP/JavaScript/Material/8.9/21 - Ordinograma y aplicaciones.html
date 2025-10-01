@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordinograma y Aplicaciones</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      margin: 1em 0;
+      padding: 0.6em 1.2em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .bloque {
+      display: none;
+      background: #ecf0f1;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 1em;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¿Qué es un Ordinograma?</h1>
+    <p>Definición, utilidad y herramientas para crearlos</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>📘 Definición</h2>
+      <button onclick="toggle('definicion')">Mostrar definición</button>
+      <div class="bloque" id="definicion">
+        <p>Un <strong>ordinograma</strong> es un diagrama de flujo que representa gráficamente la secuencia de pasos de un algoritmo. Utiliza símbolos estandarizados como rectángulos, rombos, óvalos y flechas para mostrar el orden lógico de ejecución. Es una herramienta visual que facilita la comprensión, diseño y documentación de programas.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>🎯 ¿Para qué se usa?</h2>
+      <button onclick="toggle('utilidad')">Mostrar utilidad</button>
+      <div class="bloque" id="utilidad">
+        <ul>
+          <li>✔️ Planificar la lógica de un programa antes de codificar.</li>
+          <li>✔️ Comunicar ideas entre programadores y diseñadores.</li>
+          <li>✔️ Detectar errores o redundancias en algoritmos.</li>
+          <li>✔️ Documentar procesos y flujos de trabajo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>🧰 Aplicaciones para crear ordinogramas</h2>
+      <button onclick="toggle('aplicaciones')">Mostrar aplicaciones</button>
+      <div class="bloque" id="aplicaciones">
+        <ul>
+          <li><strong>Draw.io (diagrams.net):</strong> Gratuito, online, fácil de usar.</li>
+          <li><strong>Lucidchart:</strong> Profesional, colaborativo, con plantillas.</li>
+          <li><strong>Flowgorithm:</strong> Ideal para estudiantes, permite ejecutar el algoritmo.</li>
+          <li><strong>Creately:</strong> Visual y versátil, útil para diagramas técnicos.</li>
+          <li><strong>Visual Paradigm:</strong> Potente herramienta para diagramas UML y BPMN.</li>
+          <li><strong>Scratch:</strong> Aunque no usa símbolos clásicos, permite construir lógica visualmente.</li>
+        </ul>
+        <p><strong>Nota:</strong> Algunas herramientas son gratuitas, otras requieren cuenta o suscripción.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

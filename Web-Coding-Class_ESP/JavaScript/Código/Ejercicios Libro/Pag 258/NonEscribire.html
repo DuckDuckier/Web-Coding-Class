@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado no permitido</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido</h1>
+  <p>En esta página no se permite el uso del teclado.</p>
+
+  <input type="text" placeholder="Intenta escribir algo aquí..." readonly>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      alert("No se permite el uso del teclado en esta página.");
+    });
+  </script>
+
+</body>
+</html>
