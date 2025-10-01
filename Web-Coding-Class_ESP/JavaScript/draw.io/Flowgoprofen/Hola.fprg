@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Hola"/>
+        <attribute name="authors" value="Alumno"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-09-09 11:55:33 "/>
+        <attribute name="created" value="QWx1bW5vO1BDMDU4NzsyMDI1LTA5LTA5OyIxMTo0MjowMCAiOzIxNjk="/>
+        <attribute name="edited" value="QWx1bW5vO1BDMDU4NzsyMDI1LTA5LTA5OyIxMTo1NTozMyAiOzE7MjI4Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Hola&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
