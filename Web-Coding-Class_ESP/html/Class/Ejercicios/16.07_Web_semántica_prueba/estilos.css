@@ -1,0 +1,96 @@
+/* Fuente y colores base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f9fd;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Estructura de secciones */
+header, nav, main, footer {
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 1200px;
+}
+
+/* Encabezado */
+header {
+  background: linear-gradient(to right, #3264f5, #23a9d5);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+}
+
+/* Navegación */
+nav {
+  background-color: #eaf0fa;
+  border-radius: 6px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  justify-content: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1a4ca1;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+main {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Artículo */
+article {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* Aside */
+aside {
+  flex: 1;
+  background-color: #f0f4ff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* Pie de página */
+footer {
+  background-color: #3264f5;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 30px;
+}
+
+/* Tipografía destacada */
+h1, h2 {
+  margin-top: 0;
+  color: #234;
+}
+
+code {
+  background-color: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+}
