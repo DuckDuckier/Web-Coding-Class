@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Usabilidad en Desarrollo Web</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      background-color: #3a86ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: white;
+      border-left: 6px solid #3a86ff;
+      padding: 15px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #3a86ff;
+    }
+
+    .card button {
+      background-color: #3a86ff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .card button:hover {
+      background-color: #2c6ed5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e0e0e0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 40px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Usabilidad en Desarrollo Web</h1>
+    <p>Haz clic en cada botón para ver una definición rápida</p>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="card">
+      <h2>¿Qué es la Usabilidad?</h2>
+      <p>La <strong>usabilidad</strong> es la capacidad de un sistema para ser fácil de usar, efectivo y agradable para el usuario.</p>
+      <button onclick="mostrarModal('La usabilidad mide qué tan fácil y útil es una web para el usuario.')">Definición rápida</button>
+    </div>
+
+    <div class="card">
+      <h2>Características principales</h2>
+      <table>
+        <tr>
+          <th>Característica</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+        <tr>
+          <td>Eficacia</td>
+          <td>¿El usuario logra sus objetivos correctamente?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El usuario encuentra y compra un producto sin errores.')">Ver ejemplo</button></td>
+        </tr>
+        <tr>
+          <td>Eficiencia</td>
+          <td>¿Cuánto tiempo y esfuerzo requiere completar la tarea?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El usuario realiza la compra en menos de 5 clics.')">Ver ejemplo</button></td>
+        </tr>
+        <tr>
+          <td>Satisfacción</td>
+          <td>¿El usuario se siente cómodo y satisfecho al usar el sistema?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El diseño es agradable y el usuario volvería a usar la web.')">Ver ejemplo</button></td>
+        </tr>
+        <tr>
+          <td>Aprendibilidad</td>
+          <td>¿Es fácil aprender a usar el sistema por primera vez?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El usuario entiende cómo navegar sin ayuda.')">Ver ejemplo</button></td>
+        </tr>
+        <tr>
+          <td>Memorabilidad</td>
+          <td>¿El usuario recuerda cómo usarlo después de un tiempo?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El usuario vuelve semanas después y usa la web sin problemas.')">Ver ejemplo</button></td>
+        </tr>
+        <tr>
+          <td>Tolerancia a errores</td>
+          <td>¿El sistema ayuda a evitar y corregir errores fácilmente?</td>
+          <td><button onclick="mostrarModal('Ejemplo: El formulario muestra mensajes claros si falta información.')">Ver ejemplo</button></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="miModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <p id="modalTexto"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Actividad creada por el profesor Joaquín para alumnos de desarrollo web.</p>
+  </footer>
+
+  <script>
+    function mostrarModal(texto) {
+      document.getElementById("modalTexto").innerText = texto;
+      document.getElementById("miModal").style.display = "block";
+    }
+
+    function cerrarModal() {
+      document.getElementById("miModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("miModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

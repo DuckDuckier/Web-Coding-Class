@@ -1,0 +1,251 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header, footer {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2em;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  color: #0055aa;
+}
+
+form {
+  margin-top: 1em;
+  padding: 1em;
+  background: #eef;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+input, button {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #003366;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0055aa;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.7em;
+  text-align: center;
+}
+
+thead {
+  background: #ddeeff;
+}
+
+pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+pre code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95em;
+  line-height: 1.5;
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.php-code {
+  border-left: 5px solid #4caf50;
+}
+article {
+  margin-bottom: 2em;
+  padding: 1em;
+  background: #f4faff;
+  border-left: 4px solid #0055aa;
+  border-radius: 4px;
+}
+
+article h3 {
+  margin-top: 0;
+  color: #003366;
+}
+
+
+
+/* Estilo especial para bloques PHP */
+
+
+.php-code code {
+  color: #d4fcbc;
+}
+
+
+pre.php-code {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  border-left: 5px solid #4caf50; /* Verde para resaltar PHP */
+}
+
+pre.php-code code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #c3f3c3; /* Verde claro para el texto */
+}
+
+
+/* Tablas comparativas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.7em;
+  text-align: center;
+}
+
+thead {
+  background: #ddeeff;
+}
+
+/* Colores diferenciados para columnas */
+th:nth-child(2), td:nth-child(2) {
+  background: #f0f8ff; /* HTML5 */
+}
+
+th:nth-child(3), td:nth-child(3) {
+  background: #f9f9e6; /* JavaScript */
+}
+
+th:nth-child(4), td:nth-child(4) {
+  background: #eaf9ea; /* PHP */
+}
+/* Estilo para el diagrama de flujo */
+.flujo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.paso {
+  flex: 1;
+  min-width: 150px;
+  background: #eef;
+  border: 2px solid #0055aa;
+  border-radius: 8px;
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+  color: #003366;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.flecha {
+  font-size: 2em;
+  text-align: center;
+  flex: 0;
+}
+
+/* Estilo base del diagrama */
+.flujo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.paso {
+  flex: 1;
+  min-width: 150px;
+  background: #eef;
+  border: 2px solid #0055aa;
+  border-radius: 8px;
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+  color: #003366;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.flecha {
+  font-size: 2em;
+  text-align: center;
+  flex: 0;
+  opacity: 0.3;
+}
+
+/* Animación secuencial */
+.animado {
+  animation: destacar 1s ease forwards;
+}
+
+.animado:nth-child(1) { animation-delay: 0s; }
+.animado:nth-child(2) { animation-delay: 1s; }
+.animado:nth-child(3) { animation-delay: 2s; }
+.animado:nth-child(4) { animation-delay: 3s; }
+.animado:nth-child(5) { animation-delay: 4s; }
+.animado:nth-child(6) { animation-delay: 5s; }
+.animado:nth-child(7) { animation-delay: 6s; }
+
+@keyframes destacar {
+  from { opacity: 0.3; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); background: #cce5ff; }
+}

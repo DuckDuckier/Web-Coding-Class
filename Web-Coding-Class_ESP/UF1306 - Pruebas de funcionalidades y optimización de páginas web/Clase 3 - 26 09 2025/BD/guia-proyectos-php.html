@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía de Proyectos en PHP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    pre {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+    }
+    .proyecto {
+      margin-top: 40px;
+    }
+    .recuadro {
+      background-color: #eaf2f8;
+      padding: 15px;
+      border-left: 5px solid #2980b9;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guía de Desarrollo en PHP</h1>
+    <p>Esta guía contiene tres mini proyectos para aprender PHP, HTML, CSS y MySQL. Cada uno incluye pasos detallados para que puedas desarrollarlos por ti mismo.</p>
+
+    <div class="proyecto">
+      <h2> Proyecto 1: Formulario de contacto</h2>
+      <h3> Objetivo</h3>
+      <p>Crear un formulario que guarde nombre, email y mensaje en una base de datos.</p>
+
+      <h3> Pasos</h3>
+      <ul>
+        <li>Crear la base de datos <strong>contacto</strong> y la tabla <code>mensajes</code></li>
+        <li>Diseñar el formulario en HTML</li>
+        <li>Crear el archivo <code>db.php</code> para conectar con MySQL</li>
+        <li>Crear el archivo <code>guardar.php</code> para insertar los datos</li>
+      </ul>
+
+      <div class="recuadro">
+        <h3>📄 SQL para la tabla</h3>
+        <pre>
+CREATE TABLE mensajes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  email VARCHAR(100),
+  mensaje TEXT
+);
+        </pre>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <h2> Proyecto 2: Gestión escolar</h2>
+      <h3> Objetivo</h3>
+      <p>Registrar estudiantes, materias y notas, y mostrarlas en pantalla.</p>
+
+      <h3> Pasos</h3>
+      <ul>
+        <li>Crear la base de datos <strong>escuela</strong> con tres tablas: <code>estudiantes</code>, <code>materias</code>, <code>notas</code></li>
+        <li>Diseñar el menú principal con enlaces</li>
+        <li>Crear formularios para agregar estudiantes, materias y notas</li>
+        <li>Mostrar los registros con consultas JOIN</li>
+      </ul>
+
+      <div class="recuadro">
+        <h3> SQL para las tablas</h3>
+        <pre>
+CREATE TABLE estudiantes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  grupo VARCHAR(50)
+);
+
+CREATE TABLE materias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100)
+);
+
+CREATE TABLE notas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  estudiante_id INT,
+  materia_id INT,
+  nota DECIMAL(5,2),
+  FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
+  FOREIGN KEY (materia_id) REFERENCES materias(id)
+);
+        </pre>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <h2> Proyecto 3: Mini tienda con carrito</h2>
+      <h3> Objetivo</h3>
+      <p>Mostrar productos, agregar al carrito y calcular el total.</p>
+
+      <h3> Pasos</h3>
+      <ul>
+        <li>Crear la base de datos <strong>tienda</strong> y la tabla <code>productos</code></li>
+        <li>Mostrar productos desde la base de datos</li>
+        <li>Agregar productos al carrito usando <code>$_SESSION</code></li>
+        <li>Mostrar el carrito y calcular el total</li>
+      </ul>
+
+      <div class="recuadro">
+        <h3>📄 SQL para la tabla</h3>
+        <pre>
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  precio DECIMAL(6,2)
+);
+        </pre>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <h2> Recomendaciones</h2>
+      <ul>
+        <li>Comenta cada línea de código explicando qué hace</li>
+        <li>Prueba cada paso en el navegador</li>
+        <li>Usa <code>echo</code> para verificar valores</li>
+        <li>Escribe el código tú mismo, no solo lo copies</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

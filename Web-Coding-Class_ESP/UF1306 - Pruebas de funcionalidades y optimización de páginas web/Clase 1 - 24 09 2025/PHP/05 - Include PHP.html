@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Uso de include() en PHP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      background: linear-gradient(to right, #2980b9, #6dd5fa);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 2em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .codigo {
+      font-family: monospace;
+      background-color: #eef;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Funciones include() en PHP</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Función</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>include()</td>
+        <td>Inserta el contenido de otro archivo. Si no existe, muestra un warning pero continúa.</td>
+        <td class="codigo">include("menu.php");</td>
+      </tr>
+      <tr>
+        <td>require()</td>
+        <td>Similar a include, pero si el archivo no existe, detiene el script con un error fatal.</td>
+        <td class="codigo">require("config.php");</td>
+      </tr>
+      <tr>
+        <td>include_once()</td>
+        <td>Incluye el archivo solo una vez, incluso si se llama varias veces.</td>
+        <td class="codigo">include_once("header.php");</td>
+      </tr>
+      <tr>
+        <td>require_once()</td>
+        <td>Igual que require, pero evita incluir el archivo más de una vez.</td>
+        <td class="codigo">require_once("funciones.php");</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

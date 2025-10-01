@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preguntas sobre Plantillas Web</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      background-color: #3a86ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: white;
+      border-left: 6px solid #3a86ff;
+      padding: 15px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #3a86ff;
+    }
+
+    .card button {
+      background-color: #3a86ff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .card button:hover {
+      background-color: #2c6ed5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 40px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Preguntas sobre Plantillas Web</h1>
+    <p>Haz clic en cada botón para ver la respuesta</p>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="card">
+      <h2>1. ¿Qué es una plantilla web?</h2>
+      <button onclick="mostrarModal('Una plantilla web es un conjunto de archivos prediseñados que definen la estructura, el diseño y la disposición de contenidos de una página web.')">Ver respuesta</button>
+    </div>
+
+    <div class="card">
+      <h2>2. ¿Cuál es la funcionalidad principal de una plantilla web?</h2>
+      <button onclick="mostrarModal('La funcionalidad principal es facilitar la creación de sitios web al proporcionar un diseño visual y estructura listos para personalizar.')">Ver respuesta</button>
+    </div>
+
+    <div class="card">
+      <h2>3. ¿Cuáles son los lenguajes de programación más usados para el desarrollo de una plantilla web?</h2>
+      <button onclick="mostrarModal('Los lenguajes más usados son HTML para la estructura, CSS para el diseño visual, JavaScript para la interactividad y PHP para funciones del lado del servidor.')">Ver respuesta</button>
+    </div>
+
+    <div class="card">
+      <h2>4. ¿Para qué se utiliza el lenguaje de estilos CSS?</h2>
+      <button onclick="mostrarModal('CSS se utiliza para definir el estilo visual de una página web: colores, fuentes, márgenes, posiciones y diseño responsivo.')">Ver respuesta</button>
+    </div>
+
+    <div class="card">
+      <h2>5. ¿Cuáles serían las preguntas más comunes para aplicar la usabilidad en una plantilla web?</h2>
+      <button onclick="mostrarModal('¿El usuario logra sus objetivos fácilmente? ¿La navegación es clara? ¿El diseño es agradable? ¿El sitio funciona bien en móviles?')">Ver respuesta</button>
+    </div>
+
+    <div class="card">
+      <h2>6. ¿Cuáles son las 3 características que debe presentar una plantilla web para considerar la usabilidad?</h2>
+      <button onclick="mostrarModal('Eficacia (cumple su función), eficiencia (rápida y simple de usar) y satisfacción (agradable para el usuario).')">Ver respuesta</button>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="miModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <p id="modalTexto"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Actividad creada por el profesor Joaquín para alumnos de desarrollo web.</p>
+  </footer>
+
+  <script>
+    function mostrarModal(texto) {
+      document.getElementById("modalTexto").innerText = texto;
+      document.getElementById("miModal").style.display = "block";
+    }
+
+    function cerrarModal() {
+      document.getElementById("miModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("miModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

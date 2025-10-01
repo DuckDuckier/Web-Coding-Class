@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tipos de Sitios Web</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      background-color: #264653;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: white;
+      border-left: 6px solid #2a9d8f;
+      padding: 15px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #2a9d8f;
+    }
+
+    .card p {
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 5px;
+      color: #e76f51;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #21867a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tipos de Sitios Web</h1>
+    <p>Haz clic en cada botón para ver una descripción rápida</p>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="card">
+      <h2>Blog</h2>
+      <p id="desc-blog">Un blog publica artículos o entradas periódicas. Puede ser personal, educativo o corporativo.</p>
+
+      <button onclick="alert('Un blog sirve para compartir ideas, noticias o contenido educativo.')">¿Qué es un blog?</button>
+    </div>
+
+    <div class="card">
+      <h2>Tienda Online</h2>
+      <p id="desc-tienda">Permite vender productos o servicios por internet. Incluye catálogo, carrito y pagos.</p>
+      <button onclick="alert('Una tienda online permite comprar desde casa y gestionar pedidos digitalmente.')">¿Qué es una tienda?</button>
+    </div>
+
+    <div class="card">
+      <h2>Portafolio</h2>
+      <p id="desc-portafolio">Muestra trabajos, proyectos o habilidades. Ideal para creativos y profesionales.</p>
+      <a href="https://www.jesse-zhou.com/" target="_blank">jesse zhou</a><br>
+       <a href="https://www.cassie.codes/" target="_blank">cassie</a><br>
+        <a href="https://bruno-simon.com/" target="_blank">brumo simon</a><br>
+      <button onclick="alert('Un portafolio digital presenta tu trabajo de forma visual y profesional.')">¿Qué es un portafolio?</button>
+    </div>
+
+    <div class="card">
+      <h2>Página Corporativa</h2>
+      <p id="desc-corporativa">Representa a una empresa o institución. Incluye información institucional y contacto.</p>
+
+      <button onclick="alert('Una página corporativa comunica la identidad y servicios de una empresa.')">¿Qué es una página corporativa?</button>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Actividad creada por el profesor Joaquín para alumnos de desarrollo web.</p>
+  </footer>
+
+</body>
+</html>

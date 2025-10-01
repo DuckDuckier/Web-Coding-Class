@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio: Errores HTTP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004080;
+    }
+
+    p.enunciado {
+      background-color: #e0ecff;
+      padding: 1rem;
+      border-left: 5px solid #004080;
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #004080;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+      }
+
+      td {
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejercicio: Errores HTTP en Archivos Web</h1>
+
+  <p class="enunciado">
+    Elige 3 sitios web y analiza los errores HTTP que podrían surgir al acceder a distintos archivos. Completa la tabla con el tipo de error, el archivo que lo genera, el nombre del error y una posible solución.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th> Web</th>
+        <th> Tipo de Error</th>
+        <th> Archivo</th>
+        <th> Nombre del Error</th>
+        <th> Posible Solución</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>www.ejemplo1.com</td>
+        <td>404 Not Found</td>
+        <td>/cursos/python.html</td>
+        <td>Página no encontrada</td>
+        <td>Verificar que el archivo existe y que la URL esté bien escrita</td>
+      </tr>
+      <tr>
+        <td>www.ejemplo2.com</td>
+        <td>500 Internal Server Error</td>
+        <td>/api/inscripcion.php</td>
+        <td>Error interno del servidor</td>
+        <td>Revisar el código del backend y los logs del servidor</td>
+      </tr>
+      <tr>
+        <td>www.ejemplo3.com</td>
+        <td>403 Forbidden</td>
+        <td>/admin/panel.html</td>
+        <td>Acceso prohibido</td>
+        <td>Comprobar permisos del archivo y configuración del servidor</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

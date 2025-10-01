@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test de HTML - MF0950</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: green;
+      text-align: center;
+    }
+    .feedback {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Test de HTML - MF0950</h1>
+    <form id="quizForm"></form>
+    <button onclick="corregir()">Enviar respuestas</button>
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <script>
+ const preguntasCSS = [
+  {
+    texto: "¿Qué significa CSS?",
+    opciones: ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Syntax", "Central Styling System"],
+    correcta: 1,
+    explicacion: "CSS significa Cascading Style Sheets, hojas de estilo en cascada."
+  },
+  {
+    texto: "¿Cuál es la forma correcta de aplicar una clase en CSS?",
+    opciones: ["#clase {}", ".clase {}", "clase: {}", "*clase {}"],
+    correcta: 1,
+    explicacion: "Las clases se definen con un punto: .clase {}"
+  },
+  {
+    texto: "¿Qué propiedad se usa para cambiar el color del texto?",
+    opciones: ["background-color", "font-style", "text-color", "color"],
+    correcta: 3,
+    explicacion: "La propiedad color cambia el color del texto."
+  },
+  {
+    texto: "¿Qué propiedad controla el espacio entre líneas de texto?",
+    opciones: ["line-height", "letter-spacing", "text-spacing", "word-spacing"],
+    correcta: 0,
+    explicacion: "line-height controla el espacio vertical entre líneas."
+  },
+  {
+    texto: "¿Qué selector aplica estilos a todos los elementos <p>?",
+    opciones: ["#p", ".p", "p", "*p"],
+    correcta: 2,
+    explicacion: "El selector p aplica estilos a todos los párrafos."
+  },
+  {
+    texto: "¿Qué propiedad se usa para cambiar el tipo de letra?",
+    opciones: ["font-weight", "font-family", "text-style", "font-type"],
+    correcta: 1,
+    explicacion: "font-family define el tipo de fuente."
+  },
+  {
+    texto: "¿Cuál es el valor por defecto de position en CSS?",
+    opciones: ["absolute", "fixed", "relative", "static"],
+    correcta: 3,
+    explicacion: "static es el valor por defecto de position."
+  },
+  {
+    texto: "¿Qué propiedad se usa para ocultar un elemento sin eliminarlo?",
+    opciones: ["display: none", "visibility: hidden", "opacity: 0", "hidden: true"],
+    correcta: 0,
+    explicacion: "display: none oculta el elemento completamente."
+  },
+  {
+    texto: "¿Qué unidad se usa para definir tamaños relativos al texto?",
+    opciones: ["px", "em", "cm", "%"],
+    correcta: 1,
+    explicacion: "em es relativa al tamaño de fuente del elemento padre."
+  },
+  {
+    texto: "¿Qué propiedad se usa para aplicar una imagen de fondo?",
+    opciones: ["background-image", "image-url", "background-src", "img-background"],
+    correcta: 0,
+    explicacion: "background-image aplica una imagen como fondo."
+  },
+  {
+    texto: "¿Qué propiedad redondea los bordes de un elemento?",
+    opciones: ["border-style", "border-radius", "corner-shape", "border-curve"],
+    correcta: 1,
+    explicacion: "border-radius redondea los bordes."
+  },
+  {
+    texto: "¿Qué valor de display convierte un elemento en bloque?",
+    opciones: ["inline", "block", "flex", "grid"],
+    correcta: 1,
+    explicacion: "display: block hace que el elemento ocupe todo el ancho disponible."
+  },
+  {
+    texto: "¿Qué propiedad alinea texto al centro?",
+    opciones: ["text-align: middle", "align-text: center", "text-align: center", "center-text: true"],
+    correcta: 2,
+    explicacion: "text-align: center centra el texto horizontalmente."
+  },
+  {
+    texto: "¿Qué propiedad define el espacio interno de un elemento?",
+    opciones: ["margin", "padding", "border", "spacing"],
+    correcta: 1,
+    explicacion: "padding define el espacio interno entre el contenido y el borde."
+  },
+  {
+    texto: "¿Qué selector aplica estilos a todos los elementos?",
+    opciones: ["body", "*", "html", "all"],
+    correcta: 1,
+    explicacion: "* es el selector universal que aplica estilos a todos los elementos."
+  }
+];
+
+
+    const form = document.getElementById("quizForm");
+
+    preguntasCSS.forEach((pregunta, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      const h3 = document.createElement("h3");
+      h3.textContent = `${index + 1}. ${pregunta.texto}`;
+      div.appendChild(h3);
+
+      pregunta.opciones.forEach((opcion, i) => {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${index}`;
+        input.value = i;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opcion));
+        div.appendChild(label);
+      });
+
+      const feedback = document.createElement("div");
+      feedback.id = `feedback${index}`;
+      feedback.className = "feedback";
+      div.appendChild(feedback);
+
+      form.appendChild(div);
+    });
+
+    function corregir() {
+      let score = 0;
+      preguntasCSS.forEach((pregunta, index) => {
+        const seleccionada = document.querySelector(`input[name="q${index}"]:checked`);
+        const feedback = document.getElementById(`feedback${index}`);
+        if (seleccionada) {
+          if (parseInt(seleccionada.value) === pregunta.correcta) {
+            score++;
+            feedback.textContent = "✔ Correcto. " + pregunta.explicacion;
+            feedback.className = "feedback correct";
+          } else {
+            feedback.textContent = "✘ Incorrecto. " + pregunta.explicacion;
+            feedback.className = "feedback incorrect";
+          }
+        } else {
+          feedback.textContent = "✘ Sin respuesta. " + pregunta.explicacion;
+          feedback.className = "feedback incorrect";
+        }
+      });
+      document.getElementById("resultado").textContent = `Tu puntuación es: ${score} de ${preguntasCSS.length}`;
+    }
+  </script>
+</body>
+</html>

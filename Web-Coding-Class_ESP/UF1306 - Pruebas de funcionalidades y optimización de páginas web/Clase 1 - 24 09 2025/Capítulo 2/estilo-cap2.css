@@ -1,0 +1,120 @@
+/* Estilos base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header, footer {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+main {
+  max-width: 960px;
+  margin: auto;
+  padding: 2em;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  color: #0055aa;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+article {
+  margin: 1.2em 0;
+  padding: 1em;
+  background: #f4faff;
+  border-left: 4px solid #0055aa;
+  border-radius: 6px;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.7em;
+  text-align: center;
+}
+thead {
+  background: #ddeeff;
+}
+
+/* Bloques de código */
+pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+pre code {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-family: "Fira Code", Consolas, monospace;
+}
+
+/* Ejemplos prácticos */
+.caja {
+  width: 100px; height: 100px;
+  background: red;
+  transition: transform 0.5s;
+}
+.caja:hover {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.pulso {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  background: #0055aa; color: #fff;
+  border-radius: 999px;
+  animation: pulso 1.6s infinite ease-in-out;
+}
+@keyframes pulso {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,85,170,0.6); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(0,85,170,0); }
+}
+
+.foto {
+  width: 240px; border-radius: 8px;
+  transition: filter 0.3s ease;
+  filter: grayscale(60%) contrast(110%);
+}
+.foto:hover { filter: none; }
+
+.panel {
+  width: 300px; min-height: 120px;
+  background: #eef;
+  border: 2px solid #0055aa;
+  border-radius: 8px;
+  padding: 1em;
+  display: none; /* oculto por defecto */
+  margin-top: 1em;
+}
+button {
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0.3em;
+}
+button:hover { background: #0055aa; }

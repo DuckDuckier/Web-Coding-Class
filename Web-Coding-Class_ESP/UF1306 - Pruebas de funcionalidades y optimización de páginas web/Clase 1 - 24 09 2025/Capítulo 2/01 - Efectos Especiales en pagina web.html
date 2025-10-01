@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>UF1306 - Capítulo 2: Efectos especiales en páginas web</title>
+  <link rel="stylesheet" href="estilo-cap2.css">
+
+</head>
+<body>
+  <header>
+    <h1>UF1306 - Capítulo 2: Efectos especiales en páginas web</h1>
+    <p>Pruebas de funcionalidades y optimización de páginas web</p>
+  </header>
+
+  <main>
+    <!-- 1. Introducción -->
+    <section>
+      <h2>1. Introducción</h2>
+      <p>Los efectos especiales en páginas web permiten mejorar la experiencia del usuario, aportando dinamismo, estética y usabilidad. Estos efectos pueden aplicarse a imágenes, texto, marcos, ventanas o mediante tecnologías como CSS, JavaScript y librerías externas (ej. jQuery).</p>
+    </section>
+
+    <!-- 2. Trabajar con imágenes -->
+    <section>
+      <h2>2. Trabajar con imágenes</h2>
+      <p>Las imágenes son un recurso fundamental en el diseño web. Podemos aplicar efectos de sustitución, mostrar varias imágenes o secuencias animadas.</p>
+
+      <!-- 2.1 Formatos -->
+      <article>
+        <h3>2.1 Formatos de imágenes</h3>
+        <ul>
+          <li><strong>JPEG:</strong> compresión con pérdida, ideal para fotografías.</li>
+          <li><strong>PNG:</strong> compresión sin pérdida, soporta transparencia.</li>
+          <li><strong>GIF:</strong> soporta animaciones simples, 256 colores.</li>
+          <li><strong>SVG:</strong> formato vectorial, escalable sin pérdida de calidad.</li>
+        </ul>
+      </article>
+
+      <!-- 2.2 Selección -->
+      <article>
+        <h3>2.2 Selección de imágenes</h3>
+        <ul>
+          <li><strong>Vectoriales:</strong> basadas en fórmulas matemáticas, escalables (ej. logotipos en SVG).</li>
+          <li><strong>Bitmap:</strong> basadas en píxeles, pierden calidad al escalar (ej. JPG, PNG).</li>
+          <li><strong>Resolución:</strong> número de píxeles por pulgada (ppi). A mayor resolución, mayor calidad.</li>
+          <li><strong>Profundidad de color:</strong> número de bits usados para representar el color (8, 16, 24 bits).</li>
+          <li><strong>Modos de color:</strong> 
+            <ul>
+              <li><strong>RGB (aditivo):</strong> mezcla de rojo, verde y azul. Usado en pantallas.</li>
+              <li><strong>CMYK (sustractivo):</strong> mezcla de cian, magenta, amarillo y negro. Usado en impresión.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 2.3 Optimización -->
+      <article>
+        <h3>2.3 Optimización de imágenes</h3>
+        <p>Optimizar imágenes mejora la velocidad de carga de la web:</p>
+        <ul>
+          <li><strong>Escalar:</strong> reducir o ampliar sin deformar.</li>
+          <li><strong>Optimizar:</strong> elegir el formato adecuado (PNG para transparencias, JPG para fotos, GIF para animaciones simples).</li>
+        </ul>
+      </article>
+
+      <!-- 2.4 Implementación -->
+      <article>
+        <h3>2.4 Implementación de código con varias imágenes</h3>
+        <p>Ejemplo de sustitución de imagen al pasar el ratón:</p>
+        <pre><code>&lt;img src="imagen1.jpg" 
+     onmouseover="this.src='imagen2.jpg'" 
+     onmouseout="this.src='imagen1.jpg'"&gt;
+</code></pre>
+
+        <p>Ejemplo con jQuery para mostrar secuencia de imágenes:</p>
+        <pre><code>&lt;div id="galeria"&gt;
+  &lt;img src="img1.jpg" alt="Imagen 1"&gt;
+  &lt;img src="img2.jpg" alt="Imagen 2" style="display:none"&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+let index = 0;
+setInterval(function(){
+  const imgs = $("#galeria img");
+  imgs.hide();
+  index = (index + 1) % imgs.length;
+  imgs.eq(index).fadeIn();
+}, 2000);
+&lt;/script&gt;
+</code></pre>
+      </article>
+    </section>
+
+    <!-- 3. Trabajar con texto -->
+    <section>
+      <h2>3. Trabajar con texto</h2>
+      <article>
+        <h3>3.1 Creación de textos mejorados y con movimiento</h3>
+        <p>Podemos aplicar sombras, degradados y animaciones CSS:</p>
+        <pre><code>h1 {
+  text-shadow: 2px 2px 5px gray;
+  background: linear-gradient(to right, red, orange, yellow);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: mover 3s infinite alternate;
+}
+
+@keyframes mover {
+  from { transform: translateX(0); }
+  to { transform: translateX(50px); }
+}
+</code></pre>
+      </article>
+
+      <article>
+        <h3>3.2 Implementación de efectos</h3>
+        <p>Ejemplo con jQuery:</p>
+        <pre><code>$("#titulo").fadeIn(2000).slideUp(2000).slideDown(2000);
+</code></pre>
+      </article>
+
+      <article>
+        <h3>3.3 Adecuación de efectos a la página web</h3>
+        <p>Los efectos deben ser coherentes con el diseño y no distraer al usuario. Se recomienda usarlos con moderación.</p>
+      </article>
+    </section>
+
+    <!-- 4. Trabajar con marcos -->
+    <section>
+      <h2>4. Trabajar con marcos</h2>
+      <article>
+        <h3>4.1 Dónde utilizar los marcos</h3>
+        <p>Los marcos (<code>&lt;iframe&gt;</code>) permiten incrustar contenido externo, como vídeos de YouTube o mapas.</p>
+      </article>
+      <article>
+        <h3>4.2 Limitaciones de los marcos</h3>
+        <p>Pueden afectar la accesibilidad, el SEO y la seguridad.</p>
+      </article>
+      <article>
+        <h3>4.3 Alternativas a los marcos</h3>
+        <p>Uso de APIs, incrustación con JavaScript o componentes modernos.</p>
+      </article>
+    </section>
+
+    <!-- 5. Trabajar con ventanas -->
+    <section>
+      <h2>5. Trabajar con ventanas</h2>
+      <article>
+        <h3>5.1 Creación de varias ventanas</h3>
+        <pre><code>&lt;script&gt;
+function abrirVentana() {
+  window.open("https://ejemplo.com", "nueva", "width=400,height=300");
+}
+&lt;/script&gt;
+&lt;button onclick="abrirVentana()"&gt;Abrir ventana&lt;/button&gt;
+</code></pre>
+        <p>Los navegadores pueden bloquear pop-ups, por lo que hay que usarlos con cuidado.</p>
+      </article>
+      <article>
+        <h3>5.2 Interactividad entre varias ventanas</h3>
+        <p>Se puede comunicar entre ventanas con <code>window.opener</code> o APIs modernas como <code>postMessage</code>.</p>
+      </article>
+    </section>
+ <!-- 6. Otros efectos -->
+    <section>
+      <h2>6. Otros efectos</h2>
+      <article>
+        <h3>6.1 Efectos con HTML (Canvas)</h3>
+        <pre><code>&lt;canvas id="miCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+const c = document.getElementById("miCanvas");
+const ctx = c.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(20, 20, 150, 50);
+&lt;/script&gt;</code></pre>
+      </article>
+
+      <article>
+        <h3>6.2 Efectos con CSS</h3>
+        <pre><code>.caja {
+  width: 100px; height: 100px;
+  background: red;
+  transition: transform 0.5s;
+}
+.caja:hover {
+  transform: rotate(45deg) scale(1.2);
+}</code></pre>
+      </article>
+
+      <article>
+        <h3>6.3 Efectos con capas (jQuery)</h3>
+        <pre><code>&lt;div id="panel" style="display:none; padding:20px; background:#eef;"&gt;
+  &lt;p&gt;Contenido del panel&lt;/p&gt;
+&lt;/div&gt;
+&lt;button id="btnToggle"&gt;Alternar&lt;/button&gt;
+
+&lt;script&gt;
+$("#btnToggle").click(() =&gt; $("#panel").fadeToggle(500));
+&lt;/script&gt;</code></pre>
+      </article>
+    </section>
+    <!-- 7. Resumen y ejercicios -->
+<section>
+  <h2>7. Resumen y ejercicios</h2>
+
+  <article>
+    <h3>7.1 Resumen</h3>
+    <ul>
+      <li><strong>Imágenes:</strong> formatos (JPEG, PNG, GIF, SVG), selección según uso, optimización y efectos de sustitución/secuencias.</li>
+      <li><strong>Texto:</strong> mejoras visuales con CSS (sombras, degradados) y movimiento con keyframes o jQuery.</li>
+      <li><strong>Marcos:</strong> uso de iframes, sus limitaciones y alternativas modernas (APIs, componentes).</li>
+      <li><strong>Ventanas:</strong> apertura controlada, bloqueadores de pop-ups, comunicación entre ventanas.</li>
+      <li><strong>Otros efectos:</strong> Canvas para gráficos, CSS para transformaciones/animaciones, jQuery para efectos en capas y encadenamientos.</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>7.2 Ejercicios</h3>
+    <ol>
+      <li><strong>Imágenes de sustitución:</strong> crea una tarjeta que cambie la imagen al pasar el ratón y vuelve a la original al salir.</li>
+      <li><strong>Secuencia jQuery:</strong> implementa una mini-galería que alterna entre 3 imágenes con <code>fadeIn</code>/<code>fadeOut</code> cada 2s.</li>
+      <li><strong>Título animado:</strong> diseña un título con degradado y animación CSS usando <code>@keyframes</code> (movimiento horizontal suave).</li>
+      <li><strong>Iframe responsable:</strong> incrusta un vídeo con <code>&lt;iframe&gt;</code>, añade estilos responsivos y explica una limitación y su alternativa.</li>
+      <li><strong>Pop-up controlado:</strong> crea un botón que intente abrir una ventana con <code>window.open</code>; si está bloqueada, muestra un aviso en la página.</li>
+      <li><strong>Panel con efectos:</strong> construye un panel oculto que se muestre con <code>fadeIn</code> y se oculte con <code>slideUp</code>; añade un <em>callback</em> que cambie el fondo.</li>
+      <li><strong>Canvas básico:</strong> dibuja un rectángulo y un círculo; añade un pequeño bucle de animación para cambiar su tamaño con <code>requestAnimationFrame</code>.</li>
+      <li><strong>Encadenamiento jQuery:</strong> anima tamaño → opacidad → posición y muestra “Animación completa” al terminar (callback).</li>
+    </ol>
+  </article>
+
+  <article>
+    <h3>7.3 Recomendaciones finales</h3>
+    <ul>
+      <li><strong>Propósito:</strong> usa efectos para mejorar comprensión o feedback, no por decoración excesiva.</li>
+      <li><strong>Rendimiento:</strong> optimiza imágenes, limita animaciones pesadas y prueba en móviles.</li>
+      <li><strong>Accesibilidad:</strong> evita contenido parpadeante rápido, cuida contraste y ofrece alternativas si el efecto oculta información.</li>
+    </ul>
+  </article>
+</section>
+  </main>
+
+  <footer>
+    <p>Material didáctico para UF1306 - Capítulo 2 - Docente: Joaquín Martín</p>
+  </footer>
+  <script src="capitulo2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: 150px 1fr;
+  grid-template-areas:
+    "sidebar top"
+    "sidebar bottom";
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #222;
+  color: white;
+  padding: 20px;
+}
+
+.top {
+  grid-area: top;
+  background: #f4a261;
+  padding: 20px;
+}
+
+.bottom {
+  grid-area: bottom;
+  background: #2a9d8f;
+  padding: 20px;
+}
+
+#enviar {
+  height: 30px;
+  width: 90px;
+}
+
+input {
+  border-radius: 30px;
+  width: 30%;
+}

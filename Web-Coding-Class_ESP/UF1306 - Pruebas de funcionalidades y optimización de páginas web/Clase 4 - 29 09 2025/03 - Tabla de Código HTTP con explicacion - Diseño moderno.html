@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Códigos HTTP con ejemplos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9fafc;
+      --primary: #1f2d3d;
+      --accent: #3498db;
+      --card: #ffffff;
+      --border: #e0e6ed;
+      --text: #2c3e50;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      border-left: 6px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f2f6fc;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      th, td {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Códigos de Estado HTTP</h1>
+    <p>Guía técnica con ejemplos prácticos para desarrolladores</p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <h2> 1xx – Informativos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Ejemplo práctico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100</td>
+            <td>Continue – El cliente puede continuar con la solicitud.</td>
+            <td>Antes de enviar un archivo grande, el navegador espera confirmación del servidor para continuar.</td>
+          </tr>
+          <tr>
+            <td>101</td>
+            <td>Switching Protocols – El servidor acepta cambiar el protocolo.</td>
+            <td>Una app web solicita cambiar de HTTP a WebSocket para mantener una conexión en tiempo real.</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>Processing – El servidor está procesando la solicitud (WebDAV).</td>
+            <td>El servidor indica que está trabajando en una operación compleja como copiar múltiples archivos.</td>
+          </tr>
+          <tr>
+            <td>103</td>
+            <td>Early Hints – El servidor sugiere recursos a precargar.</td>
+            <td>El navegador comienza a cargar `style.css` y `main.js` antes de recibir el HTML completo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="section">
+    <h2> 2xx – Peticiones correctas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Ejemplo práctico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>OK – Solicitud exitosa.</td>
+          <td>La página se carga correctamente y todos los recursos (CSS, JS, imágenes) se muestran sin errores.</td>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>Created – Recurso creado.</td>
+          <td>Al enviar un formulario de registro, el servidor crea el nuevo usuario y devuelve este código.</td>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>No Content – Sin contenido.</td>
+          <td>Una petición AJAX se procesa correctamente pero no necesita devolver datos.</td>
+        </tr>
+        <tr>
+          <td>206</td>
+          <td>Partial Content – Parte del recurso entregado.</td>
+          <td>Al descargar un archivo grande, el navegador solicita solo una parte (por ejemplo, del 50% al 75%).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2> 3xx – Redirecciones</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Ejemplo práctico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>301</td>
+          <td>Moved Permanently – Redirección permanente.</td>
+          <td>Una URL antigua redirige automáticamente a una nueva, como cuando se cambia la estructura de un blog.</td>
+        </tr>
+        <tr>
+          <td>302</td>
+          <td>Found – Redirección temporal.</td>
+          <td>Una página de login redirige temporalmente al panel de usuario tras iniciar sesión.</td>
+        </tr>
+        <tr>
+          <td>304</td>
+          <td>Not Modified – El recurso no ha cambiado.</td>
+          <td>El navegador usa la versión en caché porque el archivo no ha sido modificado desde la última visita.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2> 4xx – Errores del cliente</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Ejemplo práctico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>400</td>
+          <td>Bad Request – Solicitud mal formada.</td>
+          <td>Un formulario envía datos incompletos o con formato incorrecto (por ejemplo, email sin “@”).</td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>Unauthorized – No autorizado.</td>
+          <td>Intentas acceder a una zona privada sin haber iniciado sesión.</td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>Forbidden – Acceso denegado.</td>
+          <td>El servidor bloquea el acceso a un archivo protegido, aunque estés autenticado.</td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>Not Found – Recurso no encontrado.</td>
+          <td>La URL apunta a una página que no existe o fue eliminada.</td>
+        </tr>
+        <tr>
+          <td>429</td>
+          <td>Too Many Requests – Demasiadas solicitudes.</td>
+          <td>Has recargado la página o enviado formularios demasiadas veces en poco tiempo.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2> 5xx – Errores del servidor</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Ejemplo práctico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>500</td>
+          <td>Internal Server Error – Error interno.</td>
+          <td>El servidor tiene un fallo en el código PHP o en la base de datos.</td>
+        </tr>
+        <tr>
+          <td>502</td>
+          <td>Bad Gateway – Puerta de enlace incorrecta.</td>
+          <td>Un proxy o CDN no puede comunicarse con el servidor de origen.</td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>Service Unavailable – Servicio no disponible.</td>
+          <td>El servidor está sobrecargado o en mantenimiento.</td>
+        </tr>
+        <tr>
+          <td>504</td>
+          <td>Gateway Timeout – Tiempo de espera agotado.</td>
+          <td>El servidor no responde a tiempo a través de una puerta de enlace o proxy.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <!-- Puedes seguir añadiendo las secciones 2xx, 3xx, 4xx, 5xx aquí con el mismo estilo -->
+
+  </main>
+
+</body>
+</html>

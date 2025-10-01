@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con 3 apartados (Grid)</title>
+  <link rel="stylesheet" href="eduardo.css">
+</head>
+<body>
+  <div class="grid-container">
+    <aside class="sidebar">
+      <form action="#" method="post" class="cv-form">
+        <fieldset>
+          <legend>Datos Personales:</legend>
+          <label for="nombre">Nombre completo:</label><br>
+          <input type="text" id="nombre" name="nombre" required><br><br>
+
+          <label for="email">Correo electrónico:</label><br>
+          <input type="email" id="email" name="email" required><br><br>
+
+          <label for="telefono">Teléfono:</label><br>
+          <input type="tel" id="telefono" name="telefono" required><br><br>
+        </fieldset>
+        <fieldset>
+        <legend>Otros datos:</legend>
+        <label>
+          <input type="radio" name="genero" value="masculino" required>
+          Masculino
+        </label><br>
+
+        <label>
+          <input type="radio" name="genero" value="femenino">
+          Femenino
+        </label><br>
+
+        <label>
+        <input type="radio" name="genero" value="otro">
+          Otro
+        </label><br><br>
+          <label for="habilidades">Aptitudes:</label><br>
+          <input type="text" id="aptitudes" name="aptitudes"><br><br>
+
+          <label for="habilidades">Intereses:</label><br>
+          <input type="text" id="intereses" name="intereses"><br>
+        </fieldset>
+
+      </form>
+    </aside>
+
+    <section class="top">
+      <fieldset>
+        <legend>Capacidad:</legend>
+      <form action="#" method="post" class="cv-form">
+        <label for="educacion">Educación:</label>
+        <input type="text" name="educacion" id="educacion"><br>
+
+        <label for="experiencia">Experiencia laboral:</label>
+        <input type="text" name="experiencia" id="experiencia">
+      </form>
+      </fieldset>
+    </section>
+
+    <section class="bottom">
+      <fieldset>
+        <legend>Datos importantes:</legend>
+  <form action="#" method="post" class="cv-form">
+    <label for="habilidades">Habilidades:</label>
+    <input type="text" id="habilidades" name="habilidades"><br>
+
+    <label for="idiomas">Idiomas:</label>
+    <input type="text" id="idiomas" name="idiomas"><br>
+    <h3>Transporte:</h3>
+    <label>
+          <input type="radio" name="coche" value="con coche" required>
+          Coche y carnet propio
+        </label><br>
+
+        <label>
+          <input type="radio" name="coche" value="sin coche">
+          Carnet, pero no coche
+        </label><br>
+
+        <label>
+        <input type="radio" name="coche" value="sin carnet">
+          Sin carnet
+        </label><br>
+
+    <label for="idiomas">Disponibilidad:</label>
+    <input type="text" id="disponibilidad" name="disponibilidad"><br><br>
+    </fieldset>
+
+    <button type="submit" id="enviar">Enviar</button>
+  </form>
+    </section>
+
+  </div>
+</body>
+</html>

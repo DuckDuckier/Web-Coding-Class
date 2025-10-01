@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Paradigmas de Programación con Ejemplos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .paradigma {
+      background-color: #fff;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .paradigma h3 {
+      margin-top: 0;
+      color: #2980b9;
+    }
+    .paradigma p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    .ejemplo {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-radius: 5px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .codigo {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+    .codigo-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #16a085;
+    }
+      table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    code {
+      background-color: #ecf0f1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Paradigmas de Programación con Ejemplos</h1>
+
+  <div class="section">
+    <div class="paradigma">
+      <h3> Imperativo</h3>
+      <p>Es como seguir una receta paso a paso. Tú le dices al ordenador qué hacer y en qué orden.</p>
+      <div class="ejemplo">Ejemplo: “Corta las verduras, calienta el aceite, fríe las verduras.”</div>
+
+      <div class="codigo-title">JavaScript</div>
+      <div class="codigo">
+let verduras = ["zanahoria", "cebolla"];
+console.log("Cortar las verduras");
+console.log("Calentar el aceite");
+console.log("Freír las verduras");
+      </div>
+
+      <div class="codigo-title">PHP</div>
+      <div class="codigo">
+$verduras = ["zanahoria", "cebolla"];
+echo "Cortar las verduras\n";
+echo "Calentar el aceite\n";
+echo "Freír las verduras\n";
+      </div>
+    </div>
+
+    <div class="paradigma">
+      <h3> Declarativo</h3>
+      <p>Solo dices lo que quieres lograr, sin explicar cómo hacerlo. El sistema decide los pasos.</p>
+      <div class="ejemplo">Ejemplo: “Quiero ir al parque.” (Google Maps decide la ruta)</div>
+
+      <div class="codigo-title">JavaScript</div>
+      <div class="codigo">
+let numeros = [1, 2, 3, 4, 5];
+let pares = numeros.filter(n => n % 2 === 0);
+console.log(pares); // [2, 4]
+      </div>
+
+      <div class="codigo-title">PHP</div>
+      <div class="codigo">
+$numeros = [1, 2, 3, 4, 5];
+$pares = array_filter($numeros, fn($n) => $n % 2 === 0);
+print_r($pares); // [1 => 2, 3 => 4]
+      </div>
+    </div>
+
+    <div class="paradigma">
+      <h3> Orientado a Objetos</h3>
+      <p>Todo se organiza en objetos con propiedades y acciones. Como un coche que puede arrancar o frenar.</p>
+      <div class="ejemplo">Ejemplo: “Crea un coche con color rojo que pueda acelerar.”</div>
+
+      <div class="codigo-title">JavaScript</div>
+      <div class="codigo">
+class Coche {
+  constructor(color) {
+    this.color = color;
+  }
+  acelerar() {
+    console.log("El coche está acelerando");
+  }
+}
+let miCoche = new Coche("rojo");
+miCoche.acelerar();
+      </div>
+
+      <div class="codigo-title">PHP</div>
+      <div class="codigo">
+class Coche {
+  public $color;
+  public function __construct($color) {
+    $this->color = $color;
+  }
+  public function acelerar() {
+    echo "El coche está acelerando\n";
+  }
+}
+$miCoche = new Coche("rojo");
+$miCoche->acelerar();
+      </div>
+    </div>
+
+    <div class="paradigma">
+      <h3>Funcional</h3>
+      <p>Usa funciones que transforman datos sin cambiar nada fuera de ellas. Como una calculadora.</p>
+      <div class="ejemplo">Ejemplo: “Suma 2 + 3 y siempre obtén 5.”</div>
+
+      <div class="codigo-title">JavaScript</div>
+      <div class="codigo">
+function sumar(a, b) {
+  return a + b;
+}
+console.log(sumar(2, 3)); // 5
+      </div>
+
+      <div class="codigo-title">PHP</div>
+      <div class="codigo">
+function sumar($a, $b) {
+  return $a + $b;
+}
+echo sumar(2, 3); // 5
+      </div>
+    </div>
+
+    <div class="paradigma">
+      <h3>Lógico</h3>
+      <p>Se basa en reglas y deducciones. Como un detective que resuelve un caso con pistas.</p>
+      <div class="ejemplo">Ejemplo: “Si llueve, la calle está mojada. La calle está mojada, entonces ha llovido.”</div>
+
+      <div class="codigo-title">JavaScript</div>
+      <div class="codigo">
+let llueve = true;
+let calleMojada = llueve ? true : false;
+
+if (calleMojada) {
+  console.log("Ha llovido");
+}
+      </div>
+
+      <div class="codigo-title">PHP</div>
+      <div class="codigo">
+$llueve = true;
+$calleMojada = $llueve ? true : false;
+
+if ($calleMojada) {
+  echo "Ha llovido\n";
+}
+      </div>
+    </div>
+  </div>
+ <div class="section">
+    <h2>Comparativa de Tipos de Datos</h2>
+    <table>
+      <tr>
+        <th>Tipo de Dato</th>
+        <th>JavaScript</th>
+        <th>PHP</th>
+      </tr>
+      <tr>
+        <td>Número</td>
+        <td><code>let x = 5;</code></td>
+        <td><code>$x = 5;</code></td>
+      </tr>
+      <tr>
+        <td>Cadena (texto)</td>
+        <td><code>let nombre = "Juan";</code></td>
+        <td><code>$nombre = "Juan";</code></td>
+      </tr>
+      <tr>
+        <td>Booleano</td>
+        <td><code>let activo = true;</code></td>
+        <td><code>$activo = true;</code></td>
+      </tr>
+      <tr>
+        <td>Array</td>
+        <td><code>let frutas = ["manzana", "pera"];</code></td>
+        <td><code>$frutas = array("manzana", "pera");</code></td>
+      </tr>
+      <tr>
+        <td>Objeto</td>
+        <td><code>let persona = {nombre: "Ana", edad: 30};</code></td>
+        <td><code>$persona = ["nombre" => "Ana", "edad" => 30];</code></td>
+      </tr>
+      <tr>
+        <td>Nulo</td>
+        <td><code>let dato = null;</code></td>
+        <td><code>$dato = null;</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Comparativa de Sintaxis</h2>
+    <table>
+      <tr>
+        <th>Concepto</th>
+        <th>JavaScript</th>
+        <th>PHP</th>
+      </tr>
+      <tr>
+        <td>Declarar variable</td>
+        <td><code>let x = 10;</code></td>
+        <td><code>$x = 10;</code></td>
+      </tr>
+      <tr>
+        <td>Concatenar texto</td>
+        <td><code>"Hola " + nombre</code></td>
+        <td><code>"Hola " . $nombre</code></td>
+      </tr>
+      <tr>
+        <td>Condicional</td>
+        <td><code>if (x > 5) { ... }</code></td>
+        <td><code>if ($x > 5) { ... }</code></td>
+      </tr>
+      <tr>
+        <td>Bucle for</td>
+        <td><code>for (let i = 0; i < 5; i++) { ... }</code></td>
+        <td><code>for ($i = 0; $i < 5; $i++) { ... }</code></td>
+      </tr>
+      <tr>
+        <td>Función</td>
+        <td><code>function saludar() { ... }</code></td>
+        <td><code>function saludar() { ... }</code></td>
+      </tr>
+      <tr>
+        <td>Comentario</td>
+        <td><code>// comentario</code></td>
+        <td><code>// comentario</code></td>
+      </tr>
+      <tr>
+        <td>Imprimir</td>
+        <td><code>console.log("Hola");</code></td>
+        <td><code>echo "Hola";</code></td>
+      </tr>
+      <tr>
+        <td>Acceder a array</td>
+        <td><code>frutas[0]</code></td>
+        <td><code>$frutas[0]</code></td>
+      </tr>
+      <tr>
+        <td>Comparación estricta</td>
+        <td><code>x === y</code></td>
+        <td><code>$x === $y</code></td>
+      </tr>
+      <tr>
+        <td>Valor nulo</td>
+        <td><code>null</code></td>
+        <td><code>null</code></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

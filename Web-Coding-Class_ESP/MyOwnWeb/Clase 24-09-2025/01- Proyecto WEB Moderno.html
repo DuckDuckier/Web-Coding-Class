@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto Web Integrador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9fafc;
+      --card: #ffffff;
+      --accent: #4f46e5;
+      --text: #2c3e50;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #e0e7ff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: var(--card);
+      padding: 24px;
+      margin-bottom: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      margin-top: 24px;
+      color: var(--text);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .extra {
+      background-color: #eef2ff;
+      border-left: 4px solid var(--accent);
+    }
+
+    .evaluacion {
+      background-color: #e0f7ec;
+      border-left: 4px solid #10b981;
+    }
+
+    code {
+      background-color: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Proyecto Web Integrador</h1>
+    <p>Aplicación práctica de HTML, CSS y JavaScript</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2> Objetivo del Proyecto</h2>
+      <p>Aplicar de forma práctica todos los conocimientos adquiridos en HTML, CSS y JavaScript mediante la creación de una aplicación web funcional, estructurada y visualmente atractiva. Cada alumno podrá elegir libremente el tipo de proyecto que desea realizar (por ejemplo: página personal, tienda virtual, blog, portafolio, herramienta interactiva, etc.), siempre que cumpla con los requisitos técnicos establecidos.</p>
+      <p>El sitio web debe incluir al menos cuatro secciones o páginas simuladas:</p>
+      <ul>
+        <li>Inicio</li>
+        <li>Quiénes somos</li>
+        <li>Contenido o servicios</li>
+        <li>Contacto (con formulario funcional)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2> Versión estándar (obligatoria)</h2>
+
+      <h3>1. HTML</h3>
+      <ul>
+        <li>Uso de estructura semántica: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;form&gt;</code>, <code>&lt;footer&gt;</code></li>
+        <li>Navegación funcional entre páginas o secciones</li>
+        <li>Formulario con los siguientes campos:
+          <ul>
+            <li>Nombre completo</li>
+            <li>Correo electrónico</li>
+            <li>Contraseña</li>
+            <li>Confirmación de contraseña</li>
+            <li>Fecha de nacimiento</li>
+            <li>Género (radio buttons)</li>
+            <li>País (select)</li>
+            <li>Aceptar términos y condiciones (checkbox)</li>
+            <li>Botón de envío y botón de reinicio</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. CSS</h3>
+      <ul>
+        <li>Estilos personalizados: tipografía, colores, espaciado, bordes y sombras</li>
+        <li>Efectos visuales al enfocar campos (<code>:focus</code>)</li>
+        <li>Diseño responsive con media queries</li>
+        <li>Estilos diferenciados para mensajes de error y éxito</li>
+        <li>Estilo coherente entre todas las páginas del sitio</li>
+      </ul>
+
+      <h3>3. JavaScript</h3>
+      <ul>
+        <li>Validación del formulario:
+          <ul>
+            <li>Campos completos</li>
+            <li>Formato de correo electrónico</li>
+            <li>Contraseñas coincidentes</li>
+            <li>Casilla de términos aceptada</li>
+          </ul>
+        </li>
+        <li>Mensajes dinámicos de error o éxito</li>
+        <li>Eventos: <code>onfocus</code>, <code>onblur</code>, <code>onchange</code>, <code>onsubmit</code>, <code>onreset</code>, <code>onclick</code>, <code>oninput</code></li>
+        <li>Uso de <code>localStorage</code> para guardar datos</li>
+        <li>Mostrar resumen de datos ingresados</li>
+        <li>Botón para borrar datos almacenados</li>
+      </ul>
+    </section>
+
+    <section class="extra">
+      <h2> Versión avanzada (opcional)</h2>
+      <ul>
+        <li>Modo oscuro con JavaScript y <code>localStorage</code></li>
+        <li>Validación de edad mínima (ej. mayor de 18 años)</li>
+        <li>Animaciones con CSS (transiciones, transformaciones)</li>
+        <li>Barra de progreso en el formulario</li>
+        <li>Simulación de envío con <code>fetch()</code></li>
+        <li>Componentes reutilizables: tarjetas, menús, modales</li>
+        <li>Secciones dinámicas que se actualicen en tiempo real</li>
+        <li>Uso de <code>JSON.stringify()</code> y <code>JSON.parse()</code></li>
+      </ul>
+    </section>
+
+    <section class="evaluacion">
+      <h2> Evaluación</h2>
+      <ul>
+        <li>✔️ Correcta estructura semántica en HTML</li>
+        <li>✔️ Estilos CSS bien aplicados y diseño responsive</li>
+        <li>✔️ Validaciones funcionales en JavaScript</li>
+        <li>✔️ Uso adecuado de eventos y almacenamiento local</li>
+        <li>✔️ Código limpio, comentado y organizado</li>
+        <li>✔️ Creatividad y coherencia en el diseño y funcionalidad</li>
+        <li>✔️ Navegación clara entre páginas o secciones</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

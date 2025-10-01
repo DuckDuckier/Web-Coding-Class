@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Seguridad en Iframes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 30px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 2px solid #ccc;
+      margin-top: 15px;
+    }
+    .alerta {
+      background-color: #ffe6e6;
+      border-left: 5px solid #e74c3c;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    code {
+      background-color: #ecf0f1;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¿Por qué los <code>&lt;iframe&gt;</code> pueden ser inseguros?</h1>
+
+    <h2>1. Política de mismo origen</h2>
+    <p>Los navegadores impiden que accedas al contenido de un <code>iframe</code> si proviene de otro dominio. Esto protege la privacidad del usuario.</p>
+
+    <h2>2. Clickjacking</h2>
+    <p>Un atacante puede ocultar un <code>iframe</code> y superponer botones falsos. El usuario cree que hace clic en algo legítimo, pero está interactuando con el contenido del <code>iframe</code>.</p>
+
+    <h2>3. Contenido malicioso</h2>
+    <p>Si permites que se cargue cualquier URL en un <code>iframe</code>, podrías mostrar páginas con virus, phishing o scripts peligrosos.</p>
+
+    <div class="alerta">
+      <strong>Ejemplo:</strong> A continuación se intenta cargar Google en un iframe. Muchos sitios bloquean esto por seguridad.
+    </div>
+
+    <iframe src="https://www.google.com"></iframe>
+
+    <h2>4. Encabezados de seguridad</h2>
+    <p>Muchos sitios usan encabezados como <code>X-Frame-Options</code> o <code>Content-Security-Policy</code> para evitar ser incrustados en otros sitios.</p>
+
+    <h2>¿Cómo protegerse?</h2>
+    <ul>
+      <li>Usa el atributo <code>sandbox</code> para limitar lo que puede hacer el iframe.</li>
+      <li>No cargues contenido externo que no controles.</li>
+      <li>Evita usar iframes para formularios o datos sensibles.</li>
+    </ul>
+  </div>
+</body>
+</html>

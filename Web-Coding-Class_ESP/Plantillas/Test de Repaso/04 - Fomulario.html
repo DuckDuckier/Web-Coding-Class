@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test de Formularios HTML - MF0950</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    .feedback {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Test de Formularios HTML - MF0950</h1>
+    <form id="quizForm"></form>
+    <button type="button" onclick="corregir()">Enviar respuestas</button>
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <script>
+    const preguntas = [
+      {
+        texto: "¿Qué etiqueta HTML se utiliza para crear un formulario?",
+        opciones: ["<input>", "<form>", "<label>", "<fieldset>"],
+        correcta: 1,
+        explicacion: "La etiqueta <form> se utiliza para definir un formulario HTML."
+      },
+      {
+        texto: "¿Qué atributo se usa para especificar la URL a la que se enviarán los datos del formulario?",
+        opciones: ["action", "target", "href", "method"],
+        correcta: 0,
+        explicacion: "El atributo 'action' define la URL del servidor que procesará los datos."
+      },
+      {
+        texto: "¿Cuál es el valor correcto del atributo 'method' para enviar datos de forma segura?",
+        opciones: ["get", "secure", "post", "send"],
+        correcta: 2,
+        explicacion: "El método 'post' se utiliza para enviar datos de forma segura."
+      },
+      {
+        texto: "¿Qué atributo hace que un campo sea obligatorio antes de enviar el formulario?",
+        opciones: ["mandatory", "obligatory", "required", "validate"],
+        correcta: 2,
+        explicacion: "El atributo 'required' obliga al usuario a completar el campo."
+      },
+      {
+        texto: "¿Qué tipo de campo se utiliza para introducir contraseñas?",
+        opciones: ["hidden", "secure", "text", "password"],
+        correcta: 3,
+        explicacion: "El tipo 'password' oculta los caracteres introducidos."
+      },
+      {
+        texto: "¿Qué etiqueta se usa para crear una lista desplegable?",
+        opciones: ["<option>", "<select>", "<list>", "<dropdown>"],
+        correcta: 1,
+        explicacion: "<select> se utiliza para crear listas desplegables."
+      },
+      {
+        texto: "¿Qué atributo se usa para desactivar temporalmente un campo de formulario?",
+        opciones: ["inactive", "hidden", "readonly", "disabled"],
+        correcta: 3,
+        explicacion: "'disabled' impide que el usuario interactúe con el campo."
+      },
+      {
+        texto: "¿Qué atributo permite que el navegador sugiera valores previamente ingresados?",
+        opciones: ["history", "autocomplete", "suggest", "autofill"],
+        correcta: 1,
+        explicacion: "'autocomplete' permite sugerencias basadas en entradas anteriores."
+      },
+      {
+        texto: "¿Qué evento se activa cuando el usuario modifica el contenido de un campo?",
+        opciones: ["oninput", "onclick", "onchange", "onblur"],
+        correcta: 0,
+        explicacion: "'oninput' se activa mientras el usuario escribe."
+      },
+      {
+        texto: "¿Qué atributo se usa para definir una expresión regular que valide el contenido de un campo?",
+        opciones: ["pattern", "validate", "regex", "match"],
+        correcta: 0,
+        explicacion: "'pattern' permite definir una expresión regular para validar el campo."
+      },
+      {
+        texto: "¿Qué atributo se usa junto con 'pattern' para mostrar un mensaje personalizado?",
+        opciones: ["alt", "title", "placeholder", "label"],
+        correcta: 1,
+        explicacion: "'title' muestra un mensaje personalizado si el patrón no se cumple."
+      },
+      {
+        texto: "¿Qué tipo de campo se utiliza para seleccionar una fecha?",
+        opciones: ["datetime", "date", "time", "calendar"],
+        correcta: 1,
+        explicacion: "'date' permite seleccionar una fecha desde un calendario."
+      },
+      {
+        texto: "¿Qué atributo permite que un campo se complete automáticamente con un valor por defecto?",
+        opciones: ["default", "value", "preset", "initial"],
+        correcta: 1,
+        explicacion: "'value' establece un valor por defecto en el campo."
+      },
+      {
+        texto: "¿Qué etiqueta se usa para agrupar campos relacionados en un formulario?",
+        opciones: ["<section>", "<div>", "<fieldset>", "<group>"],
+        correcta: 2,
+        explicacion: "<fieldset> agrupa campos relacionados."
+      },
+      {
+        texto: "¿Qué etiqueta se usa para describir el contenido de un <fieldset>?",
+        opciones: ["<title>", "<caption>", "<label>", "<legend>"],
+        correcta: 3,
+        explicacion: "<legend> proporciona una descripción para el grupo de campos."
+      }
+    ];
+
+    const form = document.getElementById("quizForm");
+
+    preguntas.forEach((pregunta, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      const h3 = document.createElement("h3");
+      h3.textContent = `${index + 1}. ${pregunta.texto}`;
+      div.appendChild(h3);
+
+      pregunta.opciones.forEach((opcion, i) => {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${index}`;
+        input.value = i;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opcion));
+        div.appendChild(label);
+      });
+
+      const feedback = document.createElement("div");
+      feedback.id = `feedback${index}`;
+      feedback.className = "feedback";
+      div.appendChild(feedback);
+
+      form.appendChild(div);
+    });
+
+    function corregir() {
+      let score = 0;
+      preguntas.forEach((pregunta, index) => {
+        const seleccionada = document.querySelector(`input[name="q${index}"]:checked`);
+        const feedback = document.getElementById(`feedback${index}`);
+        if (seleccionada) {
+          if (parseInt(seleccionada.value) === pregunta.correcta) {
+            score++;
+            feedback.textContent = "✔ Correcto. " + pregunta.explicacion;
+            feedback.className = "feedback correct";
+          } else {
+            feedback.textContent = "✘ Incorrecto. " + pregunta.explicacion;
+            feedback.className = "feedback incorrect";
+          }
+        } else {
+          feedback.textContent = "✘ Sin respuesta. " + pregunta.explicacion;
+          feedback.className = "feedback incorrect";
+        }
+      });
+      document.getElementById("resultado").textContent = `Tu puntuación es: ${score} de ${preguntas.length}`;
+    }
+  </script>
+</body>
+</html>

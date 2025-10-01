@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con Nav y Footer</title>
+  <link rel="stylesheet" href="eduardo 2.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>Mi Página</h1>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Sobre mí</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+  <form action="#" method="post" class="cv-form">
+    <table class="form-table">
+      <thead>
+        <tr><th colspan="2">Datos Personales</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><label for="nombre">Nombre completo:</label></td>
+          <td><input type="text" id="nombre" name="nombre" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Correo electrónico:</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="telefono">Teléfono:</label></td>
+          <td><input type="tel" id="telefono" name="telefono" required></td>
+        </tr>
+
+        <tr><th colspan="2">Otros Datos</th></tr>
+        <tr>
+          <td>Género:</td>
+          <td class="gender">
+            <label><input type="radio" name="genero" value="masculino" required> Masculino</label><br>
+            <label><input type="radio" name="genero" value="femenino"> Femenino</label><br>
+            <label><input type="radio" name="genero" value="otro"> Otro</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="aptitudes">Aptitudes:</label></td>
+          <td><input type="text" id="aptitudes" name="aptitudes"></td>
+        </tr>
+        <tr>
+          <td><label for="intereses">Intereses:</label></td>
+          <td><input type="text" id="intereses" name="intereses"></td>
+        </tr>
+
+        <tr><th colspan="2">Capacidad</th></tr>
+        <tr>
+          <td><label for="educacion">Educación:</label></td>
+          <td><input type="text" name="educacion" id="educacion"></td>
+        </tr>
+        <tr>
+          <td><label for="experiencia">Experiencia laboral:</label></td>
+          <td><input type="text" name="experiencia" id="experiencia"></td>
+        </tr>
+
+        <tr><th colspan="2">Datos importantes</th></tr>
+        <tr>
+          <td><label for="habilidades">Habilidades:</label></td>
+          <td><input type="text" id="habilidades" name="habilidades"></td>
+        </tr>
+        <tr>
+          <td><label for="idiomas">Idiomas:</label></td>
+          <td><input type="text" id="idiomas" name="idiomas"></td>
+        </tr>
+         <tr>
+        <td>Transporte:</td>
+        <td class="radio-group">
+          <label><input type="radio" name="coche" value="con coche" required> Coche y carnet propio</label>
+          <label><input type="radio" name="coche" value="sin coche"> Carnet, pero no coche</label>
+          <label><input type="radio" name="coche" value="sin carnet"> Sin carnet</label>
+        </td>
+        </tr>
+        <tr>
+          <td><label for="disponibilidad">Disponibilidad:</label></td>
+          <td><input type="text" id="disponibilidad" name="disponibilidad"></td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <button type="submit" id="enviar">Enviar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</main>
+
+
+  <footer class="footer">
+    <p>&copy; Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

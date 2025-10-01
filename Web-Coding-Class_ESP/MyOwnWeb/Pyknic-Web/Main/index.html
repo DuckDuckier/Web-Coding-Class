@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyknic Web</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mi Proyecto</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#formulario">Formulario</a></li>
+          <li><a href="#resumen">Resumen</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio">
+        <article>
+          <h2>Bienvenido</h2>
+          <p>Este es un ejemplo de plantilla con HTML, CSS y JavaScript.</p>
+        </article>
+      </section>
+
+      <section id="formulario">
+        <article>
+          <h2>Formulario de Registro</h2>
+          <form id="registroForm">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required />
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+
+            <label for="confirmPassword">Confirmar contraseña:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input
+              type="date"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              required
+            />
+
+            <label>Género:</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="genero" value="Masculino" required />
+                Masculino
+              </label>
+              <label>
+                <input type="radio" name="genero" value="Femenino" />
+                Femenino
+              </label>
+            </div>
+
+            <label for="pais">País:</label>
+            <select id="pais" name="pais" required>
+              <option value="">Seleccione su país</option>
+              <option value="España">España</option>
+              <option value="México">México</option>
+              <option value="Argentina">Argentina</option>
+            </select>
+
+            <div class="checkbox-group">
+                <label>
+                <input type="checkbox" id="terminos" name="terminos" required>
+                Acepto términos y condiciones
+                </label>
+            </div>
+
+
+            <div class="buttons">
+              <button type="submit">Enviar</button>
+              <button type="reset">Reiniciar</button>
+            </div>
+
+            <p id="mensaje" class=""></p>
+          </form>
+        </article>
+      </section>
+
+      <section id="resumen">
+        <article>
+          <h2>Resumen de Datos</h2>
+          <div id="resumenDatos"></div>
+          <button id="borrarDatos">Borrar datos almacenados</button>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mi Proyecto</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

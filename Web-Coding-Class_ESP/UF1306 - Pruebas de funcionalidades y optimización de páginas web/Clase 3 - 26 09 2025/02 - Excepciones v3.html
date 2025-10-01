@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Excepciones en PHP con Ejemplos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+    .tabla-excepciones {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .tabla-excepciones thead {
+      background-color: #dc3545;
+      color: white;
+    }
+    .tabla-excepciones tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-left: 5px solid #dc3545;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    h1 {
+      color: #dc3545;
+      margin-bottom: 30px;
+    }
+    .intro {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+    .explicacion {
+      background-color: #e2f0d9;
+      border-left: 5px solid #198754;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center"><i class="bi bi-bug-fill"></i> Tipos de Excepciones en PHP + Ejemplos</h1>
+
+    <div class="intro">
+      <h4> ¿Qué son las excepciones en PHP?</h4>
+      <p>Una <strong>excepción</strong> es una forma de detectar y manejar errores en tiempo de ejecución. En lugar de que el programa se detenga abruptamente, PHP puede <em>“lanzar”</em> una excepción y tú puedes <em>“capturarla”</em> para decidir cómo actuar.</p>
+      <p>PHP usa las palabras clave <code>try</code>, <code>catch</code>, <code>throw</code> y <code>finally</code> para trabajar con excepciones. Aprender a usarlas mejora la calidad del código y prepara a los alumnos para trabajar con bases de datos, APIs y sistemas reales.</p>
+    </div>
+
+    <div class="explicacion">
+      <h4> Tipos comunes de excepciones en PHP</h4>
+      <ul>
+        <li><strong>Exception:</strong> Clase base para todas las excepciones estándar. Se usa para errores generales en la lógica del programa.</li>
+        <li><strong>Error:</strong> Representa errores graves del sistema, como problemas de sintaxis o memoria.</li>
+        <li><strong>TypeError:</strong> Se lanza cuando se pasa un tipo de dato incorrecto a una función con tipado estricto.</li>
+        <li><strong>DivisionByZeroError:</strong> Se lanza automáticamente cuando se intenta dividir por cero.</li>
+        <li><strong>mysqli_sql_exception:</strong> Excepción específica de MySQLi que se lanza cuando ocurre un error en una consulta SQL.</li>
+      </ul>
+    </div>
+
+    <table class="table tabla-excepciones table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Exception</strong></td>
+          <td>Clase base para todas las excepciones estándar</td>
+          <td>
+            <pre>
+try {
+  throw new Exception("Algo salió mal");
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
+            </pre>
+            <em>Se lanza una excepción genérica y se captura con <code>catch</code>.</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Error</strong></td>
+          <td>Errores graves del sistema</td>
+          <td>
+            <pre>
+try {
+  eval('echo "Hola";'); // Código válido
+  eval('echo Hola');    // Error de sintaxis
+} catch (Error $e) {
+  echo "Error de sistema: " . $e->getMessage();
+}
+            </pre>
+            <em>Se captura un error de sintaxis con <code>Error</code>.</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>TypeError</strong></td>
+          <td>Tipo de dato incorrecto en una función</td>
+          <td>
+            <pre>
+function sumar(int $a, int $b) {
+  return $a + $b;
+}
+
+try {
+  echo sumar("uno", 2); // Error: "uno" no es entero
+} catch (TypeError $e) {
+  echo "Error de tipo: " . $e->getMessage();
+}
+            </pre>
+            <em>Se lanza un error por pasar una cadena donde se espera un entero.</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>DivisionByZeroError</strong></td>
+          <td>División por cero</td>
+          <td>
+            <pre>
+try {
+  $resultado = 10 / 0;
+} catch (DivisionByZeroError $e) {
+  echo "No puedes dividir por cero: " . $e->getMessage();
+}
+            </pre>
+            <em>PHP lanza esta excepción automáticamente al dividir por cero.</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>mysqli_sql_exception</strong></td>
+          <td>Error en consulta SQL con MySQLi</td>
+          <td>
+            <pre>
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$conexion = new mysqli("localhost", "root", "", "contacto");
+
+try {
+  $conexion->query("INSERT INTO mensajess (nombre) VALUES ('Juan')");
+} catch (mysqli_sql_exception $e) {
+  echo "Error SQL: " . $e->getMessage();
+}
+            </pre>
+            <em>Se lanza una excepción porque la tabla <code>mensajess</code> no existe.</em>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Throwable</strong></td>
+          <td>Captura cualquier excepción o error</td>
+          <td>
+            <pre>
+try {
+  throw new Exception("Excepción genérica");
+} catch (Throwable $e) {
+  echo "Capturado con Throwable: " . $e->getMessage();
+}
+            </pre>
+            <em>Útil para capturar cualquier tipo de error o excepción.</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

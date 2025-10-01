@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>UF1306 - Capítulo 1: Validación de datos</title>
+  <link rel="stylesheet" href="funciones-validacion.css">
+</head>
+<body>
+  <header>
+    <h1>UF1306 - Capítulo 1: Validación de datos en páginas web</h1>
+    <p>Pruebas de funcionalidades y optimización de páginas web</p>
+  </header>
+
+  <main>
+    <!-- 1. Introducción -->
+    <section>
+      <h2>1. Introducción</h2>
+      <p>La validación de datos permite asegurar que los valores introducidos por el usuario cumplen con los requisitos esperados. Se puede realizar en el cliente (HTML5 o JavaScript) o en el servidor (PHP, Node...), y es clave para evitar errores, mejorar la experiencia y proteger la integridad de los datos.</p>
+    </section>
+
+    <!-- 2. Funciones de Validación -->
+    <section>
+      <h2>2. Funciones de Validación</h2>
+      <ul>
+        <li>Campos obligatorios (<code>required</code>)</li>
+        <li>Formato específico (<code>type</code>, <code>pattern</code>)</li>
+        <li>Validación personalizada con JavaScript</li>
+        <li>Mensajes de error personalizados (<code>title</code>)</li>
+      </ul>
+    </section>
+<!-- 2. Funciones de Validación -->
+<section>
+  <h2>2. Funciones de Validación</h2>
+
+  <!-- 2.1 Descripción -->
+  <article>
+    <h3>2.1 Descripción de las funciones</h3>
+    <p>Las funciones de validación son bloques de código que permiten comprobar si los datos introducidos por el usuario cumplen con unas reglas definidas. Pueden estar escritas en <strong>JavaScript</strong> (cliente) o en <strong>PHP</strong> (servidor).</p>
+  </article>
+
+  <!-- 2.2 Utilidad -->
+  <article>
+    <h3>2.2 Utilidad de las funciones</h3>
+    <ul>
+      <li>Evitar errores en la introducción de datos.</li>
+      <li>Mejorar la experiencia del usuario con mensajes claros.</li>
+      <li>Proteger la seguridad de la aplicación.</li>
+      <li>Garantizar la coherencia de la información almacenada.</li>
+    </ul>
+  </article>
+
+  <!-- 2.3 Implementación -->
+  <article>
+    <h3>2.3 Implementación de las funciones</h3>
+    <p>La implementación puede hacerse en el cliente (JavaScript) o en el servidor (PHP). Lo ideal es combinar ambas.</p>
+  </article>
+
+  <!-- 2.4 Validaciones específicas -->
+  <article>
+    <h3>2.4 Validaciones alfabéticas, numéricas y de fechas</h3>
+    <ul>
+      <li><strong>Alfabéticas:</strong> Solo letras (ejemplo: nombre).</li>
+      <li><strong>Numéricas:</strong> Solo números (ejemplo: edad).</li>
+      <li><strong>Fechas:</strong> Formato correcto de fecha (ejemplo: dd/mm/aaaa).</li>
+    </ul>
+  </article>
+
+  <!-- 2.5 Definición -->
+  <article>
+    <h3>2.5 Definición de validaciones</h3>
+    <p>Una validación es la comprobación de que un dato cumple con un formato, rango o condición específica antes de ser aceptado.</p>
+  </article>
+
+  <!-- 2.6 Código -->
+  <article>
+    <h3>2.6 Código de validación</h3>
+    <p>Ejemplo en <strong>JavaScript</strong> (validar que un campo solo contenga letras):</p>
+    <pre><code>&lt;script&gt;
+function validarNombre() {
+  const nombre = document.getElementById("nombre").value;
+  const patron = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+  if (!patron.test(nombre)) {
+    alert("El nombre solo puede contener letras.");
+    return false;
+  }
+  return true;
+}
+&lt;/script&gt;
+</code></pre>
+
+    <p>Ejemplo en <strong>PHP</strong> (validar que la edad sea numérica y mayor de 18):</p>
+    <pre class="php-code"><code>&lt;?php
+$edad = $_POST["edad"] ?? "";
+if (!is_numeric($edad) || $edad &lt; 18) {
+  echo " La edad debe ser un número mayor o igual a 18.";
+} else {
+  echo " Edad válida.";
+}
+?&gt;
+</code></pre>
+  </article>
+
+  <!-- 2.7 Ejecución -->
+  <article>
+    <h3>2.7 Ejecución de código de validación</h3>
+    <p>La ejecución depende del entorno:</p>
+    <ul>
+      <li><strong>JavaScript:</strong> se ejecuta en el navegador al enviar el formulario o al cambiar un campo.</li>
+      <li><strong>PHP:</strong> se ejecuta en el servidor cuando el formulario se envía y procesa.</li>
+    </ul>
+    <p>Ejemplo de formulario que ejecuta validación en cliente y servidor:</p>
+    <pre><code>&lt;form action="procesar.php" method="post" onsubmit="return validarNombre()"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+  </article>
+</section>
+<!-- 3. Verificar Formularios -->
+<section>
+  <h2>3. Verificar Formularios</h2>
+  <p>La verificación de formularios consiste en comprobar que los datos introducidos cumplen con los requisitos antes de ser procesados. Se puede realizar en el cliente (JavaScript) y en el servidor (PHP). Lo ideal es combinar ambas para mejorar la experiencia del usuario y garantizar la seguridad.</p>
+
+  <!-- 3.1 Identificación de datos -->
+  <article>
+    <h3>3.1 Identificación de datos</h3>
+    <p>Para poder verificar un formulario, primero debemos identificar correctamente cada campo:</p>
+    <ul>
+      <li><strong>name:</strong> es la clave que viaja al servidor.</li>
+      <li><strong>id:</strong> permite seleccionar el campo desde JavaScript y asociarlo con su etiqueta.</li>
+      <li><strong>type:</strong> define el tipo de dato esperado (email, number, date...).</li>
+      <li><strong>Restricciones HTML5:</strong> atributos como <code>required</code>, <code>pattern</code>, <code>min</code>, <code>max</code>.</li>
+    </ul>
+
+    <pre><code>&lt;form id="formVerificacion" action="procesar_form.php" method="post" onsubmit="return verificarCliente()"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required maxlength="60"&gt;
+  &lt;span id="errorNombre" class="error"&gt;&lt;/span&gt;
+
+  &lt;label for="email"&gt;Correo electrónico:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;span id="errorEmail" class="error"&gt;&lt;/span&gt;
+
+  &lt;label for="edad"&gt;Edad:&lt;/label&gt;
+  &lt;input type="number" id="edad" name="edad" min="18" max="99" required&gt;
+  &lt;span id="errorEdad" class="error"&gt;&lt;/span&gt;
+
+  &lt;label for="fechaNac"&gt;Fecha de nacimiento:&lt;/label&gt;
+  &lt;input type="date" id="fechaNac" name="fechaNac" required&gt;
+  &lt;span id="errorFecha" class="error"&gt;&lt;/span&gt;
+
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+  </article>
+
+  <!-- 3.2 Implementación del código de verificación -->
+  <article>
+    <h3>3.2 Implementación del código de verificación</h3>
+    <p>La verificación puede hacerse en el cliente con <strong>JavaScript</strong> y en el servidor con <strong>PHP</strong>. A continuación se muestran ejemplos de ambos enfoques.</p>
+
+    <h4>🔹 Validación en el lado del cliente (JavaScript)</h4>
+    <p>El navegador revisa los datos antes de enviarlos. Si hay errores, muestra mensajes inmediatos y bloquea el envío.</p>
+
+    <pre><code>&lt;script&gt;
+function verificarCliente() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const edad = document.getElementById("edad").value;
+  const fecha = document.getElementById("fechaNac").value;
+
+  // Limpia mensajes previos
+  document.getElementById("errorNombre").textContent = "";
+  document.getElementById("errorEmail").textContent = "";
+  document.getElementById("errorEdad").textContent = "";
+  document.getElementById("errorFecha").textContent = "";
+
+  let valido = true;
+
+  // Nombre: mínimo 3 letras
+  const patronNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/;
+  if (!patronNombre.test(nombre)) {
+    document.getElementById("errorNombre").textContent = "Introduce al menos 3 letras. Solo letras y espacios.";
+    valido = false;
+  }
+
+  // Email
+  const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!patronEmail.test(email)) {
+    document.getElementById("errorEmail").textContent = "Correo no válido. Ejemplo: usuario@dominio.com";
+    valido = false;
+  }
+
+  // Edad
+  const nEdad = Number(edad);
+  if (Number.isNaN(nEdad) || nEdad &lt; 18 || nEdad &gt; 99) {
+    document.getElementById("errorEdad").textContent = "Edad entre 18 y 99.";
+    valido = false;
+  }
+
+  // Fecha
+  if (!fecha) {
+    document.getElementById("errorFecha").textContent = "Selecciona una fecha.";
+    valido = false;
+  } else {
+    const hoy = new Date();
+    const f = new Date(fecha);
+    if (f &gt;= hoy) {
+      document.getElementById("errorFecha").textContent = "La fecha debe ser anterior a hoy.";
+      valido = false;
+    }
+  }
+
+  return valido;
+}
+&lt;/script&gt;
+</code></pre>
+
+    <h4>🔹 Validación en el lado del servidor (PHP)</h4>
+    <p>El servidor valida los datos después de recibirlos. Aunque el usuario manipule el formulario o desactive JavaScript, PHP siempre revisa.</p>
+
+    <pre class="php-code"><code>&lt;?php
+// procesar_form.php
+
+function limpiar($dato) {
+  return htmlspecialchars(trim($dato), ENT_QUOTES, 'UTF-8');
+}
+
+$nombre   = limpiar($_POST['nombre'] ?? '');
+$email    = limpiar($_POST['email'] ?? '');
+$edad     = limpiar($_POST['edad'] ?? '');
+$fechaNac = limpiar($_POST['fechaNac'] ?? '');
+
+$errores = [];
+
+// Validaciones
+if (!preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$/', $nombre)) {
+  $errores[] = "Nombre inválido: mínimo 3 letras, solo letras y espacios.";
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errores[] = "Correo inválido.";
+}
+
+if (!is_numeric($edad) || $edad &lt; 18 || $edad &gt; 99) {
+  $errores[] = "Edad fuera de rango (18-99).";
+}
+
+if (!$fechaNac || strtotime($fechaNac) &gt;= strtotime('today')) {
+  $errores[] = "La fecha de nacimiento debe ser anterior a hoy.";
+}
+
+// Respuesta
+if ($errores) {
+  echo "&lt;h3&gt; Errores encontrados:&lt;/h3&gt;&lt;ul&gt;";
+  foreach ($errores as $e) {
+    echo "&lt;li&gt;$e&lt;/li&gt;";
+  }
+  echo "&lt;/ul&gt;";
+} else {
+  echo "&lt;h3&gt;Datos válidos&lt;/h3&gt;";
+  echo "&lt;p&gt;Nombre: $nombre&lt;/p&gt;";
+  echo "&lt;p&gt;Email: $email&lt;/p&gt;";
+  echo "&lt;p&gt;Edad: $edad&lt;/p&gt;";
+  echo "&lt;p&gt;Fecha de nacimiento: $fechaNac&lt;/p&gt;";
+}
+?&gt;
+</code></pre>
+  </article>
+</section>
+<!-- 3.3 Diagrama de flujo -->
+<section>
+  <h2>3.3 Diagrama de flujo: Viaje de los datos</h2>
+  <p>El siguiente diagrama muestra cómo viajan los datos desde que el usuario los introduce en el formulario hasta que recibe la respuesta del servidor:</p>
+
+  <div class="flujo">
+    <div class="paso animado">📝 Formulario<br>(Usuario introduce datos)</div>
+    <div class="flecha animada">➡️</div>
+    <div class="paso animado">💻 Cliente<br>(Validación con JavaScript)</div>
+    <div class="flecha animada">➡️</div>
+    <div class="paso animado">🌐 Servidor<br>(Validación con PHP)</div>
+    <div class="flecha animada">➡️</div>
+    <div class="paso animado">📩 Respuesta<br>(Errores o confirmación)</div>
+  </div>
+</section>
+
+    <!-- 3. Verificar Formularios -->
+    <section>
+      <h2>3. Verificar Formularios</h2>
+
+      <h3>🔹 Validación con HTML5</h3>
+      <form>
+        <label for="usuario">Usuario (solo letras, mínimo 3):</label>
+        <input type="text" id="usuario" name="usuario"
+               pattern="[A-Za-z]{3,}"
+               title="Introduce al menos 3 letras sin números"
+               required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <h3>🔹 Validación con JavaScript</h3>
+      <form onsubmit="return validarFormularioJS()">
+        <label for="dni">DNI (8 números y una letra):</label>
+        <input type="text" id="dni" name="dni">
+        <span id="errorDNI" class="error"></span>
+
+        <button type="submit">Validar</button>
+      </form>
+
+      <script>
+        function validarFormularioJS() {
+          const dni = document.getElementById("dni").value;
+          const patron = /^[0-9]{8}[A-Za-z]$/;
+          const error = document.getElementById("errorDNI");
+
+          if (!patron.test(dni)) {
+            error.textContent = "Formato incorrecto. Ejemplo: 12345678A";
+            return false;
+          }
+
+          error.textContent = "";
+          return true;
+        }
+      </script>
+    </section>
+
+    <!-- 4. Comparativa HTML5 vs JavaScript vs PHP -->
+    <section>
+      <h2>4. Comparativa: HTML5 vs JavaScript vs PHP</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Aspecto</th>
+            <th>HTML5</th>
+            <th>JavaScript</th>
+            <th>PHP (Servidor)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Complejidad</td>
+            <td>Baja (solo atributos)</td>
+            <td>Media/Alta (requiere programación)</td>
+            <td>Media (requiere lógica backend)</td>
+          </tr>
+          <tr>
+            <td> Rendimiento</td>
+            <td>Muy rápido (nativo del navegador)</td>
+            <td>Rápido, depende del código</td>
+            <td>Más lento (requiere envío y procesamiento)</td>
+          </tr>
+          <tr>
+            <td> Flexibilidad</td>
+            <td>Limitada a reglas simples</td>
+            <td>Totalmente personalizable</td>
+            <td>Total (acceso a BD, reglas de negocio)</td>
+          </tr>
+          <tr>
+            <td> Interactividad</td>
+            <td>Básica</td>
+            <td>Alta (mensajes dinámicos, estilos, etc.)</td>
+            <td>Nula (no interactúa directamente con el usuario)</td>
+          </tr>
+          <tr>
+            <td> Seguridad</td>
+            <td>No confiable por sí sola</td>
+            <td>Tampoco suficiente sin servidor</td>
+            <td>Alta (control total, evita manipulación)</td>
+          </tr>
+          <tr>
+            <td> Ideal para...</td>
+            <td>Formularios simples</td>
+            <td>Validaciones complejas o condicionales</td>
+            <td>Validación definitiva y protección de datos</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Validación en el Servidor -->
+    <section>
+      <h2>5. Validación en el Servidor (PHP)</h2>
+      <p>La validación en el servidor se realiza una vez que el formulario ha sido enviado. Es esencial para garantizar la seguridad, ya que los datos pueden ser manipulados en el cliente. Aunque HTML5 y JavaScript mejoran la experiencia del usuario, <strong>la validación en el servidor nunca debe omitirse</strong>.</p>
+
+      <h3> Ejemplo de validación con PHP</h3>
+      <p>Formulario HTML:</p>
+      <pre><code>&lt;form action="procesar.php" method="post"&gt;
+  &lt;label for="email"&gt;Correo electrónico:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+
+  &lt;label for="edad"&gt;Edad:&lt;/label&gt;
+  &lt;input type="number" id="edad" name="edad" min="18" max="99" required&gt;
+
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+      <p>Script PHP (<code>procesar.php</code>):</p>
+      <pre class="php-code"><code>&lt;?php
+function limpiar($dato) {
+  return htmlspecialchars(trim($dato));
+}
+
+$email = limpiar($_POST["email"]);
+$edad = limpiar($_POST["edad"]);
+$errores = [];
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errores[] = "El correo no tiene un formato válido.";
+}
+
+if (!is_numeric($edad) || $edad &lt; 18 || $edad &gt; 99) {
+  $errores[] = "La edad debe estar entre 18 y 99 años.";
+}
+
+if (count($errores) &gt; 0) {
+  echo "&lt;h3&gt;Errores encontrados:&lt;/h3&gt;&lt;ul&gt;";
+  foreach ($errores as $error) {
+    echo "&lt;li&gt;$error&lt;/li&gt;";
+  }
+  echo "&lt;/ul&gt;";
+} else {
+  echo "&lt;p&gt;Datos válidos. Procesando...&lt;/p&gt;";
+  // Aquí podrías guardar en base de datos, enviar email, etc.
+}
+?&gt;
+</code></pre>
+    </section>
+
+    <!-- 6. Resumen y Ejercicios -->
+    <section>
+      <h2>6. Resumen y Ejercicios</h2>
+      <p>La validación es una herramienta clave para mejorar la calidad y seguridad de las páginas web. Practica con los siguientes ejercicios:</p>
+      <ol>
+        <li>Crear un formulario con validación HTML5 para nombre, email y teléfono.</li>
+        <li>Implementar validación de contraseña con JavaScript (mínimo 8 caracteres, una mayúscula y un número).</li>
+        <li>Comparar los resultados entre validación en cliente y servidor.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Material didáctico para UF1306 - Docente: Joaquín Martín</p>
+  </footer>
+</body>
+</html>

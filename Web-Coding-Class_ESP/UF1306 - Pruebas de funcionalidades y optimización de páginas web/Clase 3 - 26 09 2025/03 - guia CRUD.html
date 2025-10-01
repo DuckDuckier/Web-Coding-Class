@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía CRUD en PHP + MySQL + Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-left: 5px solid #0d6efd;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    h1, h2 {
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center mb-5"> Guía CRUD en PHP + MySQL + Bootstrap</h1>
+
+    <!-- ¿Qué es CRUD? -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">¿Qué es CRUD?</div>
+      <div class="card-body">
+        <p><strong>CRUD</strong> significa <em>Create, Read, Update, Delete</em>.  
+        Es el ciclo básico para manejar datos en cualquier aplicación web.</p>
+        <ul>
+          <li><strong>Create:</strong> Añadir registros a la BD.</li>
+          <li><strong>Read:</strong> Mostrar registros existentes.</li>
+          <li><strong>Update:</strong> Modificar registros.</li>
+          <li><strong>Delete:</strong> Eliminar registros.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Estructura del proyecto -->
+    <div class="card">
+      <div class="card-header bg-success text-white">Estructura del proyecto</div>
+      <div class="card-body">
+        <p>Crea una carpeta <code>crud_moderno</code> con estos archivos:</p>
+        <ul>
+          <li><code>db.php</code> – Conexión MySQL</li>
+          <li><code>index.php</code> – Interfaz y <em>Read</em></li>
+          <li><code>acciones.php</code> – <em>Create</em>, <em>Update</em>, <em>Delete</em></li>
+          <li><code>scripts.js</code> – Funciones para modales</li>
+          <li><code>estilos.css</code> – Estilos adicionales</li>
+          <li><code>base_datos.sql</code> – Script de creación de BD</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Paso 1: Base de datos -->
+    <div class="card">
+      <div class="card-header bg-info text-white">Paso 1: Crear la base de datos</div>
+      <div class="card-body">
+        <p>En PhpMyAdmin o consola MySQL ejecuta:</p>
+        <div class="code-block">
+CREATE DATABASE crud_moderno;
+USE crud_moderno;
+
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  precio DECIMAL(6,2) NOT NULL
+);
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 2: db.php -->
+    <div class="card">
+      <div class="card-header bg-warning text-dark">Paso 2: Conexión (db.php)</div>
+      <div class="card-body">
+        <p>Este script abre la conexión y establece UTF-8:</p>
+        <div class="code-block">
+&lt;?php
+$conexion = new mysqli("localhost", "root", "", "crud_moderno");
+$conexion->set_charset("utf8");
+if ($conexion->connect_error) {
+  die("Error de conexión: " . $conexion->connect_error);
+}
+?&gt;
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 3: index.php -->
+    <div class="card">
+      <div class="card-header bg-secondary text-white">Paso 3: Mostrar productos (index.php)</div>
+      <div class="card-body">
+        <p>Esta página carga los productos y abre los modales:</p>
+        <div class="code-block">
+&lt;?php include "db.php"; ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Gestión de Productos&lt;/title&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  &lt;link href="estilos.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container py-5"&gt;
+    &lt;h2 class="mb-4 text-center"&gt; Productos&lt;/h2&gt;
+    &lt;button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalCrear"&gt; Nuevo Producto&lt;/button&gt;
+
+    &lt;table class="table table-bordered table-striped"&gt;
+      &lt;thead class="table-dark"&gt;
+        &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;th&gt;Acciones&lt;/th&gt;&lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;?php
+        $res = $conexion->query("SELECT * FROM productos");
+        while ($f = $res-&gt;fetch_assoc()) {
+        ?&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;?= $f['id'] ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= htmlspecialchars($f['nombre'], ENT_QUOTES) ?&gt;&lt;/td&gt;
+            &lt;td&gt;€&lt;?= $f['precio'] ?&gt;&lt;/td&gt;
+            &lt;td&gt;
+              &lt;button class="btn btn-warning btn-sm"
+                      onclick='abrirEditar(&lt;?= json_encode($f, JSON_HEX_APOS|JSON_HEX_QUOT) ?&gt;)'&gt; Editar&lt;/button&gt;
+              &lt;button class="btn btn-danger btn-sm"
+                      onclick="abrirEliminar(&lt;?= $f['id'] ?&gt;)"&gt; Borrar&lt;/button&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;?php } ?&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  <!-- Modal Crear -->
+  &lt;div class="modal fade" id="modalCrear" tabindex="-1"&gt;
+    &lt;div class="modal-dialog"&gt;
+      &lt;form method="post" action="acciones.php" class="modal-content needs-validation" novalidate&gt;
+        &lt;div class="modal-header"&gt;&lt;h5&gt; Crear Producto&lt;/h5&gt;&lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+          &lt;input type="hidden" name="accion" value="crear"&gt;
+          &lt;div class="mb-3"&gt;
+            &lt;label&gt;Nombre:&lt;/label&gt;
+            &lt;input type="text" name="nombre" class="form-control" required&gt;
+          &lt;/div&gt;
+          &lt;div class="mb-3"&gt;
+            &lt;label&gt;Precio (€):&lt;/label&gt;
+            &lt;input type="number" step="0.01" name="precio" class="form-control" required&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-footer"&gt;
+          &lt;button class="btn btn-secondary" data-bs-dismiss="modal"&gt;Cancelar&lt;/button&gt;
+          &lt;button type="submit" class="btn btn-success"&gt;Guardar&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Contenedor para modales de Editar y Eliminar --&gt;
+  &lt;div id="modalesDinamicos"&gt;&lt;/div&gt;
+
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+  &lt;script src="scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 4: acciones.php -->
+    <div class="card">
+      <div class="card-header bg-dark text-white">Paso 4: Acciones (acciones.php)</div>
+      <div class="card-body">
+        <p>En este archivo procesamos <em>Create, Update, Delete</em> de forma segura:</p>
+        <div class="code-block">
+&lt;?php
+include "db.php";
+$accion = $_POST['accion'];
+
+if ($accion === "crear") {
+  $stmt = $conexion-&gt;prepare("INSERT INTO productos (nombre, precio) VALUES (?, ?)");
+  $stmt-&gt;bind_param("sd", $_POST['nombre'], $_POST['precio']);
+  $stmt-&gt;execute();
+}
+
+if ($accion === "editar") {
+  $stmt = $conexion-&gt;prepare("UPDATE productos SET nombre=?, precio=? WHERE id=?");
+  $stmt-&gt;bind_param("sdi", $_POST['nombre'], $_POST['precio'], $_POST['id']);
+  $stmt-&gt;execute();
+}
+
+if ($accion === "eliminar") {
+  $stmt = $conexion-&gt;prepare("DELETE FROM productos WHERE id=?");
+  $stmt-&gt;bind_param("i", $_POST['id']);
+  $stmt-&gt;execute();
+}
+
+header("Location: index.php");
+?&gt;
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 5: scripts.js -->
+    <div class="card">
+      <div class="card-header bg-secondary text-white">Paso 5: Modales dinámicos (scripts.js)</div>
+      <div class="card-body">
+        <p>Funciones JS para abrir los modales de Editar y Eliminar:</p>
+        <div class="code-block">
+function abrirEditar(producto) {
+  const modal = `
+&lt;div class="modal fade" id="modalEditar" tabindex="-1"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;form method="post" action="acciones.php" class="modal-content needs-validation" novalidate&gt;
+      &lt;div class="modal-header"&gt;&lt;h5&gt; Editar Producto&lt;/h5&gt;&lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;input type="hidden" name="accion" value="editar"&gt;
+        &lt;input type="hidden" name="id" value="${producto.id}"&gt;
+        &lt;div class="mb-3"&gt;
+          &lt;label&gt;Nombre:&lt;/label&gt;
+          &lt;input type="text" name="nombre" class="form-control" value="${producto.nombre}" required&gt;
+        &lt;/div&gt;
+        &lt;div class="mb-3"&gt;
+          &lt;label&gt;Precio (€):&lt;/label&gt;
+          &lt;input type="number" step="0.01" name="precio" class="form-control" value="${producto.precio}" required&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button class="btn btn-secondary" data-bs-dismiss="modal"&gt;Cancelar&lt;/button&gt;
+        &lt;button type="submit" class="btn btn-warning"&gt;Actualizar&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;`;
+  document.getElementById("modalesDinamicos").innerHTML = modal;
+  new bootstrap.Modal(document.getElementById("modalEditar")).show();
+}
+
+function abrirEliminar(id) {
+  const modal = `
+&lt;div class="modal fade" id="modalEliminar" tabindex="-1"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;form method="post" action="acciones.php" class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;&lt;h5&gt; Eliminar Producto&lt;/h5&gt;&lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;input type="hidden" name="accion" value="eliminar"&gt;
+        &lt;input type="hidden" name="id" value="${id}"&gt;
+        &lt;p&gt;¿Confirmas la eliminación de este producto?&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button class="btn btn-secondary" data-bs-dismiss="modal"&gt;Cancelar&lt;/button&gt;
+        &lt;button type="submit" class="btn btn-danger"&gt;Eliminar&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;`;
+  document.getElementById("modalesDinamicos").innerHTML = modal;
+  new bootstrap.Modal(document.getElementById("modalEliminar")).show();
+}
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 6: estilos.css -->
+    <div class="card">
+      <div class="card-header bg-info text-white">Paso 6: Estilos adicionales (estilos.css)</div>
+      <div class="card-body">
+        <p>Personaliza sombras, bordes y tipografía:</p>
+        <div class="code-block">
+body {
+  font-family: Arial, sans-serif;
+}
+.table-striped tbody tr:hover {
+  background-color: #e9ecef;
+}
+.modal-content {
+  border-radius: 0.5rem;
+}
+        </div>
+      </div>
+    </div>
+
+    <!-- Retos -->
+    <div class="card">
+      <div class="card-header bg-light">Retos para practicar</div>
+      <div class="card-body">
+        <ul>
+          <li>Añade un campo “categoría” y ajusta el CRUD.</li>
+          <li>Implementa paginación para 10 ítems por página.</li>
+          <li>Muestra alertas de éxito y error tras cada acción.</li>
+          <li>Añade autenticación básica (login).</li>
+          <li>Integra AJAX para no recargar la página.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+s

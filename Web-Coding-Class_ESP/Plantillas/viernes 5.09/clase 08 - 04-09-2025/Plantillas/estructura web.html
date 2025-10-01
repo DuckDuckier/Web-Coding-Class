@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estructura de Plantilla Web</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .tree, .root, .table-container {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .file {
+      margin-left: 20px;
+      color: #444;
+    }
+
+    .comment {
+      color: #666;
+      font-style: italic;
+      margin-left: 10px;
+    }
+
+    .folder {
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 2px solid #ccc;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #0078D7;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Estructura de la Plantilla Web</h1>
+
+  <div class="tree">
+    <div class="file">mi-plantilla-web/</div>
+    <div class="folder">
+      <div class="file">├── index.html <span class="comment">← Página principal</span></div>
+      <div class="file">├── contacto.html <span class="comment">← Página secundaria</span></div>
+      <div class="file">├── servicios.html <span class="comment">← Otra página</span></div>
+
+      <div class="file">├── /css/ <span class="comment">← Estilos</span></div>
+      <div class="folder">
+        <div class="file">└── estilos.css</div>
+      </div>
+
+      <div class="file">├── /js/ <span class="comment">← Scripts</span></div>
+      <div class="folder">
+        <div class="file">└── funciones.js</div>
+      </div>
+
+      <div class="file">├── /img/ <span class="comment">← Imágenes</span></div>
+      <div class="folder">
+        <div class="file">├── logo.png</div>
+        <div class="file">└── fondo.jpg</div>
+      </div>
+
+      <div class="file">├── /fonts/ <span class="comment">← Tipografías personalizadas</span></div>
+      <div class="folder">
+        <div class="file">└── roboto.woff2</div>
+      </div>
+
+      <div class="file">├── /templates/ <span class="comment">← Fragmentos reutilizables</span></div>
+      <div class="folder">
+        <div class="file">├── header.html</div>
+        <div class="file">├── footer.html</div>
+        <div class="file">└── formulario.html</div>
+      </div>
+
+      <div class="file">├── /docs/ <span class="comment">← Documentación del proyecto</span></div>
+      <div class="folder">
+        <div class="file">└── instrucciones.md</div>
+      </div>
+
+      <div class="file">└── README.md <span class="comment">← Descripción general del proyecto</span></div>
+    </div>
+  </div>
+
+  <h2>Descripción de Carpetas</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Carpeta</th>
+          <th>Contenido</th>
+          <th>Propósito principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/css/</td>
+          <td>Archivos de estilos (.css)</td>
+          <td>Define el diseño visual del sitio</td>
+        </tr>
+        <tr>
+          <td>/js/</td>
+          <td>Scripts (.js)</td>
+          <td>Añade interactividad y lógica</td>
+        </tr>
+        <tr>
+          <td>/img/</td>
+          <td>Imágenes (.jpg, .png, .svg)</td>
+          <td>Recursos gráficos para la plantilla</td>
+        </tr>
+        <tr>
+          <td>/fonts/</td>
+          <td>Tipografías (.woff, .ttf)</td>
+          <td>Personalización de texto</td>
+        </tr>
+        <tr>
+          <td>/templates/</td>
+          <td>Fragmentos HTML reutilizables</td>
+          <td>Encabezado, pie, formularios, etc.</td>
+        </tr>
+        <tr>
+          <td>/docs/</td>
+          <td>Documentación del proyecto</td>
+          <td>Guías para el uso o edición de la plantilla</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
