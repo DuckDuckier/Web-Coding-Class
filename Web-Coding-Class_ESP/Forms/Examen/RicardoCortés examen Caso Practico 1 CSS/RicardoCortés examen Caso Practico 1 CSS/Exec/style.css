@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f9f2; 
+  color: #333;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: #2f7d48;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+.productos {
+  display: flex;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #d9f2d9;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2f7d48;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  grid-area: main;
+  padding: 20px;
+}
+
+main h2 span {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #2f7d48;
+}
+
+main h3 {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+main ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main ul li {
+  margin: 8px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+main h2::after {
+  content: "🏣";
+  color: green;
+  left: 0;
+}
+
+main ul li::before {
+  content: "✅";
+  color: green;
+  position: absolute;
+  left: 0;
+}
+
+#catalogo-productos::after {
+  content: "📦";
+}
+
+article {
+  background-color: #eaf5e4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  flex: 1;
+  min-width: 250px;
+  max-width: 3em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+article h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+article h3::before {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+}
+
+article:nth-child(1) h3::before {
+  content: "🍎";
+}
+
+article:nth-child(2) h3::before {
+  content: "🌳";
+}
+
+article:nth-child(3) h3::before {
+  content: "🍯";
+}
+
+article p:first-of-type::first-letter {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #226b2e;
+  font-style: italic;
+}
+
+main img {
+  margin-top: 20px;
+  width: 200px;
+  display: block;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #2f7d48;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin: 5px 10px;
+  }
+}

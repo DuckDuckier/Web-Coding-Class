@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio: Atributos de &lt;input&gt;</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>Tabla de atributos de la etiqueta &lt;input&gt;</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Atributo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>type</td>
+        <td>Define el tipo de entrada (text, number, email, etc.)</td>
+        <td><!-- Entrada de texto -->
+          &lt;input type="text"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>src</td>
+        <td>Fuente de imagen para type="image"</td>
+        <td><!-- Botón con imagen -->
+          &lt;input type="image" src="boton.png"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>Valor por defecto del campo</td>
+        <td><!-- Campo con valor inicial -->
+          &lt;input value="Hola"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>alt</td>
+        <td>Texto alternativo para imágenes</td>
+        <td><!-- Imagen con texto alternativo -->
+          &lt;input type="image" alt="Enviar"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>height</td>
+        <td>Altura de imagen (type="image")</td>
+        <td><!-- Imagen con altura -->
+          &lt;input type="image" height="40"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>Ancho de imagen (type="image")</td>
+        <td><!-- Imagen con ancho -->
+          &lt;input type="image" width="100"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>size</td>
+        <td>Define el ancho del campo en caracteres</td>
+        <td><!-- Campo de texto más ancho -->
+          &lt;input type="text" size="30"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>autocomplete</td>
+        <td>Activa o desactiva el autocompletado</td>
+        <td><!-- Autocompletado desactivado -->
+          &lt;input autocomplete="off"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>checked</td>
+        <td>Marca una opción por defecto (checkbox/radio)</td>
+        <td><!-- Casilla marcada -->
+          &lt;input type="checkbox" checked&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>Desactiva el campo</td>
+        <td><!-- Campo deshabilitado -->
+          &lt;input disabled&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>readonly</td>
+        <td>Solo lectura, no se puede editar</td>
+        <td><!-- Campo solo lectura -->
+          &lt;input readonly value="Solo lectura"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>Nombre del campo para el formulario</td>
+        <td><!-- Campo con nombre -->
+          &lt;input name="usuario"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>max</td>
+        <td>Valor máximo permitido</td>
+        <td><!-- Número máximo 100 -->
+          &lt;input type="number" max="100"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>min</td>
+        <td>Valor mínimo permitido</td>
+        <td><!-- Número mínimo 10 -->
+          &lt;input type="number" min="10"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>maxlength</td>
+        <td>Número máximo de caracteres</td>
+        <td><!-- Máximo 20 caracteres -->
+          &lt;input maxlength="20"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>list</td>
+        <td>Conecta con un datalist para sugerencias</td>
+        <td><!-- Lista de sugerencias -->
+          &lt;input list="opciones"&gt;
+          &lt;datalist id="opciones"&gt;
+            &lt;option value="Opción 1"&gt;
+            &lt;option value="Opción 2"&gt;
+          &lt;/datalist&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>multiple</td>
+        <td>Permite seleccionar múltiples archivos</td>
+        <td><!-- Selección múltiple -->
+          &lt;input type="file" multiple&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>step</td>
+        <td>Incremento permitido en campos numéricos</td>
+        <td><!-- Incremento de 5 -->
+          &lt;input type="number" step="5"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>formenctype</td>
+        <td>Codificación del formulario al enviar</td>
+        <td><!-- Codificación multipart -->
+          &lt;input type="submit" formenctype="multipart/form-data"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>formtarget</td>
+        <td>Destino donde se abre la respuesta</td>
+        <td><!-- Abrir en nueva pestaña -->
+          &lt;input type="submit" formtarget="_blank"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>formaction</td>
+        <td>URL a la que se envía el formulario</td>
+        <td><!-- Acción personalizada -->
+          &lt;input type="submit" formaction="procesar.php"&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>formnovalidate</td>
+        <td>Evita la validación del formulario</td>
+        <td><!-- Sin validación -->
+          &lt;input type="submit" formnovalidate&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>pattern</td>
+        <td>Expresión regular para validar el formato</td>
+        <td><!-- Solo letras -->
+          &lt;input pattern="[A-Za-z]+"&gt;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

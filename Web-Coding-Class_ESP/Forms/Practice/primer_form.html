@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con atributos</title>
+</head>
+<body>
+    <form id="formulario" action="procesar.php" method="POST">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombresito" required 
+               maxlength="30" autocomplete="on"><br>
+
+        <label for="correo">Correo electrónico:</label><br>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required 
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+
+        <label for="password">Contraseña:</label><br>
+        <input type="password" id="password" name="password" required 
+               minlength="6" maxlength="20"><br>
+
+        <label for="message">Mensaje:</label><br>
+        <input type="text" id="message" name="mensaje" placeholder="Escribe tu mensaje aquí..." 
+               size="40" readonly value="Solo lectura"><br>
+
+        <label for="archivo">Adjuntar archivo:</label><br>
+        <input type="file" id="archivo" name="archivo" multiple><br>
+
+        <label for="cantidad">Cantidad:</label><br>
+        <input type="number" id="cantidad" name="cantidad" min="1" max="100" step="5"><br>
+
+        <label for="opciones">Opción sugerida:</label><br>
+        <input list="opciones" name="opcion" id="opciones-input">
+        <datalist id="opciones">
+            <option value="Opción 1">
+            <option value="Opción 2">
+            <option value="Opción 3">
+        </datalist><br>
+
+        <label for="motivo">Motivo:</label><br>
+        <select name="motivo" id="motivo">
+            <option value="">-- Selecciona --</option>
+            <option value="consulta">Consulta</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="otros">Otros</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar" formaction="procesar.php" formtarget="_blank" formnovalidate>
+    </form>
+</body>
+</html>

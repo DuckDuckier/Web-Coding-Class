@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Fichero Adjunto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    .contenedor {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #007acc;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="file"] {
+      margin-bottom: 15px;
+    }
+
+    input[disabled] {
+      background-color: #eee;
+      cursor: not-allowed;
+    }
+
+    .explicacion {
+      background-color: #e6f7ff;
+      border-left: 5px solid #007acc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e6f7ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h2>Formulario con Fichero Adjunto</h2>
+
+    <div class="explicacion">
+      Este formulario permite subir archivos.  
+      El campo <code>&lt;input type="file"&gt;</code> puede configurarse con varios atributos para controlar su comportamiento.
+    </div>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+      <label for="archivo">Selecciona una imagen (.jpg, .png):</label>
+      <input type="file" id="archivo" name="archivo"
+             accept=".jpg,.png"
+             title="Solo se permiten imágenes JPG o PNG"
+             required>
+
+      <label for="desactivado">Campo desactivado:</label>
+      <input type="file" id="desactivado" name="desactivado"
+             disabled
+             title="Este campo está desactivado">
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <h3> Tabla de atributos explicados</h3>
+    <table>
+      <tr>
+        <th>Atributo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+      </tr>
+      <tr>
+        <td><code>title</code></td>
+        <td>Texto que aparece al pasar el cursor</td>
+        <td><code>title="Solo imágenes JPG o PNG"</code></td>
+      </tr>
+      <tr>
+        <td><code>disabled</code></td>
+        <td>Desactiva el campo</td>
+        <td><code>disabled</code></td>
+      </tr>
+      <tr>
+        <td><code>accept</code></td>
+        <td>Limita los tipos de archivo</td>
+        <td><code>accept=".jpg,.png"</code></td>
+      </tr>
+      <tr>
+        <td><code>size</code></td>
+        <td>No aplica directamente a <code>file</code>. Se usa en campos de texto.</td>
+        <td><code>size="30"</code> (en <code>type="text"</code>)</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
+

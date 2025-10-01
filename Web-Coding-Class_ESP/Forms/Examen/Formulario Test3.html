@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test de Formularios HTML - Parte 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Test de Formularios HTML - Parte 3</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>21. El atributo <code>action</code> de un formulario indica el tipo de datos que se enviarán.</p>
+      <label><input type="radio" name="q21" value="true"> Verdadero</label>
+      <label><input type="radio" name="q21" value="false"> Falso</label>
+      <div class="feedback" id="f21"></div>
+    </div>
+
+    <div class="question">
+      <p>22. El elemento <code>&lt;input&gt;</code> puede tener diferentes tipos como texto, contraseña o botón.</p>
+      <label><input type="radio" name="q22" value="true"> Verdadero</label>
+      <label><input type="radio" name="q22" value="false"> Falso</label>
+      <div class="feedback" id="f22"></div>
+    </div>
+
+    <div class="question">
+      <p>23. El atributo <code>method="get"</code> oculta los datos enviados en el cuerpo de la solicitud.</p>
+      <label><input type="radio" name="q23" value="true"> Verdadero</label>
+      <label><input type="radio" name="q23" value="false"> Falso</label>
+      <div class="feedback" id="f23"></div>
+    </div>
+
+    <div class="question">
+      <p>24. El atributo <code>required</code> obliga al usuario a completar un campo antes de enviar el formulario.</p>
+      <label><input type="radio" name="q24" value="true"> Verdadero</label>
+      <label><input type="radio" name="q24" value="false"> Falso</label>
+      <div class="feedback" id="f24"></div>
+    </div>
+
+    <div class="question">
+      <p>25. El elemento <code>&lt;textarea&gt;</code> se usa para campos de texto de una sola línea.</p>
+      <label><input type="radio" name="q25" value="true"> Verdadero</label>
+      <label><input type="radio" name="q25" value="false"> Falso</label>
+      <div class="feedback" id="f25"></div>
+    </div>
+
+    <div class="question">
+      <p>26. Puedes usar <code>&lt;label&gt;</code> para mejorar la accesibilidad de los formularios.</p>
+      <label><input type="radio" name="q26" value="true"> Verdadero</label>
+      <label><input type="radio" name="q26" value="false"> Falso</label>
+      <div class="feedback" id="f26"></div>
+    </div>
+
+    <div class="question">
+      <p>27. El atributo <code>name</code> no es necesario si usas JavaScript para procesar el formulario.</p>
+      <label><input type="radio" name="q27" value="true"> Verdadero</label>
+      <label><input type="radio" name="q27" value="false"> Falso</label>
+      <div class="feedback" id="f27"></div>
+    </div>
+
+    <div class="question">
+      <p>28. <code>&lt;input type="email"&gt;</code> valida automáticamente que el texto tenga formato de correo.</p>
+      <label><input type="radio" name="q28" value="true"> Verdadero</label>
+      <label><input type="radio" name="q28" value="false"> Falso</label>
+      <div class="feedback" id="f28"></div>
+    </div>
+
+    <div class="question">
+      <p>29. El botón de envío se crea con <code>&lt;input type="submit"&gt;</code> o <code>&lt;button type="submit"&gt;</code>.</p>
+      <label><input type="radio" name="q29" value="true"> Verdadero</label>
+      <label><input type="radio" name="q29" value="false"> Falso</label>
+      <div class="feedback" id="f29"></div>
+    </div>
+
+    <div class="question">
+      <p>30. El atributo <code>readonly</code> impide que el usuario modifique el campo y también evita que se copie su contenido.</p>
+      <label><input type="radio" name="q30" value="true"> Verdadero</label>
+      <label><input type="radio" name="q30" value="false"> Falso</label>
+      <div class="feedback" id="f30"></div>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Enviar respuestas</button>
+  </form>
+
+  <script src="test3-script.js"></script>
+</body>
+</html>

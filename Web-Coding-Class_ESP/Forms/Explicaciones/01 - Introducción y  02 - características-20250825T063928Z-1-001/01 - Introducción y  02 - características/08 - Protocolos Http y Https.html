@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Protocolos HTTP y HTTPS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    ul {
+      margin-top: 10px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .highlight {
+      background-color: #eef;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Qué son los protocolos HTTP y HTTPS?</h1>
+
+  <div class="section">
+    <h2>🌐 HTTP (HyperText Transfer Protocol)</h2>
+    <p>Es el protocolo que permite la comunicación entre el navegador del usuario y el servidor web. Se usa para cargar páginas web, enviar formularios, ver imágenes, etc.</p>
+    <ul>
+      <li>Transmite datos en texto plano (sin cifrado)</li>
+      <li>Es rápido pero no seguro para datos sensibles</li>
+      <li>Se usa en sitios informativos o públicos</li>
+    </ul>
+    <div class="highlight">
+      Ejemplo de URL con HTTP:  
+      <strong>http://www.ejemplo.com</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 HTTPS (HyperText Transfer Protocol Secure)</h2>
+    <p>Es la versión segura de HTTP. Utiliza cifrado mediante certificados SSL/TLS para proteger la información que se transmite entre el navegador y el servidor.</p>
+    <ul>
+      <li>Protege datos personales, contraseñas, pagos, etc.</li>
+      <li>Evita que terceros intercepten la información</li>
+      <li>Recomendado para tiendas online, formularios y sitios con login</li>
+    </ul>
+    <div class="highlight">
+      Ejemplo de URL con HTTPS:  
+      <strong>https://www.ejemplo.com</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📊 Comparación rápida</h2>
+    <ul>
+      <li><strong>HTTP:</strong> Sin cifrado, menos seguro</li>
+      <li><strong>HTTPS:</strong> Con cifrado, más seguro y confiable</li>
+      <li>Google favorece los sitios HTTPS en el posicionamiento web (SEO)</li>
+    </ul>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de tipos de input en HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    input {
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    td input[type="hidden"] {
+      display: none;
+    }
+    input[type="image"]{
+      width:10%;
+      height:10%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tabla de tipos de &lt;input&gt; en HTML</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo de Input</th>
+        <th>¿Qué hace?</th>
+        <th>Ejemplo HTML básico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>text</td>
+        <td>Campo para escribir texto libre</td>
+        <td><input type="text" placeholder="Escribe tu nombre"></td>
+      </tr>
+      <tr>
+        <td>password</td>
+        <td>Campo para contraseñas (oculta los caracteres)</td>
+        <td><input type="password" placeholder="Contraseña"></td>
+      </tr>
+      <tr>
+        <td>checkbox</td>
+        <td>Casilla para marcar opciones múltiples</td>
+        <td><input type="checkbox" checked></td>
+      </tr>
+      <tr>
+        <td>radio</td>
+        <td>Seleccionar una sola opción entre varias</td>
+        <td>
+          <input type="radio" name="grupo" checked> Opción 1<br>
+          <input type="radio" name="grupo"> Opción 2
+        </td>
+      </tr>
+      <tr>
+        <td>submit</td>
+        <td>Botón que envía el formulario</td>
+        <td><input type="submit" value="Enviar"></td>
+      </tr>
+      <tr>
+        <td>reset</td>
+        <td>Botón que reinicia todos los campos</td>
+        <td><input type="reset" value="Reiniciar"></td>
+      </tr>
+      <tr>
+        <td>button</td>
+        <td>Botón simple (requiere JavaScript)</td>
+        <td><input type="button" value="Haz clic"></td>
+      </tr>
+      <tr>
+        <td>file</td>
+        <td>Seleccionar y subir archivos</td>
+        <td><input type="file"></td>
+      </tr>
+      <tr>
+        <td>hidden</td>
+        <td>Campo invisible para datos internos</td>
+        <td><input type="hidden" name="id" value="123"> (no visible)</td>
+      </tr>
+      <tr>
+        <td>image</td>
+        <td>Usa una imagen como botón</td>
+        <td><input type="image" src="botonR.png?text=Enviar" alt="Enviar"></td>
+      </tr>
+      <tr>
+        <td>email</td>
+        <td>Campo para correos electrónicos (valida formato)</td>
+        <td><input type="email" placeholder="correo@ejemplo.com"></td>
+      </tr>
+      <tr>
+        <td>number</td>
+        <td>Campo para ingresar solo números</td>
+        <td><input type="number" min="1" max="10"></td>
+      </tr>
+      <tr>
+        <td>date</td>
+        <td>Selector de fecha</td>
+        <td><input type="date"></td>
+      </tr>
+      <tr>
+        <td>color</td>
+        <td>Selector de color</td>
+        <td><input type="color"></td>
+      </tr>
+      <tr>
+        <td>range</td>
+        <td>Barra deslizante para valores</td>
+        <td><input type="range" min="0" max="100"></td>
+      </tr>
+      <tr>
+        <td>tel</td>
+        <td>Campo para números de teléfono</td>
+        <td><input type="tel" placeholder="123-456-7890"></td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td>Campo para direcciones web (valida formato)</td>
+        <td><input type="url" placeholder="https://ejemplo.com"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

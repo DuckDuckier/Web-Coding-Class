@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formularios en HTML</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    ul {
+      margin-top: 10px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    code {
+      background-color: #eef;
+      padding: 10px;
+      display: block;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #005f8f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Cómo funcionan los formularios en HTML?</h1>
+
+  <div class="section">
+    <h2>📩 ¿Qué es un formulario?</h2>
+    <p>Un formulario permite al usuario enviar información al servidor. Se usa para registrarse, iniciar sesión, enviar mensajes, hacer pedidos, etc.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔧 Elementos principales del formulario</h2>
+    <ul>
+      <li><strong>&lt;form&gt;:</strong> Contenedor del formulario</li>
+      <li><strong>&lt;input&gt;:</strong> Campo de entrada (texto, email, contraseña, etc.)</li>
+      <li><strong>&lt;label&gt;:</strong> Etiqueta descriptiva para cada campo</li>
+      <li><strong>&lt;select&gt;:</strong> Menú desplegable</li>
+      <li><strong>&lt;textarea&gt;:</strong> Área de texto grande</li>
+      <li><strong>&lt;button&gt; o &lt;input type="submit"&gt;:</strong> Botón para enviar</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ Atributos comunes</h2>
+    <ul>
+      <li><strong>name:</strong> Identifica el campo para el servidor</li>
+      <li><strong>type:</strong> Define el tipo de entrada (text, email, password...)</li>
+      <li><strong>placeholder:</strong> Texto de ayuda dentro del campo</li>
+      <li><strong>required:</strong> Obliga a rellenar el campo</li>
+      <li><strong>value:</strong> Valor por defecto</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Ejemplo práctico</h2>
+    <form action="#" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+
+      <label for="motivo">Motivo de contacto:</label>
+      <select id="motivo" name="motivo">
+        <option value="consulta">Consulta</option>
+        <option value="soporte">Soporte técnico</option>
+        <option value="otros">Otros</option>
+      </select>
+
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+
+</body>
+</html>

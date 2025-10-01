@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Textarea y Select en Formularios</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #0077b6;
+      text-align: center;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .highlight {
+      background-color: #eef;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Textarea y Select en Formularios</h1>
+
+  <div class="section">
+    <h2>📝 Elemento &lt;textarea&gt;</h2>
+    <p>Se usa para que el usuario escriba textos largos, como comentarios, mensajes o descripciones. Se puede ajustar el número de filas y columnas.</p>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+    <div class="highlight">
+&lt;textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."&gt;&lt;/textarea&gt;
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 Elemento &lt;select&gt; y &lt;option&gt;</h2>
+    <p>Se usa para crear un menú desplegable con varias opciones. Cada opción se define con la etiqueta <code>&lt;option&gt;</code>.</p>
+
+    <label for="motivo">Motivo de contacto:</label>
+    <select id="motivo" name="motivo">
+      <option value="">-- Selecciona --</option>
+      <option value="consulta">Consulta</option>
+      <option value="soporte">Soporte técnico</option>
+      <option value="otros">Otros</option>
+    </select>
+
+    <div class="highlight">
+&lt;select name="motivo"&gt;<br>
+&nbsp;&nbsp;&lt;option value=""&gt;-- Selecciona --&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="consulta"&gt;Consulta&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="soporte"&gt;Soporte técnico&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="otros"&gt;Otros&lt;/option&gt;<br>
+&lt;/select&gt;
+    </div>
+  </div>
+
+</body>
+</html>

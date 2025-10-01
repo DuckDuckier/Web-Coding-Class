@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario HTML5 Completo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f5;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    small {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulario HTML5 con todos los tipos de input</h1>
+
+  <form>
+
+    <!-- Campo de texto -->
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ej. Joaquín Pérez" required>
+    <small>type="text" → texto libre</small>
+
+    <!-- Campo de contraseña -->
+    <label for="clave">Contraseña:</label>
+    <input type="password" id="clave" name="clave" required>
+    <small>type="password" → oculta los caracteres</small>
+
+    <!-- Campo de email -->
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+    <small>type="email" → valida formato de correo</small>
+
+    <!-- Campo de teléfono -->
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono">
+    <small>type="tel" → para números de teléfono</small>
+
+    <!-- Campo de URL -->
+    <label for="web">Sitio web:</label>
+    <input type="url" id="web" name="web">
+    <small>type="url" → valida formato de dirección web</small>
+
+    <!-- Campo de búsqueda -->
+    <label for="busqueda">Buscar:</label>
+    <input type="search" id="busqueda" name="busqueda">
+    <small>type="search" → campo de búsqueda</small>
+
+    <!-- Campo numérico -->
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" min="0" max="120">
+    <small>type="number" → solo números</small>
+
+    <!-- Selector de rango -->
+    <label for="satisfaccion">Nivel de satisfacción:</label>
+    <input type="range" id="satisfaccion" name="satisfaccion" min="0" max="10">
+    <small>type="range" → deslizador numérico</small>
+
+    <!-- Selector de fecha -->
+    <label for="fecha">Fecha de nacimiento:</label>
+    <input type="date" id="fecha" name="fecha">
+    <small>type="date" → calendario</small>
+
+    <!-- Selector de mes -->
+    <label for="mes">Mes preferido:</label>
+    <input type="month" id="mes" name="mes">
+    <small>type="month" → selecciona mes y año</small>
+
+    <!-- Selector de semana -->
+    <label for="semana">Semana de entrega:</label>
+    <input type="week" id="semana" name="semana">
+    <small>type="week" → selecciona semana y año</small>
+
+    <!-- Selector de hora -->
+    <label for="hora">Hora de cita:</label>
+    <input type="time" id="hora" name="hora">
+    <small>type="time" → selecciona hora</small>
+
+    <!-- Fecha y hora local -->
+    <label for="fechahora">Fecha y hora local:</label>
+    <input type="datetime-local" id="fechahora" name="fechahora">
+    <small>type="datetime-local" → fecha y hora sin zona horaria</small>
+
+    <!-- Casilla de verificación -->
+    <label>
+      <input type="checkbox" name="condiciones" required>
+      Acepto los términos y condiciones
+    </label>
+    <small>type="checkbox" → selección múltiple</small>
+
+    <!-- Botones de opción -->
+    <label>Género:</label>
+    <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+    <label><input type="radio" name="genero" value="femenino"> Femenino</label>
+    <label><input type="radio" name="genero" value="otro"> Otro</label>
+    <small>type="radio" → selección única</small>
+
+    <!-- Subida de archivo -->
+    <label for="archivo">Sube tu CV:</label>
+    <input type="file" id="archivo" name="archivo">
+    <small>type="file" → permite subir archivos</small>
+
+    <!-- Selector de color -->
+    <label for="color">Color favorito:</label>
+    <input type="color" id="color" name="color">
+    <small>type="color" → selector visual de color</small>
+
+    <!-- Campo oculto -->
+    <input type="hidden" name="id_usuario" value="12345">
+    <small>type="hidden" → campo invisible para datos internos</small>
+
+    <!-- Botón de imagen (no funcional sin src) -->
+    <label>Botón con imagen:</label>
+    <input type="image" src="boton.jfif?text=Enviar" alt="Enviar">
+    <small>type="image" → botón de envío con imagen</small>
+
+    <!-- Botón de envío -->
+    <input type="submit" value="Enviar formulario">
+    <small>type="submit" → envía el formulario</small>
+
+    <!-- Botón de reinicio -->
+    <input type="reset" value="Reiniciar">
+    <small>type="reset" → limpia todos los campos</small>
+
+    <!-- Botón genérico -->
+    <input type="button" value="Haz clic" onclick="alert('¡Botón presionado!')">
+    <small>type="button" → botón personalizado con JavaScript</small>
+
+  </form>
+
+</body>
+</html>

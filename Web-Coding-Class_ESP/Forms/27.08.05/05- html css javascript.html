@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Introducción a JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button, textarea {
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+      max-width: 300px;
+    }
+    .resaltado {
+      background-color: #ffffcc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¡Bienvenidos a JavaScript!</h1>
+
+  <p>Escribe tu nombre:</p>
+  <input type="text" id="nombre" onfocus="resaltar(this)" onblur="quitarResaltado(this)">
+
+  <button onclick="saludar()">Saludar</button>
+
+  <p>Escribe tu edad:</p>
+  <input type="number" id="edad">
+
+  <button onclick="verificarEdad()">Verificar edad</button>
+
+  <p>Haz clic para ver números del 0 al 4:</p>
+  <button onclick="mostrarNumeros()">Mostrar números</button>
+
+  <p>Resultado:</p>
+  <textarea id="resultado" rows="5"></textarea>
+
+  <script>
+    // Resalta el campo al enfocarlo
+    function resaltar(elemento) {
+      elemento.classList.add("resaltado");
+    }
+
+    // Quita el resaltado al perder el foco
+    function quitarResaltado(elemento) {
+      elemento.classList.remove("resaltado");
+    }
+
+    // Saluda al usuario
+    function saludar() {
+      let nombre = document.getElementById("nombre").value;
+      alert("¡Hola " + nombre + "!");
+    }
+
+    // Verifica si el usuario es mayor de edad
+    function verificarEdad() {
+      let edad = parseInt(document.getElementById("edad").value);
+      if (edad <= 18) {
+        alert("Eres menor de edad");
+      }
+    else if (edad >= 120){
+        alert("¿Todavía estás vivo?");
+    }
+       else {
+        alert("Eres mayor de edad");
+      }
+    }
+
+    // Muestra números del 0 al 4 en el textarea
+    function mostrarNumeros() {
+      let salida = "";
+      for (let i = 0; i < 5; i++) {
+        salida += "Número " + i + "\n";
+      }
+      document.getElementById("resultado").value = salida;
+    }
+  </script>
+
+</body>
+</html>

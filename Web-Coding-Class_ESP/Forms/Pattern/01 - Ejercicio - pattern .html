@@ -1,0 +1,132 @@
+en code poner los patrones que correspondan a cada ejercicio.
+ y en los inputs poner el atributo pattern con el patrón correspondiente. 
+ Añadir también el atributo title para que el usuario sepa qué formato debe introducir.
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios de Pattern en Formularios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    .formulario {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="formulario">
+    <h2>Ejemplos de Validación con Pattern</h2>
+    <form>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Descripción</th>
+          <th>Pattern</th>
+          <th>Campo de entrada</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Teléfono español (9 dígitos)</td>
+          <td><code>pattern="^[0-9]{9}$"</code></td>
+          <td><input type="text" pattern="^[0-9]{9}$" title="Número de teléfono" required></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Código postal (5 cifras)</td>
+          <td><code>pattern="^\d{5}$"</code></td>
+          <td><input type="text" pattern="^\d{5}$" title="Código postal" required></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>Email básico</td>
+          <td><code>pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"</code></td>
+          <td><input type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Email" required></td>
+        </tr>
+        
+        <tr>
+          <td>4</td>
+          <td>Matrícula coche (1234 ABC)</td>
+          <td><code>pattern="^\d{4}\s?[A-Z]{3}$"</code></td>
+          <td><input type="text" pattern="^\d{4}\s?[A-Z]{3}$" title="Matrícula del coche" required></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>Contraseña segura</td>
+          <td><code>pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"</code></td>
+          <td><input type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Debe contener 8 dígitos, mayúsculas, minúsculas, números y signos" required></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td>Fecha DD/MM/AAAA</td>
+          <td><code>pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/([0-9]{4})$"</code></td>
+          <td><input type="text" pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/([0-9]{4})$" title="Fecha" required></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td>Nombre (solo letras y espacios)</td>
+          <td><code>pattern="^[A-Za-z\s]+$"</code></td>
+          <td><input type="text" pattern="^[A-Za-z\s]+$" title="Nombre real" required></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td>DNI español (8 cifras + letra)</td>
+          <td><code>pattern="^\d{8}[A-Za-z]$"</code></td>
+          <td><input type="text" pattern="^\d{8}[A-Z]$" title="Documento nacional de identidad" required></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td>Decimal con 2 cifras</td>
+          <td><code>pattern="^\d+,\d{2}$"</code></td>
+          <td><input type="text" pattern="^\d+\,\d{2}$" title="Número con dos decimales" required></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td>Entero positivo</td>
+          <td><code>pattern="^[1-9]\d*$"</code></td>
+          <td><input type="text" pattern="^[1-9]\d*$" title="Entero positivo" required></td>
+        </tr>
+
+      </table>
+      <button type="submit">Validar</button>
+    </form>
+  </div>
+
+</body>
+</html>

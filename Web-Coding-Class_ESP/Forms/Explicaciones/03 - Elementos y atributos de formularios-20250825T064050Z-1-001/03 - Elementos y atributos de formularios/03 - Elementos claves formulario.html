@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Elemento &lt;form&gt;</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #0077b6;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    code {
+      background-color: #eef;
+      padding: 10px;
+      display: block;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Elemento &lt;form&gt; en HTML</h1>
+
+  <div class="section">
+    <h2>¿Qué es &lt;form&gt;?</h2>
+    <p>Es el contenedor principal de cualquier formulario. Dentro de él se colocan todos los campos que el usuario debe rellenar.</p>
+  </div>
+
+  <div class="section">
+    <h2>Atributos principales</h2>
+    <ul>
+      <li><strong>action:</strong> define la URL a la que se enviarán los datos a un servidor o en un archivo local</li>
+      <li><strong>method:</strong> define el método de envío get o  post</li>
+    </ul>
+    <code>
+&lt;form action="procesar.php" method="post"&gt;
+  <!-- Aquí van los campos del formulario -->
+&lt;/form&gt;
+    </code>
+    
+        <h2>Sin acción - vació o  "#"</h2>
+        <p>Si no se especifica action, el formulario se envía a la misma página:</p>
+    <code>
+        &lt;form action="#" method="post"&gt; 
+    </code>
+    <h3>Acción sin redirección externa</h3>
+    <p>El formulario se procesa localmente, ya sea con JavaScript o con código embebido en la misma página.</p>
+    <h3>¿Por qué se usa?</h3>
+    <ul>
+        <li>Para evitar recargar o cambiar de página.</li>
+        <li>Para mostrar resultados o mensajes en el mismo lugar.</li>
+        <li>Para validar datos sin enviar a un servidor externo.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

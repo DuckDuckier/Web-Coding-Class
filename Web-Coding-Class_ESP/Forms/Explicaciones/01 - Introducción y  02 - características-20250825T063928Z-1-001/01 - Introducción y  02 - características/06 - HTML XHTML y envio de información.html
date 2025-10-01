@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML, XHTML y Envío de Información</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    code {
+      background-color: #eef;
+      padding: 10px;
+      display: block;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+    ul {
+      margin-top: 10px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      margin-top: 15px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #005f8f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML, XHTML y Envío de Información</h1>
+
+  <div class="section">
+    <h2>¿Qué es una página web HTML?</h2>
+    <p>Una página HTML es un documento que estructura el contenido de una web usando etiquetas como títulos, párrafos, imágenes y enlaces.</p>
+    <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;Mi página&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenido&lt;/h1&gt;
+    &lt;p&gt;Esta es una página web en HTML.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+  </div>
+
+  <div class="section">
+    <h2>¿Qué es una página web XHTML?</h2>
+    <p>XHTML es una versión más estricta de HTML que sigue las reglas de XML. Requiere que el código esté perfectamente estructurado.</p>
+    <ul>
+      <li>Las etiquetas deben cerrarse correctamente</li>
+      <li>Los atributos van entre comillas</li>
+      <li>Todo debe estar en minúsculas</li>
+    </ul>
+    <code>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+  &lt;head&gt;&lt;title&gt;Mi página XHTML&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenido&lt;/h1&gt;
+    &lt;p&gt;Esta es una página web en XHTML.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+  </div>
+
+  <div class="section">
+    <h2>¿Cómo se envía información al servidor?</h2>
+    <p>Cuando el usuario rellena un formulario y hace clic en "Enviar", los datos se envían al servidor mediante una petición HTTP. El servidor los procesa y responde.</p>
+    <ul>
+      <li>El navegador envía los datos con el método <strong>POST</strong> o método <strong>GET</strong></li>
+      <li>El servidor puede guardar, validar o responder con otra página</li>
+    </ul>
+
+  </div>
+
+</body>
+</html>

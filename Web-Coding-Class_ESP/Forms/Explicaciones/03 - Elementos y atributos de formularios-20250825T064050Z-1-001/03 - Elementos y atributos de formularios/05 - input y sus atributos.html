@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Elemento &lt;input&gt; y sus atributos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #0077b6;
+      text-align: center;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .highlight {
+      background-color: #eef;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Elemento &lt;input&gt; y sus atributos</h1>
+
+  <div class="section">
+    <h2>¿Qué es &lt;input&gt;?</h2>
+    <p>Es el campo de entrada donde el usuario puede escribir información. Se usa para texto, correos, contraseñas, números, fechas, etc.</p>
+  </div>
+
+  <div class="section">
+    <h2>Atributos principales</h2>
+    <ul>
+      <li><strong>type:</strong> define el tipo de dato (text, email, password, number...)</li>
+      <li><strong>name:</strong> identifica el campo para el servidor</li>
+      <li><strong>placeholder:</strong> muestra un texto de ayuda dentro del campo</li>
+      <li><strong>required:</strong> obliga a rellenar el campo antes de enviar</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Ejemplo práctico</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" placeholder="18" required>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Ejemplo de código</h2>
+    <div class="highlight">
+    
+    &lt;input type="text" name="nombre" placeholder="Escribe tu nombre" required&gt;<br>
+    &lt;input type="email" name="correo" placeholder="ejemplo@correo.com" required&gt;<br>
+    &lt;input type="number" name="edad" placeholder="18" required&gt;
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alerta con Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Introduce tu nombre</h2>
+  <input type="text" id="nombre" placeholder="Escribe tu nombre aquí">
+  <br>
+  <button onclick="mostrarAlerta()">Mostrar alerta</button>
+
+  <script>
+    function mostrarAlerta() {
+      const nombre = document.getElementById("nombre").value;
+      if (nombre.trim() === "") {
+        alert("Por favor, escribe tu nombre.");
+      } else {
+        alert("¡Hola " + nombre + "!");
+      }
+    }
+  </script>
+
+</body>
+</html>

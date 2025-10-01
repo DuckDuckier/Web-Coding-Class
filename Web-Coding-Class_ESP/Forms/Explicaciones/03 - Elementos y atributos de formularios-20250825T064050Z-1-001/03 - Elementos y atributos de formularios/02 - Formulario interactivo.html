@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Interactivo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #0077b6;
+      text-align: center;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #005f8f;
+    }
+    .resultado {
+      margin-top: 30px;
+      background-color: #e0f7fa;
+      padding: 20px;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulario Interactivo</h1>
+  <div class="container">
+    <form id="formulario">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+      <label for="motivo">Motivo de contacto:</label>
+      <select id="motivo" name="motivo" required>
+        <option value="">-- Selecciona --</option>
+        <option value="consulta">Consulta</option>
+        <option value="soporte">Soporte técnico</option>
+        <option value="otros">Otros</option>
+      </select>
+
+      <input type="submit" value="Enviar">
+    </form>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    const formulario = document.getElementById('formulario');
+    const resultado = document.getElementById('resultado');
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita el envío real
+
+      // Captura de datos
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+      const motivo = document.getElementById('motivo').value;
+
+      // Validación básica
+      if (!nombre || !email || !mensaje || !motivo) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+
+      // Mostrar resultado
+      resultado.style.display = 'block';
+      resultado.innerHTML = `
+        <h2>Datos enviados correctamente:</h2>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Correo:</strong> ${email}</p>
+        <p><strong>Motivo:</strong> ${motivo}</p>
+        <p><strong>Mensaje:</strong> ${mensaje}</p>
+      `;
+
+      // Opcional: limpiar el formulario
+      formulario.reset();
+    });
+  </script>
+
+</body>
+</html>

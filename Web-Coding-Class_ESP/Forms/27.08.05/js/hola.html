@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validar(formulario){
+    if(formulario.nombre.value != ''){
+        alert('La información es correcta.');
+        return true;
+    } else {
+        alert('La información es incorrecta');
+        return false;
+    }}
+    </script>
+</head>
+<body>
+    <form action="mailto:mail@destinatario.com" onsubmit="return validar(this);">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="nombre" alt="nombre" tabindex="1">
+        <input type="submit" value="Enviar" name="enviar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Radio Buttons con Explicación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 30px;
+    }
+
+    .contenedor {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+
+    p.explicacion {
+      background-color: #e6f7ff;
+      border-left: 5px solid #007acc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #007acc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Radio Buttons en HTML</h1>
+
+    <p class="explicacion">
+      Los <strong>radio buttons</strong> son elementos de formulario que permiten al usuario seleccionar <strong>una sola opción</strong> entre varias.  
+      Todos los botones que comparten el mismo atributo <code>name</code> forman parte del mismo grupo.  
+      Cuando el usuario selecciona uno y envía el formulario, se envía el <code>value</code> del botón elegido.  
+      Son útiles para preguntas de opción única como género, método de pago o nivel educativo.
+    </p>
+
+    <form>
+      <p><strong>¿Cuál es tu lenguaje favorito?</strong></p>
+      <label>
+        <input type="radio" name="lenguaje" value="HTML"> HTML
+      </label>
+      <label>
+        <input type="radio" name="lenguaje" value="CSS"> CSS
+      </label>
+      <label>
+        <input type="radio" name="lenguaje" value="JavaScript"> JavaScript
+      </label>
+      <label>
+        <input type="radio" name="lenguaje" value="Python"> Python
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+</body>
+</html>

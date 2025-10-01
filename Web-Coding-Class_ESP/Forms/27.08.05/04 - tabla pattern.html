@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expresiones Regulares: Símbolos y Ejemplos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #bbb;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background: #e3e3e3;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #c0392b;
+        }
+        .ejemplo {
+            background: #eef9f1;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #27ae60;
+        }
+        .comentario {
+            color: #888;
+            font-size: 0.95em;
+        }
+        input[type="text"] {
+            padding: 6px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        .valido {
+            color: green;
+            font-weight: bold;
+        }
+        .invalido {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Expresiones Regulares: Símbolos y Ejemplos</h1>
+    <table>
+        <tr>
+            <th>Símbolo</th>
+            <th>Significado</th>
+            <th>Ejemplo de uso</th>
+            <th>Qué valida</th>
+        </tr>
+        <tr>
+            <td><code>.</code></td>
+            <td>Cualquier carácter (excepto salto de línea)</td>
+            <td><code>a.</code></td>
+            <td>"ab", "a1", "a@"</td>
+        </tr>
+        <tr>
+            <td><code>\d</code></td>
+            <td>Dígito (0–9)</td>
+            <td><code>\d{3}</code></td>
+            <td>Tres dígitos: "123"</td>
+        </tr>
+        <tr>
+            <td><code>\D</code></td>
+            <td>No dígito</td>
+            <td><code>\D+</code></td>
+            <td>Letras o símbolos: "abc", "@"</td>
+        </tr>
+        <tr>
+            <td><code>\w</code></td>
+            <td>Carácter alfanumérico o guion bajo</td>
+            <td><code>\w{5,}</code></td>
+            <td>Palabras como "user_1", "abc12"</td>
+        </tr>
+        <tr>
+            <td><code>\W</code></td>
+            <td>No alfanumérico</td>
+            <td><code>\W+</code></td>
+            <td>"@#", "!"</td>
+        </tr>
+        <tr>
+            <td><code>\s</code></td>
+            <td>Espacio en blanco</td>
+            <td><code>\s</code></td>
+            <td>" " (espacio), tabulación</td>
+        </tr>
+        <tr>
+            <td><code>\S</code></td>
+            <td>No espacio en blanco</td>
+            <td><code>\S+</code></td>
+            <td>"texto", "123"</td>
+        </tr>
+        <tr>
+            <td><code>^</code></td>
+            <td>Inicio de la cadena</td>
+            <td><code>^abc</code></td>
+            <td>Comienza con "abc"</td>
+        </tr>
+        <tr>
+            <td><code>$</code></td>
+            <td>Fin de la cadena</td>
+            <td><code>abc$</code></td>
+            <td>Termina con "abc"</td>
+        </tr>
+        <tr>
+            <td><code>*</code></td>
+            <td>0 o más repeticiones</td>
+            <td><code>a*</code></td>
+            <td>"", "a", "aaa"</td>
+        </tr>
+        <tr>
+            <td><code>+</code></td>
+            <td>1 o más repeticiones</td>
+            <td><code>a+</code></td>
+            <td>"a", "aa", pero no ""</td>
+        </tr>
+        <tr>
+            <td><code>?</code></td>
+            <td>0 o 1 repetición</td>
+            <td><code>a?</code></td>
+            <td>"", "a"</td>
+        </tr>
+        <tr>
+            <td><code>{n}</code></td>
+            <td>Exactamente n repeticiones</td>
+            <td><code>\d{4}</code></td>
+            <td>"2025"</td>
+        </tr>
+        <tr>
+            <td><code>{n,m}</code></td>
+            <td>Entre n y m repeticiones</td>
+            <td><code>[A-Z]{2,4}</code></td>
+            <td>"AB", "ABC", "ABCD"</td>
+        </tr>
+        <tr>
+            <td><code>[]</code></td>
+            <td>Conjunto de caracteres</td>
+            <td><code>[aeiou]</code></td>
+            <td>Una vocal</td>
+        </tr>
+        <tr>
+            <td><code>[^]</code></td>
+            <td>Exclusión de caracteres</td>
+            <td><code>[^0-9]</code></td>
+            <td>No dígitos</td>
+        </tr>
+        <tr>
+            <td><code>()</code></td>
+            <td>Agrupación</td>
+            <td><code>(abc)+</code></td>
+            <td>"abc", "abcabc"</td>
+        </tr>
+        <tr>
+            <td><code>|</code></td>
+            <td>Alternancia (OR)</td>
+            <td><code>cat|dog</code></td>
+            <td>"cat" o "dog"</td>
+        </tr>
+        <tr>
+            <td><code>(?=...)</code></td>
+            <td>Búsqueda anticipada positiva</td>
+            <td><code>(?=.*\d)</code></td>
+            <td>Al menos un número</td>
+        </tr>
+        <tr>
+            <td><code>(?!...)</code></td>
+            <td>Búsqueda anticipada negativa</td>
+            <td><code>(?!abc)</code></td>
+            <td>No contiene "abc"</td>
+        </tr>
+    </table>
+
+    <h2>Ejemplos prácticos</h2>
+
+    <div class="ejemplo">
+        <strong>1. Validar un número de 4 cifras:</strong><br>
+        <code>^\d{4}$</code>
+        <div class="comentario">// Solo acepta cadenas de exactamente 4 dígitos, como "2025"</div>
+        <input type="text" id="ejemplo1" placeholder="Introduce 4 dígitos">
+        <span id="resultado1"></span>
+    </div>
+
+    <div class="ejemplo">
+        <strong>2. Validar una palabra que no contenga números:</strong><br>
+        <code>^[^\d]+$</code>
+        <div class="comentario">// Solo letras o símbolos, no acepta números</div>
+        <input type="text" id="ejemplo2" placeholder="Sin números">
+        <span id="resultado2"></span>
+    </div>
+
+    <div class="ejemplo">
+        <strong>3. Validar si contiene al menos una letra y un número:</strong><br>
+        <code>^(?=.*[A-Za-z])(?=.*\d).+$</code>
+        <div class="comentario">// Debe tener al menos una letra y un número</div>
+        <input type="text" id="ejemplo3" placeholder="Letra y número">
+        <span id="resultado3"></span>
+    </div>
+
+    <div class="ejemplo">
+        <strong>4. Validar que NO contenga la palabra "abc":</strong><br>
+        <code>^(?!.*abc).*$</code>
+        <div class="comentario">// No acepta cadenas que contengan "abc"</div>
+        <input type="text" id="ejemplo4" placeholder="No 'abc'">
+        <span id="resultado4"></span>
+    </div>
+
+    <script>
+        // Ejemplo 1: 4 dígitos
+        document.getElementById('ejemplo1').addEventListener('input', function() {
+            const regex = /^\d{4}$/;
+            const res = document.getElementById('resultado1');
+            if (regex.test(this.value)) {
+                res.textContent = '✔ Válido';
+                res.className = 'valido';
+            } else {
+                res.textContent = '✘ Inválido';
+                res.className = 'invalido';
+            }
+        });
+
+        // Ejemplo 2: Sin números
+        document.getElementById('ejemplo2').addEventListener('input', function() {
+            const regex = /^[^\d]+$/;
+            const res = document.getElementById('resultado2');
+            if (regex.test(this.value) && this.value.length > 0) {
+                res.textContent = '✔ Válido';
+                res.className = 'valido';
+            } else {
+                res.textContent = '✘ Inválido';
+                res.className = 'invalido';
+            }
+        });
+
+        // Ejemplo 3: Al menos una letra y un número
+        document.getElementById('ejemplo3').addEventListener('input', function() {
+            const regex = /^(?=.*[A-Za-z])(?=.*\d).+$/;
+            const res = document.getElementById('resultado3');
+            if (regex.test(this.value)) {
+                res.textContent = '✔ Válido';
+                res.className = 'valido';
+            } else {
+                res.textContent = '✘ Inválido';
+                res.className = 'invalido';
+            }
+        });
+
+        // Ejemplo 4: No contiene "abc"
+        document.getElementById('ejemplo4').addEventListener('input', function() {
+            const regex = /^(?!.*abc).*$/;
+            const res = document.getElementById('resultado4');
+            if (regex.test(this.value)) {
+                res.textContent = '✔ Válido';
+                res.className = 'valido';
+            } else {
+                res.textContent = '✘ Inválido';
+                res.className = 'invalido';
+            }
+        });
+    </script>
+</body>
+</html>

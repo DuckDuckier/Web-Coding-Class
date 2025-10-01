@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertir tu web a HTTPS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 6px solid #0077b6;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    code {
+      background-color: #eef;
+      padding: 10px;
+      display: block;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+    ul {
+      margin-top: 10px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Cómo convertir tu web a HTTPS?</h1>
+
+  <div class="section">
+    <h2>1. Obtener un certificado SSL</h2>
+    <p>Es necesario para cifrar la conexión. Puedes usar Let’s Encrypt (gratis) o comprar uno profesional.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Instalar el certificado en tu servidor</h2>
+    <p>Muchos hostings permiten instalarlo desde el panel de control. Si no, pide ayuda técnica.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Redirigir tráfico a HTTPS</h2>
+    <p>Edita el archivo <code>.htaccess</code> para que todo el tráfico se redirija automáticamente:</p>
+    <code>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    </code>
+  </div>
+
+  <div class="section">
+    <h2>4. Actualizar enlaces</h2>
+    <p>Revisa que todos los enlaces internos y externos usen <strong>https://</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Verificar funcionamiento</h2>
+    <p>Comprueba que no hay errores de contenido mixto y que el candado aparece en el navegador.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Eventos en JavaScript con Ejemplos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+        th { background: #f0f0f0; }
+        .ejemplo { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; background: #fafafa; }
+        .ejemplo label { display: block; margin-bottom: 5px; }
+        .ejemplo input, .ejemplo textarea, .ejemplo button, .ejemplo select { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Tabla de Eventos en JavaScript</h1>
+    <!-- Tabla con los eventos y su descripción -->
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo de evento</th>
+                <th>Nombre del evento</th>
+                <th>Descripción breve</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cada fila muestra un evento y su descripción -->
+            <tr><td rowspan="4">Carga de página</td><td>onload</td><td>Se dispara cuando la página o un recurso ha terminado de cargarse.</td></tr>
+            <tr><td>onunload</td><td>Se dispara cuando el usuario abandona la página.</td></tr>
+            <tr><td>onbeforeunload</td><td>Se dispara justo antes de que la página se descargue.</td></tr>
+            <tr><td>onerror</td><td>Se dispara cuando ocurre un error en la carga de un recurso.</td></tr>
+            <tr><td rowspan="7">Mouse</td><td>onclick</td><td>Se dispara al hacer clic sobre un elemento.</td></tr>
+            <tr><td>ondblclick</td><td>Se dispara al hacer doble clic.</td></tr>
+            <tr><td>onmousedown</td><td>Se dispara al presionar un botón del ratón.</td></tr>
+            <tr><td>onmouseup</td><td>Se dispara al soltar el botón del ratón.</td></tr>
+            <tr><td>onmouseover</td><td>Se dispara al pasar el ratón por encima de un elemento.</td></tr>
+            <tr><td>onmouseout</td><td>Se dispara al sacar el ratón de un elemento.</td></tr>
+            <tr><td>onmousemove</td><td>Se dispara cuando el ratón se mueve sobre un elemento.</td></tr>
+            <tr><td rowspan="3">Teclado</td><td>onkeydown</td><td>Se dispara al presionar una tecla.</td></tr>
+            <tr><td>onkeypress</td><td>Se dispara al presionar y soltar una tecla (obsoleto).</td></tr>
+            <tr><td>onkeyup</td><td>Se dispara al soltar una tecla.</td></tr>
+            <tr><td rowspan="6">Formulario</td><td>onfocus</td><td>Se dispara cuando un elemento recibe el foco.</td></tr>
+            <tr><td>onblur</td><td>Se dispara cuando un elemento pierde el foco.</td></tr>
+            <tr><td>onchange</td><td>Se dispara cuando el valor de un campo cambia.</td></tr>
+            <tr><td>oninput</td><td>Se dispara cuando el usuario introduce datos.</td></tr>
+            <tr><td>onsubmit</td><td>Se dispara al enviar un formulario.</td></tr>
+            <tr><td>onreset</td><td>Se dispara al reiniciar un formulario.</td></tr>
+            <tr><td rowspan="2">Ventana</td><td>onresize</td><td>Se dispara cuando se cambia el tamaño de la ventana.</td></tr>
+            <tr><td>onscroll</td><td>Se dispara al hacer scroll en la página o elemento.</td></tr>
+            <tr><td rowspan="3">Clipboard</td><td>oncopy</td><td>Se dispara al copiar contenido.</td></tr>
+            <tr><td>oncut</td><td>Se dispara al cortar contenido.</td></tr>
+            <tr><td>onpaste</td><td>Se dispara al pegar contenido.</td></tr>
+            <tr><td rowspan="4">Drag & Drop</td><td>ondrag</td><td>Se dispara mientras se arrastra un elemento.</td></tr>
+            <tr><td>ondragstart</td><td>Se dispara al comenzar a arrastrar.</td></tr>
+            <tr><td>ondragend</td><td>Se dispara al terminar de arrastrar.</td></tr>
+            <tr><td>ondrop</td><td>Se dispara al soltar un elemento arrastrado.</td></tr>
+            <tr><td rowspan="3">Multimedia</td><td>onplay</td><td>Se dispara cuando comienza la reproducción.</td></tr>
+            <tr><td>onpause</td><td>Se dispara cuando se pausa la reproducción.</td></tr>
+            <tr><td>onended</td><td>Se dispara cuando termina la reproducción.</td></tr>
+            <tr><td rowspan="3">Animaciones</td><td>onanimationstart</td><td>Se dispara cuando comienza una animación CSS.</td></tr>
+            <tr><td>onanimationend</td><td>Se dispara cuando termina una animación CSS.</td></tr>
+            <tr><td>ontransitionend</td><td>Se dispara cuando termina una transición CSS.</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Ejemplos de Eventos</h2>
+
+    <div class="ejemplo">
+        <strong>onload:</strong>
+        <p>Se muestra un mensaje cuando la página termina de cargar.</p>
+        <script>
+            // Cuando la página termina de cargar, se muestra un mensaje en el div con id 'onload-msg'
+            window.onload = function() {
+                document.getElementById('onload-msg').textContent = "¡La página se ha cargado!";
+            }
+        </script>
+        <div id="onload-msg" style="color:green;"></div>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onclick:</strong>
+        <!-- Al hacer clic en el botón, aparece una alerta -->
+        <button onclick="alert('¡Has hecho clic!')">Haz clic aquí</button>
+    </div>
+
+    <div class="ejemplo">
+        <strong>ondblclick:</strong>
+        <!-- Al hacer doble clic en el botón, aparece una alerta -->
+        <button ondblclick="alert('¡Doble clic detectado!')">Haz doble clic aquí</button>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onmouseover / onmouseout:</strong>
+        <!-- Al pasar el ratón por encima, cambia el color y el texto. Al salir, vuelve al estado original -->
+        <div id="hover-box" style="width:120px;height:40px;background:#eee;line-height:40px;text-align:center;cursor:pointer;"
+            onmouseover="this.style.background='#cfc';this.textContent='¡Encima!';"
+            onmouseout="this.style.background='#eee';this.textContent='Pasa el ratón';">
+            Pasa el ratón
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onkeydown / onkeyup:</strong>
+        <!-- Al presionar una tecla, muestra "Tecla presionada". Al soltarla, muestra "Tecla soltada" -->
+        <input type="text" id="teclado" placeholder="Escribe algo"
+            onkeydown="document.getElementById('key-down').textContent='Tecla presionada'"
+            onkeyup="document.getElementById('key-down').textContent='Tecla soltada'">
+        <span id="key-down"></span>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onfocus / onblur:</strong>
+        <!-- Al enfocar el input, cambia el fondo a amarillo. Al perder el foco, vuelve a blanco -->
+        <input type="text" placeholder="Foco aquí"
+            onfocus="this.style.background='#ffc'"
+            onblur="this.style.background='white'">
+    </div>
+
+    <div class="ejemplo">
+        <strong>onchange:</strong>
+        <!-- Al cambiar la opción seleccionada, muestra una alerta con el valor elegido -->
+        <select onchange="alert('Seleccionaste: ' + this.value)">
+            <option value="">Elige una opción</option>
+            <option value="Opción 1">Opción 1</option>
+            <option value="Opción 2">Opción 2</option>
+        </select>
+    </div>
+
+    <div class="ejemplo">
+        <strong>oninput:</strong>
+        <!-- Al escribir en el input, muestra el texto en tiempo real en el span -->
+        <input type="text" oninput="document.getElementById('input-demo').textContent=this.value" placeholder="Escribe aquí">
+        <span id="input-demo"></span>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onsubmit / onreset:</strong>
+        <!-- Al enviar el formulario, muestra una alerta y evita el envío real. Al reiniciar, muestra otra alerta -->
+        <form onsubmit="alert('Formulario enviado'); return false;" onreset="alert('Formulario reiniciado');">
+            <input type="text" placeholder="Nombre">
+            <button type="submit">Enviar</button>
+            <button type="reset">Reiniciar</button>
+        </form>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onresize:</strong>
+        <p>Redimensiona la ventana para ver el mensaje.</p>
+        <div id="resize-msg"></div>
+        <script>
+            // Cuando se cambia el tamaño de la ventana, muestra un mensaje temporalmente
+            window.onresize = function() {
+                document.getElementById('resize-msg').textContent = "¡Ventana redimensionada!";
+                setTimeout(()=>{document.getElementById('resize-msg').textContent='';}, 1000);
+            }
+        </script>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onscroll:</strong>
+        <!-- Al hacer scroll en este div, muestra un mensaje temporalmente -->
+        <div style="height:60px;overflow:auto;border:1px solid #ccc;width:200px;" onscroll="document.getElementById('scroll-msg').textContent='¡Scroll detectado!'; setTimeout(()=>{document.getElementById('scroll-msg').textContent='';}, 1000);">
+            <div style="height:120px;">Desplázate aquí para activar el evento.</div>
+        </div>
+        <div id="scroll-msg"></div>
+    </div>
+
+    <div class="ejemplo">
+        <strong>oncopy / oncut / onpaste:</strong>
+        <!-- Al copiar, cortar o pegar en el textarea, muestra una alerta correspondiente -->
+        <textarea id="clip" rows="2" cols="30"
+            oncopy="alert('¡Copiado!')"
+            oncut="alert('¡Cortado!')"
+            onpaste="alert('¡Pegado!')">Prueba copiar, cortar o pegar aquí.</textarea>
+    </div>
+
+    <div class="ejemplo">
+        <strong>Drag & Drop (ondragstart, ondrag, ondragend, ondrop):</strong>
+        <!-- El div se puede arrastrar. Cambia de color al empezar y terminar de arrastrar.
+             El segundo div es la zona donde se puede soltar el elemento arrastrado. -->
+        <div id="drag-demo" draggable="true"
+            ondragstart="this.style.background='#fcc';"
+            ondragend="this.style.background='#eee';"
+            style="width:100px;height:40px;background:#eee;line-height:40px;text-align:center;cursor:move;display:inline-block;">
+            Arrástrame
+        </div>
+        <div id="drop-zone"
+            ondragover="event.preventDefault();this.style.background='#cfc';"
+            ondragleave="this.style.background='#eee';"
+            ondrop="this.style.background='#eee';alert('¡Elemento soltado!');"
+            style="width:120px;height:40px;background:#eee;line-height:40px;text-align:center;display:inline-block;margin-left:20px;">
+            Suelta aquí
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onplay / onpause / onended:</strong>
+        <!-- Al reproducir, pausar o terminar el audio, muestra el estado en el div 'audio-msg' -->
+        <audio controls
+            onplay="document.getElementById('audio-msg').textContent='Reproduciendo...';"
+            onpause="document.getElementById('audio-msg').textContent='Pausado';"
+            onended="document.getElementById('audio-msg').textContent='Finalizado';">
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+        <div id="audio-msg"></div>
+    </div>
+
+    <div class="ejemplo">
+        <strong>onanimationstart / onanimationend / ontransitionend:</strong>
+        <style>
+            /* Definición de la animación y transición para el ejemplo */
+            @keyframes ejemploAnim {
+                from { background: #eee; }
+                to { background: #aaf; }
+            }
+            .animar {
+                animation: ejemploAnim 1s;
+            }
+            .transicion {
+                transition: background 1s;
+            }
+        </style>
+        <!-- Botón que activa la animación en el div -->
+        <button onclick="animarDiv()">Animar</button>
+        <div id="anim-div" class="transicion" style="width:100px;height:40px;background:#eee;line-height:40px;text-align:center;margin-top:10px;">
+            Animación
+        </div>
+        <div id="anim-msg"></div>
+        <script>
+            // Función que añade la clase de animación y cambia el color de fondo
+            function animarDiv() {
+                let div = document.getElementById('anim-div');
+                div.classList.add('animar');
+                div.style.background = '#aaf';
+            }
+            // Evento que detecta el inicio de la animación
+            document.getElementById('anim-div').addEventListener('animationstart', function() {
+                document.getElementById('anim-msg').textContent = 'Animación iniciada';
+            });
+            // Evento que detecta el final de la animación y elimina la clase
+            document.getElementById('anim-div').addEventListener('animationend', function() {
+                document.getElementById('anim-msg').textContent = 'Animación terminada';
+                this.classList.remove('animar');
+            });
+            // Evento que detecta el final de la transición de color
+            document.getElementById('anim-div').addEventListener('transitionend', function() {
+                document.getElementById('anim-msg').textContent = 'Transición terminada';
+            });
+        </script>
+    </div>
+</body>
+</html>

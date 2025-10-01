@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test de Formularios HTML - Parte 2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Test de Formularios HTML - Parte 2</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>11. El atributo <code>pattern</code> se utiliza para definir una expresión regular que valida el contenido de un campo de entrada.</p>
+      <label><input type="radio" name="q11" value="true"> Verdadero</label>
+      <label><input type="radio" name="q11" value="false"> Falso</label>
+      <div class="feedback" id="f11"></div>
+    </div>
+
+    <div class="question">
+      <p>12. La expresión regular en <code>pattern</code> debe coincidir con todo el valor del campo, no solo una parte.</p>
+      <label><input type="radio" name="q12" value="true"> Verdadero</label>
+      <label><input type="radio" name="q12" value="false"> Falso</label>
+      <div class="feedback" id="f12"></div>
+    </div>
+
+    <div class="question">
+      <p>13. El atributo <code>pattern</code> se puede usar en campos de tipo <code>number</code>.</p>
+      <label><input type="radio" name="q13" value="true"> Verdadero</label>
+      <label><input type="radio" name="q13" value="false"> Falso</label>
+      <div class="feedback" id="f13"></div>
+    </div>
+
+    <div class="question">
+      <p>14. El atributo <code>pattern</code> puede mostrar un mensaje personalizado si se usa junto con <code>title</code>.</p>
+      <label><input type="radio" name="q14" value="true"> Verdadero</label>
+      <label><input type="radio" name="q14" value="false"> Falso</label>
+      <div class="feedback" id="f14"></div>
+    </div>
+
+    <div class="question">
+      <p>15. El atributo <code>pattern</code> se ignora si el navegador no soporta HTML5.</p>
+      <label><input type="radio" name="q15" value="true"> Verdadero</label>
+      <label><input type="radio" name="q15" value="false"> Falso</label>
+      <div class="feedback" id="f15"></div>
+    </div>
+
+    <div class="question">
+      <p>16. Si el valor no coincide con el <code>pattern</code>, el formulario no se envía.</p>
+      <label><input type="radio" name="q16" value="true"> Verdadero</label>
+      <label><input type="radio" name="q16" value="false"> Falso</label>
+      <div class="feedback" id="f16"></div>
+    </div>
+
+    <div class="question">
+      <p>17. El atributo <code>pattern</code> valida automáticamente correos electrónicos sin necesidad de usar <code>type="email"</code>.</p>
+      <label><input type="radio" name="q17" value="true"> Verdadero</label>
+      <label><input type="radio" name="q17" value="false"> Falso</label>
+      <div class="feedback" id="f17"></div>
+    </div>
+
+    <div class="question">
+      <p>18. Puedes usar <code>pattern</code> para validar contraseñas con requisitos específicos como mayúsculas, números y símbolos.</p>
+      <label><input type="radio" name="q18" value="true"> Verdadero</label>
+      <label><input type="radio" name="q18" value="false"> Falso</label>
+      <div class="feedback" id="f18"></div>
+    </div>
+
+    <div class="question">
+      <p>19. El atributo <code>pattern</code> reemplaza completamente la necesidad de validación con JavaScript.</p>
+      <label><input type="radio" name="q19" value="true"> Verdadero</label>
+      <label><input type="radio" name="q19" value="false"> Falso</label>
+      <div class="feedback" id="f19"></div>
+    </div>
+
+    <div class="question">
+      <p>20. El elemento <code>&lt;form&gt;</code> se utiliza para crear formularios en HTML.</p>
+      <label><input type="radio" name="q20" value="true"> Verdadero</label>
+      <label><input type="radio" name="q20" value="false"> Falso</label>
+      <div class="feedback" id="f20"></div>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Enviar respuestas</button>
+  </form>
+
+  <script src="test2-script.js"></script>
+</body>
+</html>

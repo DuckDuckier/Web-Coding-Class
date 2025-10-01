@@ -1,0 +1,115 @@
+<!-- 
+    Documento HTML que muestra ejemplos y explicación sobre los botones de envío en formularios.
+-->
+
+<!-- Declaración del tipo de documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Elemento raíz del documento, idioma español -->
+<html lang="es">
+
+<head>
+    <!-- Configuración de la codificación de caracteres a UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Botones de envío en formularios</title>
+    <!-- Estilos CSS para mejorar la apariencia de la página -->
+    <style>
+        /* Estilos generales para el cuerpo de la página */
+        body {
+            font-family: 'Segoe UI', sans-serif; /* Fuente moderna y legible */
+            background-color: #f4f4f4;           /* Color de fondo suave */
+            margin: 40px;                        /* Espaciado alrededor del contenido */
+            color: #333;                         /* Color de texto principal */
+        }
+        /* Estilo para el título principal */
+        h1 {
+            color: #0077b6;                      /* Color azul para destacar */
+            text-align: center;                   /* Centrar el texto */
+        }
+        /* Estilos para las secciones de contenido */
+        .section {
+            background-color: #fff;               /* Fondo blanco para contraste */
+            padding: 20px;                        /* Espaciado interno */
+            margin-bottom: 30px;                  /* Separación entre secciones */
+            border-left: 6px solid #0077b6;       /* Borde azul a la izquierda */
+            border-radius: 6px;                   /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);/* Sombra suave */
+        }
+        /* Espaciado superior para los formularios */
+        form {
+            margin-top: 20px;
+        }
+        /* Estilos para los botones de envío */
+        input[type="submit"],
+        button[type="submit"] {
+            background-color: #0077b6;            /* Fondo azul */
+            color: white;                         /* Texto blanco */
+            border: none;                         /* Sin borde */
+            padding: 10px 16px;                   /* Espaciado interno */
+            border-radius: 4px;                   /* Bordes redondeados */
+            cursor: pointer;                      /* Cursor de mano al pasar */
+            margin-top: 15px;                     /* Espaciado superior */
+        }
+        /* Cambio de color al pasar el mouse sobre los botones */
+        input[type="submit"]:hover,
+        button[type="submit"]:hover {
+            background-color: #005f8f;            /* Azul más oscuro */
+        }
+        /* Estilo para resaltar ejemplos de código */
+        .highlight {
+            background-color: #eef;               /* Fondo azul claro */
+            padding: 10px;                        /* Espaciado interno */
+            border-radius: 6px;                   /* Bordes redondeados */
+            margin-top: 10px;                     /* Espaciado superior */
+            white-space: pre-wrap;                /* Mantener saltos de línea */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Título principal de la página -->
+    <h1>Botones de envío en formularios</h1>
+
+    <!-- Sección explicando la utilidad de los botones de envío -->
+    <div class="section">
+        <h2>¿Para qué sirven?</h2>
+        <!-- Explicación breve sobre la función de los botones de envío -->
+        <p>Permiten que el usuario envíe los datos del formulario al servidor. Al hacer clic, se activa el envío según el método y destino definidos en el formulario.</p>
+    </div>
+
+    <!-- Sección que muestra las opciones disponibles para botones de envío -->
+    <div class="section">
+        <h2>Opciones disponibles</h2>
+        <ul>
+            <!-- Opción usando input de tipo submit -->
+            <li><strong>&lt;input type="submit"&gt;:</strong> botón simple con texto</li>
+            <!-- Opción usando button de tipo submit -->
+            <li><strong>&lt;button type="submit"&gt;:</strong> botón más flexible, permite íconos, HTML y estilos personalizados</li>
+        </ul>
+    </div>
+    
+    <!-- Sección con un ejemplo práctico de formulario -->
+    <div class="section">
+        <h2>Ejemplo práctico visual</h2>
+        <form>
+            <!-- Botón de envío usando input -->
+            <input type="submit" value="Enviar con input">
+            <br><br>
+            <!-- Botón de envío usando button -->
+            <button type="submit">Enviar con button 📤</button>
+        </form>
+    </div>
+
+    <!-- Sección que muestra el código de los botones de envío como ejemplo -->
+    <div class="section">
+        <h2>Ejemplo de código</h2>
+        <div class="highlight">
+            &lt;input type="submit" value="Enviar con input"&gt;<br>
+            &lt;button type="submit"&gt;Enviar con button 📤&lt;/button&gt;
+        </div>
+    </div>
+
+</body>
+</html>
